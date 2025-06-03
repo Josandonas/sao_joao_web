@@ -1,0 +1,97 @@
+{
+  "app": {
+    "name": "Banho de São João",
+    "description": "Uma experiência cultural brasileira"
+  },
+  "navigation": {
+    "home": "Página Inicial",
+    "intro": "Introdução",
+    "stories": "Estórias",
+    "communities": "Comunidades",
+    "book": "Livro",
+    "testimonials": "Depoimentos",
+    "postcards": "Postais"
+  },
+  "languageSelector": {
+    "title": "Selecione seu idioma",
+    "portuguese": "Português",
+    "english": "English",
+    "spanish": "Español"
+  },
+  "intro": {
+    "skipIntro": "Ir para a Página Inicial",
+    "watchAgain": "Assistir novamente"
+  },
+  "home": {
+    "welcome": "Bem-vindo ao Banho de São João",
+    "description": "Descubra a rica tradição cultural das festas de São João no Brasil",
+    "exploreButton": "Explorar"
+  },
+  "communities": {
+    "title": "Comunidades e Festividades",
+    "introduction": "Conheça as comunidades que preservam e celebram as tradições do Banho de São João, especialmente na região do Pantanal Sul-Matogrossense. Cada uma mantém características próprias que enriquecem esse patrimônio cultural.",
+    "mapTitle": "Mapa das Comunidades",
+    "mapDescription": "Visualize no mapa as comunidades que celebram o Banho de São João.",
+    "locationLabel": "Local:",
+    "traditionsLabel": "Tradições:",
+    "festivalDateLabel": "Período Festivo:"
+  },
+  "book": {
+    "title": "O Livro do Banho de São João",
+    "introduction": "Este livro digital apresenta a rica tradição do Banho de São João, abordando suas origens, rituais, simbolismo e importância cultural para as comunidades pantaneiras.",
+    "pageCounter": "Página {{current}} de {{total}}",
+    "chaptersTitle": "Capítulos"
+  },
+  "testimonials": {
+    "title": "Depoimentos",
+    "introduction": "Conheça histórias e experiências pessoais relacionadas ao Banho de São João através dos depoimentos de participantes, organizadores e pesquisadores dessa importante tradição cultural.",
+    "categoryAll": "Todos",
+    "categoryPersonal": "Histórias Pessoais",
+    "categoryTraditions": "Tradições",
+    "categoryCultural": "Manifestações Culturais",
+    "categoryFaith": "Fé e Devoção",
+    "categoryAcademic": "Pesquisadores",
+    "watchButton": "Assistir Depoimento",
+    "shareButton": "Compartilhe seu Depoimento",
+    "closeForm": "Fechar Formulário",
+    "formTitle": "Registre seu Depoimento",
+    "nameLabel": "Nome Completo",
+    "locationLabel": "Localidade",
+    "categoryLabel": "Categoria",
+    "testimonialLabel": "Seu Depoimento",
+    "videoLabel": "Upload de Vídeo (opcional)",
+    "videoHelp": "Tamanho máximo: 50MB. Formatos aceitos: MP4, MOV, AVI",
+    "submitButton": "Enviar Depoimento",
+    "successMessage": "Obrigado! Seu depoimento será revisado e adicionado em breve."
+  },
+  "postcards": {
+    "title": "Postais do Banho de São João",
+    "introduction": "Explore esta coleção de imagens que retratam os diversos aspectos da celebração do Banho de São João no Pantanal. Compartilhe ou faça o download dos postais para recordar e divulgar esta rica tradição cultural.",
+    "categoryAll": "Todos",
+    "categoryCelebrations": "Celebrações",
+    "categoryRitual": "Ritual",
+    "categoryDances": "Danças",
+    "categoryMusic": "Música",
+    "categoryAltars": "Altares",
+    "categorySymbols": "Símbolos",
+    "searchPlaceholder": "Buscar postais...",
+    "noResults": "Nenhum postal encontrado com os filtros atuais.",
+    "clearFilters": "Limpar filtros",
+    "locationLabel": "Local:",
+    "authorLabel": "Autor:",
+    "yearLabel": "Ano:",
+    "shareButton": "Compartilhar",
+    "downloadButton": "Download",
+    "shareSuccess": "Função de compartilhamento seria implementada aqui!",
+    "downloadSuccess": "Download do postal iniciado!"
+  },
+  "notFound": {
+    "title": "Página não encontrada",
+    "message": "A página que você está procurando não existe ou foi removida.",
+    "button": "Voltar para a página inicial"
+  },
+  "footer": {
+    "rights": "Todos os direitos reservados",
+    "partners": "Parceiros"
+  }
+}

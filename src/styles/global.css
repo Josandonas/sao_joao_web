@@ -1,0 +1,156 @@
+/* Reset CSS moderno e estilos globais */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --color-primary: #ff6b01;
+  --color-secondary: #4772ec;
+  --color-accent: #800000;
+  --color-background: #ffffff;
+  --color-text: #2a2a2a;
+  --color-text-light: #585858;
+  
+  --font-family-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Interstate', 'Inter', sans-serif;
+  
+  --font-size-small: 0.875rem;
+  --font-size-medium: 1rem;
+  --font-size-large: 1.5rem;
+  --font-size-xlarge: 2rem;
+  --font-size-xxlarge: 2.5rem;
+  
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+@font-face {
+  font-family: 'Interstate';
+  src: url('/assets/fonts/interstate-cond-mono-bold.woff2') format('woff2'),
+       url('/assets/fonts/interstate-cond-mono-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Interstate';
+  src: url('/assets/fonts/interstate-cond-mono-blk.woff2') format('woff2'),
+       url('/assets/fonts/interstate-cond-mono-blk.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Interstate';
+  src: url('/assets/fonts/interstate-cond-mono-lgt.woff2') format('woff2'),
+       url('/assets/fonts/interstate-cond-mono-lgt.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  line-height: 1.6;
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: normal;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
+}
+
+h1 {
+  font-weight: 300;
+  font-size: var(--font-size-xxlarge);
+  color: var(--color-primary);
+}
+
+h2 {
+  font-weight: 900;
+  font-size: var(--font-size-xlarge);
+  color: var(--color-secondary);
+}
+
+h3 {
+  font-weight: 700;
+  font-size: var(--font-size-large);
+  color: var(--color-accent);
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+button, .button {
+  cursor: pointer;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .button:hover {
+  background-color: var(--color-accent);
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Utilities */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}
+
+/* Media queries para responsividade */
+@media (max-width: 768px) {
+  :root {
+    --font-size-xxlarge: 2rem;
+    --font-size-xlarge: 1.75rem;
+    --font-size-large: 1.25rem;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --font-size-xxlarge: 1.75rem;
+    --font-size-xlarge: 1.5rem;
+    --font-size-large: 1.125rem;
+  }
+}

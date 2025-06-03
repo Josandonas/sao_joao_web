@@ -1,0 +1,97 @@
+{
+  "app": {
+    "name": "Baño de San Juan",
+    "description": "Una experiencia cultural brasileña"
+  },
+  "navigation": {
+    "home": "Página Principal",
+    "intro": "Introducción",
+    "stories": "Historias",
+    "communities": "Comunidades",
+    "book": "Libro",
+    "testimonials": "Testimonios",
+    "postcards": "Postales"
+  },
+  "languageSelector": {
+    "title": "Seleccione su idioma",
+    "portuguese": "Português",
+    "english": "English",
+    "spanish": "Español"
+  },
+  "intro": {
+    "skipIntro": "Ir a la Página Principal",
+    "watchAgain": "Ver de nuevo"
+  },
+  "home": {
+    "welcome": "Bienvenido al Baño de San Juan",
+    "description": "Descubra la rica tradición cultural de las fiestas de San Juan en Brasil",
+    "exploreButton": "Explorar"
+  },
+  "communities": {
+    "title": "Comunidades y Festividades",
+    "introduction": "Conozca las comunidades que preservan y celebran las tradiciones del Baño de San Juan, especialmente en la región del Pantanal Sur-Matogrossense. Cada una mantiene características propias que enriquecen este patrimonio cultural.",
+    "mapTitle": "Mapa de Comunidades",
+    "mapDescription": "Visualice en el mapa las comunidades que celebran el Baño de San Juan.",
+    "locationLabel": "Ubicación:",
+    "traditionsLabel": "Tradiciones:",
+    "festivalDateLabel": "Período Festivo:"
+  },
+  "book": {
+    "title": "El Libro del Baño de San Juan",
+    "introduction": "Este libro digital presenta la rica tradición del Baño de San Juan, abordando sus orígenes, rituales, simbolismo e importancia cultural para las comunidades del Pantanal.",
+    "pageCounter": "Página {{current}} de {{total}}",
+    "chaptersTitle": "Capítulos"
+  },
+  "testimonials": {
+    "title": "Testimonios",
+    "introduction": "Conozca historias y experiencias personales relacionadas con el Baño de San Juan a través de testimonios de participantes, organizadores e investigadores de esta importante tradición cultural.",
+    "categoryAll": "Todos",
+    "categoryPersonal": "Historias Personales",
+    "categoryTraditions": "Tradiciones",
+    "categoryCultural": "Expresiones Culturales",
+    "categoryFaith": "Fe y Devoción",
+    "categoryAcademic": "Investigadores",
+    "watchButton": "Ver Testimonio",
+    "shareButton": "Compartir su Testimonio",
+    "closeForm": "Cerrar Formulario",
+    "formTitle": "Registre su Testimonio",
+    "nameLabel": "Nombre Completo",
+    "locationLabel": "Ubicación",
+    "categoryLabel": "Categoría",
+    "testimonialLabel": "Su Testimonio",
+    "videoLabel": "Subir Vídeo (opcional)",
+    "videoHelp": "Tamaño máximo: 50MB. Formatos aceptados: MP4, MOV, AVI",
+    "submitButton": "Enviar Testimonio",
+    "successMessage": "¡Gracias! Su testimonio será revisado y añadido pronto."
+  },
+  "postcards": {
+    "title": "Postales del Baño de San Juan",
+    "introduction": "Explore esta colección de imágenes que retratan los diversos aspectos de la celebración del Baño de San Juan en el Pantanal. Comparta o descargue las postales para recordar y difundir esta rica tradición cultural.",
+    "categoryAll": "Todos",
+    "categoryCelebrations": "Celebraciones",
+    "categoryRitual": "Ritual",
+    "categoryDances": "Danzas",
+    "categoryMusic": "Música",
+    "categoryAltars": "Altares",
+    "categorySymbols": "Símbolos",
+    "searchPlaceholder": "Buscar postales...",
+    "noResults": "No se encontraron postales con los filtros actuales.",
+    "clearFilters": "Limpiar filtros",
+    "locationLabel": "Ubicación:",
+    "authorLabel": "Autor:",
+    "yearLabel": "Año:",
+    "shareButton": "Compartir",
+    "downloadButton": "Descargar",
+    "shareSuccess": "¡La función de compartir sería implementada aquí!",
+    "downloadSuccess": "¡Descarga de postal iniciada!"
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "message": "La página que está buscando no existe o ha sido eliminada.",
+    "button": "Volver a la página principal"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados",
+    "partners": "Socios"
+  }
+}
