@@ -20,7 +20,7 @@ export const SelectedCommunitySection = styled.section`
     left: 50%;
     height: 40px;
     width: 2px;
-    background: linear-gradient(to bottom, rgba(78, 126, 227, 0), rgba(78, 126, 227, 0.8));
+    background: linear-gradient(to bottom, rgba(244, 162, 97, 0), rgba(244, 162, 97, 0.8));
     transform: translateX(-50%);
     z-index: -1;
   }
@@ -34,7 +34,7 @@ export const SelectedCommunityTitle = styled.h3`
   margin: 0;
   padding: 1.2rem 1.8rem;
   border-radius: 12px 12px 0 0;
-  background: linear-gradient(135deg, #4e7ee3, #6acddc);
+  background: linear-gradient(135deg, #f4a261, #e9c46a);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
@@ -99,7 +99,7 @@ export const SelectedCommunityDescription = styled.p`
   margin-bottom: 1.5rem;
   position: relative;
   padding-left: 1.2rem;
-  border-left: 3px solid rgba(78, 126, 227, 0.3);
+  border-left: 3px solid rgba(244, 162, 97, 0.3);
   font-family: ${props => props.theme.fonts.body || 'system-ui, -apple-system, sans-serif'};
 `;
 
@@ -107,19 +107,19 @@ export const SelectedCommunityLocation = styled.div`
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #6acddc;
+  color: #f4a261;
   font-size: 1rem;
   margin-bottom: 1.5rem;
   font-weight: 500;
-  background: rgba(106, 205, 220, 0.1);
+  background: rgba(244, 162, 97, 0.1);
   padding: 0.5rem 0.8rem;
   border-radius: 50px;
   align-self: flex-start;
-  box-shadow: 0 2px 8px rgba(106, 205, 220, 0.1);
+  box-shadow: 0 2px 8px rgba(244, 162, 97, 0.1);
   transition: all 0.2s ease;
   
   &:hover {
-    background: rgba(106, 205, 220, 0.15);
+    background: rgba(244, 162, 97, 0.15);
     transform: translateY(-2px);
   }
 `;
@@ -145,7 +145,7 @@ export const LocationIcon = styled.div`
 export const DetailsButton = styled.button`
   margin-top: auto;
   align-self: flex-start;
-  background: linear-gradient(135deg, #4e7ee3, #6acddc);
+  background: linear-gradient(135deg, #f4a261, #e9c46a);
   color: white;
   border: none;
   border-radius: 50px;

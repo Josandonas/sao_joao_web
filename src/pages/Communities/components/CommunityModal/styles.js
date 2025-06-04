@@ -37,7 +37,7 @@ export const ModalHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem 2rem;
-  background: linear-gradient(135deg, #4e7ee3, #6acddc);
+  background: linear-gradient(135deg, #f4a261, #e9c46a);
   position: relative;
 `;
 
@@ -60,7 +60,7 @@ export const ModalTitle = styled.h3`
 
 export const CloseButton = styled.button`
   background: rgba(255, 255, 255, 0.2);
-  border: none;
+  border-color: #f4a261;
   font-size: 1.5rem;
   font-weight: 300;
   color: white;
@@ -130,7 +130,7 @@ export const GalleryContainer = styled.div`
     }
     
     &.active {
-      border: 3px solid #4e7ee3;
+      border: 3px solid #f4a261;
       opacity: 1;
     }
   }
@@ -158,9 +158,9 @@ export const ModalDescriptionText = styled.div`
   margin: 2rem 0;
   position: relative;
   padding: 1rem 1.5rem;
-  background-color: rgba(78, 126, 227, 0.05);
+  background-color: rgba(244, 162, 97, 0.05);
   border-radius: 12px;
-  border-left: 4px solid #4e7ee3;
+  border-left: 4px solid #f4a261;
   
   p {
     margin-bottom: 1rem;
@@ -193,7 +193,7 @@ export const ModalDetail = styled.div`
   flex-direction: column;
   
   &:hover {
-    background-color: rgba(78, 126, 227, 0.05);
+    background-color: rgba(244, 162, 97, 0.05);
   }
 `;
 export const ModalDetailTitle = styled.h4`
@@ -201,7 +201,7 @@ export const ModalDetailTitle = styled.h4`
   font-family: ${props => props.theme.fonts.heading};
   font-weight: 600;
   font-size: 1.1rem;
-  color: #4e7ee3;
+  color: #f4a261;
   display: flex;
   align-items: center;
   
@@ -233,20 +233,20 @@ export const ModalText = styled.p`
 export const TraditionsHighlight = styled.div`
   margin: 1.5rem 0;
   padding: 1.5rem;
-  background: linear-gradient(to bottom right, rgba(78, 126, 227, 0.1), rgba(106, 205, 220, 0.1));
+  background: linear-gradient(to bottom, rgba(244, 162, 97, 0), rgba(244, 162, 97, 0.8));
   border-radius: 12px;
   position: relative;
-  border: 1px solid rgba(78, 126, 227, 0.3);
-  box-shadow: 0 4px 15px rgba(78, 126, 227, 0.08);
+  border: 1px solid rgba(244, 162, 97, 0.3);
+  box-shadow: 0 4px 15px rgba(244, 162, 97, 0.08);
   
   h3 {
     font-family: ${props => props.theme.fonts.heading};
     font-weight: 600;
     font-size: 1.4rem;
-    color: #4e7ee3;
+    color: #f4a261;
     margin: 0 0 1rem 0;
     padding-bottom: 0.8rem;
-    border-bottom: 2px solid rgba(78, 126, 227, 0.2);
+    border-bottom: 2px solid rgba(244, 162, 97, 0.2);
     display: flex;
     align-items: center;
     

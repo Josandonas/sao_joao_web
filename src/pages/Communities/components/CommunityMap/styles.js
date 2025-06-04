@@ -19,9 +19,9 @@ export const MapContainerStyled = styled.div`
     right: -5px;
     bottom: -5px;
     border-radius: ${props => props.theme.borderRadius.large};
-    background: linear-gradient(135deg, #4e7ee3, #6acddc);
+    background: linear-gradient(135deg, #f4a261, #e9c46a);
     z-index: -1;
-    box-shadow: 0 6px 20px rgba(106, 205, 220, 0.3);
+    box-shadow: 0 6px 20px rgba(244, 162, 97, 0.3);
   }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -47,7 +47,7 @@ export const MapContainerStyled = styled.div`
   .leaflet-control-zoom-out {
     border-radius: 4px !important;
     background-color: white !important;
-    color: #4e7ee3 !important;
+    color: #f4a261 !important;
     transition: all 0.2s ease;
     
     &:hover {
