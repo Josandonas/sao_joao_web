@@ -23,9 +23,26 @@
     "watchAgain": "Watch again"
   },
   "home": {
-    "welcome": "Welcome to Bath of Saint John",
+    "welcome": "God Save You, John the Baptist!",
+    "subtitle": "A Contribution about the Bath of Saint John in Corumbá - Mato Grosso do Sul",
     "description": "Discover the rich cultural tradition of Saint John's festivities in Brazil",
-    "exploreButton": "Explore"
+    "exploreButton": "Explore",
+    "about": {
+      "title": "About the Project",
+      "paragraph1": "The intention of the book 'God Save You, John the Baptist! A contribution about the Bath of Saint John in Corumbá – Mato Grosso do Sul' has always been to visually tell the story of the elements of the festive manifestation permeated by religious principles, showing the rites and rituals, devotion, joy, and the apex of the festivities, which happens with the bathing of the saint in the waters of the Paraguay River. The construction of a memory of both the aporias and the apprehension of a reality was admitted as a prerogative to support preservation.",
+      "paragraph2": "It is estimated that there are currently more than one hundred groups of 'festeiros' (celebrants) of the Bath of Saint John in the city of Corumbá – Mato Grosso do Sul. These groups can be identified by their baptismal names and, even so, receive nicknames by reference of affective proximity or geographic location: Monte Castelo Community, Dona Maria Paula's Saint John, Nhá Berê's, Nhá Concha's, Shá Onça's, Saint John the Baptist Spiritist Tent, Ilê Afro Axé Orixá Spiritist Tent, Ilê Axé Ti Oxum House of Blessings of Mamãe Oxum Spiritist Tent, Caboclo Estrela do Norte Umbandist Spiritist Tent, among others.",
+      "paragraph3": "It was necessary, therefore, to be attentive to the explosions of fireworks, announcing another year of prayer cycles and/or a festivity that would begin in the 'festive communities'. The visual artists participating in the project promptly responded to the call, which included the acceptance of the invitation to the challenge of building a cooperative work.",
+      "paragraph4": "Although there was research and a script on what was intended to be accomplished, at times the photographers allowed themselves to be carried away by the unexpected condition, to record the festivities. Thus, they faced the challenges of low light, since, for the most part, prayers and festivities take place at night.",
+      "curator": "Hélènemarie Dias Fernandes",
+      "curatorTitle": "Curator"
+    },
+    "features": {
+      "stories": "Learn stories and legends about Saint John's traditions.",
+      "communities": "Discover communities that celebrate these traditions.",
+      "book": "Explore the digital book about Saint John's festivities.",
+      "testimonials": "Watch testimonials from people who live these traditions.",
+      "postcards": "Send a virtual postcard to your friends."
+    }
   },
   "communities": {
     "title": "Communities and Festivities",

@@ -10,7 +10,7 @@ export const HeroSection = styled.section`
   position: relative;
   height: 70vh;
   min-height: 500px;
-  background-image: url('/assets/images/hero-bg.jpg');
+  background-image: url('/assets/images/header-bg.jpg');
   background-size: cover;
   background-position: center;
   display: flex;
@@ -159,4 +159,144 @@ export const FeatureTitle = styled.h3`
 export const FeatureDescription = styled.p`
   font-size: ${props => props.theme.fontSizes.medium};
   color: ${props => props.theme.colors.textLight};
+`;
+
+export const AboutSection = styled.section`
+  padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md};
+  background-color: ${props => props.theme.colors.background};
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.sm};
+  }
+`;
+
+export const AboutContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+`;
+
+export const AboutTitle = styled.h2`
+  font-size: ${props => props.theme.fontSizes.xlarge};
+  font-family: ${props => props.theme.fonts.heading};
+  color: ${props => props.theme.colors.primary};
+  margin-bottom: ${props => props.theme.spacing.lg};
+  text-align: center;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: ${props => props.theme.fontSizes.large};
+    margin-bottom: ${props => props.theme.spacing.md};
+  }
+`;
+
+export const AboutContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: ${props => props.theme.spacing.xl};
+  position: relative;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    flex-direction: column;
+  }
+`;
+
+export const AboutImage = styled.img`
+  width: 30%;
+  max-width: 350px;
+  height: auto;
+  border-radius: ${props => props.theme.borderRadius.medium};
+  box-shadow: ${props => props.theme.shadows.medium};
+  object-fit: cover;
+  position: sticky;
+  top: ${props => props.theme.spacing.xl};
+  align-self: flex-start;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    top: auto;
+    max-height: 300px;
+    aspect-ratio: 16/9;
+    margin-bottom: ${props => props.theme.spacing.md};
+  }
+`;
+
+export const AboutText = styled.div`
+  flex: 1;
+  padding-right: ${props => props.theme.spacing.md};
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding-right: 0;
+  }
+`;
+
+export const AboutParagraph = styled.p`
+  margin-bottom: ${props => props.theme.spacing.md};
+  line-height: 1.7;
+  color: ${props => props.theme.colors.text};
+  text-align: justify;
+`;
+
+export const AboutSignature = styled.div`
+  font-family: ${props => props.theme.fonts.heading};
+  font-style: italic;
+  margin-top: ${props => props.theme.spacing.lg};
+  text-align: right;
+  color: ${props => props.theme.colors.primary};
+  
+  span {
+    font-size: 0.9em;
+    font-weight: ${props => props.theme.fontWeights.light};
+    display: block;
+    margin-top: 4px;
+  }
+`;
+
+export const TextControls = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  gap: ${props => props.theme.spacing.sm};
+  z-index: 10;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    position: relative;
+    justify-content: flex-end;
+    margin-bottom: ${props => props.theme.spacing.md};
+  }
+`;
+
+export const TextControlButton = styled.button`
+  background-color: ${props => props.theme.colors.primary};
+  color: white;
+  border: none;
+  border-radius: ${props => props.theme.borderRadius.small};
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all ${props => props.theme.transitions.default};
+  font-weight: bold;
+  
+  &:hover {
+    background-color: ${props => props.theme.colors.accent};
+    transform: scale(1.1);
+  }
+  
+  &:active {
+    transform: scale(0.95);
+  }
+`;
+
+export const Divider = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: ${props => props.theme.colors.border};
+  margin: ${props => props.theme.spacing.lg} auto;
+  width: 80%;
+  max-width: 1000px;
 `;

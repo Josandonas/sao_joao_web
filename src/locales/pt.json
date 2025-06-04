@@ -23,9 +23,26 @@
     "watchAgain": "Assistir novamente"
   },
   "home": {
-    "welcome": "Bem-vindo ao Banho de São João",
+    "welcome": "Deus te Salve João Batista!",
+    "subtitle": "Uma Contribuição sobre o Banho de São João de Corumbá - Mato Grosso do Sul",
     "description": "Descubra a rica tradição cultural das festas de São João no Brasil",
-    "exploreButton": "Explorar"
+    "exploreButton": "Explorar",
+    "about": {
+      "title": "Sobre o Projeto",
+      "paragraph1": "A intenção do livro Deus te Salve, João Batista! Uma contribuição sobre o Banho de São João de Corumbá – Mato Grosso do Sul sempre foi a de contar, visualmente, a história dos elementos da manifestação festiva permeada por princípios religiosos, mostrando os ritos e os rituais, a devoção, a alegria e o ápice da festividade, que acontece com o banho do santo nas águas do Rio Paraguai. Admitiu-se, como prerrogativa de apoio à preservação, a construção de uma memória tanto das aporias quanto da apreensão de uma realidade.",
+      "paragraph2": "Estima-se que há, atualmente, mais de cem grupos de 'festeiros' do Banho de São João na cidade de Corumbá – Mato Grosso do Sul. Tais grupos podem ser identificados por seus nomes de batismo e, ainda assim, receber alcunha por referência de proximidade afetiva ou de localização geográfica: Comunidade Monte Castelo, São João da Dona Maria Paula, Arraial da Nhá Berê, da Nhá Concha, da Shá Onça, da Tenda Espírita São João Batista, da Tenda Espírita Ilê Afro Axé Orixá, da Tenda Espírita Ilê Axé Ti Oxum Casa das Bênçãos da Mamãe Oxum, da Tenda Espírita Umbandista Caboclo Estrela do Norte, entre outros.",
+      "paragraph3": "Foi preciso, portanto, estarmos atentos às explosões dos fogos de artifício, anunciando mais um ano de ciclo de rezas e/ou de uma festividade que iria começar nas 'comunidades festeiras'. Os artistas visuais participantes do projeto atenderam prontamente ao chamado, em que se incluiu a aceitação do convite para o desafio da construção de um trabalho cooperado.",
+      "paragraph4": "Embora houvesse uma pesquisa e um roteiro sobre o que se pretendia realizar, por alguns momentos os fotógrafos deixaram-se levar pela condição do inesperado, para o registro da festividade. Dessa forma, enfrentaram os desafios de pouca luminosidade, já que, em sua maioria, as rezas e as festividades acontecem à noite.",
+      "curator": "Hélènemarie Dias Fernandes",
+      "curatorTitle": "Curadora"
+    },
+    "features": {
+      "stories": "Conheça histórias e lendas sobre as tradições de São João.",
+      "communities": "Descubra comunidades que celebram estas tradições.",
+      "book": "Explore o livro digital sobre as festas de São João.",
+      "testimonials": "Assista depoimentos de pessoas que vivem estas tradições.",
+      "postcards": "Envie um cartão postal virtual para seus amigos."
+    }
   },
   "communities": {
     "title": "Comunidades e Festividades",

@@ -23,9 +23,26 @@
     "watchAgain": "Ver de nuevo"
   },
   "home": {
-    "welcome": "Bienvenido al Baño de San Juan",
+    "welcome": "¡Dios te Salve, Juan Bautista!",
+    "subtitle": "Una Contribución sobre el Baño de San Juan en Corumbá - Mato Grosso do Sul",
     "description": "Descubra la rica tradición cultural de las fiestas de San Juan en Brasil",
-    "exploreButton": "Explorar"
+    "exploreButton": "Explorar",
+    "about": {
+      "title": "Sobre el Proyecto",
+      "paragraph1": "La intención del libro '¡Dios te Salve, Juan Bautista! Una contribución sobre el Baño de San Juan en Corumbá – Mato Grosso do Sul' siempre ha sido contar visualmente la historia de los elementos de la manifestación festiva impregnada de principios religiosos, mostrando los ritos y rituales, la devoción, la alegría y el ápice de la festividad, que ocurre con el baño del santo en las aguas del Río Paraguay. Se admitió la construcción de una memoria tanto de las aporías como de la aprehensión de una realidad como prerrogativa para apoyar la preservación.",
+      "paragraph2": "Se estima que actualmente hay más de cien grupos de 'festeiros' (celebrantes) del Baño de San Juan en la ciudad de Corumbá – Mato Grosso do Sul. Estos grupos pueden identificarse por sus nombres bautismales y, aun así, recibir apodos por referencia de proximidad afectiva o ubicación geográfica: Comunidad Monte Castelo, San Juan de Doña Maria Paula, de Nhá Berê, de Nhá Concha, de Shá Onça, Tienda Espiritista San Juan Bautista, Tienda Espiritista Ilê Afro Axé Orixá, Tienda Espiritista Ilê Axé Ti Oxum Casa de Bendiciones de Mamãe Oxum, Tienda Espiritista Umbandista Caboclo Estrela do Norte, entre otros.",
+      "paragraph3": "Fue necesario, por tanto, estar atentos a las explosiones de fuegos artificiales, anunciando otro año de ciclos de oraciones y/o una festividad que comenzaría en las 'comunidades festivas'. Los artistas visuales que participaron en el proyecto respondieron prontamente al llamado, que incluía la aceptación de la invitación al desafío de construir un trabajo cooperativo.",
+      "paragraph4": "Aunque hubo investigación y un guión sobre lo que se pretendía lograr, en ocasiones los fotógrafos se dejaron llevar por la condición inesperada, para registrar las festividades. Así, enfrentaron los desafíos de la poca luz, ya que, en su mayoría, las oraciones y festividades tienen lugar por la noche.",
+      "curator": "Hélènemarie Dias Fernandes",
+      "curatorTitle": "Curadora"
+    },
+    "features": {
+      "stories": "Conozca historias y leyendas sobre las tradiciones de San Juan.",
+      "communities": "Descubra comunidades que celebran estas tradiciones.",
+      "book": "Explore el libro digital sobre las festividades de San Juan.",
+      "testimonials": "Vea testimonios de personas que viven estas tradiciones.",
+      "postcards": "Envíe una postal virtual a sus amigos."
+    }
   },
   "communities": {
     "title": "Comunidades y Festividades",
