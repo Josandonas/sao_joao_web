@@ -1,0 +1,5194 @@
+{
+  "detalhes_comunidades_imagens": [
+    {
+      "id": "9",
+      "nome_referencia": "Audenice Galdino Arévalo",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/9/9_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/9/9_galeria/9_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.013542,
+        "lng": -57.649856
+      },
+      "name": {
+        "pt": "Audenice Galdino Arévalo",
+        "en": "Audenice Galdino Arévalo",
+        "es": "Audenice Galdino Arévalo"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Audenice Galdino Ar\\u00e9valo",
+        "en": "Audenice Galdino Ar\\u00e9valo",
+        "es": "Audenice Galdino Ar\\u00e9valo"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "10",
+      "nome_referencia": "Arraia de Nhá Berê",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/10/10_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/10/10_galeria/10_galeria_01.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_02.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_03.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_04.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_05.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_06.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_07.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_08.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_09.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_10.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_11.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_12.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_13.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_14.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_15.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_16.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_17.jpg",
+        "/assets/images/communities/10/10_galeria/10_galeria_18.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.007688,
+        "lng": -57.629798
+      },
+      "name": {
+        "pt": "Arraia de Nhá Berê",
+        "en": "Arraia de Nhá Berê",
+        "es": "Arraia de Nhá Berê"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1912",
+      "currentCelebrant": {
+        "pt": "Berenice Paes",
+        "en": "Berenice Paes",
+        "es": "Berenice Paes"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "11",
+      "nome_referencia": "Centro Espírita Adolfo Bezerra de Menezes",
+      "bairro": "Beira Rio",
+      "imagem_capa_legado": "/assets/images/communities/11/11_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/11/11_galeria/11_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -18.996678,
+        "lng": -57.653504
+      },
+      "name": {
+        "pt": "Centro Espírita Adolfo Bezerra de Menezes",
+        "en": "Centro Espírita Adolfo Bezerra de Menezes",
+        "es": "Centro Espírita Adolfo Bezerra de Menezes"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Tradição familiar - Sincretiza São João Batista pela entidade sobrenatural Xangô",
+        "en": "Family tradition - Syncretizes St. John the Baptist by the supernatural entity Xangô",
+        "es": "Tradición familiar - Sincretiza San Juan Bautista por la entidad sobrenatural Xangô"
+      },
+      "traditions": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-brasileña"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Beira Rio",
+        "en": "Beira Rio",
+        "es": "Beira Rio"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "1973",
+      "currentCelebrant": {
+        "pt": "Centro Esp\\u00edrita Adolfo Bezerra de Menezes",
+        "en": "Centro Esp\\u00edrita Adolfo Bezerra de Menezes",
+        "es": "Centro Esp\\u00edrita Adolfo Bezerra de Menezes"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "Tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "Tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "12",
+      "nome_referencia": " Dora Cândida Martins",
+      "bairro": "Cristo Redentor",
+      "imagem_capa_legado": "/assets/images/communities/12/12_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/12/12_galeria/12_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.021811,
+        "lng": -57.635847
+      },
+      "name": {
+        "pt": "Dora Cândida Martins",
+        "en": "Dora Cândida Martins",
+        "es": "Dora Cândida Martins"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé",
+        "en": "Faith",
+        "es": "Fe"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Cristo Redentor",
+        "en": "Cristo Redentor",
+        "es": "Cristo Redentor"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2005",
+      "currentCelebrant": {
+        "pt": "Dora C\\u00e2ndida Martins",
+        "en": "Dora C\\u00e2ndida Martins",
+        "es": "Dora C\\u00e2ndida Martins"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "8",
+      "nome_referencia": "Comunidade Monte Castelo",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/8/8_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/8/8_galeria/8_galeria_01.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_02.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_03.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_04.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_05.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_06.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_07.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_08.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_09.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_10.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_11.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_12.jpg",
+        "/assets/images/communities/8/8_galeria/8_galeria_13.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.016220,
+        "lng": -57.649255
+      },
+      "name": {
+        "pt": "Comunidade Monte Castelo",
+        "en": "Comunidade Monte Castelo",
+        "es": "Comunidade Monte Castelo"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Tradição familiar",
+        "en": "Family tradition",
+        "es": "Tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lico",
+        "en": "Cat\\u00f3lico",
+        "es": "Cat\\u00f3lico"
+      },
+      "startYear": "1970",
+      "currentCelebrant": {
+        "pt": "Alfredo Tadeu Ortiz Ferras",
+        "en": "Alfredo Tadeu Ortiz Ferras",
+        "es": "Alfredo Tadeu Ortiz Ferras"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "7",
+      "nome_referencia": "Comunidade da D. Albertina",
+      "bairro": "Bairro Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/7/7_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/7/7_galeria/7_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.015246,
+        "lng": -57.644920
+      },
+      "name": {
+        "pt": "Comunidade da D. Albertina",
+        "en": "Comunidade da D. Albertina",
+        "es": "Comunidade da D. Albertina"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Bairro Popular Velha",
+        "en": "Bairro Popular Velha",
+        "es": "Bairro Popular Velha"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1978",
+      "currentCelebrant": {
+        "pt": "Albertina Cacilda da Silva e Maria Auxiliadora Ferreira Dias",
+        "en": "Albertina Cacilda da Silva e Maria Auxiliadora Ferreira Dias",
+        "es": "Albertina Cacilda da Silva e Maria Auxiliadora Ferreira Dias"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "13",
+      "nome_referencia": "Arraiá de Nhá Titina",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/13/13_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/13/13_galeria/13_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.001456,
+        "lng": -57.646529
+      },
+      "name": {
+        "pt": "Arraiá de Nhá Titina",
+        "en": "Arraiá de Nhá Titina",
+        "es": "Arraiá de Nhá Titina"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição",
+        "en": "Faith - tradition",
+        "es": "Fe - tradición"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1982",
+      "currentCelebrant": {
+        "pt": "Eufrozina da Silva Delgado",
+        "en": "Eufrozina da Silva Delgado",
+        "es": "Eufrozina da Silva Delgado"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "14",
+      "nome_referencia": "Arraiá de Dona Preta",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/14/14_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/14/14_galeria/14_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -18.998007,
+        "lng": -57.650778
+      },
+      "name": {
+        "pt": "Arraiá de Dona Preta",
+        "en": "Arraiá de Dona Preta",
+        "es": "Arraiá de Dona Preta"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição",
+        "en": "Faith - tradition",
+        "es": "Fe - tradición"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1956",
+      "currentCelebrant": {
+        "pt": "Epif\\u00e2nia da Silva Bastos",
+        "en": "Epif\\u00e2nia da Silva Bastos",
+        "es": "Epif\\u00e2nia da Silva Bastos"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "16",
+      "nome_referencia": "Elenina Paula de Souza da Silva",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/16/16_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/16/16_galeria/16_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.013501,
+        "lng": -57.649984
+      },
+      "name": {
+        "pt": "Elenina Paula de Souza da Silva",
+        "en": "Elenina Paula de Souza da Silva",
+        "es": "Elenina Paula de Souza da Silva"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar - Sincretiza São João Batista pela entidade sobrenatural Xangô",
+        "en": "Faith - family tradition - Syncretizes St. John the Baptist by the supernatural entity Xangô",
+        "es": "Fe - tradición familiar - Sincretiza San Juan Bautista por la entidad sobrenatural Xangô"
+      },
+      "traditions": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-brasileña"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Elenina Paula de Souza da Silva",
+        "en": "Elenina Paula de Souza da Silva",
+        "es": "Elenina Paula de Souza da Silva"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar -Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar -Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar -Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "Acordos judiciais",
+        "en": "Acordos judiciais",
+        "es": "Acordos judiciais"
+      }
+    },
+    {
+      "id": "17",
+      "nome_referencia": "Everaldo Antonio da Costa",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "static/tema/no_photo.jpg",
+      "galeria_imagens_legado": null,
+      "coordinates": {
+        "lat": -19.014220,
+        "lng": -57.619541
+      },
+      "name": {
+        "pt": "Everaldo Antonio da Costa",
+        "en": "Everaldo Antonio da Costa",
+        "es": "Everaldo Antonio da Costa"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar e entretenimento",
+        "en": "Faith - family tradition and entertainment",
+        "es": "Fe - tradición familiar y entretenimiento"
+      },
+      "traditions": {
+        "pt": "Católico",
+        "en": "Catholic",
+        "es": "Católico"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lico",
+        "en": "Cat\\u00f3lico",
+        "es": "Cat\\u00f3lico"
+      },
+      "startYear": "1982",
+      "currentCelebrant": {
+        "pt": "Everaldo Antonio da Costa",
+        "en": "Everaldo Antonio da Costa",
+        "es": "Everaldo Antonio da Costa"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar e entretenimento",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar e entretenimento",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar e entretenimento"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "18",
+      "nome_referencia": "Tenda João das Matas",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/18/18_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/18/18_galeria/18_galeria_01.jpg",
+        "/assets/images/communities/18/18_galeria/18_galeria_02.jpg",
+        "/assets/images/communities/18/18_galeria/18_galeria_03.jpg",
+        "/assets/images/communities/18/18_galeria/18_galeria_04.jpg",
+        "/assets/images/communities/18/18_galeria/18_galeria_05.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.006349,
+        "lng": -57.627824
+      },
+      "name": {
+        "pt": "Tenda João das Matas",
+        "en": "Tenda João das Matas",
+        "es": "Tenda João das Matas"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - Sincretiza São João Batista pela entidade sobrenatural Xangô",
+        "en": "Faith - Syncretizes St. John the Baptist by the supernatural entity Xangô",
+        "es": "Fe - Sincretiza San Juan Bautista por la entidad sobrenatural Xangô"
+      },
+      "traditions": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-brasileña"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Eunice Maria Ferreira e Roziane Silva do Nascimento",
+        "en": "Eunice Maria Ferreira e Roziane Silva do Nascimento",
+        "es": "Eunice Maria Ferreira e Roziane Silva do Nascimento"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "86",
+      "nome_referencia": "Nhá Izidória",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/86/86_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/86/86_galeria/86_galeria_01.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_02.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_03.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_04.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_05.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_06.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_07.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_08.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_09.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_10.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_11.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_12.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_13.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_14.jpg",
+        "/assets/images/communities/86/86_galeria/86_galeria_15.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.014313,
+        "lng": -57.639685
+      },
+      "name": {
+        "pt": "Nhá Izidória",
+        "en": "Nhá Izidória",
+        "es": "Nhá Izidória"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1965",
+      "currentCelebrant": {
+        "pt": "Eliane Escobar Barbosa",
+        "en": "Eliane Escobar Barbosa",
+        "es": "Eliane Escobar Barbosa"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "20",
+      "nome_referencia": "Arraiá Nhá Vanucci",
+      "bairro": "Nova Corumbá",
+      "imagem_capa_legado": "/assets/images/communities/20/20_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/20/20_galeria/20_galeria_01.jpg",
+        "/assets/images/communities/20/20_galeria/20_galeria_02.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.044084,
+        "lng": -57.653588
+      },
+      "name": {
+        "pt": "Arraiá Nhá Vanucci",
+        "en": "Arraiá Nhá Vanucci",
+        "es": "Arraiá Nhá Vanucci"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé",
+        "en": "Faith",
+        "es": "Fe"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Nova Corumbá",
+        "en": "Nova Corumbá",
+        "es": "Nova Corumbá"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Fernando Jorge Pereira",
+        "en": "Fernando Jorge Pereira",
+        "es": "Fernando Jorge Pereira"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "28",
+      "nome_referencia": "São João da Dona Iranir Soarez",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/28/28_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/28/28_galeria/28_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.008289,
+        "lng": -57.652665
+      },
+      "name": {
+        "pt": "São João da Dona Iranir Soarez",
+        "en": "São João da Dona Iranir Soarez",
+        "es": "São João da Dona Iranir Soarez"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Tradição familiar",
+        "en": "Family tradition",
+        "es": "Tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2004",
+      "currentCelebrant": {
+        "pt": "Iranir Soares",
+        "en": "Iranir Soares",
+        "es": "Iranir Soares"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "22",
+      "nome_referencia": "Comunidade da Popular Velha",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/22/22_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/22/22_galeria/22_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.018410,
+        "lng": -57.647924
+      },
+      "name": {
+        "pt": "Comunidade da Popular Velha",
+        "en": "Comunidade da Popular Velha",
+        "es": "Comunidade da Popular Velha"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Tradição - entretenimento",
+        "en": "Tradition - entertainment",
+        "es": "Tradición - entretenimiento"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2005",
+      "currentCelebrant": {
+        "pt": "Georgina Borba Vargas",
+        "en": "Georgina Borba Vargas",
+        "es": "Georgina Borba Vargas"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o - entretenimento",
+        "en": "Tradi\\u00e7\\u00e3o - entretenimento",
+        "es": "Tradi\\u00e7\\u00e3o - entretenimento"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "23",
+      "nome_referencia": "Gislaine Marques Pereira",
+      "bairro": "Vitória Régia",
+      "imagem_capa_legado": "/assets/images/communities/23/23_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/23/23_galeria/23_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.043001,
+        "lng": -57.642256
+      },
+      "name": {
+        "pt": "Gislaine Marques Pereira",
+        "en": "Gislaine Marques Pereira",
+        "es": "Gislaine Marques Pereira"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar - Sincretiza São João Batista pela entidade sobrenatural Xangô",
+        "en": "Faith - family tradition - Syncretizes St. John the Baptist by the supernatural entity Xangô",
+        "es": "Fe - tradición familiar - Sincretiza San Juan Bautista por la entidad sobrenatural Xangô"
+      },
+      "traditions": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-brasileña"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Vitória Régia",
+        "en": "Vitória Régia",
+        "es": "Vitória Régia"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "1992",
+      "currentCelebrant": {
+        "pt": "Gislaine Marques Pereira",
+        "en": "Gislaine Marques Pereira",
+        "es": "Gislaine Marques Pereira"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "24",
+      "nome_referencia": "Comunidade Major Gama",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/24/24_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/24/24_galeria/24_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.008182,
+        "lng": -57.657710
+      },
+      "name": {
+        "pt": "Comunidade Major Gama",
+        "en": "Comunidade Major Gama",
+        "es": "Comunidade Major Gama"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2000",
+      "currentCelebrant": {
+        "pt": "Iluska Giedre de Oliviveira Rojas",
+        "en": "Iluska Giedre de Oliviveira Rojas",
+        "es": "Iluska Giedre de Oliviveira Rojas"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "25",
+      "nome_referencia": "Arraiá Nhá Bel",
+      "bairro": "Nova Corumbá",
+      "imagem_capa_legado": "/assets/images/communities/25/25_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/25/25_galeria/25_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.041780,
+        "lng": -57.650991
+      },
+      "name": {
+        "pt": "Comunidade da Nova Corumbá",
+        "en": "Comunidade da Nova Corumbá",
+        "es": "Comunidade da Nova Corumbá"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Nova Corumbá",
+        "en": "Nova Corumbá",
+        "es": "Nova Corumbá"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Izabel Meira de Castro e Robson de Castro Velasques",
+        "en": "Izabel Meira de Castro e Robson de Castro Velasques",
+        "es": "Izabel Meira de Castro e Robson de Castro Velasques"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "26",
+      "nome_referencia": "Izabel Faria da Costa",
+      "bairro": "Cristo Redentor",
+      "imagem_capa_legado": "/assets/images/communities/26/26_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/26/26_galeria/26_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.027307,
+        "lng": -57.645455
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Cristo Redentor",
+        "en": "Comunidade do Bairro Cristo Redentor",
+        "es": "Comunidade do Bairro Cristo Redentor"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Tradição familiar",
+        "en": "Family tradition",
+        "es": "Tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Cristo Redentor",
+        "en": "Cristo Redentor",
+        "es": "Cristo Redentor"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Izabel Faria da Costa ,Josiane e Cristina Faria da Costa",
+        "en": "Izabel Faria da Costa ,Josiane e Cristina Faria da Costa",
+        "es": "Izabel Faria da Costa ,Josiane e Cristina Faria da Costa"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "27",
+      "nome_referencia": "Comunidade Sagrado Coração de Jesus",
+      "bairro": "Beira Rio",
+      "imagem_capa_legado": "/assets/images/communities/27/27_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/27/27_galeria/27_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -18.995167,
+        "lng": -57.651353
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Beira Rio",
+        "en": "Comunidade do Bairro Beira Rio",
+        "es": "Comunidade do Bairro Beira Rio"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Tradição familiar",
+        "en": "Family tradition",
+        "es": "Tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Beira Rio",
+        "en": "Beira Rio",
+        "es": "Beira Rio"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1994",
+      "currentCelebrant": {
+        "pt": "Idalina Gon\\u00e7alves da Silva",
+        "en": "Idalina Gon\\u00e7alves da Silva",
+        "es": "Idalina Gon\\u00e7alves da Silva"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "29",
+      "nome_referencia": "Jocilene da Silva",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/29/29_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/29/29_galeria/29_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.010426,
+        "lng": -57.631107
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Maria Leite",
+        "en": "Comunidade do Bairro Maria Leite",
+        "es": "Comunidade do Bairro Maria Leite"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2007",
+      "currentCelebrant": {
+        "pt": "Jocilene da Silva",
+        "en": "Jocilene da Silva",
+        "es": "Jocilene da Silva"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "30",
+      "nome_referencia": "João Francisco Bezerra",
+      "bairro": "Vitória Régia",
+      "imagem_capa_legado": "/assets/images/communities/30/30_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/30/30_galeria/30_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.027095,
+        "lng": -57.663820
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Vitória Régia",
+        "en": "Comunidade do Bairro Vitória Régia",
+        "es": "Comunidade do Bairro Vitória Régia"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Vitória Régia",
+        "en": "Vitória Régia",
+        "es": "Vitória Régia"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1995",
+      "currentCelebrant": {
+        "pt": "Jo\\u00e3o Francisco Bezerra",
+        "en": "Jo\\u00e3o Francisco Bezerra",
+        "es": "Jo\\u00e3o Francisco Bezerra"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o ",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o ",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o "
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "31",
+      "nome_referencia": "Ilê Afro Axé Orixá",
+      "bairro": "Nova Corumbá",
+      "imagem_capa_legado": "/assets/images/communities/31/31_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/31/31_galeria/31_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.043337,
+        "lng": -57.659201
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Nova Corumbá",
+        "en": "Comunidade do Bairro Nova Corumbá",
+        "es": "Comunidade do Bairro Nova Corumbá"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Nova Corumbá",
+        "en": "Nova Corumbá",
+        "es": "Nova Corumbá"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "1977",
+      "currentCelebrant": {
+        "pt": "Joaquina Medeiros Pereira",
+        "en": "Joaquina Medeiros Pereira",
+        "es": "Joaquina Medeiros Pereira"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "32",
+      "nome_referencia": "Tenda Espírita São João Batista",
+      "bairro": "Beira Rio",
+      "imagem_capa_legado": "/assets/images/communities/32/32_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/32/32_galeria/32_galeria_01.jpg",
+        "/assets/images/communities/32/32_galeria/32_galeria_02.jpg",
+        "/assets/images/communities/32/32_galeria/32_galeria_03.jpg",
+        "/assets/images/communities/32/32_galeria/32_galeria_04.jpg",
+        "/assets/images/communities/32/32_galeria/32_galeria_05.jpg"
+      ],
+      "coordinates": {
+        "lat": -18.996680,
+        "lng": -57.652989
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Beira Rio II",
+        "en": "Comunidade do Bairro Beira Rio II",
+        "es": "Comunidade do Bairro Beira Rio II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Tradição familiar",
+        "en": "Family tradition",
+        "es": "Tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Beira Rio",
+        "en": "Beira Rio",
+        "es": "Beira Rio"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "1975",
+      "currentCelebrant": {
+        "pt": "Janete Alves Tinoco e Kelly Regina Tinoco Barbosa",
+        "en": "Janete Alves Tinoco e Kelly Regina Tinoco Barbosa",
+        "es": "Janete Alves Tinoco e Kelly Regina Tinoco Barbosa"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "33",
+      "nome_referencia": "Joana Diniz Borba",
+      "bairro": "Popular Nova",
+      "imagem_capa_legado": "/assets/images/communities/33/33_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/33/33_galeria/33_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.030477,
+        "lng": -57.665597
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Popular Nova",
+        "en": "Comunidade do Bairro Popular Nova",
+        "es": "Comunidade do Bairro Popular Nova"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Nova",
+        "en": "Popular Nova",
+        "es": "Popular Nova"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1988",
+      "currentCelebrant": {
+        "pt": "Joana Diniz Borba ",
+        "en": "Joana Diniz Borba ",
+        "es": "Joana Diniz Borba "
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o - entretenimento",
+        "en": "Tradi\\u00e7\\u00e3o - entretenimento",
+        "es": "Tradi\\u00e7\\u00e3o - entretenimento"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "34",
+      "nome_referencia": "São João de Dona Lenir",
+      "bairro": "Previsul",
+      "imagem_capa_legado": "/assets/images/communities/34/34_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/34/34_galeria/34_galeria_01.jpg",
+        "/assets/images/communities/34/34_galeria/34_galeria_02.jpg",
+        "/assets/images/communities/34/34_galeria/34_galeria_03.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.014597,
+        "lng": -57.628724
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Previsul",
+        "en": "Comunidade do Bairro Previsul",
+        "es": "Comunidade do Bairro Previsul"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Previsul",
+        "en": "Previsul",
+        "es": "Previsul"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1986",
+      "currentCelebrant": {
+        "pt": "Lenir Cunha Rinaldi",
+        "en": "Lenir Cunha Rinaldi",
+        "es": "Lenir Cunha Rinaldi"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "35",
+      "nome_referencia": "Arriá Nhá Lucila",
+      "bairro": "Universitário",
+      "imagem_capa_legado": "/assets/images/communities/35/35_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/35/35_galeria/35_galeria_01.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_02.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_03.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_04.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_05.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_06.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_07.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_08.jpg",
+        "/assets/images/communities/35/35_galeria/35_galeria_09.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.004690,
+        "lng": -57.629928
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Universitário",
+        "en": "Comunidade do Bairro Universitário",
+        "es": "Comunidade do Bairro Universitário"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Universitário",
+        "en": "Universitário",
+        "es": "Universitário"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1994",
+      "currentCelebrant": {
+        "pt": "Lucila Alvarez de Souza ",
+        "en": "Lucila Alvarez de Souza ",
+        "es": "Lucila Alvarez de Souza "
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural ",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural ",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural "
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "36",
+      "nome_referencia": "Marcos Aurélio de Lima",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/36/36_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/36/36_galeria/36_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.017262,
+        "lng": -57.669474
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Aeroporto",
+        "en": "Comunidade do Bairro Aeroporto",
+        "es": "Comunidade do Bairro Aeroporto"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1994",
+      "currentCelebrant": {
+        "pt": "Marcos Aur\\u00e9lio de Lima ",
+        "en": "Marcos Aur\\u00e9lio de Lima ",
+        "es": "Marcos Aur\\u00e9lio de Lima "
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural ",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural ",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural "
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "37",
+      "nome_referencia": "Maria Cristina Ribeiro",
+      "bairro": "Dom Bosco",
+      "imagem_capa_legado": "/assets/images/communities/37/37_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/37/37_galeria/37_galeria_01.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_02.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_03.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_04.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_05.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_06.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_07.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_08.jpg",
+        "/assets/images/communities/37/37_galeria/37_galeria_09.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.006048,
+        "lng": -57.670735
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Dom Bosco",
+        "en": "Comunidade do Bairro Dom Bosco",
+        "es": "Comunidade do Bairro Dom Bosco"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Dom Bosco",
+        "en": "Dom Bosco",
+        "es": "Dom Bosco"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1994",
+      "currentCelebrant": {
+        "pt": "Maria Cristina Ribeiro ",
+        "en": "Maria Cristina Ribeiro ",
+        "es": "Maria Cristina Ribeiro "
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "38",
+      "nome_referencia": "São João de Dona Maria Paula",
+      "bairro": "Guató",
+      "imagem_capa_legado": "/assets/images/communities/38/38_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/38/38_galeria/38_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.042647,
+        "lng": -57.644165
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Guató",
+        "en": "Comunidade do Bairro Guató",
+        "es": "Comunidade do Bairro Guató"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Guató",
+        "en": "Guató",
+        "es": "Guató"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1935",
+      "currentCelebrant": {
+        "pt": "Maria Paula da Silva",
+        "en": "Maria Paula da Silva",
+        "es": "Maria Paula da Silva"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "39",
+      "nome_referencia": "Maria Etelvina Carrera Caraffa",
+      "bairro": "Kadiwéus",
+      "imagem_capa_legado": "/assets/images/communities/39/39_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/39/39_galeria/39_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0458059,
+        "lng": -57.6504473
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Kadiwéus",
+        "en": "Comunidade do Bairro Kadiwéus",
+        "es": "Comunidade do Bairro Kadiwéus"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Kadiwéus",
+        "en": "Kadiwéus",
+        "es": "Kadiwéus"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1992",
+      "currentCelebrant": {
+        "pt": "Maria Etelvina Carrera Caraffa",
+        "en": "Maria Etelvina Carrera Caraffa",
+        "es": "Maria Etelvina Carrera Caraffa"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o cultural ",
+        "en": "Tradi\\u00e7\\u00e3o cultural ",
+        "es": "Tradi\\u00e7\\u00e3o cultural "
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "40",
+      "nome_referencia": "Manoel Fernandes Aguilar",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/40/40_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/40/40_galeria/40_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.014353,
+        "lng": -57.639602
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Popular Velha II",
+        "en": "Comunidade do Bairro Popular Velha II",
+        "es": "Comunidade do Bairro Popular Velha II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Sincretista",
+        "en": "Sincretista",
+        "es": "Sincretista"
+      },
+      "startYear": "1983",
+      "currentCelebrant": {
+        "pt": "Manoel Fernandes Aguilar",
+        "en": "Manoel Fernandes Aguilar",
+        "es": "Manoel Fernandes Aguilar"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o cultural ",
+        "en": "Tradi\\u00e7\\u00e3o cultural ",
+        "es": "Tradi\\u00e7\\u00e3o cultural "
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "41",
+      "nome_referencia": "Arraiá Nhá Marlene",
+      "bairro": "Cervejaria",
+      "imagem_capa_legado": "/assets/images/communities/41/41_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/41/41_galeria/41_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -18.999464,
+        "lng": -57.662841
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Cervejaria",
+        "en": "Comunidade do Bairro Cervejaria",
+        "es": "Comunidade do Bairro Cervejaria"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Cervejaria",
+        "en": "Cervejaria",
+        "es": "Cervejaria"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1994",
+      "currentCelebrant": {
+        "pt": "Marlene do Carmo Martins",
+        "en": "Marlene do Carmo Martins",
+        "es": "Marlene do Carmo Martins"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "42",
+      "nome_referencia": "Maria Helena Ortiz",
+      "bairro": "Centro América",
+      "imagem_capa_legado": "/assets/images/communities/42/42_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/42/42_galeria/42_galeria_01.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_02.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_03.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_04.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_05.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_06.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_07.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_08.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_09.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_10.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_11.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_12.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_13.jpg",
+        "/assets/images/communities/42/42_galeria/42_galeria_14.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.014825,
+        "lng": -57.635959
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Centro América",
+        "en": "Comunidade do Bairro Centro América",
+        "es": "Comunidade do Bairro Centro América"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro América",
+        "en": "Centro América",
+        "es": "Centro América"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2006",
+      "currentCelebrant": {
+        "pt": "Maria Helena Ortiz",
+        "en": "Maria Helena Ortiz",
+        "es": "Maria Helena Ortiz"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "43",
+      "nome_referencia": "Arraiá Nhá Maria",
+      "bairro": "Generoso",
+      "imagem_capa_legado": "/assets/images/communities/43/43_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/43/43_galeria/43_galeria_01.jpg",
+        "/assets/images/communities/43/43_galeria/43_galeria_02.jpg",
+        "/assets/images/communities/43/43_galeria/43_galeria_03.jpg",
+        "/assets/images/communities/43/43_galeria/43_galeria_04.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.001313,
+        "lng": -57.667705
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Generoso",
+        "en": "Comunidade do Bairro Generoso",
+        "es": "Comunidade do Bairro Generoso"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Generoso",
+        "en": "Generoso",
+        "es": "Generoso"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1940",
+      "currentCelebrant": {
+        "pt": "Maria Soares Dias",
+        "en": "Maria Soares Dias",
+        "es": "Maria Soares Dias"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "44",
+      "nome_referencia": "Odete de Souza ",
+      "bairro": "Guarani",
+      "imagem_capa_legado": "/assets/images/communities/44/44_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/44/44_galeria/44_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.040275,
+        "lng": -57.656370
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Guarani",
+        "en": "Comunidade do Bairro Guarani",
+        "es": "Comunidade do Bairro Guarani"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Guarani",
+        "en": "Guarani",
+        "es": "Guarani"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2007",
+      "currentCelebrant": {
+        "pt": "Odete de Souza ",
+        "en": "Odete de Souza ",
+        "es": "Odete de Souza "
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "45",
+      "nome_referencia": "Ovilce Maria da Matta",
+      "bairro": "Industrial",
+      "imagem_capa_legado": "/assets/images/communities/45/45_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/45/45_galeria/45_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.018839,
+        "lng": -57.621600
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Industrial",
+        "en": "Comunidade do Bairro Industrial",
+        "es": "Comunidade do Bairro Industrial"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Industrial",
+        "en": "Industrial",
+        "es": "Industrial"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1977",
+      "currentCelebrant": {
+        "pt": "Ovilce Maria da Matta",
+        "en": "Ovilce Maria da Matta",
+        "es": "Ovilce Maria da Matta"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "46",
+      "nome_referencia": "Ilê Axé Ti Oxum Casa das Bênçãos da mamãe Oxum",
+      "bairro": "Jardim dos Estados",
+      "imagem_capa_legado": "/assets/images/communities/46/46_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/46/46_galeria/46_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.031408,
+        "lng": -57.658515
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Jardim dos Estados",
+        "en": "Comunidade do Bairro Jardim dos Estados",
+        "es": "Comunidade do Bairro Jardim dos Estados"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Jardim dos Estados",
+        "en": "Jardim dos Estados",
+        "es": "Jardim dos Estados"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Oraide Teodora Ramos",
+        "en": "Oraide Teodora Ramos",
+        "es": "Oraide Teodora Ramos"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "47",
+      "nome_referencia": "Tenda Espírita Umbandista Caboclo Estrela do Norte e Caboclo Estrela do Sol",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/47/47_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/47/47_galeria/47_galeria_01.jpg",
+        "/assets/images/communities/47/47_galeria/47_galeria_02.jpg",
+        "/assets/images/communities/47/47_galeria/47_galeria_03.jpg",
+        "/assets/images/communities/47/47_galeria/47_galeria_04.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.014699,
+        "lng": -57.622424
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Maria Leite II",
+        "en": "Comunidade do Bairro Maria Leite II",
+        "es": "Comunidade do Bairro Maria Leite II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Pedro Paulo Miranda e Rita Joana da Mata Monteiro",
+        "en": "Pedro Paulo Miranda e Rita Joana da Mata Monteiro",
+        "es": "Pedro Paulo Miranda e Rita Joana da Mata Monteiro"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "48",
+      "nome_referencia": "São João da Paula",
+      "bairro": "Popular Nova",
+      "imagem_capa_legado": "/assets/images/communities/48/48_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/48/48_galeria/48_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.029082,
+        "lng": -57.663680
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Popular Nova II",
+        "en": "Comunidade do Bairro Popular Nova II",
+        "es": "Comunidade do Bairro Popular Nova II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Nova",
+        "en": "Popular Nova",
+        "es": "Popular Nova"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2011",
+      "currentCelebrant": {
+        "pt": "Paula Regina Farias Soares",
+        "en": "Paula Regina Farias Soares",
+        "es": "Paula Regina Farias Soares"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "49",
+      "nome_referencia": "Arraiá Nhá Concha",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/49/49_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/49/49_galeria/49_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.015956,
+        "lng": -57.638135
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Popular Velha III",
+        "en": "Comunidade do Bairro Popular Velha III",
+        "es": "Comunidade do Bairro Popular Velha III"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1964",
+      "currentCelebrant": {
+        "pt": "Reginalda Mendes Vera ",
+        "en": "Reginalda Mendes Vera ",
+        "es": "Reginalda Mendes Vera "
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar ",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar ",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar "
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "50",
+      "nome_referencia": "Rosângela Montenegro",
+      "bairro": "Previsul",
+      "imagem_capa_legado": "/assets/images/communities/50/50_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/50/50_galeria/50_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.014475,
+        "lng": -57.629142
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Previsul II",
+        "en": "Comunidade do Bairro Previsul II",
+        "es": "Comunidade do Bairro Previsul II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Previsul",
+        "en": "Previsul",
+        "es": "Previsul"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Ros\\u00e2ngela Montenegro",
+        "en": "Ros\\u00e2ngela Montenegro",
+        "es": "Ros\\u00e2ngela Montenegro"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar - entretenimento",
+        "en": "Tradi\\u00e7\\u00e3o familiar - entretenimento",
+        "es": "Tradi\\u00e7\\u00e3o familiar - entretenimento"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "51",
+      "nome_referencia": "Renato Teodoro Alves",
+      "bairro": "Universitário",
+      "imagem_capa_legado": "/assets/images/communities/51/51_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/51/51_galeria/51_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.003182,
+        "lng": -57.628046
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Universitário II",
+        "en": "Comunidade do Bairro Universitário II",
+        "es": "Comunidade do Bairro Universitário II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Universitário",
+        "en": "Universitário",
+        "es": "Universitário"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1983",
+      "currentCelebrant": {
+        "pt": "Renato Teodoro Alves",
+        "en": "Renato Teodoro Alves",
+        "es": "Renato Teodoro Alves"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar ",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar ",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar "
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "52",
+      "nome_referencia": "Rosália Silva do Nascimento",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/52/52_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/52/52_galeria/52_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.025424,
+        "lng": -57.670125
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Aeroporto II",
+        "en": "Comunidade do Bairro Aeroporto II",
+        "es": "Comunidade do Bairro Aeroporto II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1991",
+      "currentCelebrant": {
+        "pt": "Ros\\u00e1lia Silva do Nascimento",
+        "en": "Ros\\u00e1lia Silva do Nascimento",
+        "es": "Ros\\u00e1lia Silva do Nascimento"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Financeira",
+        "en": "Financeira",
+        "es": "Financeira"
+      }
+    },
+    {
+      "id": "53",
+      "nome_referencia": "Sila dos Santos Silva",
+      "bairro": "Dom Bosco",
+      "imagem_capa_legado": "/assets/images/communities/53/53_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/53/53_galeria/53_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.006427,
+        "lng": -57.673479
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Dom Bosco II",
+        "en": "Comunidade do Bairro Dom Bosco II",
+        "es": "Comunidade do Bairro Dom Bosco II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Dom Bosco",
+        "en": "Dom Bosco",
+        "es": "Dom Bosco"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2007",
+      "currentCelebrant": {
+        "pt": "Sila dos Santos Silva",
+        "en": "Sila dos Santos Silva",
+        "es": "Sila dos Santos Silva"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar ",
+        "en": "Tradi\\u00e7\\u00e3o familiar ",
+        "es": "Tradi\\u00e7\\u00e3o familiar "
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "54",
+      "nome_referencia": "Arraiá da Noroeste",
+      "bairro": "Guatós",
+      "imagem_capa_legado": "/assets/images/communities/54/54_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/54/54_galeria/54_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.045872,
+        "lng": -57.644551
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Guató II",
+        "en": "Comunidade do Bairro Guató II",
+        "es": "Comunidade do Bairro Guató II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Guató",
+        "en": "Guató",
+        "es": "Guató"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2006",
+      "currentCelebrant": {
+        "pt": "V\\u00e2nia Rozemeire de Arruda Campos ",
+        "en": "V\\u00e2nia Rozemeire de Arruda Campos ",
+        "es": "V\\u00e2nia Rozemeire de Arruda Campos "
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Fertilidade",
+        "en": "Fertilidade",
+        "es": "Fertilidade"
+      }
+    },
+    {
+      "id": "55",
+      "nome_referencia": "São João das Crianças Nhá Concha",
+      "bairro": "Kadiwéus",
+      "imagem_capa_legado": "/assets/images/communities/55/55_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/55/55_galeria/55_galeria_01.jpg",
+        "/assets/images/communities/55/55_galeria/55_galeria_02.jpg",
+        "/assets/images/communities/55/55_galeria/55_galeria_03.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0458059,
+        "lng": -57.6504473
+      },
+      "name": {
+        "pt": "Comunidade do Bairro Kadiwéus II",
+        "en": "Comunidade do Bairro Kadiwéus II",
+        "es": "Comunidade do Bairro Kadiwéus II"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "Fé - tradição familiar",
+        "en": "Faith - family tradition",
+        "es": "Fe - tradición familiar"
+      },
+      "traditions": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Kadiwéus",
+        "en": "Kadiwéus",
+        "es": "Kadiwéus"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1991",
+      "currentCelebrant": {
+        "pt": "Marinete Luiz Cavalcanti de Camargo",
+        "en": "Marinete Luiz Cavalcanti de Camargo",
+        "es": "Marinete Luiz Cavalcanti de Camargo"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "56",
+      "nome_referencia": "Arraiá da Amizade",
+      "bairro": "Cristo Redentor",
+      "imagem_capa_legado": "/assets/images/communities/56/56_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/56/56_galeria/56_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.009,
+        "lng": -57.652
+      },
+      "name": {
+        "pt": "Arraiá da Amizade",
+        "en": "Arraiá da Amizade",
+        "es": "Arraiá da Amizade"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Cristo Redentor",
+        "en": "Cristo Redentor",
+        "es": "Cristo Redentor"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2002",
+      "currentCelebrant": {
+        "pt": "Jacqueline e Joilson Corr\\u00eaa Rodrigues",
+        "en": "Jacqueline e Joilson Corr\\u00eaa Rodrigues",
+        "es": "Jacqueline e Joilson Corr\\u00eaa Rodrigues"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "57",
+      "nome_referencia": "São João Dona Wastinha ",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/57/57_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/57/57_galeria/57_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0191993,
+        "lng": -57.6879209
+      },
+      "name": {
+        "pt": "São João Dona Wastinha ",
+        "en": "São João Dona Wastinha ",
+        "es": "São João Dona Wastinha "
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1999",
+      "currentCelebrant": {
+        "pt": "Wastcleid Silva M\\u00f4naco",
+        "en": "Wastcleid Silva M\\u00f4naco",
+        "es": "Wastcleid Silva M\\u00f4naco"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "58",
+      "nome_referencia": "Shá Onça",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/58/58_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/58/58_galeria/58_galeria_01.jpg",
+        "/assets/images/communities/58/58_galeria/58_galeria_02.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0047804,
+        "lng": -57.6856697
+      },
+      "name": {
+        "pt": "Shá Onça",
+        "en": "Shá Onça",
+        "es": "Shá Onça"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1997",
+      "currentCelebrant": {
+        "pt": "Bianca Maria Machado de Oliveira",
+        "en": "Bianca Maria Machado de Oliveira",
+        "es": "Bianca Maria Machado de Oliveira"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "59",
+      "nome_referencia": "Lions Clube",
+      "bairro": "Nossa Senhora de Fátima",
+      "imagem_capa_legado": "/assets/images/communities/59/59_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/59/59_galeria/59_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0188459,
+        "lng": -57.6599158
+      },
+      "name": {
+        "pt": "Lions Clube",
+        "en": "Lions Clube",
+        "es": "Lions Clube"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Nossa Senhora de Fátima",
+        "en": "Nossa Senhora de Fátima",
+        "es": "Nossa Senhora de Fátima"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1974",
+      "currentCelebrant": {
+        "pt": "Lions Club - Jos\\u00e9 Roberto A. da Costa",
+        "en": "Lions Club - Jos\\u00e9 Roberto A. da Costa",
+        "es": "Lions Club - Jos\\u00e9 Roberto A. da Costa"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o cultural",
+        "en": "Tradi\\u00e7\\u00e3o cultural",
+        "es": "Tradi\\u00e7\\u00e3o cultural"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "60",
+      "nome_referencia": "Ana Regina Barros D'avila",
+      "bairro": "Centro América",
+      "imagem_capa_legado": "/assets/images/communities/60/60_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/60/60_galeria/60_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0132653,
+        "lng": -57.6393478
+      },
+      "name": {
+        "pt": "Ana Regina Barros D'avila",
+        "en": "Ana Regina Barros D'avila",
+        "es": "Ana Regina Barros D'avila"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro América",
+        "en": "Centro América",
+        "es": "Centro América"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2007",
+      "currentCelebrant": {
+        "pt": "Ana Regina Barros D\\u2019\\u00e1vila",
+        "en": "Ana Regina Barros D\\u2019\\u00e1vila",
+        "es": "Ana Regina Barros D\\u2019\\u00e1vila"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "61",
+      "nome_referencia": "Benedita da Silva Gonçalves",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/61/61_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/61/61_galeria/61_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0122653,
+        "lng": -57.6393478
+      },
+      "name": {
+        "pt": "Benedita da Silva Gonçalves",
+        "en": "Benedita da Silva Gonçalves",
+        "es": "Benedita da Silva Gonçalves"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1939",
+      "currentCelebrant": {
+        "pt": "Benedita da Silva Gon\\u00e7alves",
+        "en": "Benedita da Silva Gon\\u00e7alves",
+        "es": "Benedita da Silva Gon\\u00e7alves"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "62",
+      "nome_referencia": "Carlos Roberto de Souza",
+      "bairro": "Popular Nova",
+      "imagem_capa_legado": "/assets/images/communities/62/62_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/62/62_galeria/62_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0278791,
+        "lng": -57.6706982
+      },
+      "name": {
+        "pt": "Carlos Roberto de Souza",
+        "en": "Carlos Roberto de Souza",
+        "es": "Carlos Roberto de Souza"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Nova",
+        "en": "Popular Nova",
+        "es": "Popular Nova"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lico",
+        "en": "Cat\\u00f3lico",
+        "es": "Cat\\u00f3lico"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Carlos Roberto de Souza",
+        "en": "Carlos Roberto de Souza",
+        "es": "Carlos Roberto de Souza"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Emprego",
+        "en": "Emprego",
+        "es": "Emprego"
+      }
+    },
+    {
+      "id": "63",
+      "nome_referencia": "Juliane Silva do Nascimento",
+      "bairro": "Nossa Senhora de Fátima",
+      "imagem_capa_legado": "/assets/images/communities/63/63_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/63/63_galeria/63_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.0188459,
+        "lng": -57.6599158
+      },
+      "name": {
+        "pt": "Juliane Silva do Nascimento",
+        "en": "Juliane Silva do Nascimento",
+        "es": "Juliane Silva do Nascimento"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Nossa Senhora de Fátima",
+        "en": "Nossa Senhora de Fátima",
+        "es": "Nossa Senhora de Fátima"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Juliane Silva do Nascimento",
+        "en": "Juliane Silva do Nascimento",
+        "es": "Juliane Silva do Nascimento"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "64",
+      "nome_referencia": "Mara Dalila Batista de Arruda",
+      "bairro": "Popular Velha",
+      "imagem_capa_legado": "/assets/images/communities/64/64_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/64/64_galeria/64_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.015286,
+        "lng": -57.647367
+      },
+      "name": {
+        "pt": "Mara Dalila Batista de Arruda",
+        "en": "Mara Dalila Batista de Arruda",
+        "es": "Mara Dalila Batista de Arruda"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Popular Velha",
+        "en": "Popular Velha",
+        "es": "Popular Velha"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Mara Dalila Batista de Arruda",
+        "en": "Mara Dalila Batista de Arruda",
+        "es": "Mara Dalila Batista de Arruda"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "65",
+      "nome_referencia": "Arraiá Nhô João",
+      "bairro": "Cristo Redentor",
+      "imagem_capa_legado": "/assets/images/communities/65/65_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/65/65_galeria/65_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.022947,
+        "lng": -57.637650
+      },
+      "name": {
+        "pt": "Arraiá Nhô João",
+        "en": "Arraiá Nhô João",
+        "es": "Arraiá Nhô João"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Cristo Redentor",
+        "en": "Cristo Redentor",
+        "es": "Cristo Redentor"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lico",
+        "en": "Cat\\u00f3lico",
+        "es": "Cat\\u00f3lico"
+      },
+      "startYear": "1963",
+      "currentCelebrant": {
+        "pt": "Miguel Pessoa Cuiabano",
+        "en": "Miguel Pessoa Cuiabano",
+        "es": "Miguel Pessoa Cuiabano"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura - Conquista material",
+        "en": "Cura - Conquista material",
+        "es": "Cura - Conquista material"
+      }
+    },
+    {
+      "id": "66",
+      "nome_referencia": "Vera Lucia Faria da Costa",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/66/66_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/66/66_galeria/66_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.002143,
+        "lng": -57.647132
+      },
+      "name": {
+        "pt": "Vera Lucia Faria da Costa",
+        "en": "Vera Lucia Faria da Costa",
+        "es": "Vera Lucia Faria da Costa"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2006",
+      "currentCelebrant": {
+        "pt": "Vera L\\u00facia Faria da Costa ",
+        "en": "Vera L\\u00facia Faria da Costa ",
+        "es": "Vera L\\u00facia Faria da Costa "
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o cultural",
+        "en": "Tradi\\u00e7\\u00e3o cultural",
+        "es": "Tradi\\u00e7\\u00e3o cultural"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "67",
+      "nome_referencia": "Arraiá de Nhá CRIPAM",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/67/67_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/67/67_galeria/67_galeria_01.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_02.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_03.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_04.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_05.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_06.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_07.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_08.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_09.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_10.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_11.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_12.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_13.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_14.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_15.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_16.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_17.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_18.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_19.jpg",
+        "/assets/images/communities/67/67_galeria/67_galeria_20.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.001413,
+        "lng": -57.654942
+      },
+      "name": {
+        "pt": "Arraiá de Nhá CRIPAM",
+        "en": "Arraiá de Nhá CRIPAM",
+        "es": "Arraiá de Nhá CRIPAM"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lico",
+        "en": "Cat\\u00f3lico",
+        "es": "Cat\\u00f3lico"
+      },
+      "startYear": "1987",
+      "currentCelebrant": {
+        "pt": "Lu\\u00eds Ant\\u00f4nio Martins ",
+        "en": "Lu\\u00eds Ant\\u00f4nio Martins ",
+        "es": "Lu\\u00eds Ant\\u00f4nio Martins "
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o fam\\u00edliar",
+        "en": "Tradi\\u00e7\\u00e3o fam\\u00edliar",
+        "es": "Tradi\\u00e7\\u00e3o fam\\u00edliar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "68",
+      "nome_referencia": "Nadja Luiza da Silva Pereira",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/68/68_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/68/68_galeria/68_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.003522,
+        "lng": -57.645673
+      },
+      "name": {
+        "pt": "Nadja Luiza da Silva Pereira",
+        "en": "Nadja Luiza da Silva Pereira",
+        "es": "Nadja Luiza da Silva Pereira"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1973",
+      "currentCelebrant": {
+        "pt": "Nadja Luiza da Silva Pereira",
+        "en": "Nadja Luiza da Silva Pereira",
+        "es": "Nadja Luiza da Silva Pereira"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "69",
+      "nome_referencia": "Comunidade Major gama ",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/69/69_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/69/69_galeria/69_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.002954,
+        "lng": -57.653569
+      },
+      "name": {
+        "pt": "Comunidade Major gama ",
+        "en": "Comunidade Major gama ",
+        "es": "Comunidade Major gama "
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "1973",
+      "currentCelebrant": {
+        "pt": "Denilce F\\u00e1tima de Oliveira",
+        "en": "Denilce F\\u00e1tima de Oliveira",
+        "es": "Denilce F\\u00e1tima de Oliveira"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "70",
+      "nome_referencia": "Graciele Vasconcelos",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/70/70_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/70/70_galeria/70_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.020904,
+        "lng": -57.670583
+      },
+      "name": {
+        "pt": "Graciele Vasconcelos",
+        "en": "Graciele Vasconcelos",
+        "es": "Graciele Vasconcelos"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2010",
+      "currentCelebrant": {
+        "pt": "Graciele Vasconcelos",
+        "en": "Graciele Vasconcelos",
+        "es": "Graciele Vasconcelos"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "71",
+      "nome_referencia": "Rosemar de Arruda",
+      "bairro": "Nossa Senhora de Fátima",
+      "imagem_capa_legado": "/assets/images/communities/71/71_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/71/71_galeria/71_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.017984,
+        "lng": -57.655560
+      },
+      "name": {
+        "pt": "Rosemar de Arruda",
+        "en": "Rosemar de Arruda",
+        "es": "Rosemar de Arruda"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Nossa Senhora de Fátima",
+        "en": "Nossa Senhora de Fátima",
+        "es": "Nossa Senhora de Fátima"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2005",
+      "currentCelebrant": {
+        "pt": "Rosemar de Arruda",
+        "en": "Rosemar de Arruda",
+        "es": "Rosemar de Arruda"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "72",
+      "nome_referencia": "Georgelina Fernandes",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/72/72_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/72/72_galeria/72_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.001091,
+        "lng": -57.655198
+      },
+      "name": {
+        "pt": "Georgelina Fernandes",
+        "en": "Georgelina Fernandes",
+        "es": "Georgelina Fernandes"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Georgelina Fernandes",
+        "en": "Georgelina Fernandes",
+        "es": "Georgelina Fernandes"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o cultural",
+        "en": "Tradi\\u00e7\\u00e3o cultural",
+        "es": "Tradi\\u00e7\\u00e3o cultural"
+      },
+      "grace": {
+        "pt": "Bem Material Coletivo",
+        "en": "Bem Material Coletivo",
+        "es": "Bem Material Coletivo"
+      }
+    },
+    {
+      "id": "73",
+      "nome_referencia": "Geuza Silva do Nascimento",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/73/73_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/73/73_galeria/73_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.007606,
+        "lng": -57.629369
+      },
+      "name": {
+        "pt": "Geuza Silva do Nascimento",
+        "en": "Geuza Silva do Nascimento",
+        "es": "Geuza Silva do Nascimento"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Geuza Silva do Nascimento",
+        "en": "Geuza Silva do Nascimento",
+        "es": "Geuza Silva do Nascimento"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "en": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4",
+        "es": "F\\u00e9 - Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "74",
+      "nome_referencia": "Ana Regina Fonseca Herrera",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/74/74_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/74/74_galeria/74_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.004256,
+        "lng": -57.645327
+      },
+      "name": {
+        "pt": "Ana Regina Fonseca Herrera",
+        "en": "Ana Regina Fonseca Herrera",
+        "es": "Ana Regina Fonseca Herrera"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2007",
+      "currentCelebrant": {
+        "pt": "Ana Regina Fonseca Herrera",
+        "en": "Ana Regina Fonseca Herrera",
+        "es": "Ana Regina Fonseca Herrera"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "75",
+      "nome_referencia": "Maria Divina Delgado",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/75/75_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/75/75_galeria/75_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.020012,
+        "lng": -57.662257
+      },
+      "name": {
+        "pt": "Maria Divina Delgado",
+        "en": "Maria Divina Delgado",
+        "es": "Maria Divina Delgado"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Maria Divina Delgado",
+        "en": "Maria Divina Delgado",
+        "es": "Maria Divina Delgado"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural ",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural ",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural "
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "76",
+      "nome_referencia": "Durvanil Cabral Duarte",
+      "bairro": "Centro",
+      "imagem_capa_legado": "/assets/images/communities/76/76_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/76/76_galeria/76_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.005433,
+        "lng": -57.656142
+      },
+      "name": {
+        "pt": "Durvanil Cabral Duarte",
+        "en": "Durvanil Cabral Duarte",
+        "es": "Durvanil Cabral Duarte"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Centro",
+        "es": "Centro"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2009",
+      "currentCelebrant": {
+        "pt": "Durvanil Cabral Duarte",
+        "en": "Durvanil Cabral Duarte",
+        "es": "Durvanil Cabral Duarte"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "77",
+      "nome_referencia": "Elys Regina Ortega Pécora Fonseca",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/77/77_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/77/77_galeria/77_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.010163,
+        "lng": -57.628510
+      },
+      "name": {
+        "pt": "Elys Regina Ortega Pécora Fonseca",
+        "en": "Elys Regina Ortega Pécora Fonseca",
+        "es": "Elys Regina Ortega Pécora Fonseca"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2007",
+      "currentCelebrant": {
+        "pt": "Elys Regina Ortega P\\u00e9cora Fonseca",
+        "en": "Elys Regina Ortega P\\u00e9cora Fonseca",
+        "es": "Elys Regina Ortega P\\u00e9cora Fonseca"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "78",
+      "nome_referencia": "Ilê axé ogum Ialoiá",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/78/78_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/78/78_galeria/78_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.008540,
+        "lng": -57.632201
+      },
+      "name": {
+        "pt": "Ilê axé ogum Ialoiá",
+        "en": "Ilê axé ogum Ialoiá",
+        "es": "Ilê axé ogum Ialoiá"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "1991",
+      "currentCelebrant": {
+        "pt": "Robson Pires Deserto",
+        "en": "Robson Pires Deserto",
+        "es": "Robson Pires Deserto"
+      },
+      "motivation": {
+        "pt": "F\\u00e9.- Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4 ",
+        "en": "F\\u00e9.- Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4 ",
+        "es": "F\\u00e9.- Sincretiza S\\u00e3o Jo\\u00e3o Batista pela entidade sobrenatural Xang\\u00f4 "
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "79",
+      "nome_referencia": "Ambelina Rodrigues da Silva",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/79/79_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/79/79_galeria/79_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.020580,
+        "lng": -57.670068
+      },
+      "name": {
+        "pt": "Ambelina Rodrigues da Silva",
+        "en": "Ambelina Rodrigues da Silva",
+        "es": "Ambelina Rodrigues da Silva"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2008",
+      "currentCelebrant": {
+        "pt": "Ambelina Rodriques da Silva",
+        "en": "Ambelina Rodriques da Silva",
+        "es": "Ambelina Rodriques da Silva"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o cultural"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "80",
+      "nome_referencia": "Weter Silva Mônaco",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/80/80_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/80/80_galeria/80_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.017334,
+        "lng": -57.669596
+      },
+      "name": {
+        "pt": "Weter Silva Mônaco",
+        "en": "Weter Silva Mônaco",
+        "es": "Weter Silva Mônaco"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "2003",
+      "currentCelebrant": {
+        "pt": "Weter Silva M\\u00f4naco",
+        "en": "Weter Silva M\\u00f4naco",
+        "es": "Weter Silva M\\u00f4naco"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "81",
+      "nome_referencia": "Odenir Tejai de Arruda",
+      "bairro": "Maria Leite",
+      "imagem_capa_legado": "/assets/images/communities/81/81_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/81/81_galeria/81_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.007769,
+        "lng": -57.632416
+      },
+      "name": {
+        "pt": "Odenir Tejai de Arruda",
+        "en": "Odenir Tejai de Arruda",
+        "es": "Odenir Tejai de Arruda"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Maria Leite",
+        "en": "Maria Leite",
+        "es": "Maria Leite"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2011",
+      "currentCelebrant": {
+        "pt": "Odenir Tejai de Arruda",
+        "en": "Odenir Tejai de Arruda",
+        "es": "Odenir Tejai de Arruda"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Emprego",
+        "en": "Emprego",
+        "es": "Emprego"
+      }
+    },
+    {
+      "id": "82",
+      "nome_referencia": "Elenice Pinto Mendonça",
+      "bairro": "Universitário",
+      "imagem_capa_legado": "/assets/images/communities/82/82_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/82/82_galeria/82_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.002528,
+        "lng": -57.631601
+      },
+      "name": {
+        "pt": "Elenice Pinto Mendonça",
+        "en": "Elenice Pinto Mendonça",
+        "es": "Elenice Pinto Mendonça"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Universitário",
+        "en": "Universitário",
+        "es": "Universitário"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2009",
+      "currentCelebrant": {
+        "pt": "Elenice Pinto Mendon\\u00e7a",
+        "en": "Elenice Pinto Mendon\\u00e7a",
+        "es": "Elenice Pinto Mendon\\u00e7a"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "83",
+      "nome_referencia": "Martina Geraldina Lima da Silva",
+      "bairro": "Alta Floresta-Ladário ",
+      "imagem_capa_legado": "/assets/images/communities/83/83_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/83/83_galeria/83_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.009433,
+        "lng": -57.595113
+      },
+      "name": {
+        "pt": "Martina Geraldina Lima da Silva",
+        "en": "Martina Geraldina Lima da Silva",
+        "es": "Martina Geraldina Lima da Silva"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Alta Floresta-Ladário ",
+        "en": "Alta Floresta-Ladário ",
+        "es": "Alta Floresta-Ladário "
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lica",
+        "en": "Cat\\u00f3lica",
+        "es": "Cat\\u00f3lica"
+      },
+      "startYear": "2006",
+      "currentCelebrant": {
+        "pt": "Martina Geraldina Lima da Silva",
+        "en": "Martina Geraldina Lima da Silva",
+        "es": "Martina Geraldina Lima da Silva"
+      },
+      "motivation": {
+        "pt": "Tradi\\u00e7\\u00e3o familiar",
+        "en": "Tradi\\u00e7\\u00e3o familiar",
+        "es": "Tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "N\\u00e3o declarada",
+        "en": "N\\u00e3o declarada",
+        "es": "N\\u00e3o declarada"
+      }
+    },
+    {
+      "id": "84",
+      "nome_referencia": "Rony de Carvalho",
+      "bairro": "Cristo Redentor",
+      "imagem_capa_legado": "/assets/images/communities/84/84_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/84/84_galeria/84_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.025544,
+        "lng": -57.645117
+      },
+      "name": {
+        "pt": "Rony de Carvalho",
+        "en": "Rony de Carvalho",
+        "es": "Rony de Carvalho"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Cristo Redentor",
+        "en": "Cristo Redentor",
+        "es": "Cristo Redentor"
+      },
+      "religion": {
+        "pt": "Cat\\u00f3lico",
+        "en": "Cat\\u00f3lico",
+        "es": "Cat\\u00f3lico"
+      },
+      "startYear": "2005",
+      "currentCelebrant": {
+        "pt": "Rony de Carvalho",
+        "en": "Rony de Carvalho",
+        "es": "Rony de Carvalho"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "85",
+      "nome_referencia": "Marco Antonio Sarate Barbosa",
+      "bairro": "Centro América",
+      "imagem_capa_legado": "/assets/images/communities/85/85_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/85/85_galeria/85_galeria_01.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_02.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_03.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_04.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_05.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_06.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_07.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_08.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_09.jpg",
+        "/assets/images/communities/85/85_galeria/85_galeria_10.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.014168,
+        "lng": -57.634992
+      },
+      "name": {
+        "pt": "Marco Antonio Sarate Barbosa",
+        "en": "Marco Antonio Sarate Barbosa",
+        "es": "Marco Antonio Sarate Barbosa"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Centro América",
+        "en": "Centro América",
+        "es": "Centro América"
+      },
+      "religion": {
+        "pt": "Sincretista",
+        "en": "Sincretista",
+        "es": "Sincretista"
+      },
+      "startYear": "2009",
+      "currentCelebrant": {
+        "pt": "Marcio Ant\\u00f4nio Sarate Barbosa",
+        "en": "Marcio Ant\\u00f4nio Sarate Barbosa",
+        "es": "Marcio Ant\\u00f4nio Sarate Barbosa"
+      },
+      "motivation": {
+        "pt": "F\\u00e9",
+        "en": "F\\u00e9",
+        "es": "F\\u00e9"
+      },
+      "grace": {
+        "pt": "Cura",
+        "en": "Healing",
+        "es": "Curación"
+      }
+    },
+    {
+      "id": "88",
+      "nome_referencia": "Comunidade do Jacarézinho",
+      "bairro": "Aeroporto",
+      "imagem_capa_legado": "/assets/images/communities/88/88_capa.jpg",
+      "galeria_imagens_legado": [
+        "/assets/images/communities/88/88_galeria/88_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.019160,
+        "lng": -57.660584
+      },
+      "name": {
+        "pt": "Comunidade do Jacarézinho",
+        "en": "Comunidade do Jacarézinho",
+        "es": "Comunidade do Jacarézinho"
+      },
+      "description": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "fullDescription": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "traditions": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "festival_date": {
+        "pt": "",
+        "en": "",
+        "es": ""
+      },
+      "location": {
+        "pt": "Aeroporto",
+        "en": "Aeroporto",
+        "es": "Aeroporto"
+      },
+      "religion": {
+        "pt": "Afro-Brasileira",
+        "en": "Afro-Brazilian",
+        "es": "Afro-Brasileña"
+      },
+      "startYear": "1984",
+      "currentCelebrant": {
+        "pt": "Roberto Carlos da Silva",
+        "en": "Roberto Carlos da Silva",
+        "es": "Roberto Carlos da Silva"
+      },
+      "motivation": {
+        "pt": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "en": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar",
+        "es": "F\\u00e9 - tradi\\u00e7\\u00e3o familiar"
+      },
+      "grace": {
+        "pt": "Sa\\u00fade",
+        "en": "Sa\\u00fade",
+        "es": "Sa\\u00fade"
+      }
+    }
+  ],
+  "diretorios_legado_utilizados": [
+    "static/arquivo/10/",
+    "static/arquivo/11/",
+    "static/arquivo/12/",
+    "static/arquivo/13/",
+    "static/arquivo/14/",
+    "static/arquivo/16/",
+    "static/arquivo/18/",
+    "static/arquivo/20/",
+    "static/arquivo/22/",
+    "static/arquivo/23/",
+    "static/arquivo/24/",
+    "static/arquivo/25/",
+    "static/arquivo/26/",
+    "static/arquivo/27/",
+    "static/arquivo/28/",
+    "static/arquivo/29/",
+    "static/arquivo/30/",
+    "static/arquivo/31/",
+    "static/arquivo/32/",
+    "static/arquivo/33/",
+    "static/arquivo/34/",
+    "static/arquivo/35/",
+    "static/arquivo/36/",
+    "static/arquivo/37/",
+    "static/arquivo/38/",
+    "static/arquivo/39/",
+    "static/arquivo/40/",
+    "static/arquivo/41/",
+    "static/arquivo/42/",
+    "static/arquivo/43/",
+    "static/arquivo/44/",
+    "static/arquivo/45/",
+    "static/arquivo/46/",
+    "static/arquivo/47/",
+    "static/arquivo/48/",
+    "static/arquivo/49/",
+    "static/arquivo/50/",
+    "static/arquivo/51/",
+    "static/arquivo/52/",
+    "static/arquivo/53/",
+    "static/arquivo/54/",
+    "static/arquivo/55/",
+    "static/arquivo/56/",
+    "static/arquivo/57/",
+    "static/arquivo/58/",
+    "static/arquivo/59/",
+    "static/arquivo/60/",
+    "static/arquivo/61/",
+    "static/arquivo/62/",
+    "static/arquivo/63/",
+    "static/arquivo/64/",
+    "static/arquivo/65/",
+    "static/arquivo/66/",
+    "static/arquivo/67/",
+    "static/arquivo/68/",
+    "static/arquivo/69/",
+    "static/arquivo/7/",
+    "static/arquivo/70/",
+    "static/arquivo/71/",
+    "static/arquivo/72/",
+    "static/arquivo/73/",
+    "static/arquivo/74/",
+    "static/arquivo/75/",
+    "static/arquivo/76/",
+    "static/arquivo/77/",
+    "static/arquivo/78/",
+    "static/arquivo/79/",
+    "static/arquivo/8/",
+    "static/arquivo/80/",
+    "static/arquivo/81/",
+    "static/arquivo/82/",
+    "static/arquivo/83/",
+    "static/arquivo/84/",
+    "static/arquivo/85/",
+    "static/arquivo/86/",
+    "static/arquivo/88/",
+    "static/arquivo/9/",
+    "static/tema/"
+  ]
+}
