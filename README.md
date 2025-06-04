@@ -46,7 +46,13 @@ sao_joao_web/
 │   │   │   ├── components/   # Componentes específicos do livro
 │   │   │   ├── data/         # Conteúdo estruturado do livro
 │   │   │   └── hooks/        # Hooks personalizados para navegação
-│   │   ├── Communities/      # Módulo de comunidades tradicionais
+│   │   ├── Communities/      # Módulo de comunidades tradicionais (CONCLUÍDO)
+│   │   │   ├── components/   # Componentes das comunidades
+│   │   │   │   ├── CommunityMap/       # Mapa interativo das comunidades
+│   │   │   │   ├── CommunityModal/     # Modal de detalhes da comunidade
+│   │   │   │   └── RegisterCommunityModal/  # Modal de cadastro de comunidades
+│   │   │   ├── data/         # Dados estáticos das comunidades
+│   │   │   └── services/     # Serviços para gerenciamento de comunidades
 │   │   ├── Home/             # Página inicial
 │   │   ├── Intro/            # Vídeo introdutório
 │   │   ├── LanguageSelector/ # Seleção de idioma
@@ -74,7 +80,12 @@ sao_joao_web/
 - **Design responsivo**: Adaptação a diferentes tamanhos de tela
 - **Navegação intuitiva**: Interface limpa e moderna
 - **Módulo Book (Concluído)**: Livro digital completo com navegação por capítulos e modo tela cheia
-- **Comunidades tradicionais**: Visualização de comunidades com informações georreferenciadas
+- **Módulo Communities (Concluído)**: 
+  - Mapa interativo com comunidades tradicionais georreferenciadas
+  - Modal detalhado com informações multilíngues sobre cada comunidade
+  - Sistema de cadastro de novas comunidades com suporte a múltiplos idiomas
+  - Upload de imagens para capa e galeria das comunidades
+  - Armazenamento local das comunidades cadastradas
 - **Depoimentos em vídeo**: Reprodução de vídeos de moradores locais migrados do formato original
 - **Cartões postais digitais**: Galeria de imagens representativas com metadados culturais
 - **Histórias e tradições**: Conteúdo cultural sobre o Banho de São João
@@ -102,7 +113,7 @@ Este projeto é uma migração do aplicativo original "Banho de São João", que
 ## Status dos Módulos
 
 - ✅ **Livro Digital (Book)**: Concluído com navegação por capítulos, visualização em tela cheia e controles
-- 🔄 **Comunidades (Communities)**: Em desenvolvimento
+- ✅ **Comunidades (Communities)**: Concluído com mapa interativo, visualização detalhada e cadastro de novas comunidades
 - 🔄 **Depoimentos (Testimonials)**: Em desenvolvimento
 - 🔄 **Cartões Postais (Postcards)**: Em desenvolvimento
 - 🔄 **Histórias (Stories)**: Em desenvolvimento

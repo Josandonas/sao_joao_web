@@ -107,17 +107,25 @@ export const MapContainerStyled = styled.div`
   }
 `;
 
+export const MapTitleContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+  position: relative;
+  padding: 0 1rem;
+`;
+
 export const MapTitle = styled.h2`
   font-family: ${props => props.theme.fonts.heading};
   font-size: 2.4rem;
   font-weight: 700;
   text-align: center;
   color: ${props => props.theme.colors.primary};
-  margin-bottom: 1.2rem;
   position: relative;
   display: inline-block;
   padding: 0 1.5rem;
-  margin: 0 auto 2rem;
   letter-spacing: 0.5px;
   
   &:after {
@@ -130,6 +138,37 @@ export const MapTitle = styled.h2`
     background: linear-gradient(90deg, #4e7ee3, #6acddc);
     transform: translateX(-50%);
     border-radius: 2px;
+  }
+`;
+
+export const RegisterButton = styled.button`
+  background-color: #f4a261;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 12px rgba(244, 162, 97, 0.3);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    background-color: #e76f51;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(244, 162, 97, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+  
+  &:before {
+    content: '📍';
+    margin-right: 8px;
+    font-size: 1.2rem;
   }
 `;
 

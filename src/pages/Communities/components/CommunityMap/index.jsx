@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import RegisterCommunityModal from '../RegisterCommunityModal';
+import { updateCommunitiesData } from '../../services/communityService';
 import { useTranslation } from 'react-i18next';
 import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
 import { sanitizeObject } from '../../../../utils/textUtils';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { MapContainerStyled, MapDescription, MapTitle } from './styles';
-import { communitiesData } from '../../data/communitiesData';
+import { MapContainerStyled, MapDescription, MapTitle, MapTitleContainer, RegisterButton } from './styles';
+import { communitiesData as defaultCommunitiesData } from '../../data/communitiesData';
 
 // Corrigir problemas com ícones do Leaflet em ambientes React
 delete L.Icon.Default.prototype._getIconUrl;
@@ -54,10 +56,23 @@ const CommunityMap = ({ onSelectCommunity, selectedCommunity }) => {
   const { t, i18n } = useTranslation();
   const mapRef = useRef(null);
   
+  // Combine default and user-submitted communities
+  const [mergedCommunitiesData, setMergedCommunitiesData] = useState([]);
+  
+  // Fetch and merge communities on component mount and when modal closes
+  const loadCommunities = useCallback(() => {
+    const allCommunities = updateCommunitiesData(defaultCommunitiesData);
+    setMergedCommunitiesData(allCommunities);
+  }, []);
+  
+  useEffect(() => {
+    loadCommunities();
+  }, [loadCommunities]);
+  
   // Sanitize all communities data to handle special characters
   const sanitizedCommunities = useMemo(() => 
-    communitiesData.map(community => sanitizeObject(community)), 
-    [communitiesData]
+    mergedCommunitiesData.map(community => sanitizeObject(community)), 
+    [mergedCommunitiesData]
   );
   
   // Sanitize selected community if exists
@@ -68,15 +83,35 @@ const CommunityMap = ({ onSelectCommunity, selectedCommunity }) => {
   
   const currentLang = i18n.language.split('-')[0] || 'pt';
   const [hoveredCommunity, setHoveredCommunity] = useState(null);
+  const [showRegisterModal, setShowRegisterModal] = useState(false);
+  
+  const handleOpenRegisterModal = () => {
+    setShowRegisterModal(true);
+  };
+  
+  const handleCloseRegisterModal = () => {
+    setShowRegisterModal(false);
+    // Recarregar as comunidades para mostrar as recém-cadastradas
+    loadCommunities();
+  };
   
   // Coordenadas do centro de Corumbá - MS
   const corumbaCoordinates = [-19.0095, -57.6511];
   
   return (
     <>
-      <div style={{ textAlign: 'center' }}>
+      <MapTitleContainer>
         <MapTitle>{t('communities.mapTitle') || 'Mapa das Comunidades'}</MapTitle>
-      </div>
+        <RegisterButton onClick={handleOpenRegisterModal}>
+          <i className="fas fa-map-pin"></i> {t('communities.registerButton')}
+        </RegisterButton>
+      </MapTitleContainer>
+      
+      {/* Modal de cadastro de comunidades */}
+      <RegisterCommunityModal 
+        isOpen={showRegisterModal} 
+        onClose={handleCloseRegisterModal}
+      />
       <MapContainerStyled>
         <MapContainer 
           center={corumbaCoordinates}
