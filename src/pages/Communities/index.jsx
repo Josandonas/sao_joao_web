@@ -1,219 +1,66 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import ImageGallery from 'react-image-gallery';
-import { 
-  Container, 
-  Title, 
-  Introduction, 
-  MapSection,
-  MapDescription,
-  MapContainerStyled,
-  CommunityList,
-  CommunityCard,
-  CardImage,
-  CardContent,
-  CardTitle,
-  CardLocation,
-  CardDescription,
-  CommunityModal,
-  ModalContent,
-  ModalHeader,
-  CloseButton,
-  ModalBody,
-  ModalTitle,
-  ModalImage,
-  ModalDescriptionText,
-  ModalDetailsContainer,
-  ModalDetail,
-  ModalDetailTitle,
-  ModalText,
-  GalleryContainer,
-  SelectedCommunitySection,
-  SelectedCommunityTitle,
-  SelectedCommunityCard,
-  SelectedCommunityImage,
-  SelectedCommunityContent,
-  SelectedCommunityDescription,
-  SelectedCommunityLocation,
-  LocationIcon,
-  DetailsButton
-} from './styles';
-
-import { communitiesData } from './data/communitiesData';
-import CommunitiesMap from './CommunitiesMap';
+import { Container } from './styles';
+import { useModalControl } from './hooks/useModalControl';
+import { useMapInteraction } from './hooks/useMapInteraction';
+import CommunityMap from './components/CommunityMap';
+import SelectedCommunity from './components/SelectedCommunity';
+import CommunityModal from './components/CommunityModal';
 
 const Communities = () => {
-  const { i18n, t } = useTranslation();
-  const [selectedCommunity, setSelectedCommunity] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [mapSelectedCommunity, setMapSelectedCommunity] = useState(null);
-  const currentLang = i18n.language.split('-')[0] || 'pt';
+  const { t } = useTranslation();
+  const { selectedCommunity, showModal, openModal, closeModal } = useModalControl();
+  const { mapSelectedCommunity, selectCommunityOnMap } = useMapInteraction();
   
-  // Efeito para garantir que o overflow seja restaurado, mesmo em caso de erro
+  // Efeito para remover texto solto de tradições que esteja fora dos elementos adequados
   useEffect(() => {
-    // Quando o modal é aberto
-    if (showModal) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
-    
-    // Cleanup para garantir que o overflow seja restaurado quando o componente é desmontado
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [showModal]);
-
-
-  // Seleciona uma comunidade no mapa e exibe seu card
-  const selectCommunityOnMap = (community) => {
-    setMapSelectedCommunity(community);
-    // Rolar suavemente até o card
-    setTimeout(() => {
-      document.getElementById('selected-community-card')?.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'center'
+    const observer = new MutationObserver((mutations) => {
+      // Lista de textos de tradições em diferentes idiomas para detectar e remover
+      const traditionTexts = ["Fé - tradição familiar", "Faith - family tradition", "Fe - tradición familiar"];
+      
+      // Procura por nós de texto que contenham exatamente os textos de tradições
+      document.querySelectorAll('body, body > div').forEach(container => {
+        // Verifica os nós filhos diretos
+        for (let i = 0; i < container.childNodes.length; i++) {
+          const node = container.childNodes[i];
+          // Verifica se é um nó de texto
+          if (node.nodeType === Node.TEXT_NODE) {
+            // Verifica se o texto é exatamente um dos textos de tradições
+            if (traditionTexts.includes(node.textContent.trim())) {
+              // Remove o nó de texto duplicado
+              container.removeChild(node);
+              i--; // Ajusta o índice após remover o nó
+            }
+          }
+        }
       });
-    }, 100);
-  };
-
-  // Abre o modal com a comunidade selecionada
-  const openCommunityModal = (community) => {
-    setSelectedCommunity(community);
-    setShowModal(true);
-  };
-  
-  // Fecha o modal
-  const closeCommunityModal = () => {
-    setSelectedCommunity(null);
-    setShowModal(false);
-  };
+    });
+    
+    // Inicia a observação
+    observer.observe(document.body, { childList: true, subtree: true });
+    
+    return () => observer.disconnect(); // Limpa o observer quando o componente é desmontado
+  }, [mapSelectedCommunity]); // Re-executa quando a comunidade selecionada mudar
 
   return (
     <Container>
-      <Title>{t('communities.title')}</Title>
+      <CommunityMap 
+        onSelectCommunity={selectCommunityOnMap} 
+        selectedCommunity={mapSelectedCommunity} 
+      />
       
-      <Introduction>
-        <p>{t('communities.introduction')}</p>
-      </Introduction>
-      
-      <MapSection>
-        <h2>{t('communities.mapTitle')}</h2>
-        <MapDescription>
-          <p>{t('communities.mapDescription') || 'Selecione um ponto no mapa para visualizar informações da comunidade.'}</p>
-        </MapDescription>
-        <MapContainerStyled>
-          <CommunitiesMap onSelectCommunity={selectCommunityOnMap} />
-        </MapContainerStyled>
-      </MapSection>
-      
-      {/* Card da comunidade selecionada no mapa */}
       {mapSelectedCommunity && (
-        <SelectedCommunitySection id="selected-community-card">
-          <SelectedCommunityTitle>
-            {mapSelectedCommunity.name[currentLang] || mapSelectedCommunity.name['pt']}
-          </SelectedCommunityTitle>
-          
-          <SelectedCommunityCard>
-            <SelectedCommunityImage src={mapSelectedCommunity.image} alt={mapSelectedCommunity.name} />
-            <SelectedCommunityContent>
-              <SelectedCommunityDescription>
-                {mapSelectedCommunity.description[currentLang] || mapSelectedCommunity.description['pt'] || 
-                  t('communities.noDescription') || 'Clique para ver mais informações sobre esta comunidade.'}
-              </SelectedCommunityDescription>
-              
-              <SelectedCommunityLocation>
-                <LocationIcon />
-                {mapSelectedCommunity.location[currentLang] || mapSelectedCommunity.location['pt']}
-              </SelectedCommunityLocation>
-              
-              <DetailsButton onClick={() => openCommunityModal(mapSelectedCommunity)}>
-                {t('communities.viewDetails') || 'Ver detalhes'}
-              </DetailsButton>
-            </SelectedCommunityContent>
-          </SelectedCommunityCard>
-        </SelectedCommunitySection>
+        <SelectedCommunity 
+          community={mapSelectedCommunity} 
+          onViewDetails={openModal}
+        />
       )}
       
-      {/* Modal para exibir os detalhes completos da comunidade */}
       {showModal && selectedCommunity && (
-        <CommunityModal>
-          <ModalContent>
-            <ModalHeader>
-              <ModalTitle>{selectedCommunity.name[currentLang] || selectedCommunity.name['pt']}</ModalTitle>
-              <CloseButton onClick={closeCommunityModal}>&times;</CloseButton>
-            </ModalHeader>
-            
-            <ModalBody>
-              {/* Exibe a imagem principal quando não há galeria */}
-              {(!selectedCommunity.gallery || selectedCommunity.gallery.length === 0) ? (
-                <ModalImage src={selectedCommunity.image} alt={selectedCommunity.name} />
-              ) : (
-                <GalleryContainer>
-                  <ImageGallery
-                    items={[
-                      // Adiciona a imagem de capa como a primeira da galeria
-                      {
-                        original: selectedCommunity.image,
-                        thumbnail: selectedCommunity.image
-                      },
-                      // Adiciona as outras imagens da galeria
-                      ...selectedCommunity.gallery.map(image => ({
-                        original: image,
-                        thumbnail: image
-                      }))
-                    ]}
-                    showPlayButton={false}
-                    showFullscreenButton={true}
-                    slideInterval={3000}
-                    slideOnThumbnailOver={true}
-                    showIndex={true}
-                  />
-                </GalleryContainer>
-              )}
-              
-              <div dangerouslySetInnerHTML={{ __html: selectedCommunity.fullDescription[currentLang] || selectedCommunity.fullDescription['pt'] }} />
-              
-              <ModalDetailsContainer>
-                <ModalDetail>
-                  <ModalDetailTitle>{t('communities.locationLabel') || 'Local'}</ModalDetailTitle>
-                  <ModalText>{selectedCommunity.location[currentLang] || selectedCommunity.location['pt']}</ModalText>
-                </ModalDetail>
-                
-                <ModalDetail>
-                  <ModalDetailTitle>{t('communities.traditionsLabel') || 'Tradições'}</ModalDetailTitle>
-                  <ModalText>{selectedCommunity.traditions[currentLang] || selectedCommunity.traditions['pt']}</ModalText>
-                </ModalDetail>
-                
-                <ModalDetail>
-                  <ModalDetailTitle>{t('communities.festivalDateLabel') || 'Período Festivo'}</ModalDetailTitle>
-                  <ModalText>{selectedCommunity.festival_date[currentLang] || selectedCommunity.festival_date['pt']}</ModalText>
-                </ModalDetail>
-                
-                {selectedCommunity.religion && (
-                  <ModalDetail>
-                    <ModalDetailTitle>{t('communities.religionLabel') || 'Religião'}</ModalDetailTitle>
-                    <ModalText>{selectedCommunity.religion[currentLang] || selectedCommunity.religion['pt']}</ModalText>
-                  </ModalDetail>
-                )}
-
-                {selectedCommunity.startYear && (
-                  <ModalDetail>
-                    <ModalDetailTitle>{t('communities.startYearLabel') || 'Início'}</ModalDetailTitle>
-                    <ModalText>{selectedCommunity.startYear}</ModalText>
-                  </ModalDetail>
-                )}
-
-                {selectedCommunity.grace && (
-                  <ModalDetail>
-                    <ModalDetailTitle>{t('communities.graceLabel') || 'Graça'}</ModalDetailTitle>
-                    <ModalText>{selectedCommunity.grace[currentLang] || selectedCommunity.grace['pt']}</ModalText>
-                  </ModalDetail>
-                )}
-              </ModalDetailsContainer>
-            </ModalBody>
-          </ModalContent>
-        </CommunityModal>
+        <CommunityModal 
+          community={selectedCommunity} 
+          onClose={closeModal}
+        />
       )}
     </Container>
   );
