@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { FooterContainer, FooterContent, Copyright, Partners, PartnerLink } from './styles';
+import { FooterContainer, FooterContent, Copyright, Partners, PrefeituraLogo } from './styles';
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -14,11 +14,13 @@ const Footer = () => {
         </Copyright>
         
         <Partners>
-          <span>{t('footer.partners')}:</span>
-          <PartnerLink href="#" id="lnkVale" title="Vale">Vale</PartnerLink>
-          <PartnerLink href="#" id="lnkFIC" title="FIC">FIC</PartnerLink>
-          <PartnerLink href="#" id="lnkFCMS" title="FCMS">FCMS</PartnerLink>
-          <PartnerLink href="#" id="lnkGOV" title="GOV">GOV</PartnerLink>
+          <a href="https://www.corumba.ms.gov.br" target="_blank" rel="noopener noreferrer">
+            <PrefeituraLogo 
+              src="/assets/images/colaborates/prefeitura_corumba.png" 
+              alt="Prefeitura de Corumbá" 
+              title="Prefeitura de Corumbá" 
+            />
+          </a>
         </Partners>
       </FooterContent>
     </FooterContainer>

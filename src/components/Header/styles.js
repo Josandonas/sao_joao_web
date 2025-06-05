@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
-  background: url('/assets/images/ui/wood.jpg') left top no-repeat;
-  background-size: cover;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: #8c0033;
   color: ${props => props.theme.colors.white};
   padding: ${props => props.theme.spacing.md};
   display: flex;

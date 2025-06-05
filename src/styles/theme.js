@@ -4,7 +4,7 @@ const theme = {
     primary: '#ff6b01', // Laranja original da aplicação
     secondary: '#4772ec', // Azul original
     accent: '#800000', // Vermelho original
-    background: '#ffffff',
+    background: '#f4a261', // Cor de fundo que remete à aplicação legada
     text: '#2a2a2a',
     textLight: '#585858',
     white: '#ffffff'
