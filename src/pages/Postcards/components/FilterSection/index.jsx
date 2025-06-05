@@ -1,16 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { FiltersContainer, FilterButton } from './styles';
 
 const FilterSection = ({ activeFilter, setActiveFilter }) => {
+  const { t } = useTranslation();
+  
   const filterCategories = [
-    { id: 'all', label: 'Todos' },
-    { id: 'celebrations', label: 'Celebrações' },
-    { id: 'ritual', label: 'Ritual' },
-    { id: 'dances', label: 'Danças' },
-    { id: 'music', label: 'Música' },
-    { id: 'altars', label: 'Altares' },
-    { id: 'symbols', label: 'Símbolos' }
+    { id: 'all', label: t('postcards.categoryAll') },
+    { id: 'celebrations', label: t('postcards.categoryCelebrations') },
+    { id: 'ritual', label: t('postcards.categoryRitual') },
+    { id: 'dances', label: t('postcards.categoryDances') },
+    { id: 'music', label: t('postcards.categoryMusic') },
+    { id: 'altars', label: t('postcards.categoryAltars') },
+    { id: 'symbols', label: t('postcards.categorySymbols') }
   ];
 
   return (

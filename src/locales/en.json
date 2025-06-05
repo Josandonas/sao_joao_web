@@ -150,7 +150,87 @@
     "shareButton": "Share",
     "downloadButton": "Download",
     "shareSuccess": "Sharing function would be implemented here!",
-    "downloadSuccess": "Postcard download started!"
+    "downloadSuccess": "Postcard download started!",
+    "items": {
+      "1": {
+        "title": "River Procession",
+        "description": "The river procession of the Bath of Saint John in Corumbá, with decorated boats sailing on the Paraguay River during sunset.",
+        "location": "Paraguay River, Corumbá, MS",
+        "author": "Maria Silva"
+      },
+      "2": {
+        "title": "Community Celebration",
+        "description": "Community celebration during the Saint John's festival, with typical decorations and gathered participants.",
+        "location": "Ladário, MS",
+        "author": "João Pereira"
+      },
+      "3": {
+        "title": "Riverside Festival",
+        "description": "Residents celebrating the Bath of Saint John on the banks of the Paraguay River, with bonfires and traditional music.",
+        "location": "Miranda, MS",
+        "author": "Ana Coelho"
+      },
+      "4": {
+        "title": "Bath Ritual",
+        "description": "The sacred moment of bathing the image of Saint John the Baptist in the waters of the Paraguay River during the night of June 23rd to 24th.",
+        "location": "Porto Geral, Corumbá, MS",
+        "author": "Carlos Ramires"
+      },
+      "5": {
+        "title": "Promises and Devotions",
+        "description": "Devotees fulfilling promises and participating in the traditional rituals during the celebration of Saint John.",
+        "location": "Aquidauana, MS",
+        "author": "Josefa Santos"
+      },
+      "6": {
+        "title": "Siriri Dance",
+        "description": "Performance of the traditional siriri dance, a typical cultural expression of the Pantanal festivities.",
+        "location": "Porto Murtinho, MS",
+        "author": "Roberto Oliveira"
+      },
+      "7": {
+        "title": "Regional Dancers",
+        "description": "Group of dancers in traditional costumes performing traditional choreographies of the Pantanal folklore.",
+        "location": "Poconé, MT",
+        "author": "Luiza Mendes"
+      },
+      "8": {
+        "title": "Traditional Musicians",
+        "description": "Group of musicians with typical instruments such as viola de cocho, ganzá and mocho, playing traditional rhythms.",
+        "location": "Cáceres, MT",
+        "author": "Pedro Guimarães"
+      },
+      "9": {
+        "title": "Viola de Cocho",
+        "description": "Musician playing the traditional viola de cocho, a characteristic instrument of the Pantanal, made from a hollowed tree trunk.",
+        "location": "Corumbá, MS",
+        "author": "Teresa Albuquerque"
+      },
+      "10": {
+        "title": "Decorated Altar",
+        "description": "Traditional altar richly decorated with flowers, ribbons and candles in preparation for the Bath of Saint John ceremony.",
+        "location": "Paraguay River, Corumbá, MS",
+        "author": "Fernando Costa"
+      },
+      "11": {
+        "title": "Sacred Offerings",
+        "description": "Table with traditional offerings to Saint John, including fruits, medicinal herbs and decorated candles.",
+        "location": "Bonito, MS",
+        "author": "Antonia Pires"
+      },
+      "12": {
+        "title": "Festival Symbols",
+        "description": "Symbolic elements used during Saint John's festivities, representing the tradition and popular faith.",
+        "location": "Cuiabá, MT",
+        "author": "José Silveira"
+      },
+      "13": {
+        "title": "Saint John's Mast",
+        "description": "The traditional mast raised during Saint John's festivities, decorated with offerings and sacred symbols.",
+        "location": "Cuiabá, MT",
+        "author": "Paulo Mendes"
+      }
+    }
   },
   "notFound": {
     "title": "Page not found",

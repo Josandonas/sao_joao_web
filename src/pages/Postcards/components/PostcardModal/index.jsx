@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { FaShare, FaDownload, FaTimes, FaMapMarkerAlt, FaUser, FaCalendarAlt } from 'react-icons/fa';
 import {
   ModalOverlay,
@@ -18,6 +19,8 @@ import {
 } from './styles';
 
 const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
+  const { t } = useTranslation();
+  
   // Impedir a rolagem do corpo quando o modal estiver aberto
   React.useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -33,38 +36,38 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
         <CloseButton onClick={onClose}><FaTimes /></CloseButton>
         
         <ModalHeader>
-          <h2>{postcard.title}</h2>
+          <h2>{postcard.titleKey ? t(postcard.titleKey) : postcard.title}</h2>
         </ModalHeader>
         
         <ModalBody>
           <FullPostcardImage 
             src={postcard.image} 
-            alt={postcard.title} 
+            alt={postcard.titleKey ? t(postcard.titleKey) : postcard.title} 
           />
           
           <PostcardInfo>
             <PostcardDescription>
-              {postcard.description}
+              {postcard.descriptionKey ? t(postcard.descriptionKey) : postcard.description}
             </PostcardDescription>
             
             <PostcardMetadata>
               <MetadataItem>
-                <strong><FaMapMarkerAlt /> Local:</strong> {postcard.location}
+                <strong><FaMapMarkerAlt /> {t('postcards.locationLabel')}</strong> {postcard.locationKey ? t(postcard.locationKey) : postcard.location}
               </MetadataItem>
               <MetadataItem>
-                <strong><FaUser /> Autor:</strong> {postcard.author}
+                <strong><FaUser /> {t('postcards.authorLabel')}</strong> {postcard.authorKey ? t(postcard.authorKey) : postcard.author}
               </MetadataItem>
               <MetadataItem>
-                <strong><FaCalendarAlt /> Ano:</strong> {postcard.year}
+                <strong><FaCalendarAlt /> {t('postcards.yearLabel')}</strong> {postcard.year}
               </MetadataItem>
             </PostcardMetadata>
             
             <ShareContainer>
               <ShareButton onClick={onShare}>
-                <FaShare /> Compartilhar
+                <FaShare /> {t('postcards.shareButton')}
               </ShareButton>
               <DownloadButton onClick={onDownload}>
-                <FaDownload /> Download
+                <FaDownload /> {t('postcards.downloadButton')}
               </DownloadButton>
             </ShareContainer>
           </PostcardInfo>

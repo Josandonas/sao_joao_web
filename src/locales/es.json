@@ -150,7 +150,87 @@
     "shareButton": "Compartir",
     "downloadButton": "Descargar",
     "shareSuccess": "¡La función de compartir sería implementada aquí!",
-    "downloadSuccess": "¡Descarga de postal iniciada!"
+    "downloadSuccess": "¡Descarga de postal iniciada!",
+    "items": {
+      "1": {
+        "title": "Procesión Fluvial",
+        "description": "La procesión fluvial del Baño de San Juan en Corumbá, con barcos decorados navegando por el Río Paraguay durante el atardecer.",
+        "location": "Río Paraguay, Corumbá, MS",
+        "author": "Maria Silva"
+      },
+      "2": {
+        "title": "Celebración Comunitaria",
+        "description": "Celebración comunitaria durante el festival de San Juan, con decoraciones típicas y participantes reunidos.",
+        "location": "Ladário, MS",
+        "author": "João Pereira"
+      },
+      "3": {
+        "title": "Fiesta en la Orilla del Río",
+        "description": "Residentes celebrando el Baño de San Juan a orillas del Río Paraguay, con hogueras y música tradicional.",
+        "location": "Miranda, MS",
+        "author": "Ana Coelho"
+      },
+      "4": {
+        "title": "Ritual del Baño",
+        "description": "El momento sagrado del baño de la imagen de San Juan Bautista en las aguas del Río Paraguay durante la noche del 23 al 24 de junio.",
+        "location": "Porto Geral, Corumbá, MS",
+        "author": "Carlos Ramires"
+      },
+      "5": {
+        "title": "Promesas y Devociones",
+        "description": "Devotos cumpliendo promesas y participando en los rituales tradicionales durante la celebración de San Juan.",
+        "location": "Aquidauana, MS",
+        "author": "Josefa Santos"
+      },
+      "6": {
+        "title": "Danza del Siriri",
+        "description": "Presentación de la danza tradicional del siriri, expresión cultural típica de las festividades del Pantanal.",
+        "location": "Porto Murtinho, MS",
+        "author": "Roberto Oliveira"
+      },
+      "7": {
+        "title": "Bailarines Regionales",
+        "description": "Grupo de bailarines con trajes típicos presentando coreografías tradicionales del folclore pantanero.",
+        "location": "Poconé, MT",
+        "author": "Luiza Mendes"
+      },
+      "8": {
+        "title": "Músicos Tradicionales",
+        "description": "Grupo de músicos con instrumentos típicos como la viola de cocho, ganzá y mocho, tocando ritmos tradicionales.",
+        "location": "Cáceres, MT",
+        "author": "Pedro Guimarães"
+      },
+      "9": {
+        "title": "Viola de Cocho",
+        "description": "Músico tocando la tradicional viola de cocho, instrumento característico del Pantanal, hecho de un tronco ahuecado.",
+        "location": "Corumbá, MS",
+        "author": "Teresa Albuquerque"
+      },
+      "10": {
+        "title": "Altar Decorado",
+        "description": "Altar tradicional ricamente decorado con flores, cintas y velas en preparación para la ceremonia del Baño de San Juan.",
+        "location": "Río Paraguay, Corumbá, MS",
+        "author": "Fernando Costa"
+      },
+      "11": {
+        "title": "Ofrendas Sagradas",
+        "description": "Mesa con ofrendas tradicionales para San Juan, incluyendo frutas, hierbas medicinales y velas decoradas.",
+        "location": "Bonito, MS",
+        "author": "Antonia Pires"
+      },
+      "12": {
+        "title": "Símbolos de la Fiesta",
+        "description": "Elementos simbólicos utilizados durante las festividades de San Juan, representando la tradición y fe popular.",
+        "location": "Cuiabá, MT",
+        "author": "José Silveira"
+      },
+      "13": {
+        "title": "Mástil de San Juan",
+        "description": "El tradicional mástil levantado durante las festividades de San Juan, decorado con ofrendas y símbolos sagrados.",
+        "location": "Cuiabá, MT",
+        "author": "Paulo Mendes"
+      }
+    }
   },
   "notFound": {
     "title": "Página no encontrada",

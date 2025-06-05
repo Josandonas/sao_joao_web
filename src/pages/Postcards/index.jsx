@@ -27,7 +27,7 @@ const Postcards = () => {
   return (
     <Container>
       <TitleSection>
-        <Title>Postais do Banho de São João</Title>
+        <Title>{t('postcards.title')}</Title>
       </TitleSection>
       
       <FilterSection 
