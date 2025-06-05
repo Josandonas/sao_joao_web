@@ -14,8 +14,22 @@ export const AboutSection = styled.section`
     right: 0;
     top: 0;
     bottom: 0;
+    background: linear-gradient(135deg, rgba(255,235,230,0.4) 0%, rgba(255,255,255,0.9) 50%, rgba(255,235,230,0.4) 100%);
     pointer-events: none;
     z-index: -1;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: -150px;
+    right: -150px;
+    background: radial-gradient(circle, rgba(140,0,51,0.08) 0%, rgba(255,255,255,0) 70%);
+    border-radius: 50%;
+    z-index: -1;
+    pointer-events: none;
   }
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
@@ -27,36 +41,60 @@ export const AboutContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const AboutTitle = styled.h2`
   font-size: ${props => props.theme.fontSizes.xxlarge};
   font-family: ${props => props.theme.fonts.heading};
-  color: #8c0033;
-  margin-bottom: ${props => props.theme.spacing.xxl};
+  background: linear-gradient(135deg, #8c0033 0%, #b5003e 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: ${props => props.theme.spacing.lg};
   text-align: center;
   position: relative;
-  padding-bottom: ${props => props.theme.spacing.md};
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.8);
+  padding: ${props => props.theme.spacing.md} 0;
+  letter-spacing: 1.5px;
   font-weight: bold;
+  display: inline-block;
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  border-bottom: 3px solid transparent;
+  border-image: linear-gradient(to right, transparent, #8c0033, transparent);
+  border-image-slice: 1;
+  
+  &::before {
+    content: '⦿';
+    position: absolute;
+    top: 0;
+    left: -30px;
+    color: #8c0033;
+    opacity: 0.5;
+    font-size: 0.7em;
+  }
   
   &::after {
-    content: '';
+    content: '⦿';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 180px;
-    height: 4px;
-    background: linear-gradient(to right, transparent, #ff6b01, #8c0033, #ff6b01, transparent);
-    border-radius: 3px;
+    top: 0;
+    right: -30px;
+    color: #8c0033;
+    opacity: 0.5;
+    font-size: 0.7em;
   }
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     font-size: ${props => props.theme.fontSizes.xlarge};
-    margin-bottom: ${props => props.theme.spacing.lg};
+    margin-bottom: ${props => props.theme.spacing.md};
     letter-spacing: 0.5px;
+    
+    &::before, &::after {
+      display: none;
+    }
   }
 `;
 
@@ -69,13 +107,19 @@ export const AboutContent = styled.div`
   align-items: center; /* Centraliza verticalmente os elementos */
   justify-content: space-between;
   gap: ${props => props.theme.spacing.lg};
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  padding: ${props => props.theme.spacing.lg};
+  box-shadow: 0 10px 30px rgba(140, 0, 51, 0.1), 0 1px 3px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   
   /* Container da imagem */
   .image-container {
     overflow: hidden;
     border-radius: 16px;
-    background-color: #ffcb99; /* Cor de fundo mais clara que combina melhor com a arte */
-    height: 400px; /* Altura fixa para garantir proporcionalidade */
+    background: linear-gradient(135deg, #ffcb99 0%, #ffe4d3 100%); /* Gradiente suave */
+    height: 420px; /* Altura ligeiramente maior */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -86,8 +130,9 @@ export const AboutContent = styled.div`
     top: 40px;
     align-self: center; /* Alinha verticalmente com o texto */
     margin-right: 32px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 28px rgba(140, 0, 51, 0.15), 0 8px 10px rgba(140, 0, 51, 0.08);
     padding: 0;
+    border: 4px solid white;
   }
   
   .blend-image {
@@ -149,14 +194,16 @@ export const AboutContent = styled.div`
 export const AboutText = styled.div`
   flex: 1;
   max-width: 65%;
-  height: 400px; /* Altura fixa igual à imagem */
+  height: 420px; /* Altura fixa igual à imagem */
   overflow-y: auto;
-  padding-right: ${props => props.theme.spacing.md};
-  padding-left: ${props => props.theme.spacing.sm};
+  padding: ${props => props.theme.spacing.md};
   scrollbar-width: thin;
   scrollbar-color: rgba(140, 0, 51, 0.6) rgba(255, 255, 255, 0.3);
   position: relative;
   align-self: center; /* Alinha verticalmente com a imagem */
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.05);
   
   /* Estilização da barra de rolagem para navegadores webkit (Chrome, Safari) */
   &::-webkit-scrollbar {
@@ -222,20 +269,38 @@ export const AboutParagraph = styled.p`
   color: #2a2a2a;
   text-align: justify;
   font-size: var(--font-size); /* Usar a variável CSS */
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   padding-right: ${props => props.theme.spacing.md};
   transition: font-size 0.3s ease;
+  position: relative;
+  
+  &:not(:last-of-type)::after {
+    content: '•';
+    display: block;
+    text-align: center;
+    color: #8c0033;
+    margin: ${props => props.theme.spacing.md} auto;
+    opacity: 0.5;
+  }
   
   &:first-of-type::first-letter {
     float: left;
-    font-size: calc(var(--font-size) * 2.2); /* Escala relativa ao tamanho da fonte */
+    font-size: calc(var(--font-size) * 2.5); /* Escala relativa ao tamanho da fonte */
     line-height: 0.8;
     margin-right: 8px;
     margin-top: 4px;
     color: #8c0033;
     font-family: ${props => props.theme.fonts.heading};
     font-weight: bold;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  strong, b {
+    color: #541c1c;
+  }
+  
+  em, i {
+    color: #8c0033;
+    font-style: italic;
   }
 `;
 
@@ -264,21 +329,37 @@ export const TextControls = styled.div`
   align-items: center;
   justify-content: center;
   gap: ${props => props.theme.spacing.sm};
-  margin: ${props => props.theme.spacing.md} auto ${props => props.theme.spacing.lg};
-  padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.6);
+  margin: ${props => props.theme.spacing.sm} auto ${props => props.theme.spacing.lg};
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.8);
   border-radius: 50px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px rgba(140, 0, 51, 0.15);
   width: fit-content;
+  border: 1px solid rgba(140, 0, 51, 0.1);
+  backdrop-filter: blur(5px);
+  position: relative;
+  z-index: 5;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, rgba(140, 0, 51, 0.3), transparent);
+  }
 `;
 
 export const TextControlButton = styled.button`
-  background-color: #8c0033;
+  background: linear-gradient(135deg, #8c0033, #b5003e);
   color: white;
-  border: none;
+  border: 2px solid white;
   border-radius: 50%;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;

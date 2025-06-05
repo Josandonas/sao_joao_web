@@ -10,7 +10,11 @@ Esta é uma aplicação web moderna que migra e moderniza o antigo aplicativo "B
 - **React Router 6**: Gerenciamento de rotas na aplicação
 - **Styled Components**: CSS-in-JS para estilização de componentes
 - **React i18next**: Internacionalização para suporte a múltiplos idiomas
+- **React Icons**: Biblioteca de ícones para UI consistente
 - **Video React**: Reprodução de vídeo responsiva para depoimentos em formato FLV
+- **Leaflet/React Leaflet**: Mapas interativos para geolocalização de comunidades
+- **React Image Gallery**: Galerias de imagens responsivas para os cartões postais
+- **Polished**: Utilitário para manipulação de cores nos componentes estilizados
 - **Vite**: Bundler e ferramenta de desenvolvimento
 
 ## Estrutura do Projeto
@@ -56,8 +60,17 @@ sao_joao_web/
 │   │   ├── Home/             # Página inicial (CONCLUÍDO)
 │   │   ├── Intro/            # Vídeo introdutório
 │   │   ├── LanguageSelector/ # Seleção de idioma
-│   │   ├── Postcards/        # Cartões postais digitais
+│   │   ├── Postcards/        # Cartões postais digitais (CONCLUÍDO)
+│   │   │   ├── components/   # Componentes dos cartões postais
+│   │   │   │   ├── PostcardGallery/    # Galeria de cartões postais
+│   │   │   │   ├── PostcardModal/      # Modal detalhado para cartões
+│   │   │   │   └── CategoryFilter/     # Filtro por categoria de cartão
+│   │   │   ├── data/        # Dados dos cartões postais
+│   │   │   └── styles.js    # Estilos específicos do módulo
 │   │   ├── Stories/          # Histórias e tradições (CONCLUÍDO)
+│   │   │   ├── components/  # Componentes específicos para histórias
+│   │   │   │   └── StoryModal/ # Modal para visualização das histórias
+│   │   │   └── data/        # Conteúdo das histórias por idioma
 │   │   └── Testimonials/     # Depoimentos em vídeo (CONCLUÍDO)
 │   │       ├── components/   # Componentes dos depoimentos
 │   │       │   ├── CategoryFilter/    # Filtro de categorias
@@ -100,8 +113,18 @@ sao_joao_web/
   - Modal para assistir aos vídeos com botão de fechar
   - Formulário modal para envio de novos depoimentos com upload de vídeo customizado
   - Mensagem de compatibilidade para navegadores sem suporte a vídeo
-- **Cartões postais digitais**: Galeria de imagens representativas com metadados culturais
-- **Histórias e tradições (Concluído)**: Conteúdo cultural sobre o Banho de São João com suporte a múltiplos idiomas
+- **Histórias e tradições (Concluído)**:
+  - Conteúdo cultural sobre o Banho de São João com suporte a múltiplos idiomas
+  - Modal com controle de zoom de texto para melhor acessibilidade
+  - Navegação via teclado (Esc para fechar, Ctrl+/- para ajustar zoom)
+  - Persistência das preferências de tamanho de fonte via localStorage
+  - Animações e transições suaves para melhor experiência de usuário
+- **Cartões postais digitais (Concluído)**:
+  - Galeria de imagens representativas com metadados culturais
+  - Categorização e filtragem de cartões por tema
+  - Visualização em modo galeria com imagens otimizadas
+  - Modal detalhado para cada cartão postal com informações completas
+  - Navegação intuitiva entre cartões postais via modal
 
 ## Instalação e Execução
 
@@ -129,13 +152,14 @@ Este projeto é uma migração do aplicativo original "Banho de São João", que
 - ✅ **Comunidades (Communities)**: Concluído com mapa interativo, visualização detalhada e cadastro de novas comunidades
 - ✅ **Página Inicial (Home)**: Concluído com seções hero, sobre, features com layout responsivo e distribução harmoniosa de cards
 - ✅ **Depoimentos (Testimonials)**: Concluído com categorias filtráveis, reprodução de vídeos, formulário modal e internacionalização completa
-- ✅ **Histórias (Stories)**: Concluído com exibição de histórias e tradições culturais
-- 🔄 **Cartões Postais (Postcards)**: Em desenvolvimento
+- ✅ **Histórias (Stories)**: Concluído com exibição de histórias e tradições culturais, modal acessível e controles de tamanho de texto
+- ✅ **Cartões Postais (Postcards)**: Concluído com galeria interativa, modal detalhado e navegação intuitiva
 
 ## Próximos Passos
 
-- Finalizar implementação dos módulos restantes
 - Otimizar a conversão de vídeos FLV para formatos web modernos (MP4/WebM)
 - Implementação de PWA para uso offline
 - Testes automatizados para garantir a qualidade
 - Melhorias de performance e acessibilidade
+- Refinamento da experiência do usuário em todos os módulos
+- Otimizações para dispositivos móveis e tablets
