@@ -5,7 +5,7 @@ export const HeroSection = styled.section`
   height: 70vh;
   min-height: 500px;
   max-height: 800px;
-  background-image: url('/assets/images/header-bg.jpg');
+  background-image: url('/assets/images/header-bg.jpeg');
   background-size: cover;
   background-position: center;
   display: flex;
