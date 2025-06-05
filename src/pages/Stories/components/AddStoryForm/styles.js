@@ -57,7 +57,7 @@ export const FormContainer = styled.form`
   }
   
   &::-webkit-scrollbar-thumb {
-    background: ${props => props.theme.colors.accent};
+    background: linear-gradient(135deg, #8c0033, #b5003e);
     border-radius: 10px;
   }
 `;
@@ -66,7 +66,11 @@ export const FormTitle = styled.h2`
   font-family: ${props => props.theme.fonts.heading};
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: ${props => props.theme.fontSizes.xxlarge};
-  color: ${props => props.theme.colors.primary};
+  color: #8c0033;
+  background: linear-gradient(135deg, #8c0033, #b5003e);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
   margin-bottom: ${props => props.theme.spacing.xl};
   position: relative;
   text-align: center;
@@ -79,7 +83,7 @@ export const FormTitle = styled.h2`
     transform: translateX(-50%);
     width: 80px;
     height: 3px;
-    background-color: ${props => props.theme.colors.accent};
+    background: linear-gradient(90deg, #8c0033, #b5003e);
     border-radius: 2px;
   }
 `;
@@ -97,7 +101,7 @@ export const Label = styled.label`
 `;
 
 export const RequiredField = styled.span`
-  color: ${props => props.theme.colors.accent};
+  color: #8c0033;
   font-weight: bold;
 `;
 
@@ -111,8 +115,8 @@ export const Input = styled.input`
   
   &:focus {
     outline: none;
-    border-color: ${props => props.theme.colors.accent};
-    box-shadow: 0 0 0 2px ${props => props.theme.colors.accent}22;
+    border-color: #8c0033;
+    box-shadow: 0 0 0 2px rgba(140, 0, 51, 0.2);
   }
 `;
 
@@ -128,8 +132,8 @@ export const TextArea = styled.textarea`
   
   &:focus {
     outline: none;
-    border-color: ${props => props.theme.colors.accent};
-    box-shadow: 0 0 0 2px ${props => props.theme.colors.accent}22;
+    border-color: #8c0033;
+    box-shadow: 0 0 0 2px rgba(140, 0, 51, 0.2);
   }
 `;
 
@@ -150,33 +154,37 @@ export const Button = styled.button`
 `;
 
 export const SubmitButton = styled(Button)`
-  background-color: ${props => props.theme.colors.accent};
+  background: linear-gradient(135deg, #8c0033, #b5003e);
   color: white;
   border: none;
+  box-shadow: 0 4px 8px rgba(140, 0, 51, 0.3);
   
   &:hover {
-    background-color: ${props => props.theme.colors.accentDark || props.theme.colors.accent};
+    background: linear-gradient(135deg, #a00039, #cc0049);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 12px rgba(140, 0, 51, 0.35);
   }
   
   &:active {
     transform: translateY(0);
+    background: linear-gradient(135deg, #800030, #b5003e);
+    box-shadow: 0 2px 4px rgba(140, 0, 51, 0.2);
   }
 `;
 
 export const CancelButton = styled(Button)`
   background-color: transparent;
-  color: ${props => props.theme.colors.textLight};
-  border: 1px solid ${props => props.theme.colors.lightGray};
+  color: #8c0033;
+  border: 1px solid rgba(140, 0, 51, 0.3);
   
   &:hover {
-    background-color: ${props => props.theme.colors.lightGray};
+    background-color: rgba(140, 0, 51, 0.05);
     transform: translateY(-2px);
   }
   
   &:active {
     transform: translateY(0);
+    background-color: rgba(140, 0, 51, 0.1);
   }
 `;
 
@@ -187,12 +195,12 @@ export const CloseButton = styled.button`
   background: none;
   border: none;
   font-size: ${props => props.theme.fontSizes.xxlarge};
-  color: ${props => props.theme.colors.textLight};
+  color: rgba(140, 0, 51, 0.6);
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
   
   &:hover {
-    color: ${props => props.theme.colors.accent};
+    color: #8c0033;
   }
 `;
 
@@ -204,9 +212,10 @@ export const TabContainer = styled.div`
 `;
 
 export const TabButton = styled.button`
-  background: ${props => props.active ? props.theme.colors.accent : 'transparent'};
+  background: ${props => props.active ? 'linear-gradient(135deg, #8c0033, #b5003e)' : 'transparent'};
   color: ${props => props.active ? 'white' : props.theme.colors.text};
   border: ${props => props.active ? 'none' : `1px solid ${props.theme.colors.lightGray}`};
+  box-shadow: ${props => props.active ? '0 4px 8px rgba(140, 0, 51, 0.2)' : 'none'};
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
   border-radius: ${props => `${props.theme.borderRadius.medium} ${props.theme.borderRadius.medium} 0 0`};
   font-weight: ${props => props.theme.fontWeights.medium};
@@ -215,6 +224,6 @@ export const TabButton = styled.button`
   transition: all 0.2s ease;
   
   &:hover {
-    background: ${props => props.active ? props.theme.colors.accent : props.theme.colors.lightGray};
+    background: ${props => props.active ? 'linear-gradient(135deg, #a00039, #cc0049)' : 'rgba(140, 0, 51, 0.05)'};
   }
 `;
