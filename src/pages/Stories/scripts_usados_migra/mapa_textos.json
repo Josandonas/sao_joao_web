@@ -1,0 +1,566 @@
+{
+  "pt": {
+    "enviada por filhos de dona": {
+      "arquivo": "index030d.html",
+      "titulo": "A mesma coisa que era antes",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index030d.html",
+      "textoCompleto": "Enviada por Filhos de Dona Berê (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "deus te salve joão batista!": {
+      "arquivo": "indexff0f.html",
+      "titulo": "Sao João - Depoimento",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexff0f.html",
+      "textoCompleto": "Deus te Salve João Batista!\n\t\t\tUma Contribuição sobre o Banho de São João de Corumbá - Mato Grosso do Sul\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\tApresentação\n\t\t\t\tDepoimentos\n\t\t\t\tCelebrações\n\t\t\t\tComunidades Festeiras\n\t\t\t\tLivro\n\t\t\t\tPostais\n\t\t\t\t\t\t\t\tHistórias\n\t\t\t\tBiblioteca\n\t\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\n\t\n\n\t\n\t\tvar so = new SWFObject(\"images/flvplayer.swf\", \"mymovie\", \"980\", \"550\", \"6\", \"#000000\");    \n\t\tso.addParam(\"wmode\", \"transparent\");\n\t\tso.addParam(\"allowfullscreen\",\"true\");\t\t\t\n\t\tso.addParam(\"flashvars\", \"file=videos/pepe-l.flv&autostart=true\");\n\t\tso.write(\"flvPlayer\"); \n\t\n\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\n\n\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\tApresentação\n\t\t\t\tDepoimentos\n\t\t\t\tCelebrações\n\t\t\t\tComunidades Festeiras\n\t\t\t\tLivro\n\t\t\t\tPostais\n\t\t\t\t\t\t\t\tHistórias\n\t\t\t\tBiblioteca\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\tVale\n\t\t\tFIC\n\t\t\tFundação de Cultura de MS\n\t\t\tGoverno do Estado de Mato Grosso do Sul"
+    },
+    "enviada por joaquina medeiros pereira": {
+      "arquivo": "index0aa9.html",
+      "titulo": "Fortalecida na fé",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index0aa9.html",
+      "textoCompleto": "Enviada por Joaquina Medeiros Pereira (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por luís martins (corumbá,": {
+      "arquivo": "index0fcc.html",
+      "titulo": "A gente vai com devoção",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index0fcc.html",
+      "textoCompleto": "Enviada por Luís Martins (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "a intenção do livro deus": {
+      "arquivo": "index25c3.html",
+      "titulo": "",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index25c3.html",
+      "textoCompleto": "A intenção do livro Deus te Salve, João Batista! Uma contribuição sobre o Banho de São João de Corumbá – Mato Grosso do Sul sempre foi a de contar, visualmente, a história dos elementos da manifestação festiva permeada por princípios religiosos, mostrando os ritos e os rituais, a devoção, a alegria e o ápice da festividade, que acontece com o banho do santo nas águas do Rio Paraguai.  Admitiu-se, como prerrogativa de apoio à preservação, a construção de uma memória tanto das aporias quanto da apreensão de uma realidade."
+    },
+    "enviada por reginalda mendes vera": {
+      "arquivo": "index2683.html",
+      "titulo": "Pega mãe, pega que a gente vai ajudar.",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index2683.html",
+      "textoCompleto": "Enviada por Reginalda Mendes Vera (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "ir para a página inicial": {
+      "arquivo": "index98ee.html",
+      "titulo": "Sao João - Intro",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index98ee.html",
+      "textoCompleto": "Ir para a Página Inicial\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tvar so = new SWFObject(\"images/flvplayer.swf\", \"mymovie\", \"852\", \"490\", \"6\", \"#000000\");    \n\t\t\t\t\tso.addParam(\"wmode\", \"transparent\");\n\t\t\t\t\tso.addParam(\"allowfullscreen\",\"true\");\t\t\t\n\t\t\t\t\tso.addParam(\"flashvars\", \"file=videos/intro-c.flv&autostart=true\");\n\t\t\t\t\tso.write(\"flvPlayer\"); \n\t\t\t\t\n\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t$('homelink').hide();\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tfunction mostraLink(){\n\t\t\t\t\t$('homelink').show();\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tmostraLink.delay(40);"
+    },
+    "enviada por eliane e elinete": {
+      "arquivo": "index37fd.html",
+      "titulo": "E ele gosta da festa dele",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index37fd.html",
+      "textoCompleto": "Enviada por Eliane e Elinete Escobar (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por manoel fernandes aguilar": {
+      "arquivo": "index3cb1.html",
+      "titulo": "São João Espacial",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index3cb1.html",
+      "textoCompleto": "Enviada por Manoel Fernandes Aguilar (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por rodrigo nishino (corumbá,": {
+      "arquivo": "index4c10.html",
+      "titulo": "Acende a fogueira do meu coração!",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index4c10.html",
+      "textoCompleto": "Enviada por Rodrigo Nishino (Corumbá, MS) em 07 de Maio de 2012"
+    },
+    "enviada por izabel meira de": {
+      "arquivo": "index5828.html",
+      "titulo": "Numa simples brincadeira",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index5828.html",
+      "textoCompleto": "Enviada por Izabel Meira de Castro  (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "toda pessoa, acima de 12": {
+      "arquivo": "index61f2.html",
+      "titulo": "Contar sua história de São João",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index61f2.html",
+      "textoCompleto": "Toda pessoa, acima de 12 anos, pode participar do nosso acervo virtual de histórias do Banho de São João de Corumbá, desde que preencha os dados cadastrais mínimos, se responsabilize pelo conteúdo enviado e concorde com a cessão de direitos."
+    },
+    "comunidade monte castelo": {
+      "arquivo": "index6268.html",
+      "titulo": "Depoimentos",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index6268.html",
+      "textoCompleto": "Comunidade Monte Castelo"
+    },
+    "enviada por roberto carlos da": {
+      "arquivo": "index62cc.html",
+      "titulo": "O Preto Velho arriou na minha cabeça e xingou todo mundo",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index62cc.html",
+      "textoCompleto": "Enviada por Roberto Carlos da Silva (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "português english spanish": {
+      "arquivo": "index7597.html",
+      "titulo": "Sao João - Locale",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index7597.html",
+      "textoCompleto": "Português\n\t\t\tEnglish\n\t\t\tSpanish"
+    },
+    "enviada por bianca machado (corumbá,": {
+      "arquivo": "index7d95.html",
+      "titulo": "Noiva de São João",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index7d95.html",
+      "textoCompleto": "Enviada por Bianca Machado (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "a biblioteca do banho de": {
+      "arquivo": "index81d5.html",
+      "titulo": "Sao João - Biblioteca",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index81d5.html",
+      "textoCompleto": "A biblioteca do Banho de São de Corumbá manterá um pequeno acervo \n\tcom teses, dissertações e artigos relacionados à história da \n\tCelebração do Banho de São João de Corumbá-Mato Grosso do Sul. \n\tSe você quiser publicar um texto, escreva para \n\tmarie@marieconsultoria.com.br Ele será analisado e \n\tpublicado nesta seção."
+    },
+    "enviada por ovilce maria da": {
+      "arquivo": "index91d3.html",
+      "titulo": "São João merece tudo",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index91d3.html",
+      "textoCompleto": "Enviada por Ovilce Maria da Matta (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por pedro paulo miranda": {
+      "arquivo": "index9656.html",
+      "titulo": "Levanta, levanta Minda",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index9656.html",
+      "textoCompleto": "Enviada por Pedro Paulo Miranda (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "selecione uma imagem ao lado": {
+      "arquivo": "index9d1b.html",
+      "titulo": "Postais Virtuais",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\index9d1b.html",
+      "textoCompleto": "Selecione uma imagem ao lado e envie seu postal"
+    },
+    "enviada por epifânia da silva": {
+      "arquivo": "indexe16c.html",
+      "titulo": "A gente saía com a bandeira, saía com a coroa na rua pedindo esmola",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexe16c.html",
+      "textoCompleto": "Enviada por Epifânia da Silva Bastos (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por idalina gonçalves da": {
+      "arquivo": "indexb70d.html",
+      "titulo": "Ele me dá vida, saúde",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexb70d.html",
+      "textoCompleto": "Enviada por Idalina Gonçalves da Silva (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por maria paula da": {
+      "arquivo": "indexbbdc.html",
+      "titulo": "Um sonho de um homem puxando um carneirinho",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexbbdc.html",
+      "textoCompleto": "Enviada por Maria Paula da Silva (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por alfredo tadeu ortiz": {
+      "arquivo": "indexbd04.html",
+      "titulo": "São João faz parte da nossa família",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexbd04.html",
+      "textoCompleto": "Enviada por Alfredo Tadeu Ortiz Ferras (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por lucila alvarez de": {
+      "arquivo": "indexc40f.html",
+      "titulo": "Meu protetor, meu santo padroeiro, meu pastor",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexc40f.html",
+      "textoCompleto": "Enviada por Lucila Alvarez de Souza (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "religião:": {
+      "arquivo": "indexc5fe.html",
+      "titulo": "Sao João - Comunidades",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexc5fe.html",
+      "textoCompleto": "Religião:"
+    },
+    "enviada por marinete luiz cavalcanti": {
+      "arquivo": "indexdcb4.html",
+      "titulo": "“Tem fé, São João é tudo, tem fé”",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexdcb4.html",
+      "textoCompleto": "Enviada por Marinete Luiz Cavalcanti de Camargo (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por oraide teodora ramos": {
+      "arquivo": "indexe0d1.html",
+      "titulo": "Vieram pra conhecer Xangô",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexe0d1.html",
+      "textoCompleto": "Enviada por Oraide Teodora Ramos (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por fernando vanucci (corumbá,": {
+      "arquivo": "indexe9a2.html",
+      "titulo": "São João verde e amarelo",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexe9a2.html",
+      "textoCompleto": "Enviada por Fernando Vanucci (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "apresentação depoimentos celebrações comunidades festeiras": {
+      "arquivo": "indexfcf7.html",
+      "titulo": "Sao João - Folhear Livro",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexfcf7.html",
+      "textoCompleto": "Apresentação\n\t\t\t\tDepoimentos\n\t\t\t\tCelebrações\n\t\t\t\tComunidades Festeiras\n\t\t\t\tLivro\n\t\t\t\tPostais\n\t\t\t\t\t\t\t\tHistórias\n\t\t\t\tBiblioteca"
+    },
+    "enviada por janete alves tinoco": {
+      "arquivo": "indexfe9b.html",
+      "titulo": "Minha parte eu vou ter que cumprir",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_c\\indexfe9b.html",
+      "textoCompleto": "Enviada por Janete Alves Tinoco (Corumbá, MS) em 14 de Junho de 2012"
+    }
+  },
+  "en": {
+    "god bless john the baptist!": {
+      "arquivo": "indexfa0c.html",
+      "titulo": "Sao João - Depoimento",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexfa0c.html",
+      "textoCompleto": "God bless John the Baptist!\n\t\t\tA contribution on the St. John’s Bath of Corumbá - Mato Grosso do Sul\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\tPresentation\n\t\t\t\tTestimonials\n\t\t\t\tCelebration\n\t\t\t\tCommunities\n\t\t\t\tBook\n\t\t\t\tPostals\n\t\t\t\t\t\t\t\tStories\n\t\t\t\t\t\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\n\t\n\n\t\n\t\tvar so = new SWFObject(\"images/flvplayer.swf\", \"mymovie\", \"980\", \"550\", \"6\", \"#000000\");    \n\t\tso.addParam(\"wmode\", \"transparent\");\n\t\tso.addParam(\"allowfullscreen\",\"true\");\t\t\t\n\t\tso.addParam(\"flashvars\", \"file=videos/lucila-en.flv&autostart=true\");\n\t\tso.write(\"flvPlayer\"); \n\t\n\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\n\n\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\tPresentation\n\t\t\t\tTestimonials\n\t\t\t\tCelebration\n\t\t\t\tCommunities\n\t\t\t\tBook\n\t\t\t\tPostals\n\t\t\t\t\t\t\t\tStories\n\t\t\t\tLibrary\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\tVale\n\t\t\tFIC\n\t\t\tFundação de Cultura de MS\n\t\t\tGoverno do Estado de Mato Grosso do Sul"
+    },
+    "enviada por joaquina medeiros pereira": {
+      "arquivo": "index0589.html",
+      "titulo": "Strengthened in faith",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index0589.html",
+      "textoCompleto": "Enviada por Joaquina Medeiros Pereira (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por filhos de dona": {
+      "arquivo": "index0c16.html",
+      "titulo": "The same thing that was before",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index0c16.html",
+      "textoCompleto": "Enviada por Filhos de Dona Berê (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por ovilce maria da": {
+      "arquivo": "index21f3.html",
+      "titulo": "St. John deserves everything",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index21f3.html",
+      "textoCompleto": "Enviada por Ovilce Maria da Matta (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "the intentions in the book": {
+      "arquivo": "index25c3.html",
+      "titulo": "",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index25c3.html",
+      "textoCompleto": "The intentions in the book God bless John the Baptist! A contribution on the St. John’s Bath of Corumbá - Mato Grosso do Sul it was been to tell, visually, the element of the story of the festive event permeated by religious principles, showing the rites and rituals, devotion, joy and festivity of the apex , which happens at bathing the saint in the waters of the Paraguay River. It was assumed, as the prerogative to support the preservation, construction of a memory and the apprehension of a reality."
+    },
+    "go to the home page": {
+      "arquivo": "index98ee.html",
+      "titulo": "Sao João - Introdução",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index98ee.html",
+      "textoCompleto": "Go to the Home Page\t\t\t\t\t\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tvar so = new SWFObject(\"images/flvplayer.swf\", \"mymovie\", \"852\", \"490\", \"6\", \"#000000\");    \n\t\t\t\t\tso.addParam(\"wmode\", \"transparent\");\n\t\t\t\t\tso.addParam(\"allowfullscreen\",\"true\");\t\t\t\n\t\t\t\t\tso.addParam(\"flashvars\", \"file=videos/introducao-en.flv&autostart=true\");\n\t\t\t\t\tso.write(\"flvPlayer\"); \n\t\t\t\t\n\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t$('homelink').hide();\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tfunction mostraLink(){\n\t\t\t\t\t$('homelink').show();\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tmostraLink.delay(40);"
+    },
+    "enviada por alfredo tadeu ortiz": {
+      "arquivo": "index3662.html",
+      "titulo": "St. John is part of our family.",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index3662.html",
+      "textoCompleto": "Enviada por Alfredo Tadeu Ortiz Ferras (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por lucila alvarez de": {
+      "arquivo": "index4629.html",
+      "titulo": "My protector, my patron saint, my pastor",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index4629.html",
+      "textoCompleto": "Enviada por Lucila Alvarez de Souza (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por rodrigo nishino (corumbá,": {
+      "arquivo": "index4c10.html",
+      "titulo": "Acende a fogueira do meu coração!",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index4c10.html",
+      "textoCompleto": "Enviada por Rodrigo Nishino (Corumbá, MS) em 07 de Maio de 2012"
+    },
+    "toda pessoa, acima de 12": {
+      "arquivo": "index61f2.html",
+      "titulo": "Contar sua hstória de São João",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index61f2.html",
+      "textoCompleto": "Toda pessoa, acima de 12 anos, pode participar do nosso acervo virtual de histórias do Banho de São João de Corumbá, desde que preencha os dados cadastrais mínimos, se responsabilize pelo conteúdo enviado e concorde com a cessão de direitos."
+    },
+    "community monte castelo": {
+      "arquivo": "index6268.html",
+      "titulo": "Testimonials",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index6268.html",
+      "textoCompleto": "Community Monte Castelo"
+    },
+    "enviada por idalina gonçalves da": {
+      "arquivo": "index70b5.html",
+      "titulo": "He gives me life, health",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index70b5.html",
+      "textoCompleto": "Enviada por Idalina Gonçalves da Silva (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "português english spanish": {
+      "arquivo": "index7597.html",
+      "titulo": "Sao João - Locale",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index7597.html",
+      "textoCompleto": "Português\n\t\t\tEnglish\n\t\t\tSpanish"
+    },
+    "enviada por reginalda mendes vera": {
+      "arquivo": "index7975.html",
+      "titulo": "Take it, mother that we’re going to help",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index7975.html",
+      "textoCompleto": "Enviada por Reginalda Mendes Vera (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "the library of the bath": {
+      "arquivo": "index81d5.html",
+      "titulo": "Sao João - Biblioteca",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index81d5.html",
+      "textoCompleto": "The Library of the Bath of S. John of Corumba will keep a small stock with theses,\n\tdissertations and articles related to the story of the Celebration of the Bath of St. John\n\tof Corumbá- Mato Grosso do Sul. If you want to publish a text, you can write to\n\tmarie@marieconsultoria.com.br it will be analyzed and published in this section."
+    },
+    "enviada por bianca machado (corumbá,": {
+      "arquivo": "index83a3.html",
+      "titulo": "St. John’s bride",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index83a3.html",
+      "textoCompleto": "Enviada por Bianca Machado (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por izabel meira de": {
+      "arquivo": "index865e.html",
+      "titulo": "It began as simple entertainment",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index865e.html",
+      "textoCompleto": "Enviada por Izabel Meira de Castro  (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por marinete luiz cavalcanti": {
+      "arquivo": "index8840.html",
+      "titulo": "Have faith, St. John",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index8840.html",
+      "textoCompleto": "Enviada por Marinete Luiz Cavalcanti de Camargo (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por fernando vanucci (corumbá,": {
+      "arquivo": "index8bc8.html",
+      "titulo": "Green and yellow St. John",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index8bc8.html",
+      "textoCompleto": "Enviada por Fernando Vanucci (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por roberto carlos da": {
+      "arquivo": "index9b82.html",
+      "titulo": "The old black man came down to my head and curse at everyone",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index9b82.html",
+      "textoCompleto": "Enviada por Roberto Carlos da Silva (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "select a picture on the": {
+      "arquivo": "index9d1b.html",
+      "titulo": "Virtual PostCards",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index9d1b.html",
+      "textoCompleto": "Select a picture on the left to send as a postcard"
+    },
+    "enviada por eliane e elinete": {
+      "arquivo": "indexa317.html",
+      "titulo": "And he likes his feast",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexa317.html",
+      "textoCompleto": "Enviada por Eliane e Elinete Escobar (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "sent by alfredo tadeu ortiz": {
+      "arquivo": "indexa9c5.html",
+      "titulo": "St. John's Bath Stories",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexa9c5.html",
+      "textoCompleto": "Sent by Alfredo Tadeu Ortiz Ferras (Corumbá, MS) in 15 de Junho de 2012"
+    },
+    "enviada por maria paula da": {
+      "arquivo": "indexb2e8.html",
+      "titulo": "A dream of a man pulling a little lamb",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexb2e8.html",
+      "textoCompleto": "Enviada por Maria Paula da Silva (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por epifânia da silva": {
+      "arquivo": "indexb60b.html",
+      "titulo": "We used to go out with banners, with the crown through the streets begging",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexb60b.html",
+      "textoCompleto": "Enviada por Epifânia da Silva Bastos (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "religion:": {
+      "arquivo": "indexc5fe.html",
+      "titulo": "Sao João - Comunidades",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexc5fe.html",
+      "textoCompleto": "Religion:"
+    },
+    "enviada por oraide teodora ramos": {
+      "arquivo": "indexdb32.html",
+      "titulo": "They came to know Xangô",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexdb32.html",
+      "textoCompleto": "Enviada por Oraide Teodora Ramos (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por pedro paulo miranda": {
+      "arquivo": "indexdfc8.html",
+      "titulo": "Get up, get up Minda",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexdfc8.html",
+      "textoCompleto": "Enviada por Pedro Paulo Miranda (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por manoel fernandes aguilar": {
+      "arquivo": "indexdffd.html",
+      "titulo": "St. John from space",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexdffd.html",
+      "textoCompleto": "Enviada por Manoel Fernandes Aguilar (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por luís martins (corumbá,": {
+      "arquivo": "indexe3bb.html",
+      "titulo": "We go with devotion",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexe3bb.html",
+      "textoCompleto": "Enviada por Luís Martins (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por janete alves tinoco": {
+      "arquivo": "indexf323.html",
+      "titulo": "My part I´m gonna do",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexf323.html",
+      "textoCompleto": "Enviada por Janete Alves Tinoco (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "presentation testimonials celebration communities book": {
+      "arquivo": "indexfcf7.html",
+      "titulo": "Sao João - Folhear Livro",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexfcf7.html",
+      "textoCompleto": "Presentation\n\t\t\t\tTestimonials\n\t\t\t\tCelebration\n\t\t\t\tCommunities\n\t\t\t\tBook\n\t\t\t\tPostals\n\t\t\t\t\t\t\t\tStories"
+    }
+  },
+  "es": {
+    "god bless john the baptist!": {
+      "arquivo": "indexfa0c.html",
+      "titulo": "Sao João - Depoimento",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexfa0c.html",
+      "textoCompleto": "God bless John the Baptist!\n\t\t\tA contribution on the St. John’s Bath of Corumbá - Mato Grosso do Sul\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t\n\t\t\t\n\t\t\t\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\tPresentación\n\t\t\t\tTestimonio\n\t\t\t\tCelebraciones\n\t\t\t\tComunidad\n\t\t\t\tLibro\n\t\t\t\tPostales\n\t\t\t\t\t\t\t\tHistorias\n\t\t\t\t\t\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\n\t\n\n\t\n\t\tvar so = new SWFObject(\"images/flvplayer.swf\", \"mymovie\", \"980\", \"550\", \"6\", \"#000000\");    \n\t\tso.addParam(\"wmode\", \"transparent\");\n\t\tso.addParam(\"allowfullscreen\",\"true\");\t\t\t\n\t\tso.addParam(\"flashvars\", \"file=videos/lucila-es.flv&autostart=true\");\n\t\tso.write(\"flvPlayer\"); \n\t\n\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\n\t\t\n\t\t\n\n\n\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\tPresentación\n\t\t\t\tTestimonio\n\t\t\t\tCelebraciones\n\t\t\t\tComunidad\n\t\t\t\tLibro\n\t\t\t\tPostales\n\t\t\t\t\t\t\t\tHistorias\n\t\t\t\tBiblioteca\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\tVale\n\t\t\tFIC\n\t\t\tFundação de Cultura de MS\n\t\t\tGoverno do Estado de Mato Grosso do Sul"
+    },
+    "enviada por roberto carlos da": {
+      "arquivo": "indexa9c5.html",
+      "titulo": "Historias del Baño de San Juan",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexa9c5.html",
+      "textoCompleto": "Enviada por Roberto Carlos da Silva (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por janete alves tinoco": {
+      "arquivo": "index0f93.html",
+      "titulo": "Mi parte voy a tener que cumplirla",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index0f93.html",
+      "textoCompleto": "Enviada por Janete Alves Tinoco (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por filhos de dona": {
+      "arquivo": "index1f19.html",
+      "titulo": "Lo mismo que era antes",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index1f19.html",
+      "textoCompleto": "Enviada por Filhos de Dona Berê (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por joaquina medeiros pereira": {
+      "arquivo": "index2387.html",
+      "titulo": "Fortalecidos en la fe",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index2387.html",
+      "textoCompleto": "Enviada por Joaquina Medeiros Pereira (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por izabel meira de": {
+      "arquivo": "index24e8.html",
+      "titulo": "Primero fue como jugando",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index24e8.html",
+      "textoCompleto": "Enviada por Izabel Meira de Castro  (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "la intención en el libro": {
+      "arquivo": "index25c3.html",
+      "titulo": "",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index25c3.html",
+      "textoCompleto": "La intención en el libro ¡Dios te Salve Juan Bautista! Una contribución sobre el Baño de San Juan de Corumbá – Mato Grosso do Sul siempre fue la de contar, visualmente, la historia de los elementos de la manifestación  festiva impregnada por principios religiosos, mostrando los ritos y rituales, la devoción, la alegría y el ápice de la festividad, que ocurre con el baño del santo en las aguas del Río Paraguay.  Se admitió, como prerrogativa de apoyo a la preservación, la construcción de un memorial tanto de las incertidumbres como la de aprehensión de una realidad."
+    },
+    "enviada por alfredo tadeu ortiz": {
+      "arquivo": "index30e4.html",
+      "titulo": "San Juan es parte de nuestra familia",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index30e4.html",
+      "textoCompleto": "Enviada por Alfredo Tadeu Ortiz Ferras (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "ir a la página de": {
+      "arquivo": "index98ee.html",
+      "titulo": "Sao João - Intro",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index98ee.html",
+      "textoCompleto": "Ir a la Página de Inicio\t\t\t\t\n\n\t\t\t\t\n\t\t\t\t\tvar so = new SWFObject(\"images/flvplayer.swf\", \"mymovie\", \"852\", \"490\", \"6\", \"#000000\");    \n\t\t\t\t\tso.addParam(\"wmode\", \"transparent\");\n\t\t\t\t\tso.addParam(\"allowfullscreen\",\"true\");\t\t\t\n\t\t\t\t\tso.addParam(\"flashvars\", \"file=videos/intro-c.flv&autostart=true\");\n\t\t\t\t\tso.write(\"flvPlayer\"); \n\t\t\t\t\n\n\t\t\t\n\t\t\t\n\t\t\t\n\t\t\t\t\n\t\t\t\t$('homelink').hide();\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tfunction mostraLink(){\n\t\t\t\t\t$('homelink').show();\n\t\t\t\t\t}\n\t\t\t\t\n\t\t\t\t\n\t\t\t\tmostraLink.delay(40);"
+    },
+    "enviada por rodrigo nishino (corumbá,": {
+      "arquivo": "index4c10.html",
+      "titulo": "Acende a fogueira do meu coração!",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index4c10.html",
+      "textoCompleto": "Enviada por Rodrigo Nishino (Corumbá, MS) em 07 de Maio de 2012"
+    },
+    "enviada por lucila alvarez de": {
+      "arquivo": "index558a.html",
+      "titulo": "Mi protector, mi santo patrono, mi pastor",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index558a.html",
+      "textoCompleto": "Enviada por Lucila Alvarez de Souza (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por idalina gonçalves da": {
+      "arquivo": "index590e.html",
+      "titulo": "Él me da vida, salud",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index590e.html",
+      "textoCompleto": "Enviada por Idalina Gonçalves da Silva (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por manoel fernandes aguilar": {
+      "arquivo": "index5aef.html",
+      "titulo": "San Juan Espacial",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index5aef.html",
+      "textoCompleto": "Enviada por Manoel Fernandes Aguilar (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "cualquier persona con más de": {
+      "arquivo": "index61f2.html",
+      "titulo": "Contar sua hstória de São João",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index61f2.html",
+      "textoCompleto": "Cualquier persona con más de 12 años, puede participar de nuestro acervo virtual de historias del Baño de San Juan de Corumbá, siempre y cuando cumpla con los datos de registro mínimos, que asuma la responsabilidad por el contenido presentado y esté de acuerdo con la cesión de derechos."
+    },
+    "comunidad monte castelo": {
+      "arquivo": "index6268.html",
+      "titulo": "Testimonios",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index6268.html",
+      "textoCompleto": "Comunidad Monte Castelo"
+    },
+    "la biblioteca del baño de": {
+      "arquivo": "index81d5.html",
+      "titulo": "Sao João - Biblioteca",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index81d5.html",
+      "textoCompleto": "La biblioteca del Baño de San Juan de Corumbá mantendrá un pequeño acervo con\ntesis, disertaciones y artículos relacionados a la historia de la Celebración del Baño de\nSan Juan de Corumbá –Mato Grosso do Sul. Si usted quiere publicar un texto, escriba\npara marie@marieconsultoria.com.br él será analizado y publicado en esta sección."
+    },
+    "enviada por bianca machado (corumbá,": {
+      "arquivo": "index9737.html",
+      "titulo": "Novia de  San Juan",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index9737.html",
+      "textoCompleto": "Enviada por Bianca Machado (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "seleccione una imagen al lado": {
+      "arquivo": "index9d1b.html",
+      "titulo": "Postales",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index9d1b.html",
+      "textoCompleto": "Seleccione una imagen al lado y envie tu postal"
+    },
+    "enviada por ovilce maria da": {
+      "arquivo": "index9de0.html",
+      "titulo": "San Juan merece todo",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index9de0.html",
+      "textoCompleto": "Enviada por Ovilce Maria da Matta (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por maria paula da": {
+      "arquivo": "indexc19a.html",
+      "titulo": "Un sueño de un hombre jalando un corderito",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexc19a.html",
+      "textoCompleto": "Enviada por Maria Paula da Silva (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "religión:": {
+      "arquivo": "indexc5fe.html",
+      "titulo": "Sao João - Comunidades",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexc5fe.html",
+      "textoCompleto": "Religión:"
+    },
+    "enviada por oraide teodora ramos": {
+      "arquivo": "indexc999.html",
+      "titulo": "Vinieron para conocer a Xangô",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexc999.html",
+      "textoCompleto": "Enviada por Oraide Teodora Ramos (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por epifânia da silva": {
+      "arquivo": "indexcd4d.html",
+      "titulo": "Nosotros salíamos con bandera, con la corona por las calles pidiendo limosna",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexcd4d.html",
+      "textoCompleto": "Enviada por Epifânia da Silva Bastos (Corumbá, MS) em 15 de Junho de 2012"
+    },
+    "enviada por fernando vanucci (corumbá,": {
+      "arquivo": "indexd2be.html",
+      "titulo": "San Juan verde y amarillo",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexd2be.html",
+      "textoCompleto": "Enviada por Fernando Vanucci (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por pedro paulo miranda": {
+      "arquivo": "indexd2c3.html",
+      "titulo": "Levántate, levántate Minda",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexd2c3.html",
+      "textoCompleto": "Enviada por Pedro Paulo Miranda (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por eliane e elinete": {
+      "arquivo": "indexd5f5.html",
+      "titulo": "A él le gusta su fiesta",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexd5f5.html",
+      "textoCompleto": "Enviada por Eliane e Elinete Escobar (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por luís martins (corumbá,": {
+      "arquivo": "indexdfb2.html",
+      "titulo": "Vamos con devoción",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexdfb2.html",
+      "textoCompleto": "Enviada por Luís Martins (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por reginalda mendes vera": {
+      "arquivo": "indexe6f7.html",
+      "titulo": "Mamá, acepte, acepte, nosotros le vamos ayudar",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexe6f7.html",
+      "textoCompleto": "Enviada por Reginalda Mendes Vera (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "enviada por marinete luiz cavalcanti": {
+      "arquivo": "indexef61.html",
+      "titulo": "Tenga fe, San Juan es todo, tenga fe",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexef61.html",
+      "textoCompleto": "Enviada por Marinete Luiz Cavalcanti de Camargo (Corumbá, MS) em 14 de Junho de 2012"
+    },
+    "presentación testimonio celebraciones comunidad libro": {
+      "arquivo": "indexfcf7.html",
+      "titulo": "Sao João - Folhear Livro",
+      "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexfcf7.html",
+      "textoCompleto": "Presentación\n\t\t\t\tTestimonio\n\t\t\t\tCelebraciones\n\t\t\t\tComunidad\n\t\t\t\tLibro\n\t\t\t\tPostales\n\t\t\t\tHistorias"
+    }
+  }
+}

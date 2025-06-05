@@ -1,0 +1,203 @@
+{
+  "totalHistorias": 20,
+  "historiasComTraducoesFaltantes": 19,
+  "traducoesFaltantes": [
+    {
+      "id": 1,
+      "titulo": "A gente saía com a bandeira, saía com a coroa na rua pedindo esmola",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 2,
+      "titulo": "O Preto Velho arriou na minha cabeça e xingou todo mundo",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 3,
+      "titulo": "São João faz parte da nossa família",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 4,
+      "titulo": "São João verde e amarelo",
+      "idiomasFaltantes": [
+        "en"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 5,
+      "titulo": "A mesma coisa que era antes",
+      "idiomasFaltantes": [
+        "en"
+      ],
+      "correspondenciasEncontradas": {
+        "en": {
+          "arquivo": "index0c16.html",
+          "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index0c16.html",
+          "titulo": "The same thing that was before",
+          "similaridade": 0.5
+        }
+      }
+    },
+    {
+      "id": 6,
+      "titulo": "Vieram pra conhecer Xangô",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 7,
+      "titulo": "Ele me dá vida, saúde",
+      "idiomasFaltantes": [
+        "en"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 8,
+      "titulo": "E ele gosta da festa dele",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 9,
+      "titulo": "Numa simples brincadeira",
+      "idiomasFaltantes": [
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 10,
+      "titulo": "Minha parte eu vou ter que cumprir",
+      "idiomasFaltantes": [
+        "en"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 11,
+      "titulo": "Fortalecida na fé",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {
+        "en": {
+          "arquivo": "index0589.html",
+          "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\index0589.html",
+          "titulo": "Strengthened in faith",
+          "similaridade": 0.4
+        },
+        "es": {
+          "arquivo": "index2387.html",
+          "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\index2387.html",
+          "titulo": "Fortalecidos en la fe",
+          "similaridade": 0.4
+        }
+      }
+    },
+    {
+      "id": 12,
+      "titulo": "Meu protetor, meu santo padroeiro, meu pastor",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 13,
+      "titulo": "A gente vai com devoção",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 14,
+      "titulo": "São João Espacial",
+      "idiomasFaltantes": [
+        "en"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 15,
+      "titulo": "Um sonho de um homem puxando um carneirinho",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {
+        "en": {
+          "arquivo": "indexb2e8.html",
+          "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_en\\indexb2e8.html",
+          "titulo": "A dream of a man pulling a little lamb",
+          "similaridade": 0.5
+        },
+        "es": {
+          "arquivo": "indexc19a.html",
+          "caminho": "C:\\Users\\josan\\Desktop\\jmcs\\Sao_Joao_app\\banho_es\\indexc19a.html",
+          "titulo": "Un sueño de un hombre jalando un corderito",
+          "similaridade": 0.5
+        }
+      }
+    },
+    {
+      "id": 16,
+      "titulo": "“Tem fé, São João é tudo, tem fé”",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 17,
+      "titulo": "São João merece tudo",
+      "idiomasFaltantes": [
+        "en"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 18,
+      "titulo": "Noiva de São João",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    },
+    {
+      "id": 19,
+      "titulo": "Pega mãe, pega que a gente vai ajudar.",
+      "idiomasFaltantes": [
+        "en",
+        "es"
+      ],
+      "correspondenciasEncontradas": {}
+    }
+  ]
+}

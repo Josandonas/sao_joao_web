@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  padding: ${props => props.theme.spacing.lg};
+  padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.lg};
   max-width: 1200px;
   margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: ${props => props.theme.borderRadius.large};
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    padding: ${props => props.theme.spacing.md};
+    padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.md};
+    margin: 0 ${props => props.theme.spacing.sm};
   }
 `;
 

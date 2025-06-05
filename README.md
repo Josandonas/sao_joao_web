@@ -57,7 +57,7 @@ sao_joao_web/
 │   │   ├── Intro/            # Vídeo introdutório
 │   │   ├── LanguageSelector/ # Seleção de idioma
 │   │   ├── Postcards/        # Cartões postais digitais
-│   │   ├── Stories/          # Estórias e tradições
+│   │   ├── Stories/          # Histórias e tradições
 │   │   └── Testimonials/     # Depoimentos em vídeo
 │   ├── services/             # Serviços e integrações
 │   ├── styles/               # Estilos globais

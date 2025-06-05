@@ -20,6 +20,7 @@
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.15.0",
     "styled-components": "^6.0.7",
+    "translate": "^3.0.1",
     "video-react": "^0.16.0"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "jsdom": "^26.1.0",
     "vite": "^4.4.9"
   }
 }
