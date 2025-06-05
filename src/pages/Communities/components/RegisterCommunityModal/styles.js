@@ -58,18 +58,36 @@ export const ModalTitle = styled.h2`
 `;
 
 export const CloseButton = styled.button`
-  background: none;
-  border: none;
-  font-size: 2rem;
-  color: rgba(140, 0, 51, 0.6);
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  font-weight: 700;
+  background-color: white;
+  border: 2px solid #8c0033;
+  color: #8c0033;
   cursor: pointer;
-  padding: 0.5rem;
-  margin: -0.5rem;
+  z-index: 10;
   line-height: 1;
-  transition: color 0.2s;
+  height: 48px;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 3px 10px rgba(140, 0, 51, 0.25);
+  transition: all 0.3s ease;
+  padding: 0;
+  
+  & > svg {
+    width: 28px;
+    height: 28px;
+  }
   
   &:hover {
-    color: #8c0033;
+    transform: scale(1.1);
+    background-color: #f9f9f9;
+    box-shadow: 0 5px 15px rgba(140, 0, 51, 0.35);
   }
 `;
 

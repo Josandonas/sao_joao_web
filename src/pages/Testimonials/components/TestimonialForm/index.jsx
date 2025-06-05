@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { FaTimes } from 'react-icons/fa';
 import {
   ModalOverlay,
   ModalContainer,
@@ -33,7 +34,7 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit }) => {
       {showForm && (
         <ModalOverlay onClick={toggleForm}>
           <ModalContainer onClick={(e) => e.stopPropagation()}>
-            <CloseButton onClick={toggleForm}>&times;</CloseButton>
+            <CloseButton onClick={toggleForm}><FaTimes /></CloseButton>
             <RecordingForm onSubmit={handleSubmit}>
           <FormTitle>Registre seu Depoimento</FormTitle>
           

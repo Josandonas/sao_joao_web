@@ -101,7 +101,7 @@ const CommunityMap = ({ onSelectCommunity, selectedCommunity }) => {
   return (
     <>
       <MapTitleContainer>
-        <MapTitle><span>{t('communities.mapTitle') || 'Mapa das Comunidades'}</span></MapTitle>
+        <MapTitle>{t('communities.mapTitle') || 'Mapa das Comunidades'}</MapTitle>
         <RegisterButton onClick={handleOpenRegisterModal}>
           {t('communities.registerButton') || 'Cadastrar Comunidade'}
         </RegisterButton>

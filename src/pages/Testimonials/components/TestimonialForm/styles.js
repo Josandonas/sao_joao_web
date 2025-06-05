@@ -45,20 +45,28 @@ export const CloseButton = styled.button`
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
-  background: none;
-  border: none;
+  background-color: white;
+  border: 2px solid #8c0033;
   color: #8c0033;
   cursor: pointer;
   z-index: 10;
   line-height: 1;
   padding: 0;
-  transition: all 0.2s;
+  height: 42px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(140, 0, 51, 0.2);
+  transition: all 0.3s ease;
   
   &:hover {
-    transform: scale(1.2);
-    color: #a30039;
+    transform: scale(1.1);
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(140, 0, 51, 0.3);
   }
 `;
 

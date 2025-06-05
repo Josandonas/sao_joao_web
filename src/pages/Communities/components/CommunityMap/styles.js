@@ -114,127 +114,71 @@ export const MapTitleContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto 2.5rem;
   position: relative;
-  padding: 2rem 3rem;
-  background: linear-gradient(135deg, rgba(140, 0, 51, 0.9), rgba(120, 0, 42, 0.85));
-  border-radius: 18px;
-  box-shadow: 0 8px 25px rgba(140, 0, 51, 0.25);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  overflow: hidden;
-  
-  &:before {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-    top: -200px;
-    right: -100px;
-    border-radius: 50%;
-  }
-  
-  &:after {
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-    bottom: -100px;
-    left: 10%;
-    border-radius: 50%;
-  }
+  padding: 1rem 0;
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;
-    gap: 2rem;
-    padding: 1.8rem 1.5rem;
+    gap: 1.5rem;
     margin-bottom: 2rem;
-  }
-  
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    padding: 1.5rem 1.2rem;
-    border-radius: 15px;
   }
 `;
 
 export const MapTitle = styled.h2`
   font-family: ${props => props.theme.fonts.heading};
-  font-size: 2.6rem;
+  font-size: 3rem;
   font-weight: 800;
-  text-align: left;
-  color: white;
+  text-align: center;
   position: relative;
   display: inline-block;
   padding: 0;
   margin: 0;
-  letter-spacing: 0.8px;
-  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
-  z-index: 1;
-  
-  span {
-    background: linear-gradient(90deg, #ffffff, #e9f0ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    display: inline-block;
-  }
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #8c0033, #b5003e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex: 1;
   
   &:after {
     content: '';
     position: absolute;
-    bottom: -12px;
+    bottom: -10px;
     left: 0;
-    width: 120px;
-    height: 5px;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7));
-    border-radius: 3px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-  }
-  
-  &:hover:after {
-    width: 140px;
-    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.3);
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to right, #8c0033, #b5003e);
+    border-radius: 2px;
   }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    text-align: center;
-    font-size: 2.3rem;
-    
-    &:after {
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-    }
-    
-    &:hover:after {
-      width: 120px;
-    }
+    font-size: 2.6rem;
   }
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 `;
 
 export const RegisterButton = styled.button`
-  background-color: #ff7e50;
+  background: linear-gradient(135deg, #8c0033, #b5003e);
   color: white;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border: 2px solid rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
   border-radius: 50px;
-  padding: 0.9rem 2.4rem;
+  padding: 0.6rem 1.8rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 12px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(255, 255, 255, 0.1);
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   position: relative;
   overflow: hidden;
   z-index: 1;
   letter-spacing: 0.5px;
+  margin-left: 20px;
+  margin-top: 0;
   
   &:before {
     content: '📍';

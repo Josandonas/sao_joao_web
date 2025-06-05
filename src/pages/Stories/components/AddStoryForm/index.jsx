@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaTimes } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { 
   Modal, 
@@ -142,7 +143,7 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
   return (
     <Modal>
       <FormContainer onSubmit={handleSubmit}>
-        <CloseButton type="button" onClick={onClose}>&times;</CloseButton>
+        <CloseButton type="button" onClick={onClose}><FaTimes /></CloseButton>
         <FormTitle>Adicionar Nova História</FormTitle>
         
         {/* Seleção de idiomas */}

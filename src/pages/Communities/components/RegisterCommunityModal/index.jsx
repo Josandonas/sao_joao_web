@@ -1,6 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
 import { saveCommunity, processImage } from '../../services/communityService';
 import { useTranslation } from 'react-i18next';
+import { FaTimes } from 'react-icons/fa';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -240,7 +241,7 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
           <ModalTitle>
             {t('communities.registerTitle')}
           </ModalTitle>
-          <CloseButton onClick={onClose}>&times;</CloseButton>
+          <CloseButton onClick={onClose}><FaTimes /></CloseButton>
         </ModalHeader>
         
         <TabsContainer>

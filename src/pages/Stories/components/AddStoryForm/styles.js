@@ -190,17 +190,30 @@ export const CancelButton = styled(Button)`
 
 export const CloseButton = styled.button`
   position: absolute;
-  top: ${props => props.theme.spacing.md};
-  right: ${props => props.theme.spacing.md};
-  background: none;
-  border: none;
-  font-size: ${props => props.theme.fontSizes.xxlarge};
-  color: rgba(140, 0, 51, 0.6);
+  top: 15px;
+  right: 20px;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: white;
+  border: 2px solid #8c0033;
+  color: #8c0033;
   cursor: pointer;
+  z-index: 10;
+  line-height: 1;
+  padding: 0;
+  height: 42px;
+  width: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(140, 0, 51, 0.2);
   transition: all 0.3s ease;
   
   &:hover {
-    color: #8c0033;
+    transform: scale(1.1);
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(140, 0, 51, 0.3);
   }
 `;
 
