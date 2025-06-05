@@ -101,9 +101,9 @@ const CommunityMap = ({ onSelectCommunity, selectedCommunity }) => {
   return (
     <>
       <MapTitleContainer>
-        <MapTitle>{t('communities.mapTitle') || 'Mapa das Comunidades'}</MapTitle>
+        <MapTitle><span>{t('communities.mapTitle') || 'Mapa das Comunidades'}</span></MapTitle>
         <RegisterButton onClick={handleOpenRegisterModal}>
-          <i className="fas fa-map-pin"></i> {t('communities.registerButton')}
+          {t('communities.registerButton') || 'Cadastrar Comunidade'}
         </RegisterButton>
       </MapTitleContainer>
       

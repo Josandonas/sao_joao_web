@@ -57,8 +57,16 @@ sao_joao_web/
 │   │   ├── Intro/            # Vídeo introdutório
 │   │   ├── LanguageSelector/ # Seleção de idioma
 │   │   ├── Postcards/        # Cartões postais digitais
-│   │   ├── Stories/          # Histórias e tradições
-│   │   └── Testimonials/     # Depoimentos em vídeo
+│   │   ├── Stories/          # Histórias e tradições (CONCLUÍDO)
+│   │   └── Testimonials/     # Depoimentos em vídeo (CONCLUÍDO)
+│   │       ├── components/   # Componentes dos depoimentos
+│   │       │   ├── CategoryFilter/    # Filtro de categorias
+│   │       │   ├── TestimonialForm/   # Formulário modal para novos depoimentos
+│   │       │   ├── TestimonialList/    # Lista de cards de depoimentos
+│   │       │   └── TestimonialVideo/   # Modal para reprodução de vídeos
+│   │       ├── data/        # Dados estáticos dos depoimentos
+│   │       ├── hooks/       # Hooks personalizados para gerenciamento dos depoimentos
+│   │       └── styles.js     # Estilos globais do módulo
 │   ├── services/             # Serviços e integrações
 │   ├── styles/               # Estilos globais
 │   │   ├── global.css        # CSS global
@@ -86,9 +94,14 @@ sao_joao_web/
   - Sistema de cadastro de novas comunidades com suporte a múltiplos idiomas
   - Upload de imagens para capa e galeria das comunidades
   - Armazenamento local das comunidades cadastradas
-- **Depoimentos em vídeo**: Reprodução de vídeos de moradores locais migrados do formato original
+- **Depoimentos em vídeo (Concluído)**: 
+  - Reprodução de vídeos de moradores locais com player customizado
+  - Filtro de depoimentos por categoria
+  - Modal para assistir aos vídeos com botão de fechar
+  - Formulário modal para envio de novos depoimentos com upload de vídeo customizado
+  - Mensagem de compatibilidade para navegadores sem suporte a vídeo
 - **Cartões postais digitais**: Galeria de imagens representativas com metadados culturais
-- **Histórias e tradições**: Conteúdo cultural sobre o Banho de São João
+- **Histórias e tradições (Concluído)**: Conteúdo cultural sobre o Banho de São João com suporte a múltiplos idiomas
 
 ## Instalação e Execução
 
@@ -115,9 +128,9 @@ Este projeto é uma migração do aplicativo original "Banho de São João", que
 - ✅ **Livro Digital (Book)**: Concluído com navegação por capítulos, visualização em tela cheia e controles
 - ✅ **Comunidades (Communities)**: Concluído com mapa interativo, visualização detalhada e cadastro de novas comunidades
 - ✅ **Página Inicial (Home)**: Concluído com seções hero, sobre, features com layout responsivo e distribução harmoniosa de cards
-- 🔄 **Depoimentos (Testimonials)**: Em desenvolvimento
+- ✅ **Depoimentos (Testimonials)**: Concluído com categorias filtráveis, reprodução de vídeos, formulário modal e internacionalização completa
+- ✅ **Histórias (Stories)**: Concluído com exibição de histórias e tradições culturais
 - 🔄 **Cartões Postais (Postcards)**: Em desenvolvimento
-- 🔄 **Histórias (Stories)**: Em desenvolvimento
 
 ## Próximos Passos
 

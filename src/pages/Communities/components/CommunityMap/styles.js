@@ -19,9 +19,9 @@ export const MapContainerStyled = styled.div`
     right: -5px;
     bottom: -5px;
     border-radius: ${props => props.theme.borderRadius.large};
-    background: linear-gradient(135deg, #f4a261, #e9c46a);
+    background: linear-gradient(135deg, #8c0033, #b5003e);
     z-index: -1;
-    box-shadow: 0 6px 20px rgba(244, 162, 97, 0.3);
+    box-shadow: 0 6px 20px rgba(140, 0, 51, 0.3);
   }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -47,11 +47,11 @@ export const MapContainerStyled = styled.div`
   .leaflet-control-zoom-out {
     border-radius: 4px !important;
     background-color: white !important;
-    color: #f4a261 !important;
+    color: #8c0033 !important;
     transition: all 0.2s ease;
     
     &:hover {
-      background-color: #4e7ee3 !important;
+      background-color: #8c0033 !important;
       color: white !important;
     }
   }
@@ -76,7 +76,7 @@ export const MapContainerStyled = styled.div`
     strong {
       display: block;
       margin-bottom: 4px;
-      color: #4e7ee3;
+      color: #8c0033;
       font-weight: 600;
     }
     
@@ -96,13 +96,13 @@ export const MapContainerStyled = styled.div`
   
   @keyframes pulse-animation {
     0% {
-      filter: drop-shadow(0 0 0 rgba(78, 126, 227, 0));
+      filter: drop-shadow(0 0 0 rgba(140, 0, 51, 0));
     }
     50% {
-      filter: drop-shadow(0 0 8px rgba(78, 126, 227, 0.6));
+      filter: drop-shadow(0 0 8px rgba(140, 0, 51, 0.6));
     }
     100% {
-      filter: drop-shadow(0 0 0 rgba(78, 126, 227, 0));
+      filter: drop-shadow(0 0 0 rgba(140, 0, 51, 0));
     }
   }
 `;
@@ -112,97 +112,224 @@ export const MapTitleContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.5rem;
   position: relative;
-  padding: 0 1rem;
+  padding: 2rem 3rem;
+  background: linear-gradient(135deg, rgba(140, 0, 51, 0.9), rgba(120, 0, 42, 0.85));
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(140, 0, 51, 0.25);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  
+  &:before {
+    content: '';
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    top: -200px;
+    right: -100px;
+    border-radius: 50%;
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+    bottom: -100px;
+    left: 10%;
+    border-radius: 50%;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1.8rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 1.5rem 1.2rem;
+    border-radius: 15px;
+  }
 `;
 
 export const MapTitle = styled.h2`
   font-family: ${props => props.theme.fonts.heading};
-  font-size: 2.4rem;
-  font-weight: 700;
-  text-align: center;
-  color: ${props => props.theme.colors.primary};
+  font-size: 2.6rem;
+  font-weight: 800;
+  text-align: left;
+  color: white;
   position: relative;
   display: inline-block;
-  padding: 0 1.5rem;
-  letter-spacing: 0.5px;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0.8px;
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.15);
+  z-index: 1;
+  
+  span {
+    background: linear-gradient(90deg, #ffffff, #e9f0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
   
   &:after {
     content: '';
     position: absolute;
     bottom: -12px;
-    left: 50%;
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #4e7ee3, #6acddc);
-    transform: translateX(-50%);
-    border-radius: 2px;
+    left: 0;
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.7));
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  &:hover:after {
+    width: 140px;
+    box-shadow: 0 3px 10px rgba(255, 255, 255, 0.3);
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    text-align: center;
+    font-size: 2.3rem;
+    
+    &:after {
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+    }
+    
+    &:hover:after {
+      width: 120px;
+    }
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 2rem;
   }
 `;
 
 export const RegisterButton = styled.button`
-  background-color: #f4a261;
+  background-color: #ff7e50;
   color: white;
-  font-weight: bold;
+  font-weight: 700;
   font-size: 1.1rem;
-  border: none;
+  border: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 50px;
-  padding: 0.8rem 2rem;
+  padding: 0.9rem 2.4rem;
   cursor: pointer;
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 12px rgba(244, 162, 97, 0.3);
-  transition: all 0.3s ease;
-  
-  &:hover {
-    background-color: #e76f51;
-    transform: translateY(-3px);
-    box-shadow: 0 6px 16px rgba(244, 162, 97, 0.4);
-  }
-  
-  &:active {
-    transform: translateY(-1px);
-  }
+  gap: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2), 0 0 0 4px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  letter-spacing: 0.5px;
   
   &:before {
     content: '📍';
-    margin-right: 8px;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    line-height: 0;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+  }
+  
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 126, 80, 0.8), rgba(255, 99, 71, 1));
+    z-index: -1;
+    transform: skew(-10deg);
+    transition: width 0.4s ease;
+  }
+  
+  &:hover {
+    background-color: #ff6c34;
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 25px rgba(255, 126, 80, 0.3), 0 0 0 5px rgba(255, 255, 255, 0.15);
+    border-color: white;
+    
+    &:after {
+      width: 120%;
+    }
+  }
+  
+  &:active {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 6px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.05rem;
+    padding: 0.85rem 1.8rem;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 1rem;
+    padding: 0.8rem 1.6rem;
   }
 `;
 
 export const MapDescription = styled.div`
   max-width: 800px;
-  margin: 1.5rem auto 3rem;
-  text-align: justify;
-  color: #555;
-  font-size: 1.1rem;
-  line-height: 1.6;
-  background-color: rgba(255, 248, 220, 0.8);
-  padding: 1.5rem 2rem 1.5rem 60px;
-  border-radius: 8px;
-  border-left: 4px solid #e9b100;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  margin: 1.5rem auto 2.5rem;
+  padding: 1.2rem 2.5rem;
+  text-align: center;
+  color: #2d3748;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  background-color: rgba(255, 248, 240, 0.6);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
   position: relative;
-  
-  &:before {
-    content: '⚠️';
-    position: absolute;
-    left: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 24px;
-    color: #e9b100;
-  }
   
   p {
     margin: 0;
     font-weight: 500;
   }
   
+  &:before {
+    content: '💡';
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.4rem;
+    opacity: 0.7;
+  }
+  
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    margin: 1.2rem 1rem 2.5rem;
-    padding: 1rem 1.5rem;
+    font-size: 1.05rem;
+    padding: 1rem 2rem 1rem 2.5rem;
+    margin: 1.2rem auto 2rem;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 1rem;
+    padding: 1rem 1.5rem 1rem 2rem;
+    &:before {
+      font-size: 1.2rem;
+      left: 10px;
+    }
   }
 `;
