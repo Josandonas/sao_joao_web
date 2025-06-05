@@ -53,7 +53,7 @@ sao_joao_web/
 │   │   │   │   └── RegisterCommunityModal/  # Modal de cadastro de comunidades
 │   │   │   ├── data/         # Dados estáticos das comunidades
 │   │   │   └── services/     # Serviços para gerenciamento de comunidades
-│   │   ├── Home/             # Página inicial
+│   │   ├── Home/             # Página inicial (CONCLUÍDO)
 │   │   ├── Intro/            # Vídeo introdutório
 │   │   ├── LanguageSelector/ # Seleção de idioma
 │   │   ├── Postcards/        # Cartões postais digitais
@@ -114,6 +114,7 @@ Este projeto é uma migração do aplicativo original "Banho de São João", que
 
 - ✅ **Livro Digital (Book)**: Concluído com navegação por capítulos, visualização em tela cheia e controles
 - ✅ **Comunidades (Communities)**: Concluído com mapa interativo, visualização detalhada e cadastro de novas comunidades
+- ✅ **Página Inicial (Home)**: Concluído com seções hero, sobre, features com layout responsivo e distribução harmoniosa de cards
 - 🔄 **Depoimentos (Testimonials)**: Em desenvolvimento
 - 🔄 **Cartões Postais (Postcards)**: Em desenvolvimento
 - 🔄 **Histórias (Stories)**: Em desenvolvimento
