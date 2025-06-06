@@ -140,7 +140,7 @@ export const LanguageButton = styled.button`
   border: 2px solid #FFC56E;
   color: #FFC56E;
   font-family: var(--font-family-heading);
-  font-weight: 700;
+  font-weight: 900;
   font-size: 0.9rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
