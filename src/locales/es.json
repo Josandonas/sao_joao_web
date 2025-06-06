@@ -129,7 +129,38 @@
     "videoLabel": "Subir Vídeo (opcional)",
     "videoHelp": "Tamaño máximo: 50MB. Formatos aceptados: MP4, MOV, AVI",
     "submitButton": "Enviar Testimonio",
-    "successMessage": "¡Gracias! Su testimonio será revisado y añadido pronto."
+    "noFileSelected": "Ningún archivo seleccionado",
+    "successMessage": "¡Gracias! Su testimonio será revisado y añadido pronto.",
+    "video": {
+      "unsupportedBrowser": "Su navegador no soporta la reproducción de videos."
+    }
+  },
+  
+  "testimonials_page": {
+    "title": "Testimonios",
+    "subtitle": "Historias de quienes viven la tradición",
+    "description": "Vea y comparta testimonios de personas que mantienen viva la tradición del Baño de San Juan en la región del Pantanal. Cada historia revela un aspecto diferente de esta rica manifestación cultural.",
+    "quotes": {
+      "1": "Mi familia celebra el Baño de San Juan desde hace cinco generaciones. Es una tradición que nos conecta con nuestros antepasados y mantiene viva nuestra cultura pantaneira.",
+      "2": "Como residente ribereña, siempre he tenido una relación especial con el río. El Baño de San Juan es un momento para agradecer la abundancia que nos proporcionan las aguas.",
+      "3": "Preservar las tradiciones del Baño de San Juan significa preservar nuestra identidad cultural. Durante las celebraciones, nuestra música acompaña la procesión y las danzas tradicionales.",
+      "4": "Como antigua residente, encuentro en el Baño de San Juan un ejemplo perfecto del sincretismo religioso y cultural que forma la identidad pantaneira brasileña.",
+      "5": "Hice una promesa a San Juan cuando mi hijo estaba enfermo. Tras su recuperación, participamos todos los años en el ritual del baño, manteniendo nuestro compromiso con el santo.",
+      "6": "Nuestra familia preserva las canciones y danzas que celebran a San Juan desde hace generaciones. La música es fundamental para transmitir esta herencia cultural.",
+      "7": "Mi abuela era curandera y utilizaba hierbas y agua bendita de San Juan en sus tratamientos. Aprendí de ella el valor medicinal y espiritual de esta tradición.",
+      "8": "Como benzedeira, utilizo las hierbas bendecidas durante la fiesta de San Juan. El agua recogida en esta noche es considerada mítica y curativa.",
+      "9": "Organizo la fiesta desde hace más de 20 años y he visto cómo se ha transformado manteniendo su esencia. Es gratificante ver a los jóvenes interesándose por nuestras tradiciones.",
+      "10": "En mi comunidad, las celebraciones del Baño de San Juan conectan a las personas y fortalecen nuestros lazos. Es una manifestación cultural que nos une como pueblo.",
+      "11": "Como pescador, tengo una relación especial con San Juan y con las aguas del Pantanal. El baño es un momento de renovación y agradecimiento por la abundancia.",
+      "12": "En mi familia, la fiesta es un momento de reunión y agradecimiento. Preparamos comidas típicas y recibimos a los vecinos para celebrar juntos esta tradición.",
+      "13": "Como músico, veo en la celebración del Baño de San Juan una riqueza cultural única, donde los ritmos tradicionales preservan nuestra memoria colectiva.",
+      "14": "Estudio las tradiciones del Baño de San Juan como parte de mi investigación. Es impresionante cómo esta práctica conecta elementos indígenas, europeos y africanos.",
+      "15": "Aprendí a preparar las hierbas y los elementos del altar de mi abuela. Cada planta tiene un significado y un propósito en la celebración.",
+      "16": "Preparo el altar de San Juan todos los años siguiendo exactamente las enseñanzas que recibí de mi madre. Cada elemento tiene un significado especial en la tradición.",
+      "17": "Mi experiencia con el Baño de San Juan comenzó cuando hice una promesa por la salud de mi padre. Desde entonces, es una práctica anual de gratitud.",
+      "18": "Participo activamente en las festividades de San Juan desde niña. Las tradiciones del Arraiá Nhá Concha son parte fundamental de nuestra identidad cultural.",
+      "19": "Como artesano, creo piezas inspiradas en las simbologías del Baño de San Juan. Es una forma de mantener viva esta expresión cultural tan rica y diversa."
+    }
   },
   "postcards": {
     "title": "Postales del Baño de San Juan",

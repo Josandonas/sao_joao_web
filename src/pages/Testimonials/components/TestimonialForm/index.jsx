@@ -28,7 +28,7 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit }) => {
   return (
     <>
       <RecordButton onClick={toggleForm}>
-        Compartilhe seu Depoimento
+        {t('testimonials.shareButton') || 'Compartilhe seu Depoimento'}
       </RecordButton>
       
       {showForm && (
@@ -36,78 +36,78 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit }) => {
           <ModalContainer onClick={(e) => e.stopPropagation()}>
             <CloseButton onClick={toggleForm}><FaTimes /></CloseButton>
             <RecordingForm onSubmit={handleSubmit}>
-          <FormTitle>Registre seu Depoimento</FormTitle>
+          <FormTitle>{t('testimonials.formTitle') || 'Registre seu Depoimento'}</FormTitle>
           
           <FormGroup>
-            <Label htmlFor="name">Nome Completo</Label>
+            <Label htmlFor="name">{t('testimonials.nameLabel') || 'Nome Completo'}</Label>
             <Input 
               type="text" 
               id="name" 
               required 
-              placeholder="Seu nome completo"
+              placeholder={t('testimonials.nameLabel') || "Seu nome completo"}
             />
           </FormGroup>
           
           <FormGroup>
-            <Label htmlFor="location">Localidade</Label>
+            <Label htmlFor="location">{t('testimonials.locationLabel') || 'Localidade'}</Label>
             <Input 
               type="text" 
               id="location" 
               required 
-              placeholder="Cidade, Estado"
+              placeholder={t('testimonials.locationLabel') || "Cidade, Estado"}
             />
           </FormGroup>
           
           <FormGroup>
-            <Label htmlFor="category">Categoria</Label>
+            <Label htmlFor="category">{t('testimonials.categoryLabel') || 'Categoria'}</Label>
             <Input 
               as="select" 
               id="category" 
               required
             >
-              <option value="">Selecione uma categoria</option>
-              <option value="personal">História Pessoal</option>
-              <option value="traditions">Tradições</option>
-              <option value="cultural">Manifestações Culturais</option>
-              <option value="faith">Fé e Devoção</option>
-              <option value="academic">Pesquisa Acadêmica</option>
+              <option value="">{t('testimonials.categoryLabel') || 'Selecione uma categoria'}</option>
+              <option value="personal">{t('testimonials.categoryPersonal') || 'História Pessoal'}</option>
+              <option value="traditions">{t('testimonials.categoryTraditions') || 'Tradições'}</option>
+              <option value="cultural">{t('testimonials.categoryCultural') || 'Manifestações Culturais'}</option>
+              <option value="faith">{t('testimonials.categoryFaith') || 'Fé e Devoção'}</option>
+              <option value="academic">{t('testimonials.categoryAcademic') || 'Pesquisa Acadêmica'}</option>
             </Input>
           </FormGroup>
           
           <FormGroup>
-            <Label htmlFor="testimonial">Seu Depoimento</Label>
+            <Label htmlFor="testimonial">{t('testimonials.testimonialLabel') || 'Seu Depoimento'}</Label>
             <TextArea 
               id="testimonial" 
               rows="6" 
               required 
-              placeholder="Compartilhe sua história ou experiência relacionada ao Banho de São João"
+              placeholder={t('testimonials.testimonialLabel') || "Compartilhe sua história ou experiência relacionada ao Banho de São João"}
             />
           </FormGroup>
           
           <FormGroup>
-            <Label htmlFor="video">Upload de Vídeo (opcional)</Label>
+            <Label htmlFor="video">{t('testimonials.videoLabel') || 'Upload de Vídeo (opcional)'}</Label>
             <FileUploadContainer>
               <FileUploadButton htmlFor="video">
                 <FileUploadIcon>📹</FileUploadIcon>
-                Selecionar vídeo
+                {t('testimonials.videoLabel') || "Selecionar vídeo"}
               </FileUploadButton>
-              <FileNameDisplay id="fileNameDisplay">Nenhum arquivo selecionado</FileNameDisplay>
+              <FileNameDisplay id="fileNameDisplay">{t('testimonials.noFileSelected') || "Nenhum arquivo selecionado"}</FileNameDisplay>
               <Input 
                 type="file" 
                 id="video" 
                 accept="video/*"
                 onChange={(e) => {
-                  const fileName = e.target.files[0]?.name || 'Nenhum arquivo selecionado';
+                  const fileName = e.target.files[0]?.name || t('testimonials.noFileSelected') || 'Nenhum arquivo selecionado';
                   document.getElementById('fileNameDisplay').textContent = fileName;
                 }}
                 style={{ display: 'none' }}
               />
             </FileUploadContainer>
-            <small>Tamanho máximo: 50MB. Formatos aceitos: MP4, MOV, AVI</small>
+            <small>{t('testimonials.videoHelp') || 'Tamanho máximo: 50MB. Formatos aceitos: MP4, MOV, AVI'}</small>
           </FormGroup>
           
           <SubmitButton type="submit">
-            Enviar Depoimento
+            {t('testimonials.submitButton') || 'Enviar Depoimento'}
           </SubmitButton>
             </RecordingForm>
           </ModalContainer>

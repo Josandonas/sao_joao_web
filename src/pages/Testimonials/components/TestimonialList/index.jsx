@@ -25,9 +25,9 @@ const TestimonialList = ({ testimonials, onOpenVideo }) => {
           <TestimonialContent>
             <TestimonialName>{testimonial.name}</TestimonialName>
             <TestimonialLocation>{testimonial.location}</TestimonialLocation>
-            <TestimonialQuote>"{testimonial.quote}"</TestimonialQuote>
+            <TestimonialQuote>"{testimonial.quoteKey ? t(`testimonials_page.quotes.${testimonial.quoteKey}`) || testimonial.quote : testimonial.quote}"</TestimonialQuote>
             <TestimonialVideo onClick={() => onOpenVideo(testimonial)}>
-              Assistir Depoimento
+              {t('testimonials.watchButton') || 'Assistir Depoimento'}
             </TestimonialVideo>
           </TestimonialContent>
         </TestimonialCard>

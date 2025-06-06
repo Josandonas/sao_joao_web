@@ -17,7 +17,7 @@ const CategoryFilter = ({ activeCategory, onCategoryChange }) => {
           isActive={activeCategory === category.id} 
           onClick={() => onCategoryChange(category.id)}
         >
-          {category.label}
+          {t(`testimonials.category${category.id.charAt(0).toUpperCase() + category.id.slice(1)}`) || category.label}
         </CategoryButton>
       ))}
     </Categories>

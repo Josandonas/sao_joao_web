@@ -131,6 +131,33 @@
     "submitButton": "Enviar Depoimento",
     "successMessage": "Obrigado! Seu depoimento será revisado e adicionado em breve."
   },
+  "testimonials_page": {
+    "title": "Depoimentos",
+    "subtitle": "Histórias de quem vive a tradição",
+    "description": "Assista e compartilhe os depoimentos de pessoas que mantêm viva a tradição do Banho de São João na região pantaneira. Cada história revela um aspecto diferente desta rica manifestação cultural.",
+    "quotes": {
+      "1": "Minha família celebra o Banho de São João há cinco gerações. É uma tradição que nos conecta com nossos ancestrais e mantém viva nossa cultura pantaneira.",
+      "2": "Como moradora ribeirinha, sempre tive uma relação especial com o rio. O Banho de São João é um momento de agradecer pela abundância que as águas nos proporcionam.",
+      "3": "Preservar as tradições do Banho de São João é preservar nossa identidade cultural. Nas celebrações, nossa música acompanha a procissão e as danças tradicionais.",
+      "4": "Como moradora antiga, encontro no Banho de São João um exemplo perfeito do sincretismo religioso e cultural que forma a identidade pantaneira brasileira.",
+      "5": "Fiz uma promessa a São João quando meu filho estava doente. Após sua recuperação, participamos todos os anos do ritual do banho, mantendo nosso compromisso com o santo.",
+      "6": "Nossa família preserva as canções e danças que celebram São João há gerações. A música é fundamental para transmitir essa herança cultural.",
+      "7": "Minha avó era curandeira e utilizava as ervas e a água benta de São João em seus tratamentos. Aprendi com ela o valor medicinal e espiritual dessa tradição.",
+      "8": "Como benzedeira, utilizo as ervas abençoadas durante a festa de São João. A água coletada nessa noite é considerada mítica e curativa.",
+      "9": "Organizo a festa há mais de 20 anos e vejo como ela se transformou mantendo sua essência. É gratificante ver os jovens se interessando por nossas tradições.",
+      "10": "Na minha comunidade, as celebrações do Banho de São João conectam as pessoas e fortalecem nossos laços. É uma manifestação cultural que nos une como povo.",
+      "11": "Como pescador, tenho uma relação especial com São João e com as águas do Pantanal. O banho é um momento de renovação e agradecimento pela fartura.",
+      "12": "Na minha família, a festa é um momento de reunião e agradecimento. Preparamos comidas típicas e recebemos vizinhos para celebrar juntos essa tradição.",
+      "13": "Como músico, vejo na celebração do Banho de São João uma riqueza cultural única, onde ritmos tradicionais preservam nossa memória coletiva.",
+      "14": "Estudo as tradições do Banho de São João como parte da minha pesquisa. É impressionante como essa prática conecta elementos indígenas, europeus e africanos.",
+      "15": "Aprendi a preparar as ervas e os elementos do altar com minha avó. Cada planta tem um significado e um propósito na celebração.",
+      "16": "Preparo o altar de São João todos os anos seguindo exatamente os ensinamentos que recebi da minha mãe. Cada elemento tem um significado especial na tradição.",
+      "17": "Minha experiência com o Banho de São João começou quando fiz uma promessa pela saúde do meu pai. Desde então, é uma prática anual de gratidão.",
+      "18": "Participo ativamente das festividades de São João desde criança. As tradições do Arraiá Nhá Concha são parte fundamental da nossa identidade cultural.",
+      "19": "Como artesão, crio peças inspiradas nas simbologias do Banho de São João. É uma forma de manter viva essa expressão cultural tão rica e diversa."
+    }
+  },
+  
   "postcards": {
     "title": "Postais do Banho de São João",
     "introduction": "Explore esta coleção de imagens que retratam os diversos aspectos da celebração do Banho de São João no Pantanal. Compartilhe ou faça o download dos postais para recordar e divulgar esta rica tradição cultural.",
