@@ -1,4 +1,7 @@
 /* Reset CSS moderno e estilos globais */
+/* Importando fontes do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;900&family=Roboto+Slab:wght@300;400;500;700&display=swap');
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -13,8 +16,8 @@
   --color-text: #2a2a2a;
   --color-text-light: #585858;
   
-  --font-family-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
-  --font-family-heading: 'Interstate', 'Inter', sans-serif;
+  --font-family-base: 'Roboto Slab', serif;
+  --font-family-heading: 'Raleway', sans-serif;
   
   --font-size-small: 0.875rem;
   --font-size-medium: 1rem;
@@ -29,33 +32,6 @@
   --spacing-xl: 3rem;
 }
 
-@font-face {
-  font-family: 'Interstate';
-  src: url('/assets/fonts/interstate-cond-mono-bold.woff2') format('woff2'),
-       url('/assets/fonts/interstate-cond-mono-bold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Interstate';
-  src: url('/assets/fonts/interstate-cond-mono-blk.woff2') format('woff2'),
-       url('/assets/fonts/interstate-cond-mono-blk.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Interstate';
-  src: url('/assets/fonts/interstate-cond-mono-lgt.woff2') format('woff2'),
-       url('/assets/fonts/interstate-cond-mono-lgt.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
 html {
   font-size: 16px;
   scroll-behavior: smooth;
@@ -65,7 +41,7 @@ body {
   font-family: var(--font-family-base);
   color: var(--color-text);
   line-height: 1.6;
-  background-color: var(--color-background);
+  background-image: url('/assets/images/backgrounds/fundo.png');
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

@@ -28,6 +28,9 @@ export const Logo = styled.div`
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    letter-spacing: 0.5px;
     
     &:hover {
       opacity: 0.8;
@@ -48,10 +51,10 @@ export const NavContainer = styled.div`
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: ${props => props.theme.borderRadius.medium};
-  padding: ${props => props.theme.spacing.sm};
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;
@@ -81,26 +84,30 @@ export const NavItem = styled.div`
   margin: 0 ${props => props.theme.spacing.xs};
   
   a {
-    color: ${props => props.theme.colors.white};
+    color: #FFC56E;
     text-decoration: none;
     padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
-    font-family: ${props => props.theme.fonts.heading};
-    font-weight: ${props => props.theme.fontWeights.normal};
+    font-family: var(--font-family-heading);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
     transition: all 0.3s ease;
     border-radius: ${props => props.theme.borderRadius.small};
     display: block;
     
     &:hover {
-      color: ${props => props.theme.colors.white};
+      color: #FFC56E;
       background-color: rgba(255, 255, 255, 0.15);
       transform: translateY(-2px);
     }
     
     &.active {
-      color: ${props => props.theme.colors.primary};
-      background-color: rgba(255, 255, 255, 0.9);
+      color: #8c0033;
+      background-color: #FFC56E;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transform: translateY(-2px);
+      font-weight: 700;
     }
   }
   
@@ -130,9 +137,13 @@ export const LanguageSelector = styled.div`
 
 export const LanguageButton = styled.button`
   background: transparent;
-  border: 2px solid ${props => props.theme.colors.white};
-  color: ${props => props.theme.colors.white};
-  font-weight: ${props => props.theme.fontWeights.bold};
+  border: 2px solid #FFC56E;
+  color: #FFC56E;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   margin: 0 ${props => props.theme.spacing.xs};
   padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
   cursor: pointer;
@@ -140,11 +151,13 @@ export const LanguageButton = styled.button`
   border-radius: ${props => props.theme.borderRadius.small};
   
   &:hover {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
   }
   
   &.active {
-    background-color: ${props => props.theme.colors.white};
-    color: ${props => props.theme.colors.primary};
+    background-color: #FFC56E;
+    color: #8c0033;
+    border-color: #FFC56E;
   }
 `;
