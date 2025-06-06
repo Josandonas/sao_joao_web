@@ -49,12 +49,7 @@ export const NavContainer = styled.div`
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: ${props => props.theme.borderRadius.medium};
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(5px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;

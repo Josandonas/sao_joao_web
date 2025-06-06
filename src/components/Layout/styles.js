@@ -13,9 +13,9 @@ export const Main = styled.main`
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: ${props => props.theme.spacing.md};
+  padding: 0 ${props => props.theme.spacing.md} ${props => props.theme.spacing.md};
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    padding: ${props => props.theme.spacing.sm};
+    padding: 0 ${props => props.theme.spacing.sm} ${props => props.theme.spacing.sm};
   }
 `;
