@@ -108,129 +108,135 @@ export const MapContainerStyled = styled.div`
 `;
 
 export const MapTitleContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0 auto 2.5rem;
+  margin-bottom: 2rem;
   position: relative;
-  padding: 1rem 0;
+  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.lg};
+  background: linear-gradient(135deg, rgba(140, 0, 51, 0.05), rgba(120, 0, 42, 0.1));
+  border-radius: ${props => props.theme.borderRadius.medium};
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #8c0033, #b5003e);
+  }
+  
+  /* Efeito de gradiente sutil */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(140, 0, 51, 0.08) 0%, rgba(255, 255, 255, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
   }
 `;
 
-export const MapTitle = styled.h2`
+export const MapTitle = styled.h1`
   font-family: ${props => props.theme.fonts.heading};
-  font-size: 3rem;
-  font-weight: 800;
-  text-align: center;
-  position: relative;
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-  letter-spacing: 1px;
+  font-weight: ${props => props.theme.fontWeights.bold};
+  font-size: ${props => props.theme.fontSizes.xxlarge};
+  color: #8c0033;
   background: linear-gradient(135deg, #8c0033, #b5003e);
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
-  flex: 1;
+  color: transparent;
+  margin: 0;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  position: relative;
+  display: inline-block;
+  padding-bottom: ${props => props.theme.spacing.sm};
+  letter-spacing: 1px;
+  max-width: 90%;
+  line-height: 1.1;
+  z-index: 1;
   
-  &:after {
+  &::after {
     content: '';
     position: absolute;
-    bottom: -10px;
-    left: 0;
-    width: 100%;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
     height: 4px;
-    background: linear-gradient(to right, #8c0033, #b5003e);
+    background: linear-gradient(90deg, #8c0033, #b5003e);
     border-radius: 2px;
+    margin-top: ${props => props.theme.spacing.sm};
   }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    font-size: 2.6rem;
-  }
-  
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    font-size: 2.2rem;
+    font-size: ${props => props.theme.fontSizes.xlarge};
   }
 `;
 
 export const RegisterButton = styled.button`
   background: linear-gradient(135deg, #8c0033, #b5003e);
   color: white;
-  font-weight: 600;
-  font-size: 1rem;
   border: none;
-  border-radius: 50px;
-  padding: 0.6rem 1.8rem;
+  border-radius: ${props => props.theme.borderRadius.medium};
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
+  font-weight: ${props => props.theme.fontWeights.bold};
+  font-size: ${props => props.theme.fontSizes.medium};
   cursor: pointer;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  gap: 8px;
+  box-shadow: 0 4px 8px rgba(140, 0, 51, 0.3);
   position: relative;
   overflow: hidden;
   z-index: 1;
-  letter-spacing: 0.5px;
-  margin-left: 20px;
-  margin-top: 0;
+  margin-top: ${props => props.theme.spacing.md};
   
   &:before {
     content: '📍';
-    font-size: 1.4rem;
-    line-height: 0;
-    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+  }
+  
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(140, 0, 51, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(140, 0, 51, 0.3);
   }
   
   &:after {
     content: '';
     position: absolute;
     top: 0;
-    left: -10%;
-    width: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, rgba(255, 126, 80, 0.8), rgba(255, 99, 71, 1));
+    background: linear-gradient(120deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
     z-index: -1;
-    transform: skew(-10deg);
-    transition: width 0.4s ease;
-  }
-  
-  &:hover {
-    background-color: #ff6c34;
-    transform: translateY(-5px) scale(1.03);
-    box-shadow: 0 10px 25px rgba(255, 126, 80, 0.3), 0 0 0 5px rgba(255, 255, 255, 0.15);
-    border-color: white;
-    
-    &:after {
-      width: 120%;
-    }
-  }
-  
-  &:active {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  }
-  
-  &:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 6px 15px rgba(0, 0, 0, 0.15);
   }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    width: 100%;
-    justify-content: center;
-    font-size: 1.05rem;
-    padding: 0.85rem 1.8rem;
-  }
-  
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    font-size: 1rem;
-    padding: 0.8rem 1.6rem;
+    font-size: ${props => props.theme.fontSizes.small};
+    padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.md};
   }
 `;
 

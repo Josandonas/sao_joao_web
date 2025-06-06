@@ -11,7 +11,6 @@ import {
   Input,
   TextArea,
   SubmitButton,
-  RecordButton,
   CloseButton,
   FileUploadContainer,
   FileUploadButton,
@@ -27,15 +26,11 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit }) => {
 
   return (
     <>
-      <RecordButton onClick={toggleForm}>
-        {t('testimonials.shareButton') || 'Compartilhe seu Depoimento'}
-      </RecordButton>
-      
-      {showForm && (
-        <ModalOverlay onClick={toggleForm}>
-          <ModalContainer onClick={(e) => e.stopPropagation()}>
-            <CloseButton onClick={toggleForm}><FaTimes /></CloseButton>
-            <RecordingForm onSubmit={handleSubmit}>
+      {/* O botão de gravação foi movido para o header */}
+      <ModalOverlay onClick={toggleForm}>
+        <ModalContainer onClick={(e) => e.stopPropagation()}>
+          <CloseButton onClick={toggleForm}><FaTimes /></CloseButton>
+          <RecordingForm onSubmit={handleSubmit}>
           <FormTitle>{t('testimonials.formTitle') || 'Registre seu Depoimento'}</FormTitle>
           
           <FormGroup>
@@ -109,10 +104,9 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit }) => {
           <SubmitButton type="submit">
             {t('testimonials.submitButton') || 'Enviar Depoimento'}
           </SubmitButton>
-            </RecordingForm>
-          </ModalContainer>
-        </ModalOverlay>
-      )}
+          </RecordingForm>
+        </ModalContainer>
+      </ModalOverlay>
     </>
   );
 };
