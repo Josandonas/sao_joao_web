@@ -18,8 +18,9 @@ const Layout = () => {
 
   return (
     <LayoutContainer>
-      <Header />
+      
       <Main>
+      <Header />
         <Outlet />
       </Main>
       <Footer />
