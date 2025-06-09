@@ -7,6 +7,7 @@ import { useBookActions } from './hooks/useBookActions';
 import BookCoverSection from './components/BookCoverSection';
 import BookReaderSection from './components/BookReaderSection';
 import FullscreenReader from './components/FullscreenReader';
+import BookHeader from './components/BookHeader';
 import { useParams } from 'react-router-dom';
 
 /**
@@ -68,6 +69,12 @@ const BookPage = () => {
 
   return (
     <Container>
+      {/* Cabeçalho da página do livro com botões de ação */}
+      <BookHeader 
+        onStartReading={startReading}
+        onDownload={handleDownload}
+        onShare={handleShare}
+      />
       
       {/* Renderização condicional: ou mostra a capa ou mostra o leitor */}
       {!showBook ? (

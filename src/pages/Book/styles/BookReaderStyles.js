@@ -2,26 +2,14 @@ import styled from 'styled-components';
 
 // Container principal para a seção do visualizador do livro
 export const BookViewerSection = styled.div`
-  background-color: white;
-  border-radius: ${props => props.theme.borderRadius.medium};
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-  padding: ${props => props.theme.spacing.xl};
-  margin-top: ${props => props.theme.spacing.xl};
-  margin-bottom: ${props => props.theme.spacing.xl};
+  background-color: transparent;
+  padding: 0;
+  margin-top: ${props => props.theme.spacing.lg};
+  margin-bottom: ${props => props.theme.spacing.lg};
   width: 100%;
-  max-width: 1200px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: linear-gradient(90deg, ${props => props.theme.colors.primary}, ${props => props.theme.colors.accent});
-  }
 `;
 
 // Barra de ações do leitor do livro

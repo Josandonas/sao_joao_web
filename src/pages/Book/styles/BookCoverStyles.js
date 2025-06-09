@@ -4,13 +4,12 @@ export const BookCover = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: white;
-  border-radius: ${props => props.theme.borderRadius.medium};
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
   padding: 0;
   margin-top: 0;
-  margin-bottom: ${props => props.theme.spacing.sm};
-  max-width: 900px;
+  margin-bottom: ${props => props.theme.spacing.md};
+  max-width: 100%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
@@ -22,17 +21,7 @@ export const BookCover = styled.div`
     width: 100%;
     align-items: center;
     gap: ${props => props.theme.spacing.md};
-    padding: ${props => props.theme.spacing.md};
-  }
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 8px;
-    background: linear-gradient(90deg, ${props => props.theme.colors.primary}, ${props => props.theme.colors.accent});
+    padding: 0;
   }
   
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -161,22 +150,4 @@ export const BookInfo = styled.div`
   }
 `;
 
-export const CoverActions = styled.div`
-  display: flex;
-  gap: ${props => props.theme.spacing.sm};
-  width: 100%;
-  justify-content: center;
-  margin: 0;
-  padding: 0.75rem;
-  background: linear-gradient(to right, #f5f5f5, #f0f0f0, #f5f5f5);
-  
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    flex-direction: column;
-    gap: ${props => props.theme.spacing.sm};
-  }
-  
-  @media (min-width: ${props => props.theme.breakpoints.md}) and (max-width: ${props => props.theme.breakpoints.lg}) {
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-`;
+// CoverActions foi removido pois os botões foram movidos para o BookHeader
