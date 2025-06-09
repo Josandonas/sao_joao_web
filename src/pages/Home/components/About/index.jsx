@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { 
   AboutSection,
   AboutContainer,
-  AboutTitle,
   AboutContent,
   AboutText,
   AboutParagraph,
@@ -56,7 +55,6 @@ const About = ({ fontSizeControls }) => {
   return (
     <AboutSection className="about-section">
       <AboutContainer>
-        <AboutTitle>{t('home.about.title')}</AboutTitle>
         
         {/* Controles de zoom posicionados próximos ao conteúdo que afetam */}
         <TextControls>

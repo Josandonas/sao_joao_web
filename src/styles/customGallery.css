@@ -1,0 +1,78 @@
+/* Estilos personalizados para o ImageGallery */
+
+/* Remove completamente os bullets padrão */
+.image-gallery-bullets .image-gallery-bullet {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 8px !important;
+  width: 32px !important;
+  height: 32px !important;
+  position: relative !important;
+  opacity: 1 !important;
+}
+
+/* Cria um container circular com fundo branco para o ícone */
+.image-gallery-bullets .image-gallery-bullet::before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+/* Adiciona o ícone de fogueira usando ::after */
+.image-gallery-bullets .image-gallery-bullet::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  z-index: 2;
+  background-image: url("/assets/svg/fire_bom.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+}
+
+/* Estilo para o bullet ativo */
+.image-gallery-bullets .image-gallery-bullet.active::before {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: scale(1.1);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.image-gallery-bullets .image-gallery-bullet.active::after {
+  background-image: url("/assets/svg/fire-wood_color.svg");
+  transform: scale(1.1);
+}
+
+/* Estilo para hover no bullet */
+.image-gallery-bullets .image-gallery-bullet:hover::before {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: scale(1.05);
+}
+
+/* Ajuste para o posicionamento dos bullets */
+.image-gallery-bullets {
+  bottom: 25px !important;
+  background: rgba(0, 0, 0, 0.3) !important;
+  padding: 8px 15px !important;
+  border-radius: 30px !important;
+}
+
+/* Garantir que os bullets padrão não apareçam */
+.image-gallery-bullet:focus {
+  outline: none !important;
+}

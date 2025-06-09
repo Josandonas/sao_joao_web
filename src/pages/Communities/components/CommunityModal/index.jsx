@@ -32,6 +32,8 @@ const CommunityModal = ({ community, onClose }) => {
   // Sanitize community data to handle special characters
   const sanitizedCommunity = useMemo(() => sanitizeObject(community), [community]);
   
+  // Os bullets serão estilizados via CSS personalizado (customGallery.css)
+  
   return (
     <ModalContainer>
       <ModalContent>
@@ -69,6 +71,7 @@ const CommunityModal = ({ community, onClose }) => {
                 slideInterval={3000}
                 slideOnThumbnailOver={true}
                 showIndex={true}
+                showBullets={true}
               />
             )}
           </GalleryContainer>

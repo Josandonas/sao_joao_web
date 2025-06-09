@@ -33,6 +33,8 @@ const Hero = ({ lang }) => {
     setImages(carouselImages);
   }, []);
 
+  // Os bullets serão estilizados via CSS personalizado (customGallery.css)
+
   return (
     <HeroSection>
       <CarouselContainer>
