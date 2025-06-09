@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import ImageGallery from 'react-image-gallery';
 import { 
   HeroSection,
   HeroContent,
   Title,
   Subtitle,
-  ExploreButton
+  ExploreButton,
+  CarouselContainer
 } from './styles';
 
 /**
@@ -16,16 +18,37 @@ import {
  */
 const Hero = ({ lang }) => {
   const { t } = useTranslation();
+  const [images, setImages] = useState([]);
+
+  useEffect(() => {
+    // Criar array de imagens para o carrossel
+    const carouselImages = [];
+    for (let i = 1; i <= 17; i++) {
+      carouselImages.push({
+        original: `/assets/images/backgrounds/carrosel_home/img (${i}).jpeg`,
+        thumbnail: `/assets/images/backgrounds/carrosel_home/img (${i}).jpeg`,
+        loading: 'lazy',
+      });
+    }
+    setImages(carouselImages);
+  }, []);
 
   return (
     <HeroSection>
-      <HeroContent>
-        <Title>{t('home.welcome')}</Title>
-        <Subtitle>{t('home.subtitle')}</Subtitle>
-        <ExploreButton as={Link} to={`/${lang}/stories`}>
-          {t('home.exploreButton')}
-        </ExploreButton>
-      </HeroContent>
+      <CarouselContainer>
+        <ImageGallery 
+          items={images} 
+          showThumbnails={false}
+          showFullscreenButton={false}
+          showPlayButton={false}
+          showBullets={true}
+          showNav={true}
+          autoPlay={true}
+          slideInterval={5000}
+          slideDuration={450}
+          lazyLoad={true}
+        />
+      </CarouselContainer>
     </HeroSection>
   );
 };

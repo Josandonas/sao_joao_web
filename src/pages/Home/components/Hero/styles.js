@@ -5,43 +5,13 @@ export const HeroSection = styled.section`
   height: 70vh;
   min-height: 500px;
   max-height: 800px;
-  background-image: url('/assets/images/header-bg.jpeg');
-  background-size: cover;
-  background-position: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ${props => props.theme.spacing.xl};
+  padding: 0;
   color: white;
   text-align: center;
-  filter: contrast(1.05) saturate(1.1);
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255, 107, 1, 0.7) 0%, rgba(0, 0, 0, 0.8) 100%);
-    backdrop-filter: blur(2px);
-    z-index: 1;
-    mix-blend-mode: multiply;
-  }
-  
-  /* Efeito de textura sutil para disfarçar baixa qualidade */
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: url('/assets/images/texture.png');
-    opacity: 0.1;
-    z-index: 2;
-    pointer-events: none;
-  }
+  overflow: hidden;
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     height: 70vh;
@@ -50,13 +20,12 @@ export const HeroSection = styled.section`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     height: 60vh;
     min-height: 400px;
-    padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.md};
   }
 `;
 
 export const HeroContent = styled.div`
   position: relative;
-  z-index: 3;
+  z-index: 5;
   text-align: center;
   color: white;
   max-width: 800px;
@@ -134,5 +103,74 @@ export const ExploreButton = styled.button`
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
     font-size: ${props => props.theme.fontSizes.small};
+  }
+`;
+
+export const CarouselContainer = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  
+  .image-gallery {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-gallery-slide {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .image-gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .image-gallery-bullets {
+    bottom: 20px;
+    z-index: 4;
+  }
+  
+  .image-gallery-bullets .image-gallery-bullet {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    margin: 0 5px;
+    padding: 6px;
+    transition: all 0.2s ease;
+  }
+  
+  .image-gallery-bullets .image-gallery-bullet.active {
+    background-color: #FF5F00;
+    transform: scale(1.3);
+  }
+  
+  .image-gallery-left-nav, .image-gallery-right-nav {
+    color: white;
+    font-size: 3.5em;
+    z-index: 4;
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+    opacity: 0.7;
+  }
+  
+  /* Adicionar um overlay sutil para melhorar o contraste com os controles */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, 
+      rgba(0, 0, 0, 0.2) 0%, 
+      rgba(0, 0, 0, 0) 20%, 
+      rgba(0, 0, 0, 0) 80%, 
+      rgba(0, 0, 0, 0.3) 100%);
+    pointer-events: none;
+    z-index: 2;
   }
 `;
