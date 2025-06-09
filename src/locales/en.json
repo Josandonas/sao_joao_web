@@ -5,23 +5,13 @@
   },
   "navigation": {
     "home": "Home",
-    "intro": "Introduction",
     "stories": "Stories",
     "communities": "Communities",
     "book": "Book",
     "testimonials": "Testimonials",
     "postcards": "Postcards"
   },
-  "languageSelector": {
-    "title": "Select your language",
-    "portuguese": "Português",
-    "english": "English",
-    "spanish": "Español"
-  },
-  "intro": {
-    "skipIntro": "Go to Homepage",
-    "watchAgain": "Watch again"
-  },
+
   "home": {
     "welcome": "God Save You, John the Baptist!",
     "subtitle": "A Contribution about the Bath of Saint John in Corumbá - Mato Grosso do Sul",

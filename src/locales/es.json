@@ -5,23 +5,13 @@
   },
   "navigation": {
     "home": "Página Principal",
-    "intro": "Introducción",
     "stories": "Historias",
     "communities": "Comunidades",
     "book": "Libro",
     "testimonials": "Testimonios",
     "postcards": "Postales"
   },
-  "languageSelector": {
-    "title": "Seleccione su idioma",
-    "portuguese": "Português",
-    "english": "English",
-    "spanish": "Español"
-  },
-  "intro": {
-    "skipIntro": "Ir a la Página Principal",
-    "watchAgain": "Ver de nuevo"
-  },
+
   "home": {
     "welcome": "¡Dios te Salve, Juan Bautista!",
     "subtitle": "Una Contribución sobre el Baño de San Juan en Corumbá - Mato Grosso do Sul",

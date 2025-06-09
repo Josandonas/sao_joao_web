@@ -5,22 +5,11 @@
   },
   "navigation": {
     "home": "Página Inicial",
-    "intro": "Introdução",
     "stories": "Histórias",
     "communities": "Comunidades",
     "book": "Livro",
     "testimonials": "Depoimentos",
     "postcards": "Postais"
-  },
-  "languageSelector": {
-    "title": "Selecione seu idioma",
-    "portuguese": "Português",
-    "english": "English",
-    "spanish": "Español"
-  },
-  "intro": {
-    "skipIntro": "Ir para a Página Inicial",
-    "watchAgain": "Assistir novamente"
   },
   "home": {
     "welcome": "Deus te Salve João Batista!",

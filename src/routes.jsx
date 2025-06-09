@@ -2,8 +2,6 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 import Layout from './components/Layout';
-import LanguageSelector from './pages/LanguageSelector';
-import Intro from './pages/Intro';
 import Home from './pages/Home';
 import Stories from './pages/Stories';
 import Communities from './pages/Communities';
@@ -15,14 +13,10 @@ import NotFound from './pages/NotFound';
 const AppRoutes = () => {
   return (
     <Routes>
-      {/* Rota raiz redireciona para a seleção de idioma */}
-      <Route path="/" element={<Navigate to="/language-selector" replace />} />
+      {/* Rota raiz redireciona diretamente para o idioma português */}
+      <Route path="/" element={<Navigate to="/pt" replace />} />
       
-      {/* Página de seleção de idioma */}
-      <Route path="/language-selector" element={<LanguageSelector />} />
-      
-      {/* Rotas de introdução para cada idioma */}
-      <Route path="/intro/:lang" element={<Intro />} />
+      {/* Rota de introdução removida */}
       
       {/* Rotas específicas para cada idioma com layout compartilhado */}
       <Route path="/:lang" element={<Layout />}>
