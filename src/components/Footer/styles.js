@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const FooterContainer = styled.footer`
-  background-color: #8c0033;
+  background-color: #5f1530;
   padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.md};
   margin-top: auto;
   color: white;

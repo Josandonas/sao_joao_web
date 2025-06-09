@@ -49,7 +49,7 @@ export const AboutContainer = styled.div`
 export const AboutTitle = styled.h2`
   font-size: ${props => props.theme.fontSizes.xxlarge};
   font-family: ${props => props.theme.fonts.heading};
-  background: linear-gradient(135deg, #8c0033 0%, #b5003e 100%);
+  background: linear-gradient(135deg, #5f1530 0%, #b5003e 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -64,7 +64,7 @@ export const AboutTitle = styled.h2`
   margin-left: auto;
   margin-right: auto;
   border-bottom: 3px solid transparent;
-  border-image: linear-gradient(to right, transparent, #8c0033, transparent);
+  border-image: linear-gradient(to right, transparent, #5f1530, transparent);
   border-image-slice: 1;
   
   &::before {
@@ -72,7 +72,7 @@ export const AboutTitle = styled.h2`
     position: absolute;
     top: 0;
     left: -30px;
-    color: #8c0033;
+    color: #5f1530;
     opacity: 0.5;
     font-size: 0.7em;
   }
@@ -82,7 +82,7 @@ export const AboutTitle = styled.h2`
     position: absolute;
     top: 0;
     right: -30px;
-    color: #8c0033;
+    color: #5f1530;
     opacity: 0.5;
     font-size: 0.7em;
   }
@@ -277,7 +277,7 @@ export const AboutParagraph = styled.p`
     content: '•';
     display: block;
     text-align: center;
-    color: #8c0033;
+    color: #5f1530;
     margin: ${props => props.theme.spacing.md} auto;
     opacity: 0.5;
   }
@@ -288,7 +288,7 @@ export const AboutParagraph = styled.p`
     line-height: 0.8;
     margin-right: 8px;
     margin-top: 4px;
-    color: #8c0033;
+    color: #5f1530;
     font-family: ${props => props.theme.fonts.heading};
     font-weight: bold;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
@@ -299,7 +299,7 @@ export const AboutParagraph = styled.p`
   }
   
   em, i {
-    color: #8c0033;
+    color: #5f1530;
     font-style: italic;
   }
 `;
@@ -309,7 +309,7 @@ export const AboutSignature = styled.div`
   font-style: italic;
   margin-top: ${props => props.theme.spacing.lg};
   text-align: right;
-  color: #8c0033; /* Usando a mesma cor bordô do cabeçalho e rodapé */
+  color: #5f1530; /* Usando a mesma cor bordô do cabeçalho e rodapé */
   font-weight: ${props => props.theme.fontWeights.bold};
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   font-size: var(--font-size); /* Usar a variável CSS */
@@ -353,7 +353,7 @@ export const TextControls = styled.div`
 `;
 
 export const TextControlButton = styled.button`
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   color: white;
   border: 2px solid white;
   border-radius: 50%;

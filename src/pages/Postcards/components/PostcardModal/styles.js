@@ -34,7 +34,7 @@ export const CloseButton = styled.button`
   background-color: white;
   border: none;
   cursor: pointer;
-  color: #8c0033;
+  color: #5f1530;
   z-index: 10;
   transition: all 0.3s ease;
   height: 42px;
@@ -61,7 +61,7 @@ export const ModalHeader = styled.div`
   padding: 25px 30px;
   padding-right: 70px; /* Espaço adicional para o botão de fechar */
   border-bottom: 1px solid rgba(140, 0, 51, 0.1);
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   position: relative;
   
   h2 {
@@ -125,7 +125,7 @@ export const PostcardMetadata = styled.div`
   padding: 15px 20px;
   background-color: #f9f1f4;
   border-radius: 10px;
-  border-left: 4px solid #8c0033;
+  border-left: 4px solid #5f1530;
 `;
 
 export const MetadataItem = styled.p`
@@ -136,7 +136,7 @@ export const MetadataItem = styled.p`
   align-items: center;
   
   strong {
-    color: #8c0033;
+    color: #5f1530;
     margin-right: 8px;
     font-weight: 600;
     min-width: 60px;
@@ -151,7 +151,7 @@ export const ShareContainer = styled.div`
 `;
 
 export const ShareButton = styled.button`
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   color: white;
   border: none;
   padding: 12px 25px;
@@ -178,8 +178,8 @@ export const ShareButton = styled.button`
 
 export const DownloadButton = styled.button`
   background-color: white;
-  color: #8c0033;
-  border: 2px solid #8c0033;
+  color: #5f1530;
+  border: 2px solid #5f1530;
   padding: 12px 25px;
   border-radius: 50px;
   cursor: pointer;

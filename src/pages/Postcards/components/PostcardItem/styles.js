@@ -18,7 +18,7 @@ export const PostcardItemContainer = styled.div`
     right: -2px;
     bottom: -2px;
     z-index: -2;
-    background: linear-gradient(135deg, #8c0033, #b5003e);
+    background: linear-gradient(135deg, #5f1530, #b5003e);
     border-radius: 14px;
     opacity: 0;
     transition: opacity 0.4s ease;

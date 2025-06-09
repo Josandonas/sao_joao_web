@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const HeaderContainer = styled.header`
-  background-color: #8c0033;
+  background-color: #5f1530;
   color: ${props => props.theme.colors.white};
   padding: ${props => props.theme.spacing.md};
   display: flex;
@@ -98,7 +98,7 @@ export const NavItem = styled.div`
     }
     
     &.active {
-      color: #8c0033;
+      color: #5f1530;
       background-color: #FFC56E;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
       transform: translateY(-2px);
@@ -152,7 +152,7 @@ export const LanguageButton = styled.button`
   
   &.active {
     background-color: #FFC56E;
-    color: #8c0033;
+    color: #5f1530;
     border-color: #FFC56E;
   }
 `;

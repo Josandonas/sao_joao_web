@@ -48,8 +48,8 @@ export const ModalHeader = styled.div`
 export const ModalTitle = styled.h2`
   font-family: ${props => props.theme.fonts.heading};
   font-weight: 700;
-  color: #8c0033;
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  color: #5f1530;
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -64,8 +64,8 @@ export const CloseButton = styled.button`
   font-size: 28px;
   font-weight: 700;
   background-color: white;
-  border: 2px solid #8c0033;
-  color: #8c0033;
+  border: 2px solid #5f1530;
+  color: #5f1530;
   cursor: pointer;
   z-index: 10;
   line-height: 1;
@@ -125,7 +125,7 @@ export const Form = styled.form`
     }
     
     .next-button {
-      background: linear-gradient(135deg, #8c0033, #b5003e);
+      background: linear-gradient(135deg, #5f1530, #b5003e);
       color: white;
       border: none;
       box-shadow: 0 4px 8px rgba(140, 0, 51, 0.3);
@@ -163,7 +163,7 @@ export const Input = styled.input`
   
   &:focus {
     outline: none;
-    border-color: #8c0033;
+    border-color: #5f1530;
     box-shadow: 0 0 0 3px rgba(140, 0, 51, 0.2);
   }
 `;
@@ -180,7 +180,7 @@ export const TextArea = styled.textarea`
   
   &:focus {
     outline: none;
-    border-color: #8c0033;
+    border-color: #5f1530;
     box-shadow: 0 0 0 3px rgba(140, 0, 51, 0.2);
   }
 `;
@@ -195,7 +195,7 @@ export const ImageUploadArea = styled.div`
   margin-bottom: 1rem;
   
   &:hover {
-    border-color: #8c0033;
+    border-color: #5f1530;
     background-color: rgba(140, 0, 51, 0.05);
   }
   
@@ -252,7 +252,7 @@ export const ImagePreview = styled.div`
 `;
 
 export const SubmitButton = styled.button`
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -302,8 +302,8 @@ export const Tab = styled.button`
   padding: 1rem 1.5rem;
   background: ${props => props.active ? 'white' : 'transparent'};
   border: none;
-  border-bottom: 3px solid ${props => props.active ? '#8c0033' : 'transparent'};
-  color: ${props => props.active ? '#8c0033' : '#666'};
+  border-bottom: 3px solid ${props => props.active ? '#5f1530' : 'transparent'};
+  color: ${props => props.active ? '#5f1530' : '#666'};
   font-weight: ${props => props.active ? '600' : '400'};
   cursor: pointer;
   transition: all 0.2s;
@@ -314,7 +314,7 @@ export const Tab = styled.button`
   
   &:hover {
     background-color: ${props => props.active ? 'white' : 'rgba(140, 0, 51, 0.05)'};
-    color: #8c0033;
+    color: #5f1530;
   }
 `;
 
@@ -328,15 +328,15 @@ export const LanguageTab = styled.button`
   padding: 0.5rem 1rem;
   background: transparent;
   border: none;
-  border-bottom: 2px solid ${props => props.active ? '#8c0033' : 'transparent'};
-  color: ${props => props.active ? '#8c0033' : '#666'};
+  border-bottom: 2px solid ${props => props.active ? '#5f1530' : 'transparent'};
+  color: ${props => props.active ? '#5f1530' : '#666'};
   font-weight: ${props => props.active ? '600' : '400'};
   cursor: pointer;
   transition: all 0.2s;
   font-family: inherit;
   
   &:hover {
-    color: #8c0033;
+    color: #5f1530;
   }
 `;
 
@@ -344,7 +344,7 @@ export const CoordinatesDisplay = styled.div`
   background-color: #f8f9fa;
   padding: 0.75rem 1rem;
   border-radius: 8px;
-  border-left: 3px solid #8c0033;
+  border-left: 3px solid #5f1530;
   margin-bottom: 1rem;
   font-size: 0.9rem;
   

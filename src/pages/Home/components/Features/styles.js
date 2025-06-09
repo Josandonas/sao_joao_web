@@ -77,7 +77,7 @@ export const FeatureCard = styled(Link)`
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(140, 0, 51, 0.15);
-    border-bottom: 3px solid ${props => props.theme.colors.primary || '#8c0033'};
+    border-bottom: 3px solid ${props => props.theme.colors.primary || '#5f1530'};
     
     &:before {
       opacity: 0.03;
@@ -91,7 +91,7 @@ export const FeatureCard = styled(Link)`
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #8c0033;
+    background-color: #5f1530;
     opacity: 0;
     z-index: -1;
     transition: opacity 0.3s ease;
@@ -108,7 +108,7 @@ export const FeatureIconWrapper = styled.div`
   background-color: rgba(243, 137, 74, 0.1);
   border-radius: 50%;
   transition: all 0.3s ease;
-  color: #8c0033;
+  color: #5f1530;
   
   ${FeatureCard}:hover & {
     transform: scale(1.05);
@@ -118,7 +118,7 @@ export const FeatureIconWrapper = styled.div`
 
 export const FeatureTitle = styled.h3`
   font-size: 18px;
-  color: #8c0033;
+  color: #5f1530;
   margin: 0 0 10px 0;
   font-family: 'Merriweather', serif;
   font-weight: bold;

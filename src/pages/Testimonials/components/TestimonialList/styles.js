@@ -32,7 +32,7 @@ export const TestimonialImage = styled.img`
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-bottom: 3px solid #8c0033;
+  border-bottom: 3px solid #5f1530;
 `;
 
 export const TestimonialContent = styled.div`
@@ -62,7 +62,7 @@ export const TestimonialQuote = styled.p`
 `;
 
 export const TestimonialVideo = styled.button`
-  background-color: #8c0033;
+  background-color: #5f1530;
   color: white;
   border: none;
   border-radius: 25px;

@@ -55,7 +55,7 @@ export const ModalContent = styled.div`
   }
   
   &::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #8c0033, #b5003e);
+    background: linear-gradient(135deg, #5f1530, #b5003e);
     border-radius: 10px;
   }
   
@@ -99,7 +99,7 @@ export const Title = styled.h2`
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: 1.8rem;
   margin: 0 0 ${props => props.theme.spacing.xs} 0;
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -143,7 +143,7 @@ export const FontSizeButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #8c0033;
+  color: #5f1530;
   font-size: 16px;
   transition: all 0.2s ease;
   margin: 0 3px;
@@ -154,14 +154,14 @@ export const FontSizeButton = styled.button`
   &.active {
     background-color: rgba(140, 0, 51, 0.15);
     transform: translateY(-2px);
-    border-color: #8c0033;
+    border-color: #5f1530;
     box-shadow: 0 4px 8px rgba(140, 0, 51, 0.3);
   }
   
   &:hover {
     background-color: rgba(140, 0, 51, 0.1);
     transform: translateY(-2px);
-    border-color: #8c0033;
+    border-color: #5f1530;
     box-shadow: 0 4px 8px rgba(140, 0, 51, 0.2);
   }
   
@@ -180,8 +180,8 @@ export const CloseButton = styled.button`
   font-size: 28px;
   font-weight: 700;
   background-color: white;
-  border: 2px solid #8c0033;
-  color: #8c0033;
+  border: 2px solid #5f1530;
+  color: #5f1530;
   cursor: pointer;
   z-index: 10;
   line-height: 1;
@@ -234,7 +234,7 @@ export const MetaInfo = styled.div`
   
   .author {
     font-weight: ${props => props.theme.fontWeights.medium};
-    color: #8c0033;
+    color: #5f1530;
   }
   
   .date {
@@ -262,7 +262,7 @@ export const Paragraph = styled.p`
   &:first-of-type::first-letter {
     font-size: calc(${props => props.theme.fontSizes.xxlarge} * ${props => props.fontScale || 1});
     font-weight: ${props => props.theme.fontWeights.bold};
-    color: #8c0033;
+    color: #5f1530;
     padding-right: 4px;
     float: left;
     line-height: 0.9;

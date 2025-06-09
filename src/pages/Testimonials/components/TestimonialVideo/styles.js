@@ -44,7 +44,7 @@ export const CloseButton = styled.button`
   transition: all 0.2s ease;
   
   &:hover {
-    background-color: #8c0033;
+    background-color: #5f1530;
     transform: scale(1.1);
   }
 `;
@@ -57,7 +57,7 @@ export const VideoContainer = styled.div`
   video {
     display: block;
     width: 100%;
-    border-bottom: 3px solid #8c0033;
+    border-bottom: 3px solid #5f1530;
   }
 `;
 

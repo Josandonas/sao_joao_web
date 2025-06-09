@@ -19,7 +19,7 @@ export const MapContainerStyled = styled.div`
     right: -5px;
     bottom: -5px;
     border-radius: ${props => props.theme.borderRadius.large};
-    background: linear-gradient(135deg, #8c0033, #b5003e);
+    background: linear-gradient(135deg, #5f1530, #b5003e);
     z-index: -1;
     box-shadow: 0 6px 20px rgba(140, 0, 51, 0.3);
   }
@@ -47,11 +47,11 @@ export const MapContainerStyled = styled.div`
   .leaflet-control-zoom-out {
     border-radius: 4px !important;
     background-color: white !important;
-    color: #8c0033 !important;
+    color: #5f1530 !important;
     transition: all 0.2s ease;
     
     &:hover {
-      background-color: #8c0033 !important;
+      background-color: #5f1530 !important;
       color: white !important;
     }
   }
@@ -76,7 +76,7 @@ export const MapContainerStyled = styled.div`
     strong {
       display: block;
       margin-bottom: 4px;
-      color: #8c0033;
+      color: #5f1530;
       font-weight: 600;
     }
     
@@ -129,7 +129,7 @@ export const MapTitleContainer = styled.div`
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #8c0033, #b5003e);
+    background: linear-gradient(90deg, #5f1530, #b5003e);
   }
   
   /* Efeito de gradiente sutil */
@@ -154,8 +154,8 @@ export const MapTitle = styled.h1`
   font-family: ${props => props.theme.fonts.heading};
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: ${props => props.theme.fontSizes.xxlarge};
-  color: #8c0033;
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  color: #5f1530;
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -178,7 +178,7 @@ export const MapTitle = styled.h1`
     transform: translateX(-50%);
     width: 120px;
     height: 4px;
-    background: linear-gradient(90deg, #8c0033, #b5003e);
+    background: linear-gradient(90deg, #5f1530, #b5003e);
     border-radius: 2px;
     margin-top: ${props => props.theme.spacing.sm};
   }
@@ -189,7 +189,7 @@ export const MapTitle = styled.h1`
 `;
 
 export const RegisterButton = styled.button`
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   color: white;
   border: none;
   border-radius: ${props => props.theme.borderRadius.medium};

@@ -34,7 +34,7 @@ const Button = styled.button.withConfig({
 
 export const CategoryButton = styled(Button)`
   padding: 0.6rem 1.2rem;
-  background-color: ${props => props.isActive ? '#8c0033' : 'white'};
+  background-color: ${props => props.isActive ? '#5f1530' : 'white'};
   color: ${props => props.isActive ? 'white' : '#555'};
   border: none;
   border-radius: 25px;
@@ -64,8 +64,8 @@ export const CategoryButton = styled(Button)`
   &:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    background-color: ${props => props.isActive ? '#8c0033' : '#f8f8f8'};
-    color: ${props => props.isActive ? 'white' : '#8c0033'};
+    background-color: ${props => props.isActive ? '#5f1530' : '#f8f8f8'};
+    color: ${props => props.isActive ? 'white' : '#5f1530'};
     
     &:after {
       width: ${props => props.isActive ? '100%' : '0%'};

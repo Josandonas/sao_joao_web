@@ -48,8 +48,8 @@ export const CloseButton = styled.button`
   font-size: 24px;
   font-weight: 700;
   background-color: white;
-  border: 2px solid #8c0033;
-  color: #8c0033;
+  border: 2px solid #5f1530;
+  color: #5f1530;
   cursor: pointer;
   z-index: 10;
   line-height: 1;
@@ -74,7 +74,7 @@ export const RecordButton = styled.button`
   display: block;
   margin: 2.5rem auto;
   padding: 0.9rem 2.2rem;
-  background-color: #8c0033;
+  background-color: #5f1530;
   color: white;
   border: none;
   border-radius: 50px;
@@ -134,13 +134,13 @@ export const RecordingForm = styled.form`
     left: 0;
     width: 100%;
     height: 5px;
-    background: linear-gradient(90deg, #8c0033, #b5003e);
+    background: linear-gradient(90deg, #5f1530, #b5003e);
   }
 `;
 
 export const FormTitle = styled.h3`
   font-size: 1.6rem;
-  color: #8c0033;
+  color: #5f1530;
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: 700;
@@ -174,7 +174,7 @@ export const Input = styled.input`
   
   &:focus {
     outline: none;
-    border-color: #8c0033;
+    border-color: #5f1530;
     box-shadow: 0 0 0 2px rgba(140, 0, 51, 0.2);
   }
   
@@ -197,7 +197,7 @@ export const TextArea = styled.textarea`
   
   &:focus {
     outline: none;
-    border-color: #8c0033;
+    border-color: #5f1530;
     box-shadow: 0 0 0 2px rgba(140, 0, 51, 0.2);
   }
 `;
@@ -219,7 +219,7 @@ export const FileUploadButton = styled.label`
   display: flex;
   align-items: center;
   gap: 8px;
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   color: white;
   padding: 10px 15px;
   border-radius: 5px;
@@ -257,7 +257,7 @@ export const FileNameDisplay = styled.div`
 `;
 
 export const SubmitButton = styled.button`
-  background-color: #8c0033;
+  background-color: #5f1530;
   color: white;
   border: none;
   border-radius: 8px;

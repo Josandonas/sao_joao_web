@@ -39,7 +39,7 @@ export const TitleSection = styled.div`
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, #8c0033, #b5003e);
+    background: linear-gradient(90deg, #5f1530, #b5003e);
   }
   
   /* Efeito de gradiente sutil */
@@ -64,8 +64,8 @@ export const Title = styled.h1`
   font-family: ${props => props.theme.fonts.heading};
   font-weight: ${props => props.theme.fontWeights.bold};
   font-size: ${props => props.theme.fontSizes.xxlarge};
-  color: #8c0033;
-  background: linear-gradient(135deg, #8c0033, #b5003e);
+  color: #5f1530;
+  background: linear-gradient(135deg, #5f1530, #b5003e);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -88,7 +88,7 @@ export const Title = styled.h1`
     transform: translateX(-50%);
     width: 120px;
     height: 4px;
-    background: linear-gradient(90deg, #8c0033, #b5003e);
+    background: linear-gradient(90deg, #5f1530, #b5003e);
     border-radius: 2px;
     margin-top: ${props => props.theme.spacing.sm};
   }

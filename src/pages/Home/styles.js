@@ -305,7 +305,7 @@ export const AboutContainer = styled.div`
 export const AboutTitle = styled.h2`
   font-size: ${props => props.theme.fontSizes.xxlarge};
   font-family: ${props => props.theme.fonts.heading};
-  color: #8c0033;
+  color: #5f1530;
   margin-bottom: ${props => props.theme.spacing.xxl};
   text-align: center;
   position: relative;
@@ -322,7 +322,7 @@ export const AboutTitle = styled.h2`
     transform: translateX(-50%);
     width: 180px;
     height: 4px;
-    background: linear-gradient(to right, transparent, #ff6b01, #8c0033, #ff6b01, transparent);
+    background: linear-gradient(to right, transparent, #ff6b01, #5f1530, #ff6b01, transparent);
     border-radius: 3px;
   }
   
@@ -440,7 +440,7 @@ export const AboutParagraph = styled.p`
     line-height: 0.8;
     margin-right: 8px;
     margin-top: 4px;
-    color: #8c0033;
+    color: #5f1530;
     font-family: ${props => props.theme.fonts.heading};
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
@@ -452,7 +452,7 @@ export const AboutSignature = styled.div`
   font-style: italic;
   margin-top: ${props => props.theme.spacing.lg};
   text-align: right;
-  color: #8c0033; /* Usando a mesma cor bordô do cabeçalho e rodapé */
+  color: #5f1530; /* Usando a mesma cor bordô do cabeçalho e rodapé */
   font-weight: ${props => props.theme.fontWeights.bold};
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
   font-size: var(--font-size); /* Usar a variável CSS */
@@ -481,7 +481,7 @@ export const TextControls = styled.div`
 `;
 
 export const TextControlButton = styled.button`
-  background-color: #8c0033;
+  background-color: #5f1530;
   color: white;
   border: none;
   border-radius: 50%;

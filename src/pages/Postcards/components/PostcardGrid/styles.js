@@ -42,7 +42,7 @@ export const NoResults = styled.div`
   }
 
   button {
-    background: linear-gradient(135deg, #8c0033, #b5003e);
+    background: linear-gradient(135deg, #5f1530, #b5003e);
     color: white;
     border: none;
     padding: 12px 25px;
