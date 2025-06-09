@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Container } from './styles';
+import { Container, ContentContainer } from './styles';
 
 // Componentes modulares
 import Hero from './components/Hero';
@@ -30,11 +30,14 @@ const Home = () => {
       {/* Componente Hero com banner principal */}
       <Hero lang={lang} />
 
-      {/* Componente About com conteúdo sobre o projeto e controles de zoom de texto */}
-      <About fontSizeControls={fontSizeControls} />
+      {/* Container para os demais componentes, semelhante às outras páginas */}
+      <ContentContainer>
+        {/* Componente About com conteúdo sobre o projeto e controles de zoom de texto */}
+        <About fontSizeControls={fontSizeControls} />
 
-      {/* Componente Features com cards de recursos da aplicação */}
-      <Features features={features} />
+        {/* Componente Features com cards de recursos da aplicação */}
+        <Features features={features} />
+      </ContentContainer>
     </Container>
   );
 };

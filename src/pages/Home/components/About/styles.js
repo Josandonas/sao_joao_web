@@ -1,39 +1,14 @@
 import styled from 'styled-components';
 
 export const AboutSection = styled.section`
-  padding: ${props => props.theme.spacing.xxl} ${props => props.theme.spacing.xl};
   position: relative;
   overflow: hidden; /* Para garantir que os elementos não ultrapassem os limites */
   --font-size: 16px; /* Valor padrão, será sobrescrito via JavaScript */
   background-color: transparent; /* Garantir que o fundo seja transparente */
-
-  &::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(255,235,230,0.4) 0%, rgba(255,255,255,0.9) 50%, rgba(255,235,230,0.4) 100%);
-    pointer-events: none;
-    z-index: -1;
-  }
-  
-  &::after {
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    top: -150px;
-    right: -150px;
-    background: radial-gradient(circle, rgba(140,0,51,0.08) 0%, rgba(255,255,255,0) 70%);
-    border-radius: 50%;
-    z-index: -1;
-    pointer-events: none;
-  }
+  margin-bottom: ${props => props.theme.spacing.xl};
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.sm};
+    margin-bottom: ${props => props.theme.spacing.lg};
   }
 `;
 

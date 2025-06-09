@@ -6,9 +6,8 @@ export const FeaturesSection = styled.section`
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
-  max-width: 1200px;
-  margin: 60px auto;
-  padding: 20px 30px 60px;
+  width: 100%;
+  margin: 0 auto;
   
   /* Layout para distribuir 5 itens de forma mais equilibrada */
   & > :nth-child(1),
@@ -26,7 +25,6 @@ export const FeaturesSection = styled.section`
   
   @media (max-width: 1200px) {
     gap: 20px;
-    padding: 20px 20px 50px;
   }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
@@ -38,7 +36,6 @@ export const FeaturesSection = styled.section`
       flex-basis: calc(50% - 12px);
       max-width: calc(50% - 12px);
     }
-    padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md};
   }
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
