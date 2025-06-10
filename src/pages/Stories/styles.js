@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.lg};
   width: 100%;
-  max-width: 1200px;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.7);
   
