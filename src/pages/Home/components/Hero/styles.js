@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const HeroSection = styled.section`
-  position: relative;
   height: 70vh;
   min-height: 500px;
   max-height: 800px;
@@ -107,7 +106,6 @@ export const ExploreButton = styled.button`
 `;
 
 export const CarouselContainer = styled.div`
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -160,16 +158,10 @@ export const CarouselContainer = styled.div`
   /* Adicionar um overlay sutil para melhorar o contraste com os controles */
   &::after {
     content: '';
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to bottom, 
-      rgba(0, 0, 0, 0.2) 0%, 
-      rgba(0, 0, 0, 0) 20%, 
-      rgba(0, 0, 0, 0) 80%, 
-      rgba(0, 0, 0, 0.3) 100%);
     pointer-events: none;
     z-index: 2;
   }

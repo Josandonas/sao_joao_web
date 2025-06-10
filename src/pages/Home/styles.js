@@ -19,7 +19,6 @@ export const ContentContainer = styled.div`
 `;
 
 export const HeroSection = styled.section`
-  position: relative;
   height: 70vh;
   min-height: 500px;
   background-image: url('/assets/images/header-bg.jpeg');
