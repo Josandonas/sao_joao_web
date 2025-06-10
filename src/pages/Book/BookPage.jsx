@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Title, Introduction } from './styles';
+import { Container } from './styles';
 import { bookContent } from './data/bookContent';
 import { useBookNavigation } from './hooks/useBookNavigation';
 import { useFullscreen } from './hooks/useFullscreen';

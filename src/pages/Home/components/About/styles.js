@@ -31,9 +31,6 @@ export const AboutContainer = styled.div`
     max-width: calc(100% - 24px);
   }
 `;
-
-
-
 export const AboutContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -208,7 +205,7 @@ export const AboutText = styled.div`
 `;
 
 export const AboutParagraph = styled.p`
-  margin-bottom: ${props => props.theme.spacing.lg};
+  margin-bottom: ${props => props.theme.spacing.md}; /* Reduzido de lg para md */
   line-height: 1.8;
   color: #2a2a2a;
   text-align: justify;
@@ -222,8 +219,9 @@ export const AboutParagraph = styled.p`
     display: block;
     text-align: center;
     color: #5f1530;
-    margin: ${props => props.theme.spacing.md} auto;
-    opacity: 0.5;
+    opacity: 1.5;
+    margin-top: -8px; /* Espaço negativo para aproximar o ponto do parágrafo */
+    margin-bottom: -8px; /* Espaço negativo para aproximar o ponto do próximo parágrafo */
   }
   
   &:first-of-type::first-letter {
@@ -245,26 +243,6 @@ export const AboutParagraph = styled.p`
   em, i {
     color: #5f1530;
     font-style: italic;
-  }
-`;
-
-export const AboutSignature = styled.div`
-  font-family: ${props => props.theme.fonts.heading};
-  font-style: italic;
-  margin-top: ${props => props.theme.spacing.lg};
-  text-align: right;
-  color: #5f1530; /* Usando a mesma cor bordô do cabeçalho e rodapé */
-  font-weight: ${props => props.theme.fontWeights.bold};
-  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
-  font-size: var(--font-size); /* Usar a variável CSS */
-  transition: font-size 0.3s ease;
-  
-  span {
-    font-size: calc(var(--font-size) * 0.9);
-    font-weight: ${props => props.theme.fontWeights.normal};
-    display: block;
-    margin-top: 4px;
-    color: #541c1c; /* Cor mais escura para o título da curadora */
   }
 `;
 

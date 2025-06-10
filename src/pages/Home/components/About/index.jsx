@@ -6,7 +6,6 @@ import {
   AboutContent,
   AboutText,
   AboutParagraph,
-  AboutSignature,
   TextControls,
   TextControlButton
 } from './styles';
@@ -87,11 +86,6 @@ const About = ({ fontSizeControls }) => {
               <AboutParagraph>{t('home.about.paragraph4')}</AboutParagraph>
               <AboutParagraph>{t('home.about.paragraph5')}</AboutParagraph>
               <AboutParagraph>{t('home.about.paragraph6')}</AboutParagraph>
-              <AboutParagraph>{t('home.about.paragraph7')}</AboutParagraph>
-              <AboutSignature>
-                {t('home.about.curator')}
-                <span>{t('home.about.curatorTitle')}</span>
-              </AboutSignature>
             </AboutText>
           </div>
         </AboutContent>

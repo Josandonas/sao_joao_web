@@ -1,12 +1,29 @@
+/**
+ * Módulo central de estilos para o módulo Book
+ * 
+ * Este arquivo centraliza todos os estilos do módulo Book, reexportando os componentes
+ * estilizados de outros arquivos e definindo componentes estilizados comuns.
+ * 
+ * A estrutura de estilos foi organizada da seguinte forma:
+ * - BookCoverStyles.js: Estilos relacionados à capa do livro
+ * - BookReaderStyles.js: Estilos relacionados ao leitor do livro
+ * - ActionButtonStyles.js: Estilos para os botões de ação (ler, baixar, compartilhar)
+ * - index.js (este arquivo): Componentes estilizados comuns e reexportações
+ */
+
 // Reexportação de todos os estilos para facilitar importações
 export * from './BookCoverStyles';
 export * from './BookReaderStyles';
 export * from './ActionButtonStyles';
 
-// Estilos gerais do livro
 import styled from 'styled-components';
 
-// Container principal
+/**
+ * Container principal da página do livro
+ * 
+ * Componente estilizado que envolve todo o conteúdo da página do livro,
+ * fornecendo espaçamento interno e cor de fundo adequados.
+ */
 export const Container = styled.div`
   padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.lg};
   width: 100%;
@@ -18,7 +35,12 @@ export const Container = styled.div`
   }
 `;
 
-// Título principal
+/**
+ * Título principal da página do livro
+ * 
+ * Componente estilizado para o título principal, com efeito decorativo
+ * de linha gradiente abaixo do texto.
+ */
 export const Title = styled.h1`
   font-family: ${props => props.theme.fonts.heading};
   font-size: calc(${props => props.theme.fontSizes.xlarge} * 0.9);
@@ -38,7 +60,12 @@ export const Title = styled.h1`
   }
 `;
 
-// Texto de introdução
+/**
+ * Texto de introdução da página do livro
+ * 
+ * Componente estilizado para o texto introdutório, com tamanho de fonte
+ * e espaçamento adequados para leitura confortável.
+ */
 export const Introduction = styled.p`
   font-family: ${props => props.theme.fonts.body};
   font-size: ${props => props.theme.fontSizes.large};

@@ -244,74 +244,76 @@ export const FullscreenContent = styled.div`
   flex-direction: column;
   gap: ${props => props.theme.spacing.xl};
 
+  /* Estilos para a página em tela cheia */
   .fullscreen-page {
     display: flex;
     flex-direction: column;
     gap: ${props => props.theme.spacing.lg};
-
+    
     h2 {
       font-family: ${props => props.theme.fonts.heading};
       font-size: ${props => props.theme.fontSizes.xxlarge};
       color: ${props => props.theme.colors.primary};
+      margin-bottom: ${props => props.theme.spacing.md};
       text-align: center;
-      margin-bottom: ${props => props.theme.spacing.lg};
     }
-
+    
     .page-container {
       display: flex;
       flex-direction: column;
-      gap: ${props => props.theme.spacing.xl};
-
+      gap: ${props => props.theme.spacing.lg};
+      
       @media (min-width: ${props => props.theme.breakpoints.lg}) {
         flex-direction: row;
         align-items: flex-start;
       }
-
+      
       img {
         width: 100%;
-        max-width: 500px;
+        max-width: 450px;
         height: auto;
         border-radius: ${props => props.theme.borderRadius.medium};
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         object-fit: cover;
         margin: 0 auto;
-
+        
         @media (min-width: ${props => props.theme.breakpoints.lg}) {
           width: 45%;
           margin: 0;
         }
       }
-
+      
       .page-text {
         flex: 1;
         font-family: ${props => props.theme.fonts.body};
-        font-size: ${props => props.theme.fontSizes.large};
+        font-size: ${props => props.theme.fontSizes.medium};
         line-height: 1.8;
         color: ${props => props.theme.colors.text};
-        padding: ${props => props.theme.spacing.lg};
+        padding: ${props => props.theme.spacing.md};
         background-color: ${props => props.theme.colors.backgroundLight};
         border-radius: ${props => props.theme.borderRadius.medium};
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        
         p {
           margin-bottom: ${props => props.theme.spacing.md};
           text-align: justify;
         }
-
+        
         p:last-child {
           margin-bottom: 0;
         }
       }
     }
   }
-
+  
+  /* Estilos para a navegação de capítulos em tela cheia */
   .fullscreen-chapters {
     display: flex;
     flex-wrap: wrap;
     gap: ${props => props.theme.spacing.sm};
     justify-content: center;
-    margin-top: ${props => props.theme.spacing.xl};
-
+    margin-top: ${props => props.theme.spacing.md};
+    
     button {
       background-color: ${props => props.theme.colors.backgroundDark};
       color: ${props => props.theme.colors.text};
@@ -321,16 +323,50 @@ export const FullscreenContent = styled.div`
       font-size: ${props => props.theme.fontSizes.small};
       cursor: pointer;
       transition: all 0.3s ease;
-
+      
+      &:hover {
+        background-color: ${props => props.theme.colors.border};
+        transform: translateY(-2px);
+      }
+      
       &.active {
         background-color: ${props => props.theme.colors.primary};
         color: white;
-      }
-
-      &:hover {
-        background-color: ${props => props.isActive ? props.theme.colors.primaryDark : props.theme.colors.border};
-        transform: translateY(-2px);
+        
+        &:hover {
+          background-color: ${props => props.theme.colors.primaryDark};
+        }
       }
     }
+  }
+`;
+
+/**
+ * Botão para fechar o modo de tela cheia no leitor fullscreen
+ * 
+ * Este componente é específico para o leitor em tela cheia e possui
+ * posicionamento e z-index adequados para este contexto.
+ */
+export const FullscreenCloseButton = styled.button`
+  position: absolute;
+  top: ${props => props.theme.spacing.md};
+  right: ${props => props.theme.spacing.md};
+  background-color: ${props => props.theme.colors.backgroundDark};
+  color: ${props => props.theme.colors.text};
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1001;
+  
+  &:hover {
+    background-color: ${props => props.theme.colors.border};
+    transform: scale(1.1);
   }
 `;

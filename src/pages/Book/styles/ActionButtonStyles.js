@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-// Estilo base para todos os botões de ação
+/**
+ * Botão base para todos os botões de ação do módulo Book
+ * 
+ * Este componente é usado apenas internamente neste arquivo e não é exportado.
+ * Ele serve como base para todos os outros botões de ação, fornecendo estilos
+ * e comportamentos comuns que são herdados pelos botões específicos.
+ * 
+ * Todos os botões exportados deste arquivo estendem este componente base.
+ */
 const BaseButton = styled.button`
   padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.xl};
   font-family: ${props => props.theme.fonts.heading};
