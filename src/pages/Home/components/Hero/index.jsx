@@ -18,7 +18,7 @@ const Hero = ({ lang }) => {
   useEffect(() => {
     // Criar array de imagens para o carrossel
     const carouselImages = [];
-    for (let i = 1; i <= 17; i++) {
+    for (let i = 1; i <= 14; i++) {
       carouselImages.push({
         original: `/assets/images/backgrounds/carrosel_home/img (${i}).jpeg`,
         thumbnail: `/assets/images/backgrounds/carrosel_home/img (${i}).jpeg`,

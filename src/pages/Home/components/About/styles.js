@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const AboutSection = styled.section`
+  margin-top: ${props => props.theme.spacing.xl}; 
   position: relative;
   overflow: hidden; /* Para garantir que os elementos não ultrapassem os limites */
   --font-size: 16px; /* Valor padrão, será sobrescrito via JavaScript */
@@ -13,75 +14,33 @@ export const AboutSection = styled.section`
 `;
 
 export const AboutContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
   align-items: center;
+  padding: 0;
+  max-width: calc(90% + 24px); /* Mesma largura que os cards do Features ocupam juntos + o gap */
+  
+  @media (max-width: 1200px) {
+    max-width: calc(90% + 20px); /* Ajustado para o gap de 20px em telas menores */
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    max-width: calc(100% - 24px);
+  }
 `;
 
-export const AboutTitle = styled.h2`
-  font-size: ${props => props.theme.fontSizes.xxlarge};
-  font-family: ${props => props.theme.fonts.heading};
-  background: linear-gradient(135deg, #5f1530 0%, #b5003e 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin-bottom: ${props => props.theme.spacing.lg};
-  text-align: center;
-  position: relative;
-  padding: ${props => props.theme.spacing.md} 0;
-  letter-spacing: 1.5px;
-  font-weight: bold;
-  display: inline-block;
-  width: auto;
-  margin-left: auto;
-  margin-right: auto;
-  border-bottom: 3px solid transparent;
-  border-image: linear-gradient(to right, transparent, #5f1530, transparent);
-  border-image-slice: 1;
-  
-  &::before {
-    content: '⦿';
-    position: absolute;
-    top: 0;
-    left: -30px;
-    color: #5f1530;
-    opacity: 0.5;
-    font-size: 0.7em;
-  }
-  
-  &::after {
-    content: '⦿';
-    position: absolute;
-    top: 0;
-    right: -30px;
-    color: #5f1530;
-    opacity: 0.5;
-    font-size: 0.7em;
-  }
-  
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    font-size: ${props => props.theme.fontSizes.xlarge};
-    margin-bottom: ${props => props.theme.spacing.md};
-    letter-spacing: 0.5px;
-    
-    &::before, &::after {
-      display: none;
-    }
-  }
-`;
+
 
 export const AboutContent = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   position: relative;
-  max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  align-items: center; /* Centraliza verticalmente os elementos */
-  justify-content: space-between;
-  gap: ${props => props.theme.spacing.lg};
+  gap: 16px; /* Espaçamento entre os controles e o conteúdo */
   background: rgba(255, 255, 255, 0.8);
   border-radius: 20px;
   padding: ${props => props.theme.spacing.lg};
@@ -89,22 +48,32 @@ export const AboutContent = styled.div`
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.6);
   
+  /* Estilo para o wrapper que contém imagem e texto */
+  .content-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px; /* Mesmo gap usado no FeaturesSection */
+    width: 100%;
+  }
+  
   /* Container da imagem */
   .image-container {
     overflow: hidden;
-    border-radius: 16px;
+    border-radius: 50px;
     background: linear-gradient(135deg, #ffcb99 0%, #ffe4d3 100%); /* Gradiente suave */
-    height: 420px; /* Altura ligeiramente maior */
+    height: 100%; /* Altura ligeiramente maior */
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    width: 30%;
-    max-width: 300px;
+    width: 100%;
+    max-width: 600px;
     position: sticky;
     top: 40px;
     align-self: center; /* Alinha verticalmente com o texto */
-    margin-right: 32px;
+    margin-right: 24px;
     box-shadow: 0 12px 28px rgba(140, 0, 51, 0.15), 0 8px 10px rgba(140, 0, 51, 0.08);
     padding: 0;
     border: 4px solid white;
@@ -302,28 +271,17 @@ export const AboutSignature = styled.div`
 export const TextControls = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: ${props => props.theme.spacing.sm};
-  margin: ${props => props.theme.spacing.sm} auto ${props => props.theme.spacing.lg};
-  padding: 10px 20px;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 50px;
-  box-shadow: 0 4px 15px rgba(140, 0, 51, 0.15);
-  width: fit-content;
-  border: 1px solid rgba(140, 0, 51, 0.1);
-  backdrop-filter: blur(5px);
-  position: relative;
+  justify-content: flex-end;
+  align-self: flex-end;
   z-index: 5;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 8px;
   
-  &::after {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    height: 2px;
-    background: linear-gradient(to right, transparent, rgba(140, 0, 51, 0.3), transparent);
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 4px 8px;
   }
 `;
 

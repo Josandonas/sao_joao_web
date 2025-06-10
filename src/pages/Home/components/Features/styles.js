@@ -7,8 +7,8 @@ export const FeaturesSection = styled.section`
   justify-content: center;
   gap: 24px;
   width: 100%;
-  margin: 0 auto;
-  
+  margin: 2rem auto;
+
   /* Layout para distribuir 5 itens de forma mais equilibrada */
   & > :nth-child(1),
   & > :nth-child(2) {
