@@ -29,7 +29,6 @@ StoriesGrid.propTypes = {
       id: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired,
       excerpt: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired,
       content: PropTypes.string.isRequired,
     })
   ).isRequired,
