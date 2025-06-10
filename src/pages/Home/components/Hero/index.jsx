@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import ImageGallery from 'react-image-gallery';
 import { 
   HeroSection,
-  HeroContent,
-  Title,
-  Subtitle,
-  ExploreButton,
   CarouselContainer
 } from './styles';
 
