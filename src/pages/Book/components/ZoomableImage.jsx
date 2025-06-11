@@ -36,10 +36,22 @@ const ZoomableImage = ({
     }
   }, [zoomLevel, zoomActive]);
 
+  // Se o zoom não estiver ativo, renderiza apenas a imagem sem o wrapper de zoom
+  if (!zoomActive) {
+    return (
+      <BookImage 
+        src={src} 
+        alt={alt} 
+        $fullscreen={fullscreen}
+        style={{ maxHeight: fullscreen ? '90vh' : '85vh' }}
+      />
+    );
+  }
+  
+  // Se o zoom estiver ativo, renderiza com o wrapper de zoom
   return (
     <TransformWrapper
       ref={transformRef}
-      disabled={!zoomActive}
       initialScale={1}
       minScale={0.5}
       maxScale={4}
@@ -52,7 +64,7 @@ const ZoomableImage = ({
     >
       {({ zoomIn, zoomOut, resetTransform }) => (
         <>
-          {zoomActive && showControls && (
+          {showControls && (
             <ZoomControlsContainer>
               <ZoomButton onClick={() => zoomIn()}>+</ZoomButton>
               <ZoomButton onClick={() => zoomOut()}>-</ZoomButton>

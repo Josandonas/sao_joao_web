@@ -4,6 +4,9 @@
  * Os textos estão mantidos aqui para compatibilidade, mas na implementação final,
  * recomenda-se que todos os textos sejam movidos para os arquivos de tradução i18n
  * usando as chaves definidas nos componentes.
+ * 
+ * A estrutura de vídeos agora suporta diferentes idiomas (pt, en, es) para permitir
+ * que o usuário assista aos depoimentos no idioma selecionado na aplicação.
  */
 export const testimonialData = [
   {
@@ -13,7 +16,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/alfredo_tadeu.jpg',
     quoteKey: '1',
     quote: 'Minha família celebra o Banho de São João há cinco gerações. É uma tradição que nos conecta com nossos ancestrais e mantém viva nossa cultura pantaneira.',
-    videoUrl: '/assets/videos/testimonials/alfredo-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/alfredo-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/alfredo-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/alfredo-es.mp4'
+    },
     category: 'traditions'
   },
   {
@@ -23,7 +30,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/bianca_machado.jpg',
     quoteKey: '2',
     quote: 'Como moradora ribeirinha, sempre tive uma relação especial com o rio. O Banho de São João é um momento de agradecer pela abundância que as águas nos proporcionam.',
-    videoUrl: '/assets/videos/testimonials/bianca-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/bianca-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/bianca-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/bianca-es.mp4'
+    },
     category: 'personal'
   },
   {
@@ -33,7 +44,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/eliane_escobar.jpg',
     quoteKey: '3',
     quote: 'Preservar as tradições do Banho de São João é preservar nossa identidade cultural. Nas celebrações, nossa música acompanha a procissão e as danças tradicionais.',
-    videoUrl: '/assets/videos/testimonials/eliane-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/eliane-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/eliane-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/eliane-es.mp4'
+    },
     category: 'cultural'
   },
   {
@@ -43,7 +58,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/epifania.jpg',
     quoteKey: '4',
     quote: 'Como moradora antiga, encontro no Banho de São João um exemplo perfeito do sincretismo religioso e cultural que forma a identidade pantaneira brasileira.',
-    videoUrl: '/assets/videos/testimonials/epifania-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/epifania-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/epifania-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/epifania-es.mp4'
+    },
     category: 'traditions'
   },
   {
@@ -53,7 +72,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/fernando_vanucci.jpg',
     quoteKey: '5',
     quote: 'Fiz uma promessa a São João quando meu filho estava doente. Após sua recuperação, participamos todos os anos do ritual do banho, mantendo nosso compromisso com o santo.',
-    videoUrl: '/assets/videos/testimonials/fernando-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/fernando-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/fernando-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/fernando-es.mp4'
+    },
     category: 'faith'
   },
   {
@@ -63,7 +86,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/filhos_dona_bere.jpg',
     quoteKey: '6',
     quote: 'Nossa família preserva as canções e danças que celebram São João há gerações. A música é fundamental para transmitir essa herança cultural.',
-    videoUrl: '/assets/videos/testimonials/filhasbere-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/filhasbere-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/filhasbere-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/filhasbere-es.mp4'
+    },
     category: 'cultural'
   },
   {
@@ -73,7 +100,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/idalina_goncalves.jpg',
     quoteKey: '7',
     quote: 'Minha avó era curandeira e utilizava as ervas e a água benta de São João em seus tratamentos. Aprendi com ela o valor medicinal e espiritual dessa tradição.',
-    videoUrl: '/assets/videos/testimonials/idalina-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/idalina-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/idalina-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/idalina-es.mp4'
+    },
     category: 'traditions'
   },
   {
@@ -83,7 +114,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/izabel_meira.jpg',
     quoteKey: '8',
     quote: 'Como benzedeira, utilizo as ervas abenaçoadas durante a festa de São João. A água coletada nessa noite é considerada mítica e curativa.',
-    videoUrl: '/assets/videos/testimonials/izabel-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/izabel-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/izabel-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/izabel-es.mp4'
+    },
     category: 'faith'
   },
   {
@@ -93,7 +128,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/janete_tinoco.jpg',
     quoteKey: '9',
     quote: 'Organizo a festa há mais de 20 anos e vejo como ela se transformou mantendo sua essência. É gratificante ver os jovens se interessando por nossas tradições.',
-    videoUrl: '/assets/videos/testimonials/janete-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/janete-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/janete-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/janete-es.mp4'
+    },
     category: 'traditions'
   },
   {
@@ -103,7 +142,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/joaquina_pereira.jpg',
     quoteKey: '10',
     quote: 'Na minha comunidade, as celebrações do Banho de São João conectam as pessoas e fortalecem nossos laços. É uma manifestação cultural que nos une como povo.',
-    videoUrl: '/assets/videos/testimonials/joaquina-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/joaquina-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/joaquina-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/joaquina-es.mp4'
+    },
     category: 'cultural'
   },
   {
@@ -113,7 +156,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/luis_martins.jpg',
     quoteKey: '11',
     quote: 'Como pescador, tenho uma relação especial com São João e com as águas do Pantanal. O banho é um momento de renovação e agradecimento pela fartura.',
-    videoUrl: '/assets/videos/testimonials/luisao-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/luisao-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/luisao-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/luisao-es.mp4'
+    },
     category: 'faith'
   },
   {
@@ -123,7 +170,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/lucila_alvarez.jpg',
     quoteKey: '12',
     quote: 'Na minha família, a festa é um momento de reunião e agradecimento. Preparamos comidas típicas e recebemos vizinhos para celebrar juntos essa tradição.',
-    videoUrl: '/assets/videos/testimonials/lucila-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/lucila-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/lucila-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/lucila-es.mp4'
+    },
     category: 'personal'
   },
   {
@@ -133,7 +184,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/manoel.jpg',
     quoteKey: '13',
     quote: 'Como músico, vejo na celebração do Banho de São João uma riqueza cultural única, onde ritmos tradicionais preservam nossa memória coletiva.',
-    videoUrl: '/assets/videos/testimonials/manoel-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/manoel-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/manoel-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/manoel-es.mp4'
+    },
     category: 'cultural'
   },
   {
@@ -143,7 +198,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/maria_paula.jpg',
     quoteKey: '14',
     quote: 'Estudo as tradições do Banho de São João como parte da minha pesquisa. É impressionante como essa prática conecta elementos indígenas, europeus e africanos.',
-    videoUrl: '/assets/videos/testimonials/maria_paula-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/mariapaula-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/mariapaula-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/mariapaula-es.mp4'
+    },
     category: 'academic'
   },
   {
@@ -153,7 +212,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/marinete_luiz.jpg',
     quoteKey: '15',
     quote: 'Aprendi a preparar as ervas e os elementos do altar com minha avó. Cada planta tem um significado e um propósito na celebração.',
-    videoUrl: '/assets/videos/testimonials/marinete-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/marinete-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/marinete-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/marinete-es.mp4'
+    },
     category: 'traditions'
   },
   {
@@ -163,7 +226,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/horaide.jpg',
     quoteKey: '16',
     quote: 'Preparo o altar de São João todos os anos seguindo exatamente os ensinamentos que recebi da minha mãe. Cada elemento tem um significado especial na tradição.',
-    videoUrl: '/assets/videos/testimonials/horaide-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/horaide-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/horaide-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/horaide-es.mp4'
+    },
     category: 'traditions'
   },
   {
@@ -173,7 +240,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/pedro_paulo.jpg',
     quoteKey: '17',
     quote: 'Minha experiência com o Banho de São João começou quando fiz uma promessa pela saúde do meu pai. Desde então, é uma prática anual de gratidão.',
-    videoUrl: '/assets/videos/testimonials/pepe-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/pepe-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/pepe-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/pepe-es.mp4'
+    },
     category: 'faith'
   },
   {
@@ -183,7 +254,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/reginalda_mendes.jpg',
     quoteKey: '18',
     quote: 'Participo ativamente das festividades de São João desde criança. As tradições do Arraiá Nhá Concha são parte fundamental da nossa identidade cultural.',
-    videoUrl: '/assets/videos/testimonials/reginalda-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/reginalda-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/reginalda-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/reginalda-es.mp4'
+    },
     category: 'traditions'
   },
   {
@@ -193,7 +268,11 @@ export const testimonialData = [
     image: '/assets/images/testimonials/persons/roberto_carlos.jpg',
     quoteKey: '19',
     quote: 'Como artesão, crio peças inspiradas nas simbologias do Banho de São João. É uma forma de manter viva essa expressão cultural tão rica e diversa.',
-    videoUrl: '/assets/videos/testimonials/roberto-c.flv',
+    videos: {
+      pt: '/assets/videos/testimonials/depoimentos_pt/roberto-pt.mp4',
+      en: '/assets/videos/testimonials/depoimentos_en/roberto-en.mp4',
+      es: '/assets/videos/testimonials/depoimentos_es/roberto-es.mp4'
+    },
     category: 'cultural'
   }
 ];

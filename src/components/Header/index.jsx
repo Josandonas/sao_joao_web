@@ -41,13 +41,25 @@ const Header = () => {
           </Link>
         </NavItem>
         <NavItem>
+          <Link to={`/${lang}/postcards`} className={location.pathname.includes('/postcards') ? 'active' : ''}>
+            {t('navigation.postcards')}
+          </Link>
+        </NavItem>
+        <NavItem>
+          <Link to={`/${lang}/testimonials`} className={location.pathname.includes('/testimonials') ? 'active' : ''}>
+            {t('navigation.testimonials')}
+          </Link>
+        </NavItem>
+        <NavItem>
           <NavButton to={`/${lang}/biblioteca`} className={location.pathname.includes('/biblioteca') ? 'active' : ''}>
             Biblioteca
           </NavButton>
         </NavItem>
         <NavItem>
           <NavButton to={`/${lang}/programacao`} className={location.pathname.includes('/programacao') ? 'active' : ''}>
-            Programação Oficial
+            <span>Programação</span>
+            <br></br>
+            <span>Oficial</span>
           </NavButton>
         </NavItem>
       </Navigation>
