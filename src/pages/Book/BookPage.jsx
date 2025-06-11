@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Container } from './styles';
 import { bookContent } from './data/bookContent';
 import { useBookNavigation } from './hooks/useBookNavigation';
@@ -18,6 +19,9 @@ import { useParams } from 'react-router-dom';
 const BookPage = () => {
   // Obtém o parâmetro de idioma da URL
   const { lang } = useParams();
+  
+  // Hook de tradução
+  const { t } = useTranslation();
   
   // Define o PDF e os títulos de compartilhamento adequados com base no idioma
   const getPdfByLanguage = () => {
@@ -120,6 +124,7 @@ const BookPage = () => {
           onNextPage={goToNextPage}
           onPrevPage={goToPrevPage}
           onGoToChapter={goToChapter}
+          t={t}
         />
       )}
     </Container>

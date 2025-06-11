@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { 
   FullscreenReader as FullscreenContainer, 
   FullscreenContent
@@ -21,6 +22,7 @@ import {
   BookNavigationButton,
   BookPageCounter,
   BookChaptersContainer,
+  ChapterButton,
   ZoomControlsContainer,
   ZoomButton
 } from '../styles/BookImageStyles';
@@ -57,12 +59,16 @@ const FullscreenReader = ({
   totalPages,
   onNextPage,
   onPrevPage,
-  onGoToChapter
+  onGoToChapter,
+  t
 }) => {
+  // Se não for passado o objeto de tradução, usa o hook
+  const { t: translate } = useTranslation();
+  const tFunc = t || translate;
   // Estado para controlar a visibilidade do zoom
   const [zoomActive, setZoomActive] = useState(false);
-  // Estado para controlar o nível de zoom
-  const [zoomLevel, setZoomLevel] = useState(1);
+  const [scale, setScale] = useState(1);
+  // Estado para controlar o nível de zoom (removido - agora usando scale)
   
   // Sempre exibir páginas duplas por padrão
   // Função para renderizar sempre duas páginas lado a lado
@@ -96,26 +102,7 @@ const FullscreenReader = ({
       
       return (
         <FullscreenImageLayout $singlePage={0}>
-          {/* Controles de zoom centralizados */}
-          {zoomActive && (
-            <div style={{
-              position: 'fixed',
-              bottom: '20px',
-              left: '50%',
-              transform: 'translateX(-50%)',
-              display: 'flex',
-              gap: '10px',
-              zIndex: 9999,
-              backgroundColor: 'rgba(255,255,255,0.8)',
-              padding: '10px',
-              borderRadius: '8px',
-              boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
-            }}>
-              <ZoomButton onClick={() => setZoomLevel(prev => Math.min(prev + 0.5, 4))}>+</ZoomButton>
-              <ZoomButton onClick={() => setZoomLevel(prev => Math.max(prev - 0.5, 0.5))}>-</ZoomButton>
-              <ZoomButton onClick={() => setZoomLevel(1)}>Reset</ZoomButton>
-            </div>
-          )}
+          {/* Os controles de zoom foram movidos para a barra superior */}
           
           {/* Página esquerda */}
           <BookImageWrapper $singlePage={0}>
@@ -126,7 +113,7 @@ const FullscreenReader = ({
                 fullscreen={true}
                 zoomActive={zoomActive}
                 showControls={false}
-                zoomLevel={zoomLevel}
+                zoomLevel={scale}
               />
             )}
           </BookImageWrapper>
@@ -140,7 +127,7 @@ const FullscreenReader = ({
                 fullscreen={true}
                 zoomActive={zoomActive}
                 showControls={false}
-                zoomLevel={zoomLevel}
+                zoomLevel={scale}
               />
             )}
           </BookImageWrapper>
@@ -151,61 +138,238 @@ const FullscreenReader = ({
 
   return (
     <FullscreenContainer ref={fullscreenRef}>
-      <FullscreenCloseButton onClick={onClose}>
-        &times; Sair da tela cheia
-      </FullscreenCloseButton>
-      <button 
-        onClick={() => setZoomActive(!zoomActive)} 
-        style={{ 
-          position: 'fixed',
-          top: '70px',
-          right: '20px',
-          padding: '8px 16px', 
-          backgroundColor: zoomActive ? '#4CAF50' : '#2196F3', 
-          color: 'white', 
-          border: 'none', 
-          borderRadius: '4px', 
-          cursor: 'pointer',
+      {/* Barra de controles superior */}
+      <div style={{
+        position: 'fixed',
+        top: '20px',
+        left: '0',
+        right: '0',
+        display: 'flex',
+        justifyContent: 'space-between',
+        padding: '0 20px',
+        zIndex: 1001
+      }}>
+        {/* Controles do lado esquerdo */}
+        <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '5px',
-          zIndex: 1000
-        }}
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          <line x1="11" y1="8" x2="11" y2="14"></line>
-          <line x1="8" y1="11" x2="14" y2="11"></line>
-        </svg>
-        {zoomActive ? 'Desativar Zoom' : 'Ativar Zoom'}
-      </button>
+          gap: '10px',
+        }}>
+          {/* Botão de zoom */}
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            backgroundColor: 'rgba(0,0,0,0.6)',
+            borderRadius: '30px',
+            padding: '5px',
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+          }}>
+            {/* Botão de zoom out */}
+            <button
+              onClick={() => {
+                if (zoomActive) {
+                  setScale(prev => Math.max(1, prev - 0.2));
+                } else {
+                  setZoomActive(true);
+                  setScale(prev => Math.max(1, prev - 0.2));
+                }
+              }}
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                border: 'none',
+                backgroundColor: 'rgba(255,255,255,0.2)',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                margin: '0 2px'
+              }}
+              title={tFunc('book.zoomOut')}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+            
+            {/* Indicador de zoom */}
+            <div style={{
+              padding: '0 12px',
+              color: 'white',
+              fontSize: '16px',
+              fontWeight: 'bold'
+            }}>
+              {Math.round(scale * 100)}%
+            </div>
+            
+            {/* Botão de zoom in */}
+            <button
+              onClick={() => {
+                if (zoomActive) {
+                  setScale(prev => Math.min(3, prev + 0.2));
+                } else {
+                  setZoomActive(true);
+                  setScale(prev => Math.min(3, prev + 0.2));
+                }
+              }}
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                border: 'none',
+                backgroundColor: 'rgba(255,255,255,0.2)',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                margin: '0 2px'
+              }}
+              title={tFunc('book.zoomIn')}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+            </button>
+            
+            {/* Botão de reset zoom */}
+            <button
+              onClick={() => {
+                setScale(1);
+                if (scale === 1) {
+                  setZoomActive(false);
+                }
+              }}
+              style={{
+                width: '42px',
+                height: '42px',
+                borderRadius: '50%',
+                border: 'none',
+                backgroundColor: scale !== 1 ? 'rgba(255,255,255,0.2)' : 'transparent',
+                color: 'white',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                cursor: 'pointer',
+                margin: '0 2px',
+                opacity: scale !== 1 ? 1 : 0.5
+              }}
+              title={tFunc('book.resetZoom')}
+              disabled={scale === 1}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+                <path d="M3 3v5h5"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+        
+        {/* Controles de navegação central */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '10px',
+          backgroundColor: 'rgba(0,0,0,0.6)',
+          borderRadius: '30px',
+          padding: '5px 15px',
+          boxShadow: '0 2px 5px rgba(0,0,0,0.2)'
+        }}>
+          <button
+            onClick={onPrevPage} 
+            disabled={currentPage === 0}
+            title={tFunc('book.previousPage')}
+            style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: currentPage === 0 ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.2)',
+              color: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: currentPage === 0 ? 'default' : 'pointer',
+              margin: '0 2px',
+              opacity: currentPage === 0 ? 0.5 : 1,
+              fontSize: '22px'
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="19" y1="12" x2="5" y2="12"></line>
+              <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+          </button>
+          
+          <div style={{
+            color: 'white',
+            fontSize: '16px',
+            fontWeight: 'bold',
+            padding: '0 12px'
+          }}>
+            {tFunc('book.pageCounter', { current: bookPages[currentPage]?.pageNumber || currentPage + 1, total: totalPages })}
+          </div>
+          
+          <button
+            onClick={onNextPage} 
+            disabled={currentPage === totalPages - 1}
+            title={tFunc('book.nextPage')}
+            style={{
+              width: '42px',
+              height: '42px',
+              borderRadius: '50%',
+              border: 'none',
+              backgroundColor: currentPage === totalPages - 1 ? 'rgba(255,255,255,0.1)' : 'rgba(255,255,255,0.2)',
+              color: 'white',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              cursor: currentPage === totalPages - 1 ? 'default' : 'pointer',
+              margin: '0 2px',
+              opacity: currentPage === totalPages - 1 ? 0.5 : 1,
+              fontSize: '22px'
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+        
+        {/* Botão de fechar tela cheia */}
+        <button 
+          onClick={onClose} 
+          style={{ 
+            display: 'flex',
+            alignItems: 'center',
+            gap: '10px',
+            backgroundColor: 'rgba(0,0,0,0.6)',
+            color: 'white',
+            border: 'none',
+            borderRadius: '30px',
+            padding: '8px 16px',
+            cursor: 'pointer',
+            boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+            fontSize: '14px'
+          }}
+          title={tFunc('book.exitFullscreen')}
+        >
+          {tFunc('book.exitFullscreen')}
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
       <FullscreenContent>
         <FullscreenImageContainer>
 
           
-          {/* Controles de navegação */}
-          <FullscreenNavigationControls>
-            <BookNavigationButton 
-              onClick={onPrevPage} 
-              disabled={currentPage === 0}
-              title="Página anterior"
-            >
-              &larr;
-            </BookNavigationButton>
-            
-            <BookPageCounter>
-              Página {bookPages[currentPage]?.pageNumber || currentPage + 1} de {totalPages}
-            </BookPageCounter>
-            
-            <BookNavigationButton 
-              onClick={onNextPage} 
-              disabled={currentPage === totalPages - 1}
-              title="Próxima página"
-            >
-              &rarr;
-            </BookNavigationButton>
-          </FullscreenNavigationControls>
+          {/* Os controles de navegação foram movidos para a barra superior */}
           
           {/* Renderização das páginas do livro */}
           {renderBookPages()}
@@ -218,7 +382,7 @@ const FullscreenReader = ({
                 $active={bookPages[currentPage]?.pageNumber === chapter.pageNumber}
                 onClick={() => onGoToChapter(chapter.pageNumber - 1)}
               >
-                {chapter.chapter}
+                {tFunc(chapter.chapter)}
               </ChapterButton>
             ))}
           </BookChaptersContainer>

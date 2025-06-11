@@ -1,15 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
+
+// Importando os componentes originais
 import { 
   BookViewerSection, 
-  BookViewerActions,
-  BookViewer
+  BookViewer,
+  BookPages
 } from '../styles';
-
-import {
-  BackToCoverButton,
-  DownloadButton,
-  FullscreenButton
-} from '../styles/ActionButtonStyles';
 
 // Importando o componente ZoomableImage
 import ZoomableImage from './ZoomableImage';
@@ -20,16 +18,21 @@ import {
   BookImageLayout,
   BookImageWrapper,
   BookImage,
-  BookNavigationControls,
+  BookNavigationControls as OldBookNavigationControls,
   BookNavigationButton,
   BookPageCounter,
   BookChaptersContainer,
   ChapterButton as ImageChapterButton,
-  BookViewerContent,
   BookPagesContainer,
   ZoomControlsContainer,
   ZoomButton
 } from '../styles/BookImageStyles';
+
+// Importando os novos componentes
+import BookReaderToolbar from './BookReaderToolbar';
+import BookNavigationControls from './BookNavigationControls';
+import BookChapterNavigation from './BookChapterNavigation';
+import BookReaderSettings from './BookReaderSettings';
 
 /**
  * Componente para a seção de leitura do livro
@@ -49,8 +52,20 @@ const BookReaderSection = ({
   onGoToChapter,
   isFullscreen
 }) => {
+  const { t } = useTranslation();
+  
   // Estado para controlar a animação de entrada
   const [fadeIn, setFadeIn] = useState(false);
+  
+  // Detecta se é dispositivo móvel
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  
+  // Estados para os novos componentes
+  const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
+  const [chaptersMenuOpen, setChaptersMenuOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
+  
+  // Removida a opção de alternar entre versões, pois o componente BookReader foi removido
   
   // Efeito para ativar a animação após o componente ser montado
   useEffect(() => {
@@ -68,6 +83,30 @@ const BookReaderSection = ({
     transform: fadeIn ? 'translateY(0)' : 'translateY(20px)',
     transition: 'opacity 0.6s ease-in-out, transform 0.5s ease-out',
   };
+  
+  // Função para compartilhar o livro
+  const handleShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: t('book.shareTitle', 'Banho de São João'),
+        text: t('book.shareText', 'Confira este livro sobre o Banho de São João!'),
+        url: window.location.href,
+      })
+      .catch((error) => console.log('Erro ao compartilhar:', error));
+    } else {
+      // Fallback para navegadores que não suportam a API Web Share
+      const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+      window.open(shareUrl, '_blank');
+    }
+  };
+  
+  // Função para alternar o modo escuro
+  const handleToggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  
+  // Prepara os dados das páginas no formato esperado pelo novo componente
+  const formattedPages = bookPages.map(page => page.image);
   
 
   
@@ -102,7 +141,7 @@ const BookReaderSection = ({
       
       return (
         <BookImageLayout $singlePage={0}>
-          <BookViewerContent>
+          <BookPages>
             <BookPagesContainer>
               {/* Controles de zoom centralizados */}
               {zoomActive && (
@@ -121,7 +160,7 @@ const BookReaderSection = ({
                 }}>
                   <ZoomButton onClick={() => setZoomLevel(prev => Math.min(prev + 0.5, 4))}>+</ZoomButton>
                   <ZoomButton onClick={() => setZoomLevel(prev => Math.max(prev - 0.5, 0.5))}>-</ZoomButton>
-                  <ZoomButton onClick={() => setZoomLevel(1)}>Reset</ZoomButton>
+                  <ZoomButton onClick={() => setZoomLevel(1)}>{t('book.resetZoom')}</ZoomButton>
                 </div>
               )}
               
@@ -151,7 +190,7 @@ const BookReaderSection = ({
                 )}
               </BookImageWrapper>
             </BookPagesContainer>
-          </BookViewerContent>
+          </BookPages>
         </BookImageLayout>
       );
     }
@@ -162,110 +201,68 @@ const BookReaderSection = ({
   // Estado para controlar o nível de zoom
   const [zoomLevel, setZoomLevel] = useState(1);
   
+  // Versão híbrida: usa os componentes modulares com a estrutura existente
+  
+  // Versão híbrida: mantém a estrutura original mas usa os novos componentes
   return (
     <BookViewerSection className="book-viewer-section" style={fadeStyle}>
-      <BookViewerActions>
-        <div className="left-actions">
-          <BackToCoverButton onClick={onBackToCover}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M19 12H5M12 19l-7-7 7-7" />
-            </svg>
-            Voltar para capa
-          </BackToCoverButton>
-        </div>
-        
-        <div className="center-actions">
-          <DownloadButton onClick={onDownload}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-              <polyline points="7 10 12 15 17 10" />
-              <line x1="12" y1="15" x2="12" y2="3" />
-            </svg>
-            Download PDF
-          </DownloadButton>
-        </div>
-        
-        <div className="right-actions">
-          <FullscreenButton onClick={onToggleFullscreen}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              {isFullscreen ? (
-                <>
-                  <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
-                </>
-              ) : (
-                <>
-                  <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
-                </>
-              )}
-            </svg>
-            {isFullscreen ? 'Sair da tela cheia' : 'Modo tela cheia'}
-          </FullscreenButton>
-          <button 
-            onClick={() => setZoomActive(!zoomActive)} 
-            style={{ 
-              padding: '8px 16px', 
-              backgroundColor: zoomActive ? '#4CAF50' : '#2196F3', 
-              color: 'white', 
-              border: 'none', 
-              borderRadius: '4px', 
-              cursor: 'pointer',
-              marginLeft: '10px',
-              display: 'flex',
-              alignItems: 'center',
-              gap: '5px'
-            }}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              <line x1="11" y1="8" x2="11" y2="14"></line>
-              <line x1="8" y1="11" x2="14" y2="11"></line>
-            </svg>
-            {zoomActive ? 'Desativar Zoom' : 'Ativar Zoom'}
-          </button>
-        </div>
-      </BookViewerActions>
+      
+      {/* Usando o novo componente BookReaderToolbar */}
+      <BookReaderToolbar
+        isMobile={isMobile}
+        onBackToCover={onBackToCover}
+        onDownload={onDownload}
+        onShare={handleShare}
+        onToggleFullscreen={onToggleFullscreen}
+        onToggleZoom={() => setZoomActive(!zoomActive)}
+        onToggleChapters={() => setChaptersMenuOpen(true)}
+        onToggleSettings={() => setSettingsMenuOpen(true)}
+        isFullscreen={isFullscreen}
+        zoomActive={zoomActive}
+        t={t}
+      />
+      
+      {/* Componente de configurações */}
+      <BookReaderSettings
+        isMobile={isMobile}
+        isOpen={settingsMenuOpen}
+        onClose={() => setSettingsMenuOpen(false)}
+        onDownload={onDownload}
+        onShare={handleShare}
+        onToggleFullscreen={onToggleFullscreen}
+        onToggleDarkMode={handleToggleDarkMode}
+        isDarkMode={darkMode}
+        isFullscreen={isFullscreen}
+        t={t}
+      />
       
       <BookViewer>
         <BookImageContainer>
-          {/* Controles de navegação */}
-          <BookNavigationControls>
-            <BookNavigationButton 
-              onClick={onPrevPage} 
-              disabled={currentPage === 0}
-              title="Página anterior"
-            >
-              &larr;
-            </BookNavigationButton>
-            
-            <BookPageCounter>
-              Página {bookPages[currentPage]?.pageNumber || currentPage + 1} de {totalPages}
-            </BookPageCounter>
-            
-            <BookNavigationButton 
-              onClick={onNextPage} 
-              disabled={currentPage === totalPages - 1}
-              title="Próxima página"
-            >
-              &rarr;
-            </BookNavigationButton>
-          </BookNavigationControls>
+          {/* Usando o novo componente de navegação */}
+          <BookNavigationControls
+            isMobile={false} // Mantemos false aqui pois estamos na versão híbrida
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPrevPage={onPrevPage}
+            onNextPage={onNextPage}
+            isFirstPage={currentPage === 0}
+            isLastPage={currentPage === totalPages - 1}
+            t={t}
+          />
           
-          {/* Renderização das páginas do livro */}
+          {/* Renderização das páginas do livro (mantendo o método original) */}
           {renderBookPages()}
           
-          {/* Navegação por capítulos */}
-          <BookChaptersContainer>
-            {bookContent.chapters.map((chapter) => (
-              <ImageChapterButton
-                key={chapter.id}
-                $active={bookPages[currentPage]?.pageNumber === chapter.pageNumber}
-                onClick={() => onGoToChapter(chapter.pageNumber - 1)}
-              >
-                {chapter.chapter}
-              </ImageChapterButton>
-            ))}
-          </BookChaptersContainer>
+          {/* Usando o novo componente de navegação por capítulos */}
+          <BookChapterNavigation
+            isMobile={false} // Mantemos false aqui pois estamos na versão híbrida
+            chapters={bookContent.chapters}
+            currentPage={currentPage}
+            onGoToChapter={onGoToChapter}
+            isOpen={chaptersMenuOpen}
+            onClose={() => setChaptersMenuOpen(false)}
+            t={t}
+          />
         </BookImageContainer>
       </BookViewer>
     </BookViewerSection>

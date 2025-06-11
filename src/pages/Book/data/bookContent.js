@@ -43,59 +43,60 @@ export const bookContent = {
     return pages;
   },
   // Capítulos do livro (mantidos para compatibilidade com a navegação por capítulos)
+  // Agora usando chaves de tradução para suportar múltiplos idiomas
   chapters: [
   {
     id: 1,
-    chapter: 'Capa',
-    title: 'Banho de São João',
+    chapter: 'book.cover',
+    title: 'book.title',
     pageNumber: 1
   },
   {
     id: 2,
-    chapter: 'Introdução',
-    title: 'Introdução',
+    chapter: 'book.introductionChapter',
+    title: 'book.introductionChapter',
     pageNumber: 5
   },
   {
     id: 3,
-    chapter: 'Capítulo 1',
-    title: 'História e Origens',
+    chapter: 'book.chapter1',
+    title: 'book.chapter1Title',
     pageNumber: 15
   },
   {
     id: 4,
-    chapter: 'Capítulo 2',
-    title: 'Rituais e Celebrações',
+    chapter: 'book.chapter2',
+    title: 'book.chapter2Title',
     pageNumber: 40
   },
   {
     id: 5,
-    chapter: 'Capítulo 3',
-    title: 'Música e Dança',
+    chapter: 'book.chapter3',
+    title: 'book.chapter3Title',
     pageNumber: 70
   },
   {
     id: 6,
-    chapter: 'Capítulo 4',
-    title: 'Gastronomia',
+    chapter: 'book.chapter4',
+    title: 'book.chapter4Title',
     pageNumber: 100
   },
   {
     id: 7,
-    chapter: 'Capítulo 5',
-    title: 'Comunidades',
+    chapter: 'book.chapter5',
+    title: 'book.chapter5Title',
     pageNumber: 130
   },
   {
     id: 8,
-    chapter: 'Capítulo 6',
-    title: 'Patrimônio Cultural',
+    chapter: 'book.chapter6',
+    title: 'book.chapter6Title',
     pageNumber: 160
   },
   {
     id: 9,
-    chapter: 'Conclusão',
-    title: 'Conclusão e Agradecimentos',
+    chapter: 'book.conclusion',
+    title: 'book.conclusionTitle',
     pageNumber: 180
   }
   ]
