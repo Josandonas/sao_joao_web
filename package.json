@@ -20,6 +20,7 @@
     "react-image-gallery": "^1.4.0",
     "react-leaflet": "^4.2.1",
     "react-router-dom": "^6.15.0",
+    "react-zoom-pan-pinch": "^3.7.0",
     "styled-components": "^6.0.7",
     "translate": "^3.0.1",
     "video-react": "^0.16.0"

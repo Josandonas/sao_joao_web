@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Container } from './styles';
 import { bookContent } from './data/bookContent';
 import { useBookNavigation } from './hooks/useBookNavigation';
@@ -46,6 +46,11 @@ const BookPage = () => {
   
   const { pdfUrl, shareTitle, shareText } = getPdfByLanguage();
   
+  // Gera as páginas do livro baseadas no idioma atual
+  const bookPages = useMemo(() => {
+    return bookContent.getBookPages(lang);
+  }, [lang]);
+  
   // Hooks personalizados para separar lógica
   const { 
     currentPage, 
@@ -56,7 +61,7 @@ const BookPage = () => {
     goToChapter,
     startReading,
     backToCover
-  } = useBookNavigation(bookContent);
+  } = useBookNavigation({ ...bookContent, totalPages: bookPages.length });
   
   const { isFullscreen, fullscreenRef, toggleFullscreen } = useFullscreen();
   
@@ -74,6 +79,7 @@ const BookPage = () => {
         onStartReading={startReading}
         onDownload={handleDownload}
         onShare={handleShare}
+        showBook={showBook}
       />
       
       {/* Renderização condicional: ou mostra a capa ou mostra o leitor */}
@@ -88,6 +94,7 @@ const BookPage = () => {
       ) : (
         <BookReaderSection 
           bookContent={bookContent}
+          bookPages={bookPages}
           currentPage={currentPage}
           totalPages={totalPages}
           onBackToCover={backToCover}
@@ -100,12 +107,14 @@ const BookPage = () => {
         />
       )}
       
-      {/* Modo de tela cheia */}
+      {/* Renderizador de tela cheia condicional */}
       {isFullscreen && (
-        <FullscreenReader 
+        <FullscreenReader
+          ref={fullscreenRef}
           fullscreenRef={fullscreenRef}
           onClose={toggleFullscreen}
           bookContent={bookContent}
+          bookPages={bookPages}
           currentPage={currentPage}
           totalPages={totalPages}
           onNextPage={goToNextPage}

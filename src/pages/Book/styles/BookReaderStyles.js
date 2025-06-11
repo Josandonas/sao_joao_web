@@ -193,12 +193,12 @@ export const ChapterNavigation = styled.div`
 // Botão de capítulo
 export const ChapterButton = styled.button`
   background-color: ${props => 
-    props.isActive 
+    props.$isActive 
       ? props.theme.colors.primary 
       : props.theme.colors.backgroundDark
   };
   color: ${props => 
-    props.isActive 
+    props.$isActive 
       ? 'white' 
       : props.theme.colors.text
   };
@@ -211,7 +211,7 @@ export const ChapterButton = styled.button`
 
   &:hover {
     background-color: ${props => 
-      props.isActive 
+      props.$isActive 
         ? props.theme.colors.primaryDark 
         : props.theme.colors.border
     };

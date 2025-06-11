@@ -68,8 +68,13 @@ const ButtonsContainer = styled.div`
  * @param {Function} props.onShare - Função para compartilhar o livro
  * @returns {JSX.Element} - Componente renderizado
  */
-const BookHeader = ({ onStartReading, onDownload, onShare }) => {
+const BookHeader = ({ onStartReading, onDownload, onShare, showBook }) => {
   const { t } = useTranslation();
+  
+  // Se estiver no modo de leitura (showBook === true), não renderiza os botões
+  if (showBook) {
+    return null;
+  }
   
   return (
     <Container>

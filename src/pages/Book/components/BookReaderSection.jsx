@@ -1,24 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { 
   BookViewerSection, 
   BookViewerActions,
-  BookViewer,
-  BookControls,
-  PageNavigation,
-  NavButton,
-  PageCounter,
-  BookPages,
-  Page,
-  PageContent,
-  PageImage,
-  PageText,
-  PageTitle,
-  ChapterNavigation,
-  ChapterButton,
+  BookViewer
+} from '../styles';
+
+import {
   BackToCoverButton,
   DownloadButton,
   FullscreenButton
-} from '../styles';
+} from '../styles/ActionButtonStyles';
+
+// Importando o componente ZoomableImage
+import ZoomableImage from './ZoomableImage';
+
+// Importando os novos estilos específicos para as imagens
+import {
+  BookImageContainer,
+  BookImageLayout,
+  BookImageWrapper,
+  BookImage,
+  BookNavigationControls,
+  BookNavigationButton,
+  BookPageCounter,
+  BookChaptersContainer,
+  ChapterButton as ImageChapterButton,
+  BookViewerContent,
+  BookPagesContainer,
+  ZoomControlsContainer,
+  ZoomButton
+} from '../styles/BookImageStyles';
 
 /**
  * Componente para a seção de leitura do livro
@@ -27,6 +38,7 @@ import {
  */
 const BookReaderSection = ({
   bookContent,
+  bookPages,
   currentPage,
   totalPages,
   onBackToCover,
@@ -49,12 +61,106 @@ const BookReaderSection = ({
     
     return () => clearTimeout(timer);
   }, []);
+  
   // Estilos inline para a animação de entrada
   const fadeStyle = {
     opacity: fadeIn ? 1 : 0,
     transform: fadeIn ? 'translateY(0)' : 'translateY(20px)',
     transition: 'opacity 0.6s ease-in-out, transform 0.5s ease-out',
   };
+  
+
+  
+  // Função para renderizar sempre duas páginas lado a lado
+  const renderBookPages = () => {
+    // Caso especial para contracapa (página última)
+    // A capa (página 0) não é mais exibida isoladamente, pois já foi mostrada na página inicial
+    if (currentPage === totalPages - 1) {
+      const page = bookPages[currentPage];
+      if (!page) return null;
+      
+      return (
+        <BookImageLayout singlePage={true}>
+          <BookImageWrapper singlePage={true}>
+            <BookImage 
+              src={page.image} 
+              alt={`Página ${page.pageNumber}`} 
+              fullscreen={isFullscreen}
+              style={{ maxHeight: '85vh' }}
+            />
+          </BookImageWrapper>
+        </BookImageLayout>
+      );
+    } else {
+      // Garantir que sempre exibimos páginas pares à esquerda e ímpares à direita
+      // Se a página atual for par, ajustamos para exibir ela e a próxima
+      const leftPageIndex = currentPage % 2 === 1 ? currentPage - 1 : currentPage;
+      const rightPageIndex = leftPageIndex + 1;
+      
+      const leftPage = bookPages[leftPageIndex];
+      const rightPage = bookPages[rightPageIndex];
+      
+      return (
+        <BookImageLayout $singlePage={0}>
+          <BookViewerContent>
+            <BookPagesContainer>
+              {/* Controles de zoom centralizados */}
+              {zoomActive && (
+                <div style={{
+                  position: 'fixed',
+                  bottom: '20px',
+                  left: '50%',
+                  transform: 'translateX(-50%)',
+                  display: 'flex',
+                  gap: '10px',
+                  zIndex: 9999,
+                  backgroundColor: 'rgba(255,255,255,0.8)',
+                  padding: '10px',
+                  borderRadius: '8px',
+                  boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
+                }}>
+                  <ZoomButton onClick={() => setZoomLevel(prev => Math.min(prev + 0.5, 4))}>+</ZoomButton>
+                  <ZoomButton onClick={() => setZoomLevel(prev => Math.max(prev - 0.5, 0.5))}>-</ZoomButton>
+                  <ZoomButton onClick={() => setZoomLevel(1)}>Reset</ZoomButton>
+                </div>
+              )}
+              
+              <BookImageWrapper $singlePage={0}>
+                {leftPage && (
+                  <ZoomableImage
+                    src={leftPage.image}
+                    alt={`Página ${leftPage.pageNumber}`}
+                    fullscreen={isFullscreen}
+                    zoomActive={zoomActive}
+                    showControls={false}
+                    zoomLevel={zoomLevel}
+                  />
+                )}
+              </BookImageWrapper>
+              
+              <BookImageWrapper $singlePage={0}>
+                {rightPage && (
+                  <ZoomableImage
+                    src={rightPage.image}
+                    alt={`Página ${rightPage.pageNumber}`}
+                    fullscreen={isFullscreen}
+                    zoomActive={zoomActive}
+                    showControls={false}
+                    zoomLevel={zoomLevel}
+                  />
+                )}
+              </BookImageWrapper>
+            </BookPagesContainer>
+          </BookViewerContent>
+        </BookImageLayout>
+      );
+    }
+  };
+
+  // Estado para controlar o zoom
+  const [zoomActive, setZoomActive] = useState(false);
+  // Estado para controlar o nível de zoom
+  const [zoomLevel, setZoomLevel] = useState(1);
   
   return (
     <BookViewerSection className="book-viewer-section" style={fadeStyle}>
@@ -94,68 +200,73 @@ const BookReaderSection = ({
             </svg>
             {isFullscreen ? 'Sair da tela cheia' : 'Modo tela cheia'}
           </FullscreenButton>
+          <button 
+            onClick={() => setZoomActive(!zoomActive)} 
+            style={{ 
+              padding: '8px 16px', 
+              backgroundColor: zoomActive ? '#4CAF50' : '#2196F3', 
+              color: 'white', 
+              border: 'none', 
+              borderRadius: '4px', 
+              cursor: 'pointer',
+              marginLeft: '10px',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '5px'
+            }}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <line x1="11" y1="8" x2="11" y2="14"></line>
+              <line x1="8" y1="11" x2="14" y2="11"></line>
+            </svg>
+            {zoomActive ? 'Desativar Zoom' : 'Ativar Zoom'}
+          </button>
         </div>
       </BookViewerActions>
       
       <BookViewer>
-        <BookControls>
-          <PageNavigation>
-            <NavButton 
+        <BookImageContainer>
+          {/* Controles de navegação */}
+          <BookNavigationControls>
+            <BookNavigationButton 
               onClick={onPrevPage} 
               disabled={currentPage === 0}
               title="Página anterior"
             >
               &larr;
-            </NavButton>
+            </BookNavigationButton>
             
-            <PageCounter>
-              Página {currentPage + 1} de {totalPages}
-            </PageCounter>
+            <BookPageCounter>
+              Página {bookPages[currentPage]?.pageNumber || currentPage + 1} de {totalPages}
+            </BookPageCounter>
             
-            <NavButton 
+            <BookNavigationButton 
               onClick={onNextPage} 
               disabled={currentPage === totalPages - 1}
               title="Próxima página"
             >
               &rarr;
-            </NavButton>
-          </PageNavigation>
-        </BookControls>
-        
-        <BookPages>
-          {bookContent.chapters.map((page, index) => (
-            <Page 
-              key={page.id} 
-              active={index === currentPage}
-            >
-              <PageTitle>{page.title}</PageTitle>
-              <PageContent>
-                <PageImage 
-                  src={page.image} 
-                  alt={page.title} 
-                />
-                <PageText 
-                  dangerouslySetInnerHTML={{ __html: page.content }} 
-                />
-              </PageContent>
-            </Page>
-          ))}
-        </BookPages>
-        
-        <ChapterNavigation>
-          <h3>Capítulos</h3>
-          <div className="chapter-buttons">
-            {bookContent.chapters.map((page, index) => (
-              <ChapterButton
-                key={page.id}
-                isActive={index === currentPage}
-                onClick={() => onGoToChapter(index)}
+            </BookNavigationButton>
+          </BookNavigationControls>
+          
+          {/* Renderização das páginas do livro */}
+          {renderBookPages()}
+          
+          {/* Navegação por capítulos */}
+          <BookChaptersContainer>
+            {bookContent.chapters.map((chapter) => (
+              <ImageChapterButton
+                key={chapter.id}
+                $active={bookPages[currentPage]?.pageNumber === chapter.pageNumber}
+                onClick={() => onGoToChapter(chapter.pageNumber - 1)}
               >
-                {page.chapter}
-              </ChapterButton>
+                {chapter.chapter}
+              </ImageChapterButton>
             ))}
-          </div>
-        </ChapterNavigation>
+          </BookChaptersContainer>
+        </BookImageContainer>
       </BookViewer>
     </BookViewerSection>
   );
