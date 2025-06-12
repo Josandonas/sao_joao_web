@@ -69,6 +69,82 @@ export const NavItem = styled.div`
   margin: 0 ${props => props.theme.spacing.xs};
   min-width: 120px; /* Largura mínima para a caixa */
   text-align: center; /* Centraliza o texto dentro da caixa */
+  position: relative; /* Para posicionar o ícone de viola */
+  padding-top: 35px; /* Espaço para o ícone de viola */
+  transition: all 0.3s ease;
+  
+  /* Adiciona o ícone de viola acima do item ativo */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-30%);
+    width: 70px; /* Tamanho ajustado */
+    height: 70px; /* Tamanho ajustado */
+    background-image: url('/assets/svg/Viola_Marrom.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    filter: drop-shadow(0 2px 4px rgba(255, 197, 110, 0.6)); /* Sombra dourada */
+    animation: floatViola 3s ease-in-out infinite; /* Animação suave de flutuação */
+    animation-play-state: paused; /* Inicia pausada */
+  }
+  
+  /* Adiciona um efeito de brilho atrás do ícone */
+  &::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, rgba(255, 197, 110, 0.6) 0%, rgba(255, 197, 110, 0) 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: -1;
+  }
+  
+  /* Mostra o ícone apenas quando o link está ativo */
+  &:has(a.active)::before {
+    opacity: 1;
+    animation-play-state: running; /* Inicia a animação quando ativo */
+  }
+  
+  /* Mostra o efeito de brilho quando o link está ativo */
+  &:has(a.active)::after {
+    opacity: 0.7;
+    width: 28px;
+    height: 28px;
+    animation: pulseGlow 2s ease-in-out infinite alternate; /* Animação de pulso para o brilho */
+  }
+  
+  @keyframes pulseGlow {
+    0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
+    100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+  }
+  
+  @keyframes floatViola {
+    0% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(-3px); }
+    100% { transform: translateX(-50%) translateY(0); }
+  }
+  
+  /* Efeito hover para o ícone */
+  &:has(a.active):hover::before {
+    filter: drop-shadow(0 3px 6px rgba(255, 197, 110, 0.8)) brightness(1.1);
+    animation: floatViola 1s ease-in-out infinite alternate;
+  }
+  
+  /* Efeito hover para o brilho */
+  &:has(a.active):hover::after {
+    animation-duration: 1.5s; /* Acelera a animação no hover */
+  }
   
   a {
     ${props => navLinkStyles}

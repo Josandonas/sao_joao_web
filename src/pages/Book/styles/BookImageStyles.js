@@ -88,7 +88,14 @@ export const BookPageCounter = styled.div`
 `;
 
 // Container para os botões de capítulos
-export const BookChaptersContainer = styled.div`
+export const BookChaptersContainer = styled.div.attrs(props => {
+  // Transformamos a prop isOpen em $isOpen para evitar o warning do React
+  const { isOpen, ...rest } = props;
+  return {
+    ...rest,
+    $isOpen: isOpen
+  };
+})`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -97,6 +104,15 @@ export const BookChaptersContainer = styled.div`
   padding: 10px;
   background-color: #f5f5f5;
   border-radius: 8px;
+  
+  /* Aplicando estilos com base na prop $isOpen */
+  position: ${props => props.$isOpen ? 'fixed' : 'static'};
+  top: ${props => props.$isOpen ? '0' : 'auto'};
+  left: ${props => props.$isOpen ? '0' : 'auto'};
+  right: ${props => props.$isOpen ? '0' : 'auto'};
+  bottom: ${props => props.$isOpen ? '0' : 'auto'};
+  z-index: ${props => props.$isOpen ? '1000' : 'auto'};
+  background-color: ${props => props.$isOpen ? 'rgba(0, 0, 0, 0.5)' : '#f5f5f5'};
 `;
 
 // Container para o conteúdo do visualizador de livro

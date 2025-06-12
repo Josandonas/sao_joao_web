@@ -287,7 +287,12 @@ export const ZoomLevelIndicator = styled.div`
 `;
 
 // Menu dropdown para desktop
-export const DesktopDropdownMenu = styled.div`
+export const DesktopDropdownMenu = styled.div.attrs(props => {
+  // Removendo a prop isOpen para não ser passada para o DOM
+  const newProps = {...props};
+  delete newProps.isOpen;
+  return newProps;
+})`
   position: absolute;
   top: 60px;
   right: 20px;
@@ -298,6 +303,7 @@ export const DesktopDropdownMenu = styled.div`
   z-index: 100;
   transform-origin: top right;
   animation: scaleIn 0.2s ease-out forwards;
+  display: ${props => props.isOpen ? 'block' : 'none'};
   
   @keyframes scaleIn {
     from { transform: scale(0.9); opacity: 0; }

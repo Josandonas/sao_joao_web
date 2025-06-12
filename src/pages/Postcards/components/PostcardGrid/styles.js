@@ -5,7 +5,6 @@ export const Grid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
   margin: 2.5rem auto 0;
-  max-width: 1200px;
   padding: 0.5rem;
   
   @media (max-width: 1024px) {

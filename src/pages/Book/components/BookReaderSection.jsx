@@ -5,27 +5,17 @@ import { useMediaQuery } from 'react-responsive';
 // Importando os componentes originais
 import { 
   BookViewerSection, 
-  BookViewer,
-  BookPages
+  BookViewer
 } from '../styles';
 
-// Importando o componente ZoomableImage
-import ZoomableImage from './ZoomableImage';
+// Importando o componente PDFReader
+import PDFReader from './PDFReader';
 
-// Importando os novos estilos específicos para as imagens
+// Importando os estilos necessários
 import {
   BookImageContainer,
-  BookImageLayout,
-  BookImageWrapper,
-  BookImage,
-  BookNavigationControls as OldBookNavigationControls,
-  BookNavigationButton,
-  BookPageCounter,
   BookChaptersContainer,
-  ChapterButton as ImageChapterButton,
-  BookPagesContainer,
-  ZoomControlsContainer,
-  ZoomButton
+  ChapterButton as ImageChapterButton
 } from '../styles/BookImageStyles';
 
 // Importando os novos componentes
@@ -50,7 +40,8 @@ const BookReaderSection = ({
   onNextPage,
   onPrevPage,
   onGoToChapter,
-  isFullscreen
+  isFullscreen,
+  pdfUrl // Nova propriedade para a URL do PDF
 }) => {
   const { t } = useTranslation();
   
@@ -64,6 +55,8 @@ const BookReaderSection = ({
   const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
   const [chaptersMenuOpen, setChaptersMenuOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
+  
+  // Não precisamos mais do estado de modo de visualização, pois usaremos apenas o PDF
   
   // Removida a opção de alternar entre versões, pois o componente BookReader foi removido
   
@@ -110,96 +103,49 @@ const BookReaderSection = ({
   
 
   
-  // Função para renderizar sempre duas páginas lado a lado
-  const renderBookPages = () => {
-    // Caso especial para contracapa (página última)
-    // A capa (página 0) não é mais exibida isoladamente, pois já foi mostrada na página inicial
-    if (currentPage === totalPages - 1) {
-      const page = bookPages[currentPage];
-      if (!page) return null;
-      
-      return (
-        <BookImageLayout singlePage={true}>
-          <BookImageWrapper singlePage={true}>
-            <BookImage 
-              src={page.image} 
-              alt={`Página ${page.pageNumber}`} 
-              fullscreen={isFullscreen}
-              style={{ maxHeight: '85vh' }}
-            />
-          </BookImageWrapper>
-        </BookImageLayout>
-      );
-    } else {
-      // Garantir que sempre exibimos páginas pares à esquerda e ímpares à direita
-      // Se a página atual for par, ajustamos para exibir ela e a próxima
-      const leftPageIndex = currentPage % 2 === 1 ? currentPage - 1 : currentPage;
-      const rightPageIndex = leftPageIndex + 1;
-      
-      const leftPage = bookPages[leftPageIndex];
-      const rightPage = bookPages[rightPageIndex];
-      
-      return (
-        <BookImageLayout $singlePage={0}>
-          <BookPages>
-            <BookPagesContainer>
-              {/* Controles de zoom centralizados */}
-              {zoomActive && (
-                <div style={{
-                  position: 'fixed',
-                  bottom: '20px',
-                  left: '50%',
-                  transform: 'translateX(-50%)',
-                  display: 'flex',
-                  gap: '10px',
-                  zIndex: 9999,
-                  backgroundColor: 'rgba(255,255,255,0.8)',
-                  padding: '10px',
-                  borderRadius: '8px',
-                  boxShadow: '0 2px 10px rgba(0,0,0,0.2)'
-                }}>
-                  <ZoomButton onClick={() => setZoomLevel(prev => Math.min(prev + 0.5, 4))}>+</ZoomButton>
-                  <ZoomButton onClick={() => setZoomLevel(prev => Math.max(prev - 0.5, 0.5))}>-</ZoomButton>
-                  <ZoomButton onClick={() => setZoomLevel(1)}>{t('book.resetZoom')}</ZoomButton>
-                </div>
-              )}
-              
-              <BookImageWrapper $singlePage={0}>
-                {leftPage && (
-                  <ZoomableImage
-                    src={leftPage.image}
-                    alt={`Página ${leftPage.pageNumber}`}
-                    fullscreen={isFullscreen}
-                    zoomActive={zoomActive}
-                    showControls={false}
-                    zoomLevel={zoomLevel}
-                  />
-                )}
-              </BookImageWrapper>
-              
-              <BookImageWrapper $singlePage={0}>
-                {rightPage && (
-                  <ZoomableImage
-                    src={rightPage.image}
-                    alt={`Página ${rightPage.pageNumber}`}
-                    fullscreen={isFullscreen}
-                    zoomActive={zoomActive}
-                    showControls={false}
-                    zoomLevel={zoomLevel}
-                  />
-                )}
-              </BookImageWrapper>
-            </BookPagesContainer>
-          </BookPages>
-        </BookImageLayout>
-      );
-    }
-  };
+  // Não precisamos mais da função renderBookPages, pois usaremos apenas o PDFReader
 
   // Estado para controlar o zoom
   const [zoomActive, setZoomActive] = useState(false);
   // Estado para controlar o nível de zoom
   const [zoomLevel, setZoomLevel] = useState(1);
+  
+  // Função para aumentar o zoom
+  const handleZoomIn = () => {
+    setZoomActive(true);
+    setZoomLevel(prev => Math.min(3, prev + 0.2));
+  };
+  
+  // Função para diminuir o zoom
+  const handleZoomOut = () => {
+    setZoomActive(true);
+    setZoomLevel(prev => Math.max(0.5, prev - 0.2));
+  };
+  
+  // Função para resetar o zoom
+  const handleZoomReset = () => {
+    setZoomLevel(1);
+    if (zoomLevel === 1) {
+      setZoomActive(false);
+    }
+  };
+  
+  // Função para ajustar o zoom à largura
+  const handleFitToWidth = () => {
+    setZoomActive(true);
+    // O valor exato será calculado pelo PDFReader
+  };
+  
+  // Estado para controlar o número total de páginas do PDF
+  const [pdfTotalPages, setPdfTotalPages] = useState(0);
+  
+  // Função para lidar com o carregamento bem-sucedido do documento PDF
+  const handlePdfLoadSuccess = ({ numPages }) => {
+    setPdfTotalPages(numPages);
+    console.log(`PDF carregado com ${numPages} páginas`);
+  };
+  
+  // Não precisamos mais da função para alternar entre modos de visualização
   
   // Versão híbrida: usa os componentes modulares com a estrutura existente
   
@@ -219,6 +165,11 @@ const BookReaderSection = ({
         onToggleSettings={() => setSettingsMenuOpen(true)}
         isFullscreen={isFullscreen}
         zoomActive={zoomActive}
+        onZoomIn={handleZoomIn}
+        onZoomOut={handleZoomOut}
+        onZoomReset={handleZoomReset}
+        onFitToWidth={handleFitToWidth}
+        zoomLevel={zoomLevel}
         t={t}
       />
       
@@ -237,32 +188,86 @@ const BookReaderSection = ({
       />
       
       <BookViewer>
-        <BookImageContainer>
+        <BookImageContainer style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 20px' }}>
           {/* Usando o novo componente de navegação */}
           <BookNavigationControls
-            isMobile={false} // Mantemos false aqui pois estamos na versão híbrida
+            isMobile={false}
             currentPage={currentPage}
-            totalPages={totalPages}
+            totalPages={pdfTotalPages}
             onPrevPage={onPrevPage}
             onNextPage={onNextPage}
             isFirstPage={currentPage === 0}
-            isLastPage={currentPage === totalPages - 1}
+            isLastPage={currentPage === pdfTotalPages - 1}
             t={t}
           />
           
-          {/* Renderização das páginas do livro (mantendo o método original) */}
-          {renderBookPages()}
+          {/* Renderização do PDFReader com estilo melhorado */}
+          <div style={{ 
+            width: '100%', 
+            display: 'flex', 
+            justifyContent: 'center', 
+            alignItems: 'center',
+            marginTop: '20px',
+            marginBottom: '20px',
+            borderRadius: '12px',
+            overflow: 'hidden'
+          }}>
+            <PDFReader
+              pdfUrl={pdfUrl}
+              currentPage={currentPage + 1} // PDFReader usa páginas começando em 1
+              onPageChange={(newPage) => {
+                // Ajuste para o sistema de navegação que começa em 0
+                if (newPage - 1 !== currentPage) {
+                  if (newPage - 1 > currentPage) {
+                    onNextPage();
+                  } else {
+                    onPrevPage();
+                  }
+                }
+              }}
+              onDocumentLoadSuccess={handlePdfLoadSuccess}
+              onZoomChange={(newZoom) => setZoomLevel(newZoom)}
+              darkMode={darkMode}
+              zoomEnabled={zoomActive}
+              zoomLevel={zoomLevel}
+            />
+          </div>
           
-          {/* Usando o novo componente de navegação por capítulos */}
-          <BookChapterNavigation
-            isMobile={false} // Mantemos false aqui pois estamos na versão híbrida
-            chapters={bookContent.chapters}
-            currentPage={currentPage}
-            onGoToChapter={onGoToChapter}
-            isOpen={chaptersMenuOpen}
-            onClose={() => setChaptersMenuOpen(false)}
-            t={t}
-          />
+          {/* Navegação por capítulos (menu lateral) */}
+          <BookChaptersContainer 
+            $isOpen={chaptersMenuOpen}
+            onClick={() => setChaptersMenuOpen(false)}
+          >
+            <div className="chapters-content" onClick={(e) => e.stopPropagation()}>
+              <div className="chapters-header">
+                <h3>{t('book.chapters', 'Capítulos')}</h3>
+                <button 
+                  className="close-button"
+                  onClick={() => setChaptersMenuOpen(false)}
+                  aria-label={t('book.closeChapters', 'Fechar capítulos')}
+                >
+                  &times;
+                </button>
+              </div>
+              
+              <div className="chapters-list">
+                {bookContent.chapters.map((chapter) => (
+                  <ImageChapterButton
+                    key={chapter.id}
+                    onClick={() => {
+                      // Ajuste para o sistema de navegação do PDF
+                      // Subtrai 1 porque o sistema de navegação interno começa em 0, mas o PDF começa em 1
+                      onGoToChapter(chapter.pageNumber - 1);
+                      setChaptersMenuOpen(false);
+                    }}
+                    $active={currentPage === chapter.pageNumber - 1}
+                  >
+                    {t(chapter.title)}
+                  </ImageChapterButton>
+                ))}
+              </div>
+            </div>
+          </BookChaptersContainer>
         </BookImageContainer>
       </BookViewer>
     </BookViewerSection>

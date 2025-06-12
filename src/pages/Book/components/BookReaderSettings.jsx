@@ -37,8 +37,8 @@ const BookReaderSettings = ({
   if (isMobile) {
     return (
       <>
-        <MobileOverlay className="open" onClick={onClose} />
-        <MobileOptionsMenu>
+        <MobileOverlay isOpen={true} onClick={onClose} />
+        <MobileOptionsMenu isOpen={true}>
           <MobileMenuItem onClick={() => { onDownload(); onClose(); }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -101,7 +101,7 @@ const BookReaderSettings = ({
 
   // Renderiza a versão desktop do menu de configurações
   return (
-    <DesktopDropdownMenu>
+    <DesktopDropdownMenu isOpen={true}>
       <DesktopDropdownItem onClick={() => { onToggleDarkMode(); onClose(); }}>
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           {isDarkMode ? (

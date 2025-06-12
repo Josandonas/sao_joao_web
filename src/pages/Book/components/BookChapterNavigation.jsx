@@ -50,8 +50,8 @@ const BookChapterNavigation = ({
   if (isMobile) {
     return (
       <>
-        <MobileOverlay className={isOpen ? 'open' : ''} onClick={onClose} />
-        <MobileChaptersMenu className={isOpen ? 'open' : ''}>
+        <MobileOverlay isOpen={isOpen} onClick={onClose} />
+        <MobileChaptersMenu isOpen={isOpen}>
           <MobileChaptersHeader>
             <h3>{tFunc('book.chapters')}</h3>
             <button onClick={onClose}>
@@ -65,7 +65,7 @@ const BookChapterNavigation = ({
             {chapters.map((chapter) => (
               <MobileChapterItem 
                 key={chapter.id} 
-                className={isChapterActive(chapter) ? 'active' : ''}
+                $active={isChapterActive(chapter)}
                 onClick={() => {
                   onGoToChapter(chapter.id);
                   onClose();

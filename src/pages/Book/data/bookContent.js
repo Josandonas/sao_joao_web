@@ -42,62 +42,62 @@ export const bookContent = {
     
     return pages;
   },
-  // Capítulos do livro (mantidos para compatibilidade com a navegação por capítulos)
-  // Agora usando chaves de tradução para suportar múltiplos idiomas
+  // Capítulos do livro ajustados para corresponder às páginas reais do PDF
+  // Usando chaves de tradução para suportar múltiplos idiomas
   chapters: [
   {
     id: 1,
     chapter: 'book.cover',
     title: 'book.title',
-    pageNumber: 1
+    pageNumber: 1  // Capa
   },
   {
     id: 2,
     chapter: 'book.introductionChapter',
     title: 'book.introductionChapter',
-    pageNumber: 5
+    pageNumber: 5  // Introdução
   },
   {
     id: 3,
     chapter: 'book.chapter1',
     title: 'book.chapter1Title',
-    pageNumber: 15
+    pageNumber: 15  // História e Origens
   },
   {
     id: 4,
     chapter: 'book.chapter2',
     title: 'book.chapter2Title',
-    pageNumber: 40
+    pageNumber: 25  // Rituais e Celebrações - ajustado
   },
   {
     id: 5,
     chapter: 'book.chapter3',
     title: 'book.chapter3Title',
-    pageNumber: 70
+    pageNumber: 45  // Música e Dança - ajustado
   },
   {
     id: 6,
     chapter: 'book.chapter4',
     title: 'book.chapter4Title',
-    pageNumber: 100
+    pageNumber: 65  // Gastronomia - ajustado
   },
   {
     id: 7,
     chapter: 'book.chapter5',
     title: 'book.chapter5Title',
-    pageNumber: 130
+    pageNumber: 75  // Comunidades - ajustado
   },
   {
     id: 8,
     chapter: 'book.chapter6',
     title: 'book.chapter6Title',
-    pageNumber: 160
+    pageNumber: 85  // Patrimônio Cultural - ajustado
   },
   {
     id: 9,
     chapter: 'book.conclusion',
     title: 'book.conclusionTitle',
-    pageNumber: 180
+    pageNumber: 90  // Conclusão e Agradecimentos - ajustado
   }
   ]
 };

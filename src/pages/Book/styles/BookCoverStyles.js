@@ -20,14 +20,14 @@ export const BookCover = styled.div`
     flex-direction: column;
     width: 100%;
     align-items: center;
-    gap: ${props => props.theme.spacing.md};
+    gap: ${props => props.theme.spacing.lg};
     padding: 0;
   }
   
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     .book-cover-content {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: column;
       gap: ${props => props.theme.spacing.xl};
     }
   }
@@ -40,7 +40,7 @@ export const CoverImage = styled.img`
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   object-fit: cover;
-  aspect-ratio: 3/4;
+  aspect-ratio: 4/4;
   
   &:hover {
     transform: translateY(-5px) scale(1.02);
@@ -52,7 +52,7 @@ export const CoverImage = styled.img`
   }
   
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 350px;
+    width: 27%;
   }
 `;
 

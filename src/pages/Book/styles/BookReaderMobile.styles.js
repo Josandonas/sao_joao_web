@@ -152,7 +152,12 @@ export const MobileActionButton = styled.button`
 `;
 
 // Menu de opções para dispositivos móveis
-export const MobileOptionsMenu = styled.div`
+export const MobileOptionsMenu = styled.div.attrs(props => {
+  // Removendo a prop isOpen para não ser passada para o DOM
+  const newProps = {...props};
+  delete newProps.isOpen;
+  return newProps;
+})`
   position: absolute;
   bottom: 70px;
   right: 10px;
@@ -164,6 +169,7 @@ export const MobileOptionsMenu = styled.div`
   z-index: 100;
   transform-origin: bottom right;
   animation: scaleIn 0.2s ease-out forwards;
+  display: ${props => props.isOpen ? 'block' : 'none'};
   
   @keyframes scaleIn {
     from { transform: scale(0.9); opacity: 0; }
@@ -241,7 +247,12 @@ export const GestureOverlay = styled.div`
 `;
 
 // Menu de capítulos para dispositivos móveis
-export const MobileChaptersMenu = styled.div`
+export const MobileChaptersMenu = styled.div.attrs(props => {
+  // Removendo a prop isOpen para não ser passada para o DOM
+  const newProps = {...props};
+  delete newProps.isOpen;
+  return newProps;
+})`
   position: absolute;
   bottom: 0;
   left: 0;
@@ -253,12 +264,8 @@ export const MobileChaptersMenu = styled.div`
   z-index: 200;
   max-height: 70vh;
   overflow-y: auto;
-  transform: translateY(100%);
+  transform: ${props => props.isOpen ? 'translateY(0)' : 'translateY(100%)'};
   transition: transform 0.3s ease;
-  
-  &.open {
-    transform: translateY(0);
-  }
 `;
 
 // Cabeçalho do menu de capítulos
@@ -307,7 +314,12 @@ export const MobileChapterItem = styled.button`
 `;
 
 // Overlay de fundo para menus
-export const MobileOverlay = styled.div`
+export const MobileOverlay = styled.div.attrs(props => {
+  // Removendo a prop isOpen para não ser passada para o DOM
+  const newProps = {...props};
+  delete newProps.isOpen;
+  return newProps;
+})`
   position: fixed;
   top: 0;
   left: 0;
@@ -315,10 +327,7 @@ export const MobileOverlay = styled.div`
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 150;
-  opacity: 0;
+  opacity: ${props => props.isOpen ? 1 : 0};
+  pointer-events: ${props => props.isOpen ? 'auto' : 'none'};
   transition: opacity 0.3s ease;
-  
-  &.open {
-    opacity: 1;
-  }
 `;

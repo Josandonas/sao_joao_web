@@ -108,6 +108,7 @@ const BookPage = () => {
           onPrevPage={goToPrevPage}
           onGoToChapter={goToChapter}
           isFullscreen={isFullscreen}
+          pdfUrl={pdfUrl}
         />
       )}
       
@@ -125,6 +126,7 @@ const BookPage = () => {
           onPrevPage={goToPrevPage}
           onGoToChapter={goToChapter}
           t={t}
+          pdfUrl={pdfUrl}
         />
       )}
     </Container>
