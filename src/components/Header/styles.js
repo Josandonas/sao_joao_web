@@ -6,15 +6,20 @@ export const HeaderContainer = styled.header`
   color: ${props => props.theme.colors.white};
   padding: ${props => props.theme.spacing.md};
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column; /* Altera para coluna para separar a navegação dos botões de idioma */
   box-shadow: ${props => props.theme.shadows.medium};
   position: relative;
   z-index: 100;
-  
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;
   }
+`;
+
+export const HeaderContent = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 100%;
 `;
 
 export const Navigation = styled.nav`
@@ -23,6 +28,7 @@ export const Navigation = styled.nav`
   flex: 1;
   justify-content: center; /* Centraliza as opções do navbar */
   gap: ${props => props.theme.spacing.md}; /* Adiciona espaçamento entre os itens */
+  padding-top: 4%; /* Espaço para acomodar o ícone da viola acima dos itens */
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     width: 100%;
@@ -70,18 +76,20 @@ export const NavItem = styled.div`
   min-width: 120px; /* Largura mínima para a caixa */
   text-align: center; /* Centraliza o texto dentro da caixa */
   position: relative; /* Para posicionar o ícone de viola */
-  padding-top: 35px; /* Espaço para o ícone de viola */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   transition: all 0.3s ease;
   
   /* Adiciona o ícone de viola acima do item ativo */
   &::before {
     content: '';
     position: absolute;
-    top: -25px;
+    bottom: calc(100% + 0px); /* Posiciona logo acima do item, com 5px de espaço */
     left: 50%;
-    transform: translateX(-30%);
-    width: 70px; /* Tamanho ajustado */
-    height: 70px; /* Tamanho ajustado */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    width: 150%; /* Mantém o tamanho ajustado */
+    height: 150%; /* Mantém o tamanho ajustado */
     background-image: url('/assets/svg/Viola_Marrom.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -90,19 +98,16 @@ export const NavItem = styled.div`
     transition: all 0.3s ease;
     pointer-events: none;
     filter: drop-shadow(0 2px 4px rgba(255, 197, 110, 0.6)); /* Sombra dourada */
-    animation: floatViola 3s ease-in-out infinite; /* Animação suave de flutuação */
-    animation-play-state: paused; /* Inicia pausada */
+    /* Removida a animação de flutuação */
   }
   
   /* Adiciona um efeito de brilho atrás do ícone */
   &::after {
     content: '';
     position: absolute;
-    top: 5px;
+    bottom: calc(100% + 25px); /* Posicionado em relação ao item, alinhado com o ícone */
     left: 50%;
     transform: translateX(-50%);
-    width: 20px;
-    height: 20px;
     background: radial-gradient(circle, rgba(255, 197, 110, 0.6) 0%, rgba(255, 197, 110, 0) 70%);
     border-radius: 50%;
     opacity: 0;
@@ -110,10 +115,9 @@ export const NavItem = styled.div`
     z-index: -1;
   }
   
-  /* Mostra o ícone apenas quando o link está ativo */
+  /* Mostra o ícone quando o link está ativo */
   &:has(a.active)::before {
     opacity: 1;
-    animation-play-state: running; /* Inicia a animação quando ativo */
   }
   
   /* Mostra o efeito de brilho quando o link está ativo */
@@ -127,12 +131,6 @@ export const NavItem = styled.div`
   @keyframes pulseGlow {
     0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
     100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
-  }
-  
-  @keyframes floatViola {
-    0% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(-3px); }
-    100% { transform: translateX(-50%) translateY(0); }
   }
   
   /* Efeito hover para o ícone */
@@ -155,15 +153,99 @@ export const NavItem = styled.div`
 
 export const LanguageSelector = styled.div`
   display: flex;
-  flex: 0 0 auto;
-  gap: ${props => props.theme.spacing.xs};
+  align-items: center;
+  margin-left: auto;
+  align-self: flex-end;
+  position: relative;
+  padding: 1%;
+  .language-dropdown-container {
+    position: relative;
+  }
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    width: 100%;
-    justify-content: flex-start;
-    border-top: 1px solid rgba(255, 255, 255, 0.2);
-    padding-top: ${props => props.theme.spacing.sm};
     margin-top: ${props => props.theme.spacing.sm};
+    margin-left: 0;
+    justify-content: center;
+    width: 100%;
+  }
+`;
+
+export const GlobeIcon = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing.xs};
+  cursor: pointer;
+  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+  border: 2px solid #FFC56E;
+  border-radius: ${props => props.theme.borderRadius.small};
+  transition: all ${props => props.theme.transitions.default};
+  background-color: transparent;
+  color: #FFC56E;
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  
+  svg {
+    color: #FFC56E;
+  }
+  
+  span {
+    font-weight: 500;
+    margin-left: 5px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
+  
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+  }
+`;
+
+export const LanguageDropdown = styled.div`
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background-color: #5f1530;
+  border: 2px solid #FFC56E;
+  border-radius: ${props => props.theme.borderRadius.small};
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 1000;
+  min-width: 160px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all ${props => props.theme.transitions.default};
+  overflow: hidden;
+  
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+`;
+
+export const LanguageOption = styled.div`
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  cursor: pointer;
+  transition: all ${props => props.theme.transitions.default};
+  color: #FFC56E;
+  font-family: var(--font-family-heading);
+  font-weight: 500;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid rgba(255, 197, 110, 0.2);
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  &:hover {
+    background-color: rgba(255, 197, 110, 0.15);
+  }
+  
+  &.active {
+    background-color: rgba(255, 197, 110, 0.25);
+    font-weight: 700;
   }
 `;
 
