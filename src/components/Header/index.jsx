@@ -1,30 +1,60 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { HeaderContainer, Navigation, NavItem, LanguageSelector, LanguageButton, NavButton } from './styles';
-
+import { BiGlobe } from 'react-icons/bi';
+import { HeaderContainer, HeaderContent, Navigation, NavItem, LanguageSelector, LanguageButton, NavButton, LanguageDropdown, LanguageOption, GlobeIcon } from './styles';
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { lang } = useParams();
   const location = useLocation();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+  
+  // Função para obter o nome do idioma por extenso
+  const getLanguageLabel = (code) => {
+    switch(code) {
+      case 'pt': return 'Português';
+      case 'en': return 'English';
+      case 'es': return 'Español';
+      default: return 'Português';
+    }
+  };
   
   // Alterna entre os idiomas disponíveis mantendo a página atual
-  const changeLanguage = (newLang) => {
-    if (lang === newLang) return;
+  const handleLanguageChange = (newLang) => {
+    if (lang === newLang) {
+      setDropdownOpen(false);
+      return;
+    }
     
     const currentPath = location.pathname;
     const newPath = currentPath.replace(`/${lang}`, `/${newLang}`);
     window.location.href = newPath;
   };
   
+  // Fecha o dropdown quando clicar fora dele
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+  
   return (
     <HeaderContainer>      
-      <Navigation>
-        <NavItem>
-          <Link to={`/${lang}`} className={location.pathname === `/${lang}` ? 'active' : ''}>
-            {t('navigation.home')}
-          </Link>
-        </NavItem>
+      <HeaderContent>
+        <Navigation>
+          <NavItem>
+            <Link to={`/${lang}`} className={location.pathname === `/${lang}` ? 'active' : ''}>
+              {t('navigation.home')}
+            </Link>
+          </NavItem>
         <NavItem>
           <Link to={`/${lang}/stories`} className={location.pathname.includes('/stories') ? 'active' : ''}>
             {t('navigation.stories')}
@@ -62,31 +92,38 @@ const Header = () => {
             <span>Oficial</span>
           </NavButton>
         </NavItem>
-      </Navigation>
-      
-      <LanguageSelector>
-        <LanguageButton 
-          onClick={() => changeLanguage('pt')} 
-          className={lang === 'pt' ? 'active' : ''}
-          title="Português"
-        >
-          PT
-        </LanguageButton>
-        <LanguageButton 
-          onClick={() => changeLanguage('en')} 
-          className={lang === 'en' ? 'active' : ''}
-          title="English"
-        >
-          EN
-        </LanguageButton>
-        <LanguageButton 
-          onClick={() => changeLanguage('es')} 
-          className={lang === 'es' ? 'active' : ''}
-          title="Español"
-        >
-          ES
-        </LanguageButton>
-      </LanguageSelector>
+        </Navigation>
+        
+        <LanguageSelector>
+          <div className="language-dropdown-container">
+            <GlobeIcon onClick={() => setDropdownOpen(!dropdownOpen)} ref={dropdownRef}>
+              <BiGlobe size={18} />
+              <span>{getLanguageLabel(lang)}</span>
+            </GlobeIcon>
+            
+            <LanguageDropdown className={dropdownOpen ? 'open' : ''}>
+              <LanguageOption 
+                onClick={() => handleLanguageChange('pt')} 
+                className={lang === 'pt' ? 'active' : ''}
+              >
+                Português
+              </LanguageOption>
+              <LanguageOption 
+                onClick={() => handleLanguageChange('en')} 
+                className={lang === 'en' ? 'active' : ''}
+              >
+                English
+              </LanguageOption>
+              <LanguageOption 
+                onClick={() => handleLanguageChange('es')} 
+                className={lang === 'es' ? 'active' : ''}
+              >
+                Español
+              </LanguageOption>
+            </LanguageDropdown>
+          </div>
+        </LanguageSelector>
+      </HeaderContent>
     </HeaderContainer>
   );
 };
