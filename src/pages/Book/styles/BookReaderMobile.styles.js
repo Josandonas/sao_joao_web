@@ -87,6 +87,7 @@ export const MobileToolbar = styled.div`
   position: relative;
   z-index: 10;
   box-shadow: 0 -2px 10px ${colors.shadow};
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 `;
 
 // Grupo de botões na barra de ferramentas
@@ -170,6 +171,7 @@ export const MobileOptionsMenu = styled.div.attrs(props => {
   transform-origin: bottom right;
   animation: scaleIn 0.2s ease-out forwards;
   display: ${props => props.isOpen ? 'block' : 'none'};
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   
   @keyframes scaleIn {
     from { transform: scale(0.9); opacity: 0; }
@@ -185,8 +187,10 @@ export const MobileMenuItem = styled.button`
   padding: 12px 16px;
   border: none;
   background-color: transparent;
+  color: ${colors.text};
   cursor: pointer;
   text-align: left;
+  transition: background-color 0.3s ease;
   
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);

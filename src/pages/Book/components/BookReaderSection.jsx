@@ -21,7 +21,6 @@ import {
 // Importando os novos componentes
 import BookReaderToolbar from './BookReaderToolbar';
 import BookNavigationControls from './BookNavigationControls';
-import BookChapterNavigation from './BookChapterNavigation';
 import BookReaderSettings from './BookReaderSettings';
 
 /**
@@ -51,10 +50,9 @@ const BookReaderSection = ({
   // Detecta se é dispositivo móvel
   const isMobile = useMediaQuery({ maxWidth: 768 });
   
-  // Estados para os novos componentes
+  // Estados para os menus
   const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
   const [chaptersMenuOpen, setChaptersMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   
   // Não precisamos mais do estado de modo de visualização, pois usaremos apenas o PDF
   
@@ -93,11 +91,6 @@ const BookReaderSection = ({
     }
   };
   
-  // Função para alternar o modo escuro
-  const handleToggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
-  
   // Prepara os dados das páginas no formato esperado pelo novo componente
   const formattedPages = bookPages.map(page => page.image);
   
@@ -105,37 +98,7 @@ const BookReaderSection = ({
   
   // Não precisamos mais da função renderBookPages, pois usaremos apenas o PDFReader
 
-  // Estado para controlar o zoom
-  const [zoomActive, setZoomActive] = useState(false);
-  // Estado para controlar o nível de zoom
-  const [zoomLevel, setZoomLevel] = useState(1);
-  
-  // Função para aumentar o zoom
-  const handleZoomIn = () => {
-    setZoomActive(true);
-    setZoomLevel(prev => Math.min(3, prev + 0.2));
-  };
-  
-  // Função para diminuir o zoom
-  const handleZoomOut = () => {
-    setZoomActive(true);
-    setZoomLevel(prev => Math.max(0.5, prev - 0.2));
-  };
-  
-  // Função para resetar o zoom
-  const handleZoomReset = () => {
-    setZoomLevel(1);
-    if (zoomLevel === 1) {
-      setZoomActive(false);
-    }
-  };
-  
-  // Função para ajustar o zoom à largura
-  const handleFitToWidth = () => {
-    setZoomActive(true);
-    // O valor exato será calculado pelo PDFReader
-  };
-  
+
   // Estado para controlar o número total de páginas do PDF
   const [pdfTotalPages, setPdfTotalPages] = useState(0);
   
@@ -145,13 +108,11 @@ const BookReaderSection = ({
     console.log(`PDF carregado com ${numPages} páginas`);
   };
   
-  // Não precisamos mais da função para alternar entre modos de visualização
-  
   // Versão híbrida: usa os componentes modulares com a estrutura existente
   
   // Versão híbrida: mantém a estrutura original mas usa os novos componentes
   return (
-    <BookViewerSection className="book-viewer-section" style={fadeStyle}>
+    <BookViewerSection className="book-viewer-section" style={{...fadeStyle, backgroundColor: '#f5f5f5', color: '#333'}}>
       
       {/* Usando o novo componente BookReaderToolbar */}
       <BookReaderToolbar
@@ -160,16 +121,9 @@ const BookReaderSection = ({
         onDownload={onDownload}
         onShare={handleShare}
         onToggleFullscreen={onToggleFullscreen}
-        onToggleZoom={() => setZoomActive(!zoomActive)}
         onToggleChapters={() => setChaptersMenuOpen(true)}
         onToggleSettings={() => setSettingsMenuOpen(true)}
-        isFullscreen={isFullscreen}
-        zoomActive={zoomActive}
-        onZoomIn={handleZoomIn}
-        onZoomOut={handleZoomOut}
-        onZoomReset={handleZoomReset}
-        onFitToWidth={handleFitToWidth}
-        zoomLevel={zoomLevel}
+        isFullscreen={isFullscreen || false}
         t={t}
       />
       
@@ -181,9 +135,8 @@ const BookReaderSection = ({
         onDownload={onDownload}
         onShare={handleShare}
         onToggleFullscreen={onToggleFullscreen}
-        onToggleDarkMode={handleToggleDarkMode}
-        isDarkMode={darkMode}
-        isFullscreen={isFullscreen}
+
+        isFullscreen={isFullscreen || false}
         t={t}
       />
       
@@ -193,11 +146,11 @@ const BookReaderSection = ({
           <BookNavigationControls
             isMobile={false}
             currentPage={currentPage}
-            totalPages={pdfTotalPages}
+            totalPages={pdfTotalPages || totalPages || 0}
             onPrevPage={onPrevPage}
             onNextPage={onNextPage}
             isFirstPage={currentPage === 0}
-            isLastPage={currentPage === pdfTotalPages - 1}
+            isLastPage={currentPage === (pdfTotalPages || totalPages || 1) - 1}
             t={t}
           />
           
@@ -226,10 +179,7 @@ const BookReaderSection = ({
                 }
               }}
               onDocumentLoadSuccess={handlePdfLoadSuccess}
-              onZoomChange={(newZoom) => setZoomLevel(newZoom)}
-              darkMode={darkMode}
-              zoomEnabled={zoomActive}
-              zoomLevel={zoomLevel}
+
             />
           </div>
           
@@ -257,7 +207,16 @@ const BookReaderSection = ({
                     onClick={() => {
                       // Ajuste para o sistema de navegação do PDF
                       // Subtrai 1 porque o sistema de navegação interno começa em 0, mas o PDF começa em 1
-                      onGoToChapter(chapter.pageNumber - 1);
+                      if (onGoToChapter) {
+                        onGoToChapter(chapter.pageNumber - 1);
+                      } else {
+                        // Fallback para navegação direta se onGoToChapter não estiver disponível
+                        if (chapter.pageNumber - 1 > currentPage) {
+                          onNextPage();
+                        } else if (chapter.pageNumber - 1 < currentPage) {
+                          onPrevPage();
+                        }
+                      }
                       setChaptersMenuOpen(false);
                     }}
                     $active={currentPage === chapter.pageNumber - 1}

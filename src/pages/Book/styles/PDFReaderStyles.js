@@ -46,41 +46,21 @@ export const PDFContent = styled(PDFContentBase).attrs(props => {
   align-items: center;
   padding: 0;
   margin: 0 auto;
-  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1); /* Transição mais suave para o zoom */
-  cursor: ${props => {
-    if (!props.$zoomEnabled) return 'default';
-    return props.$zoomLevel > 2 ? 'zoom-out' : 'zoom-in';
-  }}; /* Mostra cursor de zoom-in ou zoom-out dependendo do nível de zoom */
+  transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1), background-color 0.3s ease; /* Transição mais suave para o zoom e dark mode */
+  cursor: default;
   will-change: transform; /* Otimiza a performance da animação */
   
-  /* Ocultar todos os controles nativos de zoom do react-pdf */
-  .rpv-core__toolbar,
-  .rpv-core__inner-pages,
-  .rpv-core__inner-page,
-  .rpv-core__page-navigation {
-    display: none !important;
+  /* Estilos para o visualizador de PDF */
+  .rpv-core__viewer {
+    width: 100%;
+    height: 100%;
   }
-
-  /* Estilos para o documento PDF */
-  .react-pdf__Document {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  
+  /* Estilos para o canvas da página */
+  canvas {
     max-width: 100%;
-    
-    /* Estilos para a página PDF */
-    .react-pdf__Page {
-      max-width: 100%;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-      margin-bottom: 20px;
-      background-color: white;
-      
-      /* Estilos para o canvas da página */
-      canvas {
-        max-width: 100%;
-        height: auto !important;
-      }
-    }
+    height: auto !important;
+  }
   }
 `;
 
@@ -174,8 +154,8 @@ export const ZoomIndicator = styled.div.attrs(props => ({
   position: absolute;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  background-color: ${props => props.$darkMode ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.6)'};
+  color: ${props => props.$darkMode ? '#e0e0e0' : 'white'};
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 14px;
@@ -183,17 +163,12 @@ export const ZoomIndicator = styled.div.attrs(props => ({
   align-items: center;
   justify-content: center;
   opacity: 0.8;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, background-color 0.3s ease, color 0.3s ease;
   z-index: 100;
   pointer-events: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: ${props => props.$darkMode ? '0 2px 8px rgba(0, 0, 0, 0.5)' : '0 2px 8px rgba(0, 0, 0, 0.3)'};
   
   &.fade-out {
     opacity: 0;
   }
-  
-  ${props => props.$darkMode && `
-    background-color: rgba(255, 255, 255, 0.2);
-    color: #333;
-  `}
 `;

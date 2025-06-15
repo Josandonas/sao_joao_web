@@ -15,14 +15,11 @@ const BookReaderSectionNew = ({
   bookContent,
   bookPages,
   currentPage,
-  totalPages,
   onBackToCover,
   onDownload,
   onToggleFullscreen,
   onNextPage,
   onPrevPage,
-  onGoToChapter,
-  isFullscreen
 }) => {
   const { t } = useTranslation();
   

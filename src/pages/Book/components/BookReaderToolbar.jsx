@@ -9,7 +9,7 @@ import {
   MobileToolbarGroup, 
   MobileActionButton 
 } from '../styles/BookReaderMobile.styles';
-import { BaseButton, ButtonIcon } from '../styles/BookReaderCommon.styles';
+import { BaseButton, ButtonIcon, colors } from '../styles/BookReaderCommon.styles';
 
 /**
  * Componente para a barra de ferramentas do leitor de livros
@@ -21,16 +21,9 @@ const BookReaderToolbar = ({
   onDownload,
   onShare,
   onToggleFullscreen,
-  onToggleZoom,
   onToggleChapters,
   onToggleSettings,
   isFullscreen,
-  zoomActive,
-  onZoomIn,
-  onZoomOut,
-  onZoomReset,
-  onFitToWidth,
-  zoomLevel,
   t
 }) => {
   // Se não for passado o objeto de tradução, usa o hook
@@ -59,19 +52,6 @@ const BookReaderToolbar = ({
         </MobileToolbarGroup>
 
         <MobileToolbarGroup>
-          <MobileActionButton 
-            onClick={onToggleZoom} 
-            title={zoomActive ? tFunc('book.disableZoom') : tFunc('book.enableZoom')}
-            style={{ color: zoomActive ? '#4CAF50' : 'inherit' }}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-              {!zoomActive && <line x1="11" y1="8" x2="11" y2="14"></line>}
-              {!zoomActive && <line x1="8" y1="11" x2="14" y2="11"></line>}
-            </svg>
-          </MobileActionButton>
-          
           <MobileActionButton onClick={onToggleSettings} title={tFunc('book.settings')}>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="3"></circle>
@@ -95,9 +75,7 @@ const BookReaderToolbar = ({
           </ButtonIcon>
           <span>{tFunc('book.backToCover')}</span>
         </BaseButton>
-      </DesktopToolbarGroup>
 
-      <DesktopToolbarGroup>
         <BaseButton onClick={onDownload}>
           <ButtonIcon>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -121,96 +99,6 @@ const BookReaderToolbar = ({
           </ButtonIcon>
           <span>{tFunc('book.share')}</span>
         </BaseButton>
-
-        {/* Controles de zoom expandidos */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '5px' }}>
-          {/* Botão de zoom out */}
-          <BaseButton 
-            onClick={onZoomOut}
-            disabled={!zoomActive || zoomLevel <= 0.5}
-            style={{ padding: '5px 10px' }}
-            title={tFunc('book.zoomOut')}
-          >
-            <ButtonIcon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-            </ButtonIcon>
-          </BaseButton>
-          
-          {/* Indicador de zoom */}
-          <div style={{ 
-            padding: '0 8px',
-            fontSize: '14px',
-            fontWeight: 'bold',
-            minWidth: '60px',
-            textAlign: 'center',
-            color: zoomActive ? '#4CAF50' : 'inherit'
-          }}>
-            {Math.round(zoomLevel * 100)}%
-          </div>
-          
-          {/* Botão de zoom in */}
-          <BaseButton 
-            onClick={onZoomIn}
-            disabled={!zoomActive || zoomLevel >= 3}
-            style={{ padding: '5px 10px' }}
-            title={tFunc('book.zoomIn')}
-          >
-            <ButtonIcon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <line x1="12" y1="5" x2="12" y2="19"></line>
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-              </svg>
-            </ButtonIcon>
-          </BaseButton>
-          
-          {/* Botão de reset zoom */}
-          <BaseButton 
-            onClick={onZoomReset}
-            disabled={!zoomActive || zoomLevel === 1}
-            style={{ padding: '5px 10px' }}
-            title={tFunc('book.resetZoom')}
-          >
-            <ButtonIcon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
-                <path d="M3 3v5h5"></path>
-              </svg>
-            </ButtonIcon>
-          </BaseButton>
-          
-          {/* Botão de ajustar à largura */}
-          <BaseButton 
-            onClick={onFitToWidth}
-            style={{ padding: '5px 10px' }}
-            title={tFunc('book.fitToWidth')}
-          >
-            <ButtonIcon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="8 9 12 5 16 9"></polyline>
-                <polyline points="16 15 12 19 8 15"></polyline>
-                <line x1="4" y1="12" x2="20" y2="12"></line>
-              </svg>
-            </ButtonIcon>
-          </BaseButton>
-          
-          {/* Botão para ativar/desativar zoom */}
-          <BaseButton 
-            onClick={onToggleZoom} 
-            style={{ color: zoomActive ? '#4CAF50' : 'inherit' }}
-          >
-            <ButtonIcon>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <circle cx="11" cy="11" r="8"></circle>
-                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                {!zoomActive && <line x1="11" y1="8" x2="11" y2="14"></line>}
-                {!zoomActive && <line x1="8" y1="11" x2="14" y2="11"></line>}
-              </svg>
-            </ButtonIcon>
-            <span>{zoomActive ? tFunc('book.disableZoom') : tFunc('book.enableZoom')}</span>
-          </BaseButton>
-        </div>
 
         <BaseButton onClick={onToggleFullscreen}>
           <ButtonIcon>

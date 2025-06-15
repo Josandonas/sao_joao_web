@@ -1,14 +1,17 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container } from './styles';
 import { bookContent } from './data/bookContent';
 import { useBookNavigation } from './hooks/useBookNavigation';
 import { useFullscreen } from './hooks/useFullscreen';
 import { useBookActions } from './hooks/useBookActions';
-import BookCoverSection from './components/BookCoverSection';
 import BookReaderSection from './components/BookReaderSection';
+import BookCoverSection from './components/BookCoverSection';
+import PDFViewer from './components/PDFViewer';
+import styled from 'styled-components';
 import FullscreenReader from './components/FullscreenReader';
 import BookHeader from './components/BookHeader';
+import OnlineReaderSection from './components/OnlineReaderSection';
 import { useParams } from 'react-router-dom';
 
 /**
@@ -21,35 +24,25 @@ const BookPage = () => {
   const { lang } = useParams();
   
   // Hook de tradução
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   
-  // Define o PDF e os títulos de compartilhamento adequados com base no idioma
-  const getPdfByLanguage = () => {
-    switch(lang) {
+  // Define o caminho do PDF baseado no idioma atual
+  const pdfPath = useMemo(() => {
+    // Garantir que a URL seja absoluta para evitar problemas de caminho relativo
+    const basePath = window.location.origin;
+    
+    switch (i18n.language) {
       case 'en':
-        return {
-          pdfUrl: '/assets/pdf/livro_en.pdf',
-          shareTitle: 'Bath of Saint John - A Pantanal Tradition',
-          shareText: 'Discover the rich tradition of the Bath of Saint John in the Brazilian Pantanal.'
-        };
+        return `${basePath}/assets/pdf/livro_en.pdf`;
       case 'es':
-        return {
-          pdfUrl: '/assets/pdf/livro_es.pdf',
-          shareTitle: 'Baño de San Juan - Una Tradición del Pantanal',
-          shareText: 'Descubra la rica tradición del Baño de San Juan en el Pantanal brasileño.'
-        };
+        return `${basePath}/assets/pdf/livro_es.pdf`;
       case 'pt':
       default:
-        return {
-          pdfUrl: '/assets/pdf/livro_c.pdf',
-          shareTitle: 'Banho de São João - Uma Tradição do Pantanal',
-          shareText: 'Conheça a rica tradição do Banho de São João no Pantanal brasileiro.'
-        };
+        return `${basePath}/assets/pdf/livro_pt.pdf`;
     }
-  };
+  }, [i18n.language]);
   
-  const { pdfUrl, shareTitle, shareText } = getPdfByLanguage();
-  
+
   // Gera as páginas do livro baseadas no idioma atual
   const bookPages = useMemo(() => {
     return bookContent.getBookPages(lang);
@@ -70,9 +63,9 @@ const BookPage = () => {
   const { isFullscreen, fullscreenRef, toggleFullscreen } = useFullscreen();
   
   const { handleDownload, handleShare } = useBookActions({
-    shareTitle,
-    shareText,
-    pdfUrl,
+    shareTitle: 'Banho de São João - Uma Tradição do Pantanal',
+    shareText: 'Conheça a rica tradição do Banho de São João no Pantanal brasileiro.',
+    pdfUrl: pdfPath,
     pdfNotReady: false // PDF está disponível para download
   });
 
@@ -96,19 +89,13 @@ const BookPage = () => {
           onShare={handleShare}
         />
       ) : (
-        <BookReaderSection 
-          bookContent={bookContent}
-          bookPages={bookPages}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onBackToCover={backToCover}
+        /* Novo visualizador de PDF */
+        <PDFViewer
+          pdfUrl={pdfPath}
+          onBackClick={backToCover}
           onDownload={handleDownload}
           onToggleFullscreen={toggleFullscreen}
-          onNextPage={goToNextPage}
-          onPrevPage={goToPrevPage}
-          onGoToChapter={goToChapter}
           isFullscreen={isFullscreen}
-          pdfUrl={pdfUrl}
         />
       )}
       
@@ -116,7 +103,6 @@ const BookPage = () => {
       {isFullscreen && (
         <FullscreenReader
           ref={fullscreenRef}
-          fullscreenRef={fullscreenRef}
           onClose={toggleFullscreen}
           bookContent={bookContent}
           bookPages={bookPages}
@@ -126,9 +112,15 @@ const BookPage = () => {
           onPrevPage={goToPrevPage}
           onGoToChapter={goToChapter}
           t={t}
-          pdfUrl={pdfUrl}
+          pdfUrl={pdfPath}
         />
       )}
+      
+      {/* Seção de leitura online */}
+      <OnlineReaderSection 
+        pdfUrl={pdfPath}
+        bookTitle={bookContent.metadata.title}
+      />
     </Container>
   );
 };

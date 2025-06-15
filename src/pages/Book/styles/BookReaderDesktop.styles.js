@@ -28,6 +28,7 @@ export const DesktopToolbar = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
   
   ${media.lg} {
     padding: 0 40px;
@@ -128,7 +129,7 @@ export const DesktopPageImage = styled.img`
   
   ${media.mouse} {
     &:hover {
-      transform: ${props => props.$zoomEnabled ? 'scale(1.02)' : 'none'};
+      transform: scale(1.02);
     }
   }
 `;
@@ -190,10 +191,12 @@ export const DesktopPageIndicator = styled.div`
   justify-content: center;
   padding: 8px 16px;
   background-color: white;
+  color: #333;
   border-radius: 24px;
   box-shadow: 0 2px 8px ${colors.shadow};
   font-size: 16px;
   font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
 `;
 
 // Navegação por capítulos para desktop
@@ -232,59 +235,7 @@ export const DesktopChapterButton = styled.button`
   }
 `;
 
-// Controles de zoom para desktop
-export const DesktopZoomControls = styled.div`
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  background-color: white;
-  border-radius: 24px;
-  padding: 6px;
-  box-shadow: 0 2px 8px ${colors.shadow};
-  z-index: 10;
-  opacity: ${props => props.$visible ? 1 : 0};
-  transform: ${props => props.$visible ? 'translateY(0)' : 'translateY(20px)'};
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  
-  ${media.lg} {
-    bottom: 30px;
-    right: 30px;
-  }
-`;
-
-// Botão de zoom para desktop
-export const DesktopZoomButton = styled.button`
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  border: none;
-  background-color: ${props => props.$active ? colors.primary : 'transparent'};
-  color: ${props => props.$active ? 'white' : colors.text};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  
-  &:hover {
-    background-color: ${props => props.$active ? '#303f9f' : '#f0f0f0'};
-  }
-  
-  svg {
-    width: 20px;
-    height: 20px;
-  }
-`;
-
-// Indicador de nível de zoom
-export const ZoomLevelIndicator = styled.div`
-  padding: 0 10px;
-  font-size: 14px;
-  font-weight: 500;
-`;
+// Removidos DesktopZoomButton e ZoomLevelIndicator como parte da refatoração para eliminar funcionalidades de zoom
 
 // Menu dropdown para desktop
 export const DesktopDropdownMenu = styled.div.attrs(props => {
@@ -294,7 +245,7 @@ export const DesktopDropdownMenu = styled.div.attrs(props => {
   return newProps;
 })`
   position: absolute;
-  top: 60px;
+  top: 64px;
   right: 20px;
   background-color: white;
   border-radius: 8px;
@@ -304,6 +255,7 @@ export const DesktopDropdownMenu = styled.div.attrs(props => {
   transform-origin: top right;
   animation: scaleIn 0.2s ease-out forwards;
   display: ${props => props.isOpen ? 'block' : 'none'};
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   
   @keyframes scaleIn {
     from { transform: scale(0.9); opacity: 0; }
@@ -319,11 +271,13 @@ export const DesktopDropdownItem = styled.button`
   padding: 12px 16px;
   border: none;
   background-color: transparent;
+  color: ${props => props.$darkMode ? colors.darkMode.text : colors.text};
   cursor: pointer;
   text-align: left;
+  transition: background-color 0.3s ease, color 0.3s ease;
   
   &:hover {
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: ${props => props.$darkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.05)'};
   }
   
   svg {

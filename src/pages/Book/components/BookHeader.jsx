@@ -1,64 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import styled from 'styled-components';
 import {
   ReadButton,
   DownloadButton,
   ShareButton 
 } from '../styles/ActionButtonStyles';
-
-// Estilos do cabeçalho do livro
-const Container = styled.div`
-  margin-bottom: 2rem;
-  position: relative;
-  padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.lg};
-  background: linear-gradient(135deg, rgba(235, 234, 234), rgba(219, 219, 219));
-  border-radius: ${props => props.theme.borderRadius.medium};
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 6px;
-    background: linear-gradient(90deg, #ff6b01, #800000);
-  }
-`;
-
-const PageTitle = styled.h1`
-  font-family: ${props => props.theme.fonts.heading};
-  font-weight: ${props => props.theme.fontWeights.bold};
-  font-size: ${props => props.theme.fontSizes.xxlarge};
-  color: #ff6b01;
-  background: linear-gradient(135deg, #ff6b01, #ff6b01);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  margin: 0 0 1.5rem 0;
-  text-align: center;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-`;
-
-const ButtonsContainer = styled.div`
-  display: flex;
-  gap: ${props => props.theme.spacing.md};
-  justify-content: center;
-  flex-wrap: wrap;
-  
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    flex-direction: column;
-    width: 100%;
-    max-width: 300px;
-  }
-`;
+import {
+  Container,
+  PageTitle,
+  ButtonsContainer
+} from '../styles/BookHeaderStyles';
 
 /**
  * Componente de cabeçalho para a página do livro

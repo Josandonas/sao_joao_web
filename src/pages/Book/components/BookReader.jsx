@@ -8,7 +8,7 @@ import BookReaderToolbar from './BookReaderToolbar';
 import BookNavigationControls from './BookNavigationControls';
 import BookChapterNavigation from './BookChapterNavigation';
 import BookReaderSettings from './BookReaderSettings';
-import ZoomableImage from './ZoomableImage';
+
 
 // Estilos
 import { 
@@ -23,9 +23,7 @@ import {
   DesktopPagesLayout,
   DesktopPageWrapper,
   DesktopPageImage,
-  DesktopZoomControls,
-  DesktopZoomButton,
-  ZoomLevelIndicator
+
 } from '../styles/BookReaderDesktop.styles';
 import {
   MobileReaderContainer,
@@ -55,12 +53,7 @@ const BookReader = ({
   const isMobile = useMediaQuery({ maxWidth: 768 });
   
   // Estados
-  const [zoomEnabled, setZoomEnabled] = useState(false);
-  const [zoomLevel, setZoomLevel] = useState(1);
-  const [showZoomControls, setShowZoomControls] = useState(false);
-  const [chaptersMenuOpen, setChaptersMenuOpen] = useState(false);
   const [settingsMenuOpen, setSettingsMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const [feedback, setFeedback] = useState(null);
   const [pageTransitionDirection, setPageTransitionDirection] = useState('next');
   const [isLoading, setIsLoading] = useState(true);
@@ -138,19 +131,6 @@ const BookReader = ({
     }
   }, [currentPage, setCurrentPage, totalPages]);
   
-  // Função para alternar o zoom
-  const handleToggleZoom = useCallback(() => {
-    setZoomEnabled(!zoomEnabled);
-    if (zoomEnabled) {
-      setZoomLevel(1);
-    }
-  }, [zoomEnabled]);
-  
-  // Função para alternar o modo escuro
-  const handleToggleDarkMode = useCallback(() => {
-    setDarkMode(!darkMode);
-  }, [darkMode]);
-  
   // Função para mostrar feedback
   const showFeedback = useCallback((type, message) => {
     setFeedback({ type, message });
@@ -178,7 +158,7 @@ const BookReader = ({
   // Renderiza a versão mobile do leitor
   if (isMobile) {
     return (
-      <ReaderContainer style={{ backgroundColor: darkMode ? '#121212' : '#f5f5f5' }}>
+      <ReaderContainer style={{ backgroundColor: '#f5f5f5' }}>
         <MobileReaderContainer>
           <MobileContentArea>
             {isLoading ? (
@@ -191,18 +171,10 @@ const BookReader = ({
                   classNames="page-transition"
                 >
                   <MobilePageContainer $direction={pageTransitionDirection}>
-                    {zoomEnabled ? (
-                      <ZoomableImage
-                        src={pages[currentPage]}
-                        alt={`Página ${currentPage + 1}`}
-                        onZoomChange={setZoomLevel}
-                      />
-                    ) : (
-                      <MobilePageImage
-                        src={pages[currentPage]}
-                        alt={`Página ${currentPage + 1}`}
-                      />
-                    )}
+                    <MobilePageImage
+                      src={pages[currentPage]}
+                      alt={`Página ${currentPage + 1}`}
+                    />
                   </MobilePageContainer>
                 </CSSTransition>
               </TransitionGroup>
@@ -223,33 +195,7 @@ const BookReader = ({
           <BookReaderToolbar
             isMobile={true}
             onBackToCover={onBackToCover}
-            onToggleZoom={handleToggleZoom}
-            onToggleChapters={() => setChaptersMenuOpen(true)}
-            onToggleSettings={() => setSettingsMenuOpen(true)}
-            zoomActive={zoomEnabled}
-            t={t}
-          />
-          
-          <BookChapterNavigation
-            isMobile={true}
-            chapters={chapters}
-            currentPage={currentPage}
-            onGoToChapter={handleGoToChapter}
-            isOpen={chaptersMenuOpen}
-            onClose={() => setChaptersMenuOpen(false)}
-            t={t}
-          />
-          
-          <BookReaderSettings
-            isMobile={true}
-            isOpen={settingsMenuOpen}
-            onClose={() => setSettingsMenuOpen(false)}
-            onDownload={onDownload}
-            onShare={onShare}
             onToggleFullscreen={toggleFullscreen}
-            onToggleDarkMode={handleToggleDarkMode}
-            isDarkMode={darkMode}
-            isFullscreen={isFullscreen}
             t={t}
           />
         </MobileReaderContainer>
@@ -265,7 +211,7 @@ const BookReader = ({
   
   // Renderiza a versão desktop do leitor
   return (
-    <ReaderContainer style={{ backgroundColor: darkMode ? '#121212' : '#f5f5f5' }}>
+    <ReaderContainer style={{ backgroundColor: '#f5f5f5' }}>
       <DesktopReaderContainer>
         <BookReaderToolbar
           isMobile={false}
@@ -273,9 +219,6 @@ const BookReader = ({
           onDownload={onDownload}
           onShare={onShare}
           onToggleFullscreen={toggleFullscreen}
-          onToggleZoom={handleToggleZoom}
-          isFullscreen={isFullscreen}
-          zoomActive={zoomEnabled}
           t={t}
         />
         
@@ -300,36 +243,18 @@ const BookReader = ({
                 <DesktopPagesContainer>
                   <DesktopPagesLayout $singlePage={isSinglePage}>
                     <DesktopPageWrapper $singlePage={isSinglePage}>
-                      {zoomEnabled ? (
-                        <ZoomableImage
-                          src={pages[currentPage]}
-                          alt={`Página ${currentPage + 1}`}
-                          onZoomChange={setZoomLevel}
-                        />
-                      ) : (
-                        <DesktopPageImage
-                          src={pages[currentPage]}
-                          alt={`Página ${currentPage + 1}`}
-                          $zoomEnabled={!zoomEnabled}
-                        />
-                      )}
+                      <img 
+                        src={pages[currentPage]} 
+                        alt={`${t('book.page')} ${currentPage + 1}`}
+                      />
                     </DesktopPageWrapper>
                     
                     {!isSinglePage && currentPage + 1 < totalPages && (
                       <DesktopPageWrapper $singlePage={false}>
-                        {zoomEnabled ? (
-                          <ZoomableImage
-                            src={pages[currentPage + 1]}
-                            alt={`Página ${currentPage + 2}`}
-                            onZoomChange={setZoomLevel}
-                          />
-                        ) : (
-                          <DesktopPageImage
-                            src={pages[currentPage + 1]}
-                            alt={`Página ${currentPage + 2}`}
-                            $zoomEnabled={!zoomEnabled}
-                          />
-                        )}
+                        <img 
+                          src={pages[currentPage + 1]} 
+                          alt={`${t('book.page')} ${currentPage + 2}`}
+                        />
                       </DesktopPageWrapper>
                     )}
                   </DesktopPagesLayout>
@@ -338,44 +263,16 @@ const BookReader = ({
             </TransitionGroup>
           )}
           
-          {zoomEnabled && (
-            <DesktopZoomControls $visible={showZoomControls}>
-              <DesktopZoomButton
-                onClick={() => setZoomLevel(Math.max(1, zoomLevel - 0.25))}
-                disabled={zoomLevel <= 1}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-              </DesktopZoomButton>
-              
-              <ZoomLevelIndicator>
-                {Math.round(zoomLevel * 100)}%
-              </ZoomLevelIndicator>
-              
-              <DesktopZoomButton
-                onClick={() => setZoomLevel(Math.min(3, zoomLevel + 0.25))}
-                disabled={zoomLevel >= 3}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <line x1="12" y1="5" x2="12" y2="19"></line>
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                </svg>
-              </DesktopZoomButton>
-            </DesktopZoomControls>
-          )}
+          <BookNavigationControls
+            isMobile={false}
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPrevPage={handlePrevPage}
+            onNextPage={handleNextPage}
+            isFirstPage={isFirstPage}
+            isLastPage={isLastPage}
+          />
         </DesktopContentArea>
-        
-        <BookNavigationControls
-          isMobile={false}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPrevPage={handlePrevPage}
-          onNextPage={handleNextPage}
-          isFirstPage={isFirstPage}
-          isLastPage={isLastPage}
-          t={t}
-        />
         
         {settingsMenuOpen && (
           <BookReaderSettings

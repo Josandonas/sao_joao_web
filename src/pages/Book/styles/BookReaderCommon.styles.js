@@ -12,13 +12,7 @@ export const colors = {
   overlay: 'rgba(0, 0, 0, 0.5)',
   success: '#4caf50',
   warning: '#ff9800',
-  error: '#f44336',
-  darkMode: {
-    background: '#121212',
-    surface: '#1e1e1e',
-    text: '#e0e0e0',
-    border: '#333333',
-  }
+  error: '#f44336'
 };
 
 // Breakpoints para design responsivo
@@ -126,10 +120,20 @@ export const BaseButton = styled.button`
   font-weight: 500;
   transition: all 0.2s ease;
   background-color: ${props => props.$primary ? colors.primary : 'transparent'};
-  color: ${props => props.$primary ? colors.textLight : colors.text};
+  color: ${props => {
+    if (props.$darkMode) {
+      return props.$primary ? colors.textLight : colors.darkMode.text;
+    }
+    return props.$primary ? colors.textLight : colors.text;
+  }};
   
   &:hover {
-    background-color: ${props => props.$primary ? '#303f9f' : 'rgba(0, 0, 0, 0.05)'};
+    background-color: ${props => {
+      if (props.$darkMode) {
+        return props.$primary ? '#303f9f' : 'rgba(255, 255, 255, 0.1)';
+      }
+      return props.$primary ? '#303f9f' : 'rgba(0, 0, 0, 0.05)';
+    }};
   }
   
   &:active {
