@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ShareButton } from './ActionButtonStyles';
 
 // Container principal do cabeçalho do livro
 export const Container = styled.div`
@@ -49,7 +50,48 @@ export const ButtonsContainer = styled.div`
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;
-    width: 100%;
-    max-width: 300px;
+    align-items: center;
+  }
+`;
+
+// Componente para exibir mensagens de status
+export const StatusMessage = styled.div`
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  z-index: 1000;
+  animation: fadeInOut 3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  ${props => props.success ? `
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  ` : `
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  `}
+  
+  @keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-20px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-20px); }
+  }
+`;
+
+// Botão de ler online
+export const ReadOnlineButton = styled(ShareButton)`
+  background-color: #28a745;
+  
+  &:hover {
+    background-color: #218838;
   }
 `;

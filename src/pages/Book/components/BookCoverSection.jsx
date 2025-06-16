@@ -1,21 +1,40 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { FiShare2, FiCopy, FiCheck, FiX } from 'react-icons/fi';
 import { 
   BookCover, 
   CoverImage, 
   BookInfo
 } from '../styles/BookCoverStyles';
+import {
+  ActionButtons,
+  ActionButton,
+  ShareStatus
+} from '../styles/BookCoverSectionStyles';
+
 // Já recebemos bookContent como prop, não precisamos importá-lo aqui
 
 /**
  * Componente para exibir a capa do livro com informações e botões de ação
  * @param {Object} props - Propriedades do componente
- * @param {Function} props.onStartReading - Função para iniciar a leitura do livro
- * @param {Function} props.onDownload - Função para download do PDF
  * @param {Function} props.onShare - Função para compartilhar o livro
+ * @param {Function} props.onReadOnline - Função para abrir o PDF em uma nova aba
+ * @param {Object} props.shareStatus - Status do compartilhamento
  * @returns {JSX.Element} - Componente renderizado
  */
-const BookCoverSection = ({ bookContent, onStartReading, onDownload, onShare }) => {
+const BookCoverSection = ({ 
+  bookContent, 
+  onShare, 
+  onReadOnline,
+  shareStatus = {}
+}) => {
   const bookMetadata = bookContent.metadata;
+  
+  // Tradução
+  const { t } = useTranslation();
+  
+  // Status de compartilhamento
+  const { isSharing = false, shareSuccess = false, shareError = false, shareMessage = '' } = shareStatus || {};
   
   return (
     <BookCover>
@@ -27,8 +46,8 @@ const BookCoverSection = ({ bookContent, onStartReading, onDownload, onShare }) 
         
         <BookInfo>
           <div className="book-title-section">
-            <h2>{bookContent.metadata.title}</h2>
-            <h3>{bookContent.metadata.subtitle}</h3>
+            <h2>{t('book.title', 'Banho de São João')}</h2>
+            <h3>{t('book.subtitle', 'Uma Tradição do Pantanal')}</h3>
           </div>
           
           <div className="book-description">
@@ -37,18 +56,29 @@ const BookCoverSection = ({ bookContent, onStartReading, onDownload, onShare }) 
           
           <div className="book-details">
             <div className="detail-item">
-              <span className="detail-label">Publicação:</span>
-              <span className="detail-value">{bookContent.metadata.published}</span>
+              <span>{t('book.publication', 'Publicação')}:</span>
+              <span>{bookContent.metadata.published}</span>
             </div>
             <div className="detail-item">
-              <span className="detail-label">Páginas:</span>
-              <span className="detail-value">{bookContent.metadata.totalPages}</span>
+              <span>{t('book.pages', 'Páginas')}:</span>
+              <span>{bookContent.metadata.totalPages}</span>
             </div>
             <div className="detail-item">
-              <span className="detail-label">Idiomas:</span>
-              <span className="detail-value">{bookContent.metadata.languages}</span>
+              <span>{t('book.languages', 'Idiomas')}:</span>
+              <span>{bookContent.metadata.languages}</span>
             </div>
           </div>
+          
+
+          
+          {/* Mensagem de status do compartilhamento */}
+          {shareMessage && (
+            <ShareStatus success={shareSuccess ? "true" : undefined} error={shareError ? "true" : undefined}>
+              {shareSuccess && <FiCheck />}
+              {shareError && <FiX />}
+              {shareMessage}
+            </ShareStatus>
+          )}
         </BookInfo>
       </div>
     </BookCover>

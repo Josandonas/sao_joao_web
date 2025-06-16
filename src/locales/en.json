@@ -86,6 +86,8 @@
     "festivalDatePlaceholder": "Ex: June, December, etc"
   },
   "book": {
+    "title": "Bath of Saint John",
+    "subtitle": "A Pantanal Tradition",
     "bookTitle": "The Book of the Bath of Saint John",
     "introduction": "This digital book presents the rich tradition of the Bath of Saint John, covering its origins, rituals, symbolism, and cultural importance for the Pantanal communities.",
     "pageCounter": "Page {{current}} of {{total}}",
@@ -93,6 +95,12 @@
     "backToCover": "Back to Cover",
     "downloadPdf": "Download PDF",
     "share": "Share",
+    "sharing": "Sharing...",
+    "copyLink": "Copy Link",
+    "readOnline": "Read Online",
+    "publication": "Publication",
+    "pages": "Pages",
+    "languages": "Languages",
     "fullscreen": "Fullscreen",
     "exitFullscreen": "Exit Fullscreen",
     "enableZoom": "Enable Zoom",
