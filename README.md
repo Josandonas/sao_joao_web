@@ -79,9 +79,13 @@ sao_joao_web/
 │   │   │   └── styles/      # Estilos específicos do módulo
 │   │   │       ├── ProgramacaoCalendar.styles.js
 │   │   │       └── ProgramacaoEventList.styles.js
-│   │   ├── Biblioteca/      # Biblioteca de referências (EM DESENVOLVIMENTO)
+│   │   ├── Biblioteca/      # Biblioteca de referências (CONCLUÍDO)
 │   │   │   ├── components/  # Componentes da biblioteca
-│   │   │   └── data/        # Dados das referências bibliográficas
+│   │   │   │   ├── BibliotecaCard/     # Card para exibição de itens da biblioteca
+│   │   │   │   └── BibliotecaFilter/   # Filtro por categoria de itens
+│   │   │   ├── data/        # Dados das referências bibliográficas
+│   │   │   ├── hooks/       # Hooks personalizados para gerenciamento dos itens
+│   │   │   └── styles.js    # Estilos específicos do módulo
 │   │   ├── Stories/          # Histórias e tradições (CONCLUÍDO)
 │   │   │   ├── components/  # Componentes específicos para histórias
 │   │   │   │   └── StoryModal/ # Modal para visualização das histórias
@@ -176,11 +180,11 @@ Este projeto é uma migração do aplicativo original "Banho de São João", que
 - ✅ **Histórias (Stories)**: Concluído com exibição de histórias e tradições culturais, modal acessível e controles de tamanho de texto
 - ✅ **Cartões Postais (Postcards)**: Concluído com galeria interativa, modal detalhado e navegação intuitiva
 - ✅ **Programação Oficial (Programacao)**: Concluído com calendário interativo, lista de eventos por data e suporte completo a internacionalização
-- ⏳ **Biblioteca (Biblioteca)**: Em desenvolvimento - futuramente conterá links e referências bibliográficas sobre o Banho de São João
+- ✅ **Biblioteca (Biblioteca)**: Concluído com cards interativos contendo iframes para documentos e mapas, filtros por categoria e suporte completo a internacionalização
 
 ## Próximos Passos
 
-- Finalizar o desenvolvimento do módulo Biblioteca com referências bibliográficas e links sobre o Banho de São João
+- Expandir o acervo do módulo Biblioteca com mais referências bibliográficas e links sobre o Banho de São João
 - Otimizar a conversão de vídeos FLV para formatos web modernos (MP4/WebM)
 - Implementação de PWA para uso offline
 - Testes automatizados para garantir a qualidade

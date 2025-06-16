@@ -82,9 +82,9 @@ const Header = () => {
         </NavItem>
 
         <NavItem>
-          <NavButton to={`/${lang}/biblioteca`} className={location.pathname.includes('/biblioteca') ? 'active' : ''}>
-            Biblioteca
-          </NavButton>
+          <Link to={`/${lang}/biblioteca`} className={location.pathname.includes('/biblioteca') ? 'active' : ''}>
+            {t('navigation.biblioteca', 'Biblioteca')}
+          </Link>
         </NavItem>
         <NavItem>
           <NavButton to={`/${lang}/programacao`} className={location.pathname.includes('/programacao') ? 'active' : ''}>

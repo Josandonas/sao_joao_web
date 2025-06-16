@@ -9,6 +9,7 @@ import Book from './pages/Book';
 import Testimonials from './pages/Testimonials';
 import Postcards from './pages/Postcards';
 import Programacao from './pages/Programacao';
+import Biblioteca from './pages/Biblioteca';
 import NotFound from './pages/NotFound';
 
 const AppRoutes = () => {
@@ -28,6 +29,7 @@ const AppRoutes = () => {
         <Route path="testimonials" element={<Testimonials />} />
         <Route path="postcards" element={<Postcards />} />
         <Route path="programacao" element={<Programacao />} />
+        <Route path="biblioteca" element={<Biblioteca />} />
       </Route>
       
       {/* Rota de página não encontrada */}

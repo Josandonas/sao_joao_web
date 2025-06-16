@@ -10,9 +10,25 @@
     "book": "Libro",
     "testimonials": "Testimonios",
     "postcards": "Postales",
-    "programacao": "Programación Oficial"
+    "programacao": "Programación Oficial",
+    "biblioteca": "Biblioteca"
   },
   
+  "biblioteca": {
+    "title": "Biblioteca de Referencias",
+    "description": "La biblioteca del Baño de San Juan de Corumbá mantendrá una pequeña colección de tesis, disertaciones y artículos relacionados con la historia de la Celebración del Baño de San Juan de Corumbá-Mato Grosso do Sul.",
+    "filters": {
+      "all": "Todos",
+      "historical": "Históricos",
+      "cultural": "Culturales"
+    },
+    "categories": {
+      "historical": "Histórico",
+      "cultural": "Cultural"
+    },
+    "visitWebsite": "Visitar sitio web"
+  },
+
   "programacao": {
     "title": "Programación Oficial",
     "subtitle": "Consulta los eventos del Festival de San Juan",

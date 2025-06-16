@@ -10,7 +10,8 @@
     "book": "Livro",
     "testimonials": "Depoimentos",
     "postcards": "Postais",
-    "programacao": "Programação Oficial"
+    "programacao": "Programação Oficial",
+    "biblioteca": "Biblioteca"
   },
   "home": {
     "textSize": "Tamanho do texto",
@@ -184,6 +185,21 @@
     }
   },
   
+  "biblioteca": {
+    "title": "Biblioteca de Referências",
+    "description": "A biblioteca do Banho de São João de Corumbá manterá um pequeno acervo com teses, dissertações e artigos relacionados à história da Celebração do Banho de São João de Corumbá-Mato Grosso do Sul.",
+    "filters": {
+      "all": "Todos",
+      "historical": "Históricos",
+      "cultural": "Culturais"
+    },
+    "categories": {
+      "historical": "Histórico",
+      "cultural": "Cultural"
+    },
+    "visitWebsite": "Visitar website"
+  },
+
   "programacao": {
     "title": "Programação Oficial",
     "subtitle": "Confira os eventos do Banho de São João",

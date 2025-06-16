@@ -10,7 +10,8 @@
     "book": "Book",
     "testimonials": "Testimonials",
     "postcards": "Postcards",
-    "programacao": "Official Program"
+    "programacao": "Official Program",
+    "biblioteca": "Library"
   },
 
   "home": {
@@ -132,6 +133,21 @@
     "conclusion": "Conclusion",
     "conclusionTitle": "Conclusion and Acknowledgments"
   },
+  "biblioteca": {
+    "title": "Reference Library",
+    "description": "The Bath of Saint John Library in Corumbá will maintain a small collection of theses, dissertations, and articles related to the history of the Bath of Saint John Celebration in Corumbá-Mato Grosso do Sul.",
+    "filters": {
+      "all": "All",
+      "historical": "Historical",
+      "cultural": "Cultural"
+    },
+    "categories": {
+      "historical": "Historical",
+      "cultural": "Cultural"
+    },
+    "visitWebsite": "Visit website"
+  },
+
   "programacao": {
     "title": "Official Program",
     "subtitle": "Check out the Bath of Saint John events",
