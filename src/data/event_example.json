@@ -1,0 +1,40 @@
+{
+  "translations": {
+    "pt": {
+      "title": "Festival de Música Pantaneira",
+      "time": "19:00",
+      "location": "Praça Central - Porto Geral",
+      "description": "Festival com apresentações de músicos locais celebrando os ritmos tradicionais do Pantanal, com participação especial de artistas convidados.",
+      "image": "/images/events/festival-musica.jpg"
+    },
+    "en": {
+      "title": "Pantanal Music Festival",
+      "time": "7:00 PM",
+      "location": "Main Square - Porto Geral",
+      "description": "Festival featuring local musicians celebrating traditional Pantanal rhythms, with special guest artists.",
+      "image": "/images/events/festival-musica.jpg"
+    },
+    "es": {
+      "title": "Festival de Música del Pantanal",
+      "time": "19:00",
+      "location": "Plaza Central - Porto Geral",
+      "description": "Festival con presentaciones de músicos locales celebrando los ritmos tradicionales del Pantanal, con participación especial de artistas invitados.",
+      "image": "/images/events/festival-musica.jpg"
+    }
+  },
+  "commonData": {
+    "eventDate": "2025-06-23T19:00:00",
+    "category": "cultural",
+    "featured": true,
+    "additionalInfo": {
+      "organizer": "Secretaria de Cultura de Corumbá",
+      "contactEmail": "cultura@corumba.ms.gov.br",
+      "contactPhone": "+55 67 3234-5678",
+      "ticketRequired": false,
+      "capacity": 500,
+      "accessibility": true,
+      "ageRestriction": "all",
+      "tags": ["música", "cultura", "pantanal", "festival"]
+    }
+  }
+}

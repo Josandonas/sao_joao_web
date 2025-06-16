@@ -9,7 +9,8 @@
     "communities": "Comunidades",
     "book": "Livro",
     "testimonials": "Depoimentos",
-    "postcards": "Postais"
+    "postcards": "Postais",
+    "programacao": "Programação Oficial"
   },
   "home": {
     "textSize": "Tamanho do texto",
@@ -183,6 +184,41 @@
     }
   },
   
+  "programacao": {
+    "title": "Programação Oficial",
+    "subtitle": "Confira os eventos do Banho de São João",
+    "calendar": {
+      "title": "Calendário de Eventos",
+      "january": "Janeiro",
+      "february": "Fevereiro",
+      "march": "Março",
+      "april": "Abril",
+      "may": "Maio",
+      "june": "Junho",
+      "july": "Julho",
+      "august": "Agosto",
+      "september": "Setembro",
+      "october": "Outubro",
+      "november": "Novembro",
+      "december": "Dezembro",
+      "sunday": "Dom",
+      "monday": "Seg",
+      "tuesday": "Ter",
+      "wednesday": "Qua",
+      "thursday": "Qui",
+      "friday": "Sex",
+      "saturday": "Sáb"
+    },
+    "eventList": {
+      "title": "Eventos",
+      "today": "Hoje",
+      "tomorrow": "Amanhã",
+      "noEvents": "Nenhum evento para esta data",
+      "allEvents": "Todos os eventos",
+      "filter": "Filtrar eventos"
+    }
+  },
+
   "postcards": {
     "title": "Postais do Banho de São João",
     "introduction": "Explore esta coleção de imagens que retratam os diversos aspectos da celebração do Banho de São João no Pantanal. Compartilhe ou faça o download dos postais para recordar e divulgar esta rica tradição cultural.",
@@ -255,25 +291,6 @@
       "9": {
         "title": "Viola de Cocho",
         "description": "Músico tocando a tradicional viola de cocho, instrumento característico do Pantanal, feito de tronco escavado.",
-        "location": "Corumbá, MS",
-        "author": "Teresa Albuquerque"
-      },
-      "10": {
-        "title": "Altar Decorado",
-        "description": "Altar tradicional ricamente decorado com flores, fitas e velas em preparação para a cerimônia do Banho de São João.",
-        "location": "Rio Paraguai, Corumbá, MS",
-        "author": "Fernando Costa"
-      },
-      "11": {
-        "title": "Oferendas Sagradas",
-        "description": "Mesa com oferendas tradicionais para São João, incluindo frutas, ervas medicinais e velas decoradas.",
-        "location": "Bonito, MS",
-        "author": "Antonia Pires"
-      },
-      "12": {
-        "title": "Símbolos da Festa",
-        "description": "Elementos simbólicos utilizados durante as festividades de São João, representando a tradição e fé popular.",
-        "location": "Cuiabá, MT",
         "author": "José Silveira"
       },
       "13": {

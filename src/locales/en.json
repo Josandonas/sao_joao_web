@@ -9,7 +9,8 @@
     "communities": "Communities",
     "book": "Book",
     "testimonials": "Testimonials",
-    "postcards": "Postcards"
+    "postcards": "Postcards",
+    "programacao": "Official Program"
   },
 
   "home": {
@@ -131,6 +132,41 @@
     "conclusion": "Conclusion",
     "conclusionTitle": "Conclusion and Acknowledgments"
   },
+  "programacao": {
+    "title": "Official Program",
+    "subtitle": "Check out the Bath of Saint John events",
+    "calendar": {
+      "title": "Event Calendar",
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "september": "September",
+      "october": "October",
+      "november": "November",
+      "december": "December",
+      "sunday": "Sun",
+      "monday": "Mon",
+      "tuesday": "Tue",
+      "wednesday": "Wed",
+      "thursday": "Thu",
+      "friday": "Fri",
+      "saturday": "Sat"
+    },
+    "eventList": {
+      "title": "Events",
+      "today": "Today",
+      "tomorrow": "Tomorrow",
+      "noEvents": "No events for this date",
+      "allEvents": "All events",
+      "filter": "Filter events"
+    }
+  },
+
   "testimonials": {
     "title": "Testimonials",
     "subtitle": "Stories from those who live the tradition",

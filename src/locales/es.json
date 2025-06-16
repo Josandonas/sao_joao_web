@@ -9,9 +9,48 @@
     "communities": "Comunidades",
     "book": "Libro",
     "testimonials": "Testimonios",
-    "postcards": "Postales"
+    "postcards": "Postales",
+    "programacao": "Programación Oficial"
   },
-
+  
+  "programacao": {
+    "title": "Programación Oficial",
+    "subtitle": "Consulta los eventos del Festival de San Juan",
+    "banner": {
+      "title": "Festival de San Juan",
+      "subtitle": "Programación Oficial"
+    },
+    "calendar": {
+      "title": "Calendario de Eventos",
+      "january": "Enero",
+      "february": "Febrero",
+      "march": "Marzo",
+      "april": "Abril",
+      "may": "Mayo",
+      "june": "Junio",
+      "july": "Julio",
+      "august": "Agosto",
+      "september": "Septiembre",
+      "october": "Octubre",
+      "november": "Noviembre",
+      "december": "Diciembre",
+      "sunday": "Dom",
+      "monday": "Lun",
+      "tuesday": "Mar",
+      "wednesday": "Mié",
+      "thursday": "Jue",
+      "friday": "Vie",
+      "saturday": "Sáb"
+    },
+    "eventList": {
+      "title": "Eventos",
+      "today": "Hoy",
+      "tomorrow": "Mañana",
+      "noEvents": "No hay eventos para esta fecha",
+      "allEvents": "Todos los eventos",
+      "filter": "Filtrar eventos"
+    }
+  },
   "home": {
     "textSize": "Tamaño de texto",
     "about": {
@@ -131,6 +170,8 @@
     "conclusion": "Conclusión",
     "conclusionTitle": "Conclusión y Agradecimientos"
   },
+
+
   "testimonials": {
     "title": "Testimonios",
     "introduction": "Conozca historias y experiencias personales relacionadas con el Baño de San Juan a través de testimonios de participantes, organizadores e investigadores de esta importante tradición cultural.",

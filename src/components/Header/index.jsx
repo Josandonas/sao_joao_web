@@ -80,6 +80,7 @@ const Header = () => {
             {t('navigation.testimonials')}
           </Link>
         </NavItem>
+
         <NavItem>
           <NavButton to={`/${lang}/biblioteca`} className={location.pathname.includes('/biblioteca') ? 'active' : ''}>
             Biblioteca
@@ -87,9 +88,21 @@ const Header = () => {
         </NavItem>
         <NavItem>
           <NavButton to={`/${lang}/programacao`} className={location.pathname.includes('/programacao') ? 'active' : ''}>
-            <span>Programação</span>
-            <br></br>
-            <span>Oficial</span>
+            {(() => {
+              const programText = t('navigation.programacao');
+              const parts = programText.split(' ');
+              if (parts.length >= 2) {
+                return (
+                  <>
+                    <span>{parts[0]}</span>
+                    <br />
+                    <span>{parts[1]}</span>
+                  </>
+                );
+              } else {
+                return programText;
+              }
+            })()}
           </NavButton>
         </NavItem>
         </Navigation>

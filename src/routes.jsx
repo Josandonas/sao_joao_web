@@ -8,6 +8,7 @@ import Communities from './pages/Communities';
 import Book from './pages/Book';
 import Testimonials from './pages/Testimonials';
 import Postcards from './pages/Postcards';
+import Programacao from './pages/Programacao';
 import NotFound from './pages/NotFound';
 
 const AppRoutes = () => {
@@ -26,6 +27,7 @@ const AppRoutes = () => {
         <Route path="book" element={<Book />} />
         <Route path="testimonials" element={<Testimonials />} />
         <Route path="postcards" element={<Postcards />} />
+        <Route path="programacao" element={<Programacao />} />
       </Route>
       
       {/* Rota de página não encontrada */}
