@@ -2,19 +2,23 @@
 
 ## Sobre o Projeto
 
-Esta é uma aplicação web moderna que migra e moderniza o antigo aplicativo "Banho de São João", originalmente desenvolvido como uma aplicação portátil baseada no Firefox Portable. O projeto preserva todo o conteúdo e funcionalidades originais, mas utilizando tecnologias web modernas, arquitetura limpa e princípios de clean code.
+Esta é uma aplicação web moderna que migra e moderniza o antigo aplicativo "Banho de São João", originalmente desenvolvido como uma aplicação portátil baseada no Firefox Portable. O projeto preserva todo o conteúdo e funcionalidades originais, mas utilizando tecnologias web modernas, arquitetura limpa e princípios de clean code. A aplicação é multilíngue, oferecendo suporte completo a Português, Inglês e Espanhol, e documenta as tradições culturais do Banho de São João na região do Pantanal Sul-Matogrossense.
 
 ## Tecnologias Utilizadas
 
 - **React 18**: Framework JavaScript para construção de interfaces de usuário
 - **React Router 6**: Gerenciamento de rotas na aplicação
 - **Styled Components**: CSS-in-JS para estilização de componentes
-- **React i18next**: Internacionalização para suporte a múltiplos idiomas
+- **React i18next**: Internacionalização para suporte a múltiplos idiomas (Português, Inglês e Espanhol)
 - **React Icons**: Biblioteca de ícones para UI consistente
 - **Video React**: Reprodução de vídeo responsiva para depoimentos em formato FLV
 - **Leaflet/React Leaflet**: Mapas interativos para geolocalização de comunidades
 - **React Image Gallery**: Galerias de imagens responsivas para os cartões postais
 - **Polished**: Utilitário para manipulação de cores nos componentes estilizados
+- **React Calendar**: Componente de calendário para o módulo de Programação Oficial
+- **Date-fns**: Biblioteca para manipulação de datas no calendário de eventos
+- **React Transition Group**: Animações e transições entre componentes
+- **Axios**: Cliente HTTP para requisições a APIs externas
 - **Vite**: Bundler e ferramenta de desenvolvimento
 
 ## Estrutura do Projeto
@@ -67,6 +71,17 @@ sao_joao_web/
 │   │   │   │   └── CategoryFilter/     # Filtro por categoria de cartão
 │   │   │   ├── data/        # Dados dos cartões postais
 │   │   │   └── styles.js    # Estilos específicos do módulo
+│   │   ├── Programacao/      # Programação Oficial (CONCLUÍDO)
+│   │   │   ├── components/   # Componentes da programação
+│   │   │   │   ├── ProgramacaoCalendar/  # Calendário de eventos
+│   │   │   │   └── ProgramacaoEventList/ # Lista de eventos por data
+│   │   │   ├── data/        # Dados dos eventos
+│   │   │   └── styles/      # Estilos específicos do módulo
+│   │   │       ├── ProgramacaoCalendar.styles.js
+│   │   │       └── ProgramacaoEventList.styles.js
+│   │   ├── Biblioteca/      # Biblioteca de referências (EM DESENVOLVIMENTO)
+│   │   │   ├── components/  # Componentes da biblioteca
+│   │   │   └── data/        # Dados das referências bibliográficas
 │   │   ├── Stories/          # Histórias e tradições (CONCLUÍDO)
 │   │   │   ├── components/  # Componentes específicos para histórias
 │   │   │   │   └── StoryModal/ # Modal para visualização das histórias
@@ -125,6 +140,12 @@ sao_joao_web/
   - Visualização em modo galeria com imagens otimizadas
   - Modal detalhado para cada cartão postal com informações completas
   - Navegação intuitiva entre cartões postais via modal
+- **Programação Oficial (Concluído)**:
+  - Calendário interativo para visualização de eventos do festival
+  - Lista de eventos filtrada por data selecionada
+  - Destaque para eventos do dia atual e do dia seguinte
+  - Suporte completo a internacionalização (Português, Inglês e Espanhol)
+  - Interface responsíva com estilos consistentes com o tema global
 
 ## Instalação e Execução
 
@@ -150,13 +171,16 @@ Este projeto é uma migração do aplicativo original "Banho de São João", que
 
 - ✅ **Livro Digital (Book)**: Concluído com navegação por capítulos, visualização em tela cheia e controles
 - ✅ **Comunidades (Communities)**: Concluído com mapa interativo, visualização detalhada e cadastro de novas comunidades
-- ✅ **Página Inicial (Home)**: Concluído com seções hero, sobre, features com layout responsivo e distribução harmoniosa de cards
+- ✅ **Página Inicial (Home)**: Concluído com seções hero, sobre, features com layout responsivo e distribuição harmoniosa de cards
 - ✅ **Depoimentos (Testimonials)**: Concluído com categorias filtráveis, reprodução de vídeos, formulário modal e internacionalização completa
 - ✅ **Histórias (Stories)**: Concluído com exibição de histórias e tradições culturais, modal acessível e controles de tamanho de texto
 - ✅ **Cartões Postais (Postcards)**: Concluído com galeria interativa, modal detalhado e navegação intuitiva
+- ✅ **Programação Oficial (Programacao)**: Concluído com calendário interativo, lista de eventos por data e suporte completo a internacionalização
+- ⏳ **Biblioteca (Biblioteca)**: Em desenvolvimento - futuramente conterá links e referências bibliográficas sobre o Banho de São João
 
 ## Próximos Passos
 
+- Finalizar o desenvolvimento do módulo Biblioteca com referências bibliográficas e links sobre o Banho de São João
 - Otimizar a conversão de vídeos FLV para formatos web modernos (MP4/WebM)
 - Implementação de PWA para uso offline
 - Testes automatizados para garantir a qualidade
