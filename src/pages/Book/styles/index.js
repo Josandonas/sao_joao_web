@@ -6,15 +6,14 @@
  * 
  * A estrutura de estilos foi organizada da seguinte forma:
  * - BookCoverStyles.js: Estilos relacionados à capa do livro
- * - BookReaderStyles.js: Estilos relacionados ao leitor do livro
- * - ActionButtonStyles.js: Estilos para os botões de ação (ler, baixar, compartilhar)
+ * - ActionButtonStyles.js: Estilos para os botões de ação (baixar, compartilhar)
  * - index.js (este arquivo): Componentes estilizados comuns e reexportações
  */
 
 // Reexportação de todos os estilos para facilitar importações
 export * from './BookCoverStyles';
-export * from './BookReaderStyles';
 export * from './ActionButtonStyles';
+export * from './BookHeaderStyles';
 
 import styled from 'styled-components';
 

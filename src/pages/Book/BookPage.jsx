@@ -2,14 +2,50 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Container } from './styles';
 import { bookContent } from './data/bookContent';
-import { useBookNavigation } from './hooks/useBookNavigation';
-import { useFullscreen } from './hooks/useFullscreen';
-import { useBookActions } from './hooks/useBookActions';
 import BookCoverSection from './components/BookCoverSection';
-import BookReaderSection from './components/BookReaderSection';
-import FullscreenReader from './components/FullscreenReader';
 import BookHeader from './components/BookHeader';
 import { useParams } from 'react-router-dom';
+
+// Importar o contexto do livro
+import { BookProvider, useBookContext } from './context/BookContext';
+
+/**
+ * Componente interno da página do livro que usa o contexto
+ * @returns {JSX.Element} - Componente renderizado
+ */
+const BookPageContent = () => {
+  // Obtém o parâmetro de idioma da URL
+  const { lang } = useParams();
+  
+  // Hook de tradução
+  const { t } = useTranslation();
+  
+  // Usar o contexto do livro
+  const { 
+    actions: { handleDownload, handleShare, handleReadOnline, shareStatus }
+  } = useBookContext();
+  
+  return (
+    <Container>
+      {/* Cabeçalho da página do livro com botões de ação */}
+      <BookHeader 
+        onDownload={handleDownload}
+        onShare={handleShare}
+        onReadOnline={handleReadOnline}
+        shareStatus={shareStatus}
+      />
+      
+      {/* Seção da capa */}
+      <BookCoverSection
+        bookContent={bookContent}
+        onDownload={handleDownload}
+        onShare={handleShare}
+        onReadOnline={handleReadOnline}
+        shareStatus={shareStatus}
+      />
+    </Container>
+  );
+};
 
 /**
  * Componente principal da página do livro
@@ -21,115 +57,36 @@ const BookPage = () => {
   const { lang } = useParams();
   
   // Hook de tradução
-  const { t } = useTranslation();
+  const { i18n } = useTranslation();
   
-  // Define o PDF e os títulos de compartilhamento adequados com base no idioma
-  const getPdfByLanguage = () => {
-    switch(lang) {
+  // Define o caminho do PDF baseado no idioma atual
+  const pdfPath = useMemo(() => {
+    // Garantir que a URL seja absoluta para evitar problemas de caminho relativo
+    const basePath = window.location.origin;
+    
+    switch (i18n.language) {
       case 'en':
-        return {
-          pdfUrl: '/assets/pdf/livro_en.pdf',
-          shareTitle: 'Bath of Saint John - A Pantanal Tradition',
-          shareText: 'Discover the rich tradition of the Bath of Saint John in the Brazilian Pantanal.'
-        };
+        return `${basePath}/assets/pdf/livro_en.pdf`;
       case 'es':
-        return {
-          pdfUrl: '/assets/pdf/livro_es.pdf',
-          shareTitle: 'Baño de San Juan - Una Tradición del Pantanal',
-          shareText: 'Descubra la rica tradición del Baño de San Juan en el Pantanal brasileño.'
-        };
+        return `${basePath}/assets/pdf/livro_es.pdf`;
       case 'pt':
       default:
-        return {
-          pdfUrl: '/assets/pdf/livro_c.pdf',
-          shareTitle: 'Banho de São João - Uma Tradição do Pantanal',
-          shareText: 'Conheça a rica tradição do Banho de São João no Pantanal brasileiro.'
-        };
+        return `${basePath}/assets/pdf/livro_pt.pdf`;
     }
+  }, [i18n.language]);
+  
+  // Dados iniciais para o contexto
+  const initialData = {
+    pdfUrl: pdfPath,
+    bookContent: { ...bookContent },
+    shareTitle: 'Banho de São João - Uma Tradição do Pantanal',
+    shareText: 'Conheça a rica tradição do Banho de São João no Pantanal brasileiro.'
   };
   
-  const { pdfUrl, shareTitle, shareText } = getPdfByLanguage();
-  
-  // Gera as páginas do livro baseadas no idioma atual
-  const bookPages = useMemo(() => {
-    return bookContent.getBookPages(lang);
-  }, [lang]);
-  
-  // Hooks personalizados para separar lógica
-  const { 
-    currentPage, 
-    showBook, 
-    totalPages,
-    goToNextPage,
-    goToPrevPage,
-    goToChapter,
-    startReading,
-    backToCover
-  } = useBookNavigation({ ...bookContent, totalPages: bookPages.length });
-  
-  const { isFullscreen, fullscreenRef, toggleFullscreen } = useFullscreen();
-  
-  const { handleDownload, handleShare } = useBookActions({
-    shareTitle,
-    shareText,
-    pdfUrl,
-    pdfNotReady: false // PDF está disponível para download
-  });
-
   return (
-    <Container>
-      {/* Cabeçalho da página do livro com botões de ação */}
-      <BookHeader 
-        onStartReading={startReading}
-        onDownload={handleDownload}
-        onShare={handleShare}
-        showBook={showBook}
-      />
-      
-      {/* Renderização condicional: ou mostra a capa ou mostra o leitor */}
-      {!showBook ? (
-        /* Seção da capa */
-        <BookCoverSection
-          bookContent={bookContent}
-          onStartReading={startReading}
-          onDownload={handleDownload}
-          onShare={handleShare}
-        />
-      ) : (
-        <BookReaderSection 
-          bookContent={bookContent}
-          bookPages={bookPages}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onBackToCover={backToCover}
-          onDownload={handleDownload}
-          onToggleFullscreen={toggleFullscreen}
-          onNextPage={goToNextPage}
-          onPrevPage={goToPrevPage}
-          onGoToChapter={goToChapter}
-          isFullscreen={isFullscreen}
-          pdfUrl={pdfUrl}
-        />
-      )}
-      
-      {/* Renderizador de tela cheia condicional */}
-      {isFullscreen && (
-        <FullscreenReader
-          ref={fullscreenRef}
-          fullscreenRef={fullscreenRef}
-          onClose={toggleFullscreen}
-          bookContent={bookContent}
-          bookPages={bookPages}
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onNextPage={goToNextPage}
-          onPrevPage={goToPrevPage}
-          onGoToChapter={goToChapter}
-          t={t}
-          pdfUrl={pdfUrl}
-        />
-      )}
-    </Container>
+    <BookProvider initialData={initialData}>
+      <BookPageContent />
+    </BookProvider>
   );
 };
 

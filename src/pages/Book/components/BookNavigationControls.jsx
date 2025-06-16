@@ -24,7 +24,8 @@ const BookNavigationControls = ({
   onNextPage,
   isFirstPage,
   isLastPage,
-  t
+  t,
+  // Removida referência ao darkMode
 }) => {
   // Se não for passado o objeto de tradução, usa o hook
   const { t: translate } = useTranslation();

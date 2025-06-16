@@ -10,20 +10,18 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0"
   },
   "dependencies": {
-    "@react-pdf/renderer": "^4.3.0",
     "i18next": "^23.4.4",
     "leaflet": "^1.9.4",
     "polished": "^4.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-download-link": "^2.3.0",
     "react-i18next": "^13.0.3",
     "react-icons": "^5.5.0",
     "react-image-gallery": "^1.4.0",
     "react-leaflet": "^4.2.1",
-    "react-pdf": "^9.2.1",
     "react-responsive": "^10.0.1",
     "react-router-dom": "^6.15.0",
-    "react-zoom-pan-pinch": "^3.7.0",
     "styled-components": "^6.0.7",
     "translate": "^3.0.1",
     "video-react": "^0.16.0"

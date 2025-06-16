@@ -86,6 +86,8 @@
     "festivalDatePlaceholder": "Ej: Junio, Diciembre, etc"
   },
   "book": {
+    "title": "Baño de San Juan",
+    "subtitle": "Una Tradición del Pantanal",
     "bookTitle": "El Libro del Baño de San Juan",
     "introduction": "Este libro digital presenta la rica tradición del Baño de San Juan, abordando sus orígenes, rituales, simbolismo e importancia cultural para las comunidades del Pantanal.",
     "pageCounter": "Página {{current}} de {{total}}",
@@ -93,6 +95,12 @@
     "backToCover": "Volver a la Portada",
     "downloadPdf": "Descargar PDF",
     "share": "Compartir",
+    "sharing": "Compartiendo...",
+    "copyLink": "Copiar Enlace",
+    "readOnline": "Leer en Línea",
+    "publication": "Publicación",
+    "pages": "Páginas",
+    "languages": "Idiomas",
     "fullscreen": "Pantalla Completa",
     "exitFullscreen": "Salir de Pantalla Completa",
     "enableZoom": "Activar Zoom",
