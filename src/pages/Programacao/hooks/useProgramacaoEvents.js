@@ -1,5 +1,10 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
+import { getProgramacaoEvents } from '../../../services/api';
+import { mockProgramacaoEvents } from '../../../services/mockApi';
+
+// Flag para controlar se deve usar a API real ou o mock
+const USE_MOCK_API = true; // Altere para false quando a API real estiver disponível
 
 /**
  * Hook personalizado para gerenciar os eventos da programação oficial
@@ -8,82 +13,160 @@ import { useParams } from 'react-router-dom';
 export const useProgramacaoEvents = () => {
   const { lang } = useParams();
   const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
   
-  // Dados mockados para eventos da programação
-  // Em uma implementação real, esses dados viriam de uma API ou arquivo de dados
-  const mockEvents = useMemo(() => {
+  // Função para buscar eventos da API ou do mock
+  const fetchEvents = useCallback(async () => {
+    setLoading(true);
+    setError(null);
+    
+    try {
+      let data;
+      
+      if (USE_MOCK_API) {
+        const response = await mockProgramacaoEvents(lang);
+        data = response.events;
+      } else {
+        data = await getProgramacaoEvents(lang);
+      }
+      
+      setEvents(data);
+    } catch (err) {
+      console.error('Erro ao buscar eventos:', err);
+      setError('Erro ao carregar eventos. Tente novamente mais tarde.');
+      // Em caso de erro, usar eventos mockados como fallback
+      setEvents(getMockEvents());
+    } finally {
+      setLoading(false);
+    }
+  }, [lang]);
+  
+  // Efeito para buscar eventos quando o idioma mudar
+  useEffect(() => {
+    fetchEvents();
+  }, [fetchEvents]);
+  
+  // Função para obter eventos mockados como fallback
+  const getMockEvents = () => {
+    const currentLang = lang || 'pt'; // Usar o idioma atual ou pt como padrão
     // Eventos em português (padrão)
     const ptEvents = [
       {
         id: 1,
-        title: 'Abertura Oficial do Banho de São João',
-        date: '2025-06-22T18:00:00',
-        time: '18:00',
-        location: 'Porto Geral',
-        description: 'Cerimônia de abertura oficial com apresentação das autoridades e bênção das bandeiras.',
+        title: 'Tríduo de São João',
+        date: '2025-06-20T17:00:00',
+        time: '17:00',
+        location: 'Capela de São João Batista, Ladeira Cunha e Cruz',
+        description: 'Celebração religiosa do Tríduo de São João Batista.',
         category: 'religious'
       },
       {
         id: 2,
-        title: 'Show de Viola - Raízes Pantaneiras',
-        date: '2025-06-22T20:00:00',
-        time: '20:00',
-        location: 'Palco Principal - Porto Geral',
-        description: 'Apresentação de músicas tradicionais pantaneiras com artistas locais.',
-        category: 'show'
+        title: 'Tríduo de São João',
+        date: '2025-06-21T17:00:00',
+        time: '17:00',
+        location: 'Capela de São João Batista, Ladeira Cunha e Cruz',
+        description: 'Segundo dia da celebração religiosa do Tríduo de São João Batista.',
+        category: 'religious'
       },
       {
         id: 3,
-        title: 'Procissão Fluvial',
-        date: '2025-06-23T16:00:00',
-        time: '16:00',
-        location: 'Rio Paraguai - Porto Geral',
-        description: 'Tradicional procissão fluvial com a imagem de São João Batista pelos rios da região.',
+        title: 'Tríduo de São João',
+        date: '2025-06-22T17:00:00',
+        time: '17:00',
+        location: 'Capela de São João Batista, Ladeira Cunha e Cruz',
+        description: 'Terceiro dia da celebração religiosa do Tríduo de São João Batista.',
         category: 'religious'
       },
       {
         id: 4,
-        title: 'Festival Gastronômico - Sabores do Pantanal',
-        date: '2025-06-23T18:00:00',
-        time: '18:00 - 22:00',
-        location: 'Praça de Alimentação - Porto Geral',
-        description: 'Degustação de pratos típicos da culinária pantaneira com chefs locais.',
-        category: 'gastronomy'
+        title: 'Abertura da praça de alimentação e estande de artesanato',
+        date: '2025-06-20T18:00:00',
+        time: '18:00',
+        location: 'Porto Geral',
+        description: 'Abertura da praça de alimentação e do estande de artesanato, shows locais e Concurso de Andores.',
+        category: 'cultural'
       },
       {
         id: 5,
-        title: 'Banho de São João Coletivo',
-        date: '2025-06-23T23:30:00',
-        time: '23:30',
-        location: 'Praia do Porto Geral',
-        description: 'Momento principal da festa com o banho coletivo da imagem de São João nas águas do rio Paraguai.',
-        category: 'religious'
+        title: 'Show Regional: Victor Gregório e Marco Aurélio',
+        date: '2025-06-20T22:30:00',
+        time: '22:30',
+        location: 'Porto Geral',
+        description: 'Apresentação da dupla Victor Gregório e Marco Aurélio.',
+        category: 'show'
       },
       {
         id: 6,
-        title: 'Show Pirotécnico',
-        date: '2025-06-24T00:00:00',
-        time: '00:00',
+        title: 'Concurso de Quadrilhas Infantis',
+        date: '2025-06-21T19:00:00',
+        time: '19:00',
         location: 'Porto Geral',
-        description: 'Espetáculo de fogos de artifício celebrando o dia de São João.',
+        description: 'Concurso de Quadrilhas Infantis, apresentação do Coral Infantil Bem te Vi, além de shows locais.',
         category: 'cultural'
       },
       {
         id: 7,
-        title: 'Apresentação de Danças Folclóricas',
-        date: '2025-06-24T16:00:00',
-        time: '16:00',
-        location: 'Palco Cultural - Porto Geral',
-        description: 'Grupos de dança apresentam coreografias tradicionais da cultura pantaneira.',
-        category: 'cultural'
+        title: 'Show Nacional: Bruninho e Davi',
+        date: '2025-06-22T01:00:00',
+        time: '01:00',
+        location: 'Porto Geral',
+        description: 'Apresentação da dupla Bruninho e Davi.',
+        category: 'show'
       },
       {
         id: 8,
-        title: 'Show de Encerramento',
-        date: '2025-06-24T21:00:00',
-        time: '21:00',
-        location: 'Palco Principal - Porto Geral',
-        description: 'Grande show de encerramento com artistas nacionais.',
+        title: 'Concurso de Quadrilhas Juninas',
+        date: '2025-06-22T19:00:00',
+        time: '19:00',
+        location: 'Porto Geral',
+        description: 'Concurso de Quadrilhas Juninas com grupos locais.',
+        category: 'cultural'
+      },
+      {
+        id: 9,
+        title: 'Show Regional: Loubet',
+        date: '2025-06-22T22:30:00',
+        time: '22:30',
+        location: 'Porto Geral',
+        description: 'Apresentação do cantor Loubet.',
+        category: 'show'
+      },
+      {
+        id: 10,
+        title: 'Visitação dos fiéis na Capela de São João Batista',
+        date: '2025-06-23T08:00:00',
+        time: '08:00',
+        location: 'Capela de São João Batista, Ladeira Cunha e Cruz',
+        description: 'Visitação dos fiéis na Capela de São João Batista.',
+        category: 'religious'
+      },
+      {
+        id: 11,
+        title: 'Concentração do andor da Prefeitura e Missa Solene',
+        date: '2025-06-23T20:00:00',
+        time: '20:00',
+        location: 'Capela de São João Batista',
+        description: 'Concentração do andor da Prefeitura e a Missa Solene em louvor a São João Batista.',
+        category: 'religious'
+      },
+      {
+        id: 12,
+        title: 'Elevação do mastro de São João',
+        date: '2025-06-23T23:30:00',
+        time: '23:30',
+        location: 'Porto Geral',
+        description: 'Elevação do mastro de São João e a tradicional roda de Cururu e Siriri.',
+        category: 'religious'
+      },
+      {
+        id: 13,
+        title: 'Show Nacional: Michel Teló',
+        date: '2025-06-24T00:30:00',
+        time: '00:30',
+        location: 'Porto Geral',
+        description: 'Apresentação do cantor Michel Teló.',
         category: 'show'
       }
     ];
@@ -92,74 +175,119 @@ export const useProgramacaoEvents = () => {
     const enEvents = [
       {
         id: 1,
-        title: 'Official Opening of Saint John\'s Bath Festival',
-        date: '2025-06-22T18:00:00',
-        time: '6:00 PM',
-        location: 'Porto Geral',
-        description: 'Official opening ceremony with presentation of authorities and blessing of flags.',
+        title: 'Saint John\'s Triduum',
+        date: '2025-06-20T17:00:00',
+        time: '5:00 PM',
+        location: 'Saint John the Baptist Chapel, Ladeira Cunha e Cruz',
+        description: 'Religious celebration of Saint John the Baptist Triduum.',
         category: 'religious'
       },
       {
         id: 2,
-        title: 'Viola Show - Pantanal Roots',
-        date: '2025-06-22T20:00:00',
-        time: '8:00 PM',
-        location: 'Main Stage - Porto Geral',
-        description: 'Presentation of traditional Pantanal music with local artists.',
-        category: 'show'
+        title: 'Saint John\'s Triduum',
+        date: '2025-06-21T17:00:00',
+        time: '5:00 PM',
+        location: 'Saint John the Baptist Chapel, Ladeira Cunha e Cruz',
+        description: 'Second day of the religious celebration of Saint John the Baptist Triduum.',
+        category: 'religious'
       },
       {
         id: 3,
-        title: 'River Procession',
-        date: '2025-06-23T16:00:00',
-        time: '4:00 PM',
-        location: 'Paraguay River - Porto Geral',
-        description: 'Traditional river procession with the image of Saint John the Baptist through the region\'s rivers.',
+        title: 'Saint John\'s Triduum',
+        date: '2025-06-22T17:00:00',
+        time: '5:00 PM',
+        location: 'Saint John the Baptist Chapel, Ladeira Cunha e Cruz',
+        description: 'Third day of the religious celebration of Saint John the Baptist Triduum.',
         category: 'religious'
       },
       {
         id: 4,
-        title: 'Gastronomic Festival - Flavors of Pantanal',
-        date: '2025-06-23T18:00:00',
-        time: '6:00 PM - 10:00 PM',
-        location: 'Food Court - Porto Geral',
-        description: 'Tasting of typical dishes from Pantanal cuisine with local chefs.',
-        category: 'gastronomy'
+        title: 'Opening of the food court and craft stand',
+        date: '2025-06-20T18:00:00',
+        time: '6:00 PM',
+        location: 'Porto Geral',
+        description: 'Opening of the food court and craft stand, local shows and Shrine Contest.',
+        category: 'cultural'
       },
       {
         id: 5,
-        title: 'Collective Saint John\'s Bath',
-        date: '2025-06-23T23:30:00',
-        time: '11:30 PM',
-        location: 'Porto Geral Beach',
-        description: 'Main moment of the festival with the collective bathing of Saint John\'s image in the waters of the Paraguay River.',
-        category: 'religious'
+        title: 'Regional Show: Victor Gregório and Marco Aurélio',
+        date: '2025-06-20T22:30:00',
+        time: '10:30 PM',
+        location: 'Porto Geral',
+        description: 'Performance by the duo Victor Gregório and Marco Aurélio.',
+        category: 'show'
       },
       {
         id: 6,
-        title: 'Fireworks Show',
-        date: '2025-06-24T00:00:00',
-        time: '12:00 AM',
+        title: 'Children\'s Square Dance Contest',
+        date: '2025-06-21T19:00:00',
+        time: '7:00 PM',
         location: 'Porto Geral',
-        description: 'Fireworks spectacle celebrating Saint John\'s Day.',
+        description: 'Children\'s Square Dance Contest, presentation of the Bem te Vi Children\'s Choir, and local shows.',
         category: 'cultural'
       },
       {
         id: 7,
-        title: 'Folk Dance Performance',
-        date: '2025-06-24T16:00:00',
-        time: '4:00 PM',
-        location: 'Cultural Stage - Porto Geral',
-        description: 'Dance groups present traditional choreographies from Pantanal culture.',
-        category: 'cultural'
+        title: 'National Show: Bruninho and Davi',
+        date: '2025-06-22T01:00:00',
+        time: '1:00 AM',
+        location: 'Porto Geral',
+        description: 'Performance by the duo Bruninho and Davi.',
+        category: 'show'
       },
       {
         id: 8,
-        title: 'Closing Show',
-        date: '2025-06-24T21:00:00',
-        time: '9:00 PM',
-        location: 'Main Stage - Porto Geral',
-        description: 'Grand closing show with national artists.',
+        title: 'Square Dance Contest',
+        date: '2025-06-22T19:00:00',
+        time: '7:00 PM',
+        location: 'Porto Geral',
+        description: 'Square Dance Contest with local groups.',
+        category: 'cultural'
+      },
+      {
+        id: 9,
+        title: 'Regional Show: Loubet',
+        date: '2025-06-22T22:30:00',
+        time: '10:30 PM',
+        location: 'Porto Geral',
+        description: 'Performance by singer Loubet.',
+        category: 'show'
+      },
+      {
+        id: 10,
+        title: 'Visitation of the faithful to Saint John the Baptist Chapel',
+        date: '2025-06-23T08:00:00',
+        time: '8:00 AM',
+        location: 'Saint John the Baptist Chapel, Ladeira Cunha e Cruz',
+        description: 'Visitation of the faithful to Saint John the Baptist Chapel.',
+        category: 'religious'
+      },
+      {
+        id: 11,
+        title: 'Concentration of the City Hall shrine and Solemn Mass',
+        date: '2025-06-23T20:00:00',
+        time: '8:00 PM',
+        location: 'Saint John the Baptist Chapel',
+        description: 'Concentration of the City Hall shrine and the Solemn Mass in honor of Saint John the Baptist.',
+        category: 'religious'
+      },
+      {
+        id: 12,
+        title: 'Raising of Saint John\'s pole',
+        date: '2025-06-23T23:30:00',
+        time: '11:30 PM',
+        location: 'Porto Geral',
+        description: 'Raising of Saint John\'s pole and the traditional Cururu and Siriri circle.',
+        category: 'religious'
+      },
+      {
+        id: 13,
+        title: 'National Show: Michel Teló',
+        date: '2025-06-24T00:30:00',
+        time: '12:30 AM',
+        location: 'Porto Geral',
+        description: 'Performance by singer Michel Teló.',
         category: 'show'
       }
     ];
@@ -168,91 +296,133 @@ export const useProgramacaoEvents = () => {
     const esEvents = [
       {
         id: 1,
-        title: 'Apertura Oficial del Baño de San Juan',
-        date: '2025-06-22T18:00:00',
-        time: '18:00',
-        location: 'Porto Geral',
-        description: 'Ceremonia de apertura oficial con presentación de autoridades y bendición de banderas.',
+        title: 'Triduo de San Juan',
+        date: '2025-06-20T17:00:00',
+        time: '17:00',
+        location: 'Capilla de San Juan Bautista, Ladeira Cunha e Cruz',
+        description: 'Celebración religiosa del Triduo de San Juan Bautista.',
         category: 'religious'
       },
       {
         id: 2,
-        title: 'Show de Viola - Raíces del Pantanal',
-        date: '2025-06-22T20:00:00',
-        time: '20:00',
-        location: 'Escenario Principal - Porto Geral',
-        description: 'Presentación de músicas tradicionales del Pantanal con artistas locales.',
-        category: 'show'
+        title: 'Triduo de San Juan',
+        date: '2025-06-21T17:00:00',
+        time: '17:00',
+        location: 'Capilla de San Juan Bautista, Ladeira Cunha e Cruz',
+        description: 'Segundo día de la celebración religiosa del Triduo de San Juan Bautista.',
+        category: 'religious'
       },
       {
         id: 3,
-        title: 'Procesión Fluvial',
-        date: '2025-06-23T16:00:00',
-        time: '16:00',
-        location: 'Río Paraguay - Porto Geral',
-        description: 'Tradicional procesión fluvial con la imagen de San Juan Bautista por los ríos de la región.',
+        title: 'Triduo de San Juan',
+        date: '2025-06-22T17:00:00',
+        time: '17:00',
+        location: 'Capilla de San Juan Bautista, Ladeira Cunha e Cruz',
+        description: 'Tercer día de la celebración religiosa del Triduo de San Juan Bautista.',
         category: 'religious'
       },
       {
         id: 4,
-        title: 'Festival Gastronómico - Sabores del Pantanal',
-        date: '2025-06-23T18:00:00',
-        time: '18:00 - 22:00',
-        location: 'Plaza de Alimentación - Porto Geral',
-        description: 'Degustación de platos típicos de la culinaria del Pantanal con chefs locales.',
-        category: 'gastronomy'
+        title: 'Apertura de la plaza de alimentación y puesto de artesanía',
+        date: '2025-06-20T18:00:00',
+        time: '18:00',
+        location: 'Porto Geral',
+        description: 'Apertura de la plaza de alimentación y del puesto de artesanía, shows locales y Concurso de Andores.',
+        category: 'cultural'
       },
       {
         id: 5,
-        title: 'Baño Colectivo de San Juan',
-        date: '2025-06-23T23:30:00',
-        time: '23:30',
-        location: 'Playa del Porto Geral',
-        description: 'Momento principal de la fiesta con el baño colectivo de la imagen de San Juan en las aguas del río Paraguay.',
-        category: 'religious'
+        title: 'Show Regional: Victor Gregório y Marco Aurélio',
+        date: '2025-06-20T22:30:00',
+        time: '22:30',
+        location: 'Porto Geral',
+        description: 'Presentación del dúo Victor Gregório y Marco Aurélio.',
+        category: 'show'
       },
       {
         id: 6,
-        title: 'Show de Fuegos Artificiales',
-        date: '2025-06-24T00:00:00',
-        time: '00:00',
+        title: 'Concurso de Cuadrillas Infantiles',
+        date: '2025-06-21T19:00:00',
+        time: '19:00',
         location: 'Porto Geral',
-        description: 'Espectáculo de fuegos artificiales celebrando el día de San Juan.',
+        description: 'Concurso de Cuadrillas Infantiles, presentación del Coro Infantil Bem te Vi, además de shows locales.',
         category: 'cultural'
       },
       {
         id: 7,
-        title: 'Presentación de Danzas Folclóricas',
-        date: '2025-06-24T16:00:00',
-        time: '16:00',
-        location: 'Escenario Cultural - Porto Geral',
-        description: 'Grupos de danza presentan coreografías tradicionales de la cultura del Pantanal.',
-        category: 'cultural'
+        title: 'Show Nacional: Bruninho y Davi',
+        date: '2025-06-22T01:00:00',
+        time: '01:00',
+        location: 'Porto Geral',
+        description: 'Presentación del dúo Bruninho y Davi.',
+        category: 'show'
       },
       {
         id: 8,
-        title: 'Show de Clausura',
-        date: '2025-06-24T21:00:00',
-        time: '21:00',
-        location: 'Escenario Principal - Porto Geral',
-        description: 'Gran show de clausura con artistas nacionales.',
+        title: 'Concurso de Cuadrillas Juninas',
+        date: '2025-06-22T19:00:00',
+        time: '19:00',
+        location: 'Porto Geral',
+        description: 'Concurso de Cuadrillas Juninas con grupos locales.',
+        category: 'cultural'
+      },
+      {
+        id: 9,
+        title: 'Show Regional: Loubet',
+        date: '2025-06-22T22:30:00',
+        time: '22:30',
+        location: 'Porto Geral',
+        description: 'Presentación del cantante Loubet.',
+        category: 'show'
+      },
+      {
+        id: 10,
+        title: 'Visitación de los fieles a la Capilla de San Juan Bautista',
+        date: '2025-06-23T08:00:00',
+        time: '08:00',
+        location: 'Capilla de San Juan Bautista, Ladeira Cunha e Cruz',
+        description: 'Visitación de los fieles a la Capilla de San Juan Bautista.',
+        category: 'religious'
+      },
+      {
+        id: 11,
+        title: 'Concentración del andor del Ayuntamiento y Misa Solemne',
+        date: '2025-06-23T20:00:00',
+        time: '20:00',
+        location: 'Capilla de San Juan Bautista',
+        description: 'Concentración del andor del Ayuntamiento y la Misa Solemne en honor a San Juan Bautista.',
+        category: 'religious'
+      },
+      {
+        id: 12,
+        title: 'Elevación del mástil de San Juan',
+        date: '2025-06-23T23:30:00',
+        time: '23:30',
+        location: 'Porto Geral',
+        description: 'Elevación del mástil de San Juan y la tradicional rueda de Cururu y Siriri.',
+        category: 'religious'
+      },
+      {
+        id: 13,
+        title: 'Show Nacional: Michel Teló',
+        date: '2025-06-24T00:30:00',
+        time: '00:30',
+        location: 'Porto Geral',
+        description: 'Presentación del cantante Michel Teló.',
         category: 'show'
       }
     ];
     
     // Retorna os eventos de acordo com o idioma
-    switch(lang) {
+    switch(currentLang) {
       case 'en': return enEvents;
       case 'es': return esEvents;
       case 'pt':
       default: return ptEvents;
     }
-  }, [lang]);
+  };
   
-  // Carrega os eventos mockados quando o componente é montado ou o idioma muda
-  useEffect(() => {
-    setEvents(mockEvents);
-  }, [mockEvents]);
+  // Nota: Este efeito foi substituído pelo fetchEvents acima
   
   /**
    * Função para obter eventos por data específica

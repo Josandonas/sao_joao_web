@@ -42,8 +42,7 @@ export const ContentLayout = styled.div`
   display: flex;
   flex-direction: row;
   gap: 2rem;
-  margin-top: 0;
-  
+  margin-top: 5rem;
   @media (max-width: 1024px) {
     flex-direction: column;
   }
