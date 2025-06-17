@@ -3,7 +3,7 @@ import { Outlet, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Header from '../Header';
 import Footer from '../Footer';
-import { LayoutContainer, Main } from './styles';
+import { LayoutContainer, Main, HeaderImage } from './styles';
 
 const Layout = () => {
   const { lang } = useParams();
@@ -18,6 +18,7 @@ const Layout = () => {
 
   return (
     <LayoutContainer>
+      <HeaderImage />
       <Header />
       <Main>
       
