@@ -298,7 +298,9 @@ export const TabsContainer = styled.div`
   z-index: 5;
 `;
 
-export const Tab = styled.button`
+export const Tab = styled.button.attrs(props => ({
+  'data-active': props.active ? 'true' : 'false',
+}))`
   padding: 1rem 1.5rem;
   background: ${props => props.active ? 'white' : 'transparent'};
   border: none;
@@ -324,7 +326,9 @@ export const LanguageTabs = styled.div`
   margin-bottom: 1.5rem;
 `;
 
-export const LanguageTab = styled.button`
+export const LanguageTab = styled.button.attrs(props => ({
+  'data-active': props.active ? 'true' : 'false',
+}))`
   padding: 0.5rem 1rem;
   background: transparent;
   border: none;

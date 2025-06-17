@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import RegisterCommunityModal from '../RegisterCommunityModal';
-import { updateCommunitiesData } from '../../services/communityService';
+import { updateCommunitiesData, fetchAllCommunities } from '../../services/communityService';
 import { useTranslation } from 'react-i18next';
 import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
 import { sanitizeObject } from '../../../../utils/textUtils';
@@ -60,9 +60,17 @@ const CommunityMap = ({ onSelectCommunity, selectedCommunity }) => {
   const [mergedCommunitiesData, setMergedCommunitiesData] = useState([]);
   
   // Fetch and merge communities on component mount and when modal closes
-  const loadCommunities = useCallback(() => {
-    const allCommunities = updateCommunitiesData(defaultCommunitiesData);
-    setMergedCommunitiesData(allCommunities);
+  const loadCommunities = useCallback(async () => {
+    try {
+      // Busca comunidades da API e mescla com as estáticas e locais
+      const allCommunities = await fetchAllCommunities(defaultCommunitiesData);
+      setMergedCommunitiesData(allCommunities);
+    } catch (error) {
+      console.error('Erro ao carregar comunidades:', error);
+      // Em caso de falha na API, usa apenas as comunidades estáticas e locais
+      const fallbackCommunities = updateCommunitiesData(defaultCommunitiesData);
+      setMergedCommunitiesData(fallbackCommunities);
+    }
   }, []);
   
   useEffect(() => {

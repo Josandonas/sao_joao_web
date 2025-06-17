@@ -1,13 +1,15 @@
 /**
  * Serviço para gerenciar as comunidades cadastradas
- * Utiliza localStorage para armazenamento temporário 
+ * Utiliza localStorage para armazenamento temporário e integra com API
  */
+
+import { fetchCommunitiesFromApi, createCommunity as apiCreateCommunity } from './communitiesApi';
 
 const COMMUNITIES_STORAGE_KEY = 'sao_joao_communities';
 
 /**
- * Obtém todas as comunidades armazenadas
- * @returns {Array} Lista de comunidades
+ * Obtém todas as comunidades armazenadas localmente
+ * @returns {Array} Lista de comunidades do localStorage
  */
 export const getAllCommunities = () => {
   try {
@@ -22,26 +24,35 @@ export const getAllCommunities = () => {
 /**
  * Salva uma nova comunidade
  * @param {Object} community - Objeto da comunidade a ser salva
- * @returns {Object} Comunidade salva com ID gerado
+ * @returns {Promise<Object>} Comunidade salva com ID gerado
  */
-export const saveCommunity = (community) => {
+export const saveCommunity = async (community) => {
   try {
-    const communities = getAllCommunities();
-    
-    // Cria um ID único para a comunidade
-    const newCommunity = {
-      ...community,
-      id: `community_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
-      createdAt: new Date().toISOString()
-    };
-    
-    // Adiciona a nova comunidade à lista
-    communities.push(newCommunity);
-    
-    // Salva no localStorage
-    localStorage.setItem(COMMUNITIES_STORAGE_KEY, JSON.stringify(communities));
-    
-    return newCommunity;
+    // Tenta salvar na API primeiro
+    try {
+      const apiCommunity = await apiCreateCommunity(community);
+      return apiCommunity;
+    } catch (apiError) {
+      console.warn('Falha ao salvar na API, salvando localmente:', apiError);
+      
+      // Se falhar na API, salva localmente como fallback
+      const communities = getAllCommunities();
+      
+      // Cria um ID único para a comunidade
+      const newCommunity = {
+        ...community,
+        id: `local_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        createdAt: new Date().toISOString()
+      };
+      
+      // Adiciona a nova comunidade à lista
+      communities.push(newCommunity);
+      
+      // Salva no localStorage
+      localStorage.setItem(COMMUNITIES_STORAGE_KEY, JSON.stringify(communities));
+      
+      return newCommunity;
+    }
   } catch (error) {
     console.error('Erro ao salvar comunidade:', error);
     throw new Error('Não foi possível salvar a comunidade.');
@@ -88,8 +99,32 @@ export const processImage = (dataUrl, maxWidth = 1200) => {
 };
 
 /**
+ * Busca comunidades da API e mescla com as comunidades estáticas e locais
+ * @param {Array} defaultCommunities - Lista de comunidades estáticas padrão
+ * @returns {Promise<Array>} Lista mesclada de comunidades
+ */
+export const fetchAllCommunities = async (defaultCommunities) => {
+  try {
+    // Busca comunidades da API
+    const apiCommunities = await fetchCommunitiesFromApi();
+    
+    // Busca comunidades locais
+    const localCommunities = getAllCommunities();
+    
+    // Mescla todas as fontes de dados, priorizando as comunidades estáticas
+    // As comunidades estáticas são preservadas e não são substituídas
+    return [...defaultCommunities, ...apiCommunities, ...localCommunities];
+  } catch (error) {
+    console.error('Erro ao buscar todas as comunidades:', error);
+    // Em caso de erro, retorna apenas as comunidades estáticas e locais
+    return updateCommunitiesData(defaultCommunities);
+  }
+};
+
+/**
  * Atualiza as comunidades no armazenamento com dados mesclados das comunidades padrão e cadastradas
  * @param {Array} defaultCommunities - Lista de comunidades padrão
+ * @returns {Array} Lista mesclada de comunidades estáticas e locais
  */
 export const updateCommunitiesData = (defaultCommunities) => {
   const userCommunities = getAllCommunities();
@@ -107,5 +142,6 @@ export default {
   getAllCommunities,
   saveCommunity,
   processImage,
-  updateCommunitiesData
+  updateCommunitiesData,
+  fetchAllCommunities
 };

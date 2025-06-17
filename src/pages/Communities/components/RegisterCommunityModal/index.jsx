@@ -1,5 +1,6 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { saveCommunity, processImage } from '../../services/communityService';
+import { processImage } from '../../services/communityService';
+import { createCommunity } from '../../services/communitiesApi';
 import { useTranslation } from 'react-i18next';
 import { FaTimes } from 'react-icons/fa';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
@@ -206,8 +207,8 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
         gallery: optimizedGalleryImages
       };
       
-      // Salva a comunidade usando o serviço
-      await saveCommunity(newCommunity);
+      // Salva a comunidade usando o serviço de API
+      await createCommunity(newCommunity);
       
       alert(t('communities.registerSuccess'));
       

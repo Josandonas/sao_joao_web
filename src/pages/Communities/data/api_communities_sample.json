@@ -1,0 +1,192 @@
+{
+  "communities": [
+    {
+      "id": "api_101",
+      "image": "/assets/images/communities/api/101_capa.jpg",
+      "gallery": [
+        "/assets/images/communities/api/101_galeria/101_galeria_01.jpg",
+        "/assets/images/communities/api/101_galeria/101_galeria_02.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.008542,
+        "lng": -57.642856
+      },
+      "name": {
+        "pt": "Centro Cultural São João API",
+        "en": "São João Cultural Center API",
+        "es": "Centro Cultural São João API"
+      },
+      "location": {
+        "pt": "Centro",
+        "en": "Downtown",
+        "es": "Centro"
+      },
+      "description": {
+        "pt": "Centro cultural dedicado às tradições de São João",
+        "en": "Cultural center dedicated to São João traditions",
+        "es": "Centro cultural dedicado a las tradiciones de São João"
+      },
+      "fullDescription": {
+        "pt": "Centro cultural fundado em 2020 para preservar e divulgar as tradições de São João na região. Realiza eventos anuais e oficinas educativas.",
+        "en": "Cultural center founded in 2020 to preserve and promote São João traditions in the region. Holds annual events and educational workshops.",
+        "es": "Centro cultural fundado en 2020 para preservar y difundir las tradiciones de São João en la región. Realiza eventos anuales y talleres educativos."
+      },
+      "traditions": {
+        "pt": "Festas Juninas - Banho de São João",
+        "en": "June Festivals - São João Bath",
+        "es": "Fiestas de Junio - Baño de São João"
+      },
+      "festival_date": {
+        "pt": "23 de Junho",
+        "en": "June 23rd",
+        "es": "23 de Junio"
+      },
+      "religion": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "startYear": "2020",
+      "currentCelebrant": {
+        "pt": "Maria Aparecida Santos",
+        "en": "Maria Aparecida Santos",
+        "es": "Maria Aparecida Santos"
+      },
+      "motivation": {
+        "pt": "Preservação cultural e educação",
+        "en": "Cultural preservation and education",
+        "es": "Preservación cultural y educación"
+      },
+      "grace": {
+        "pt": "Conhecimento e união comunitária",
+        "en": "Knowledge and community unity",
+        "es": "Conocimiento y unión comunitaria"
+      }
+    },
+    {
+      "id": "api_102",
+      "image": "/assets/images/communities/api/102_capa.jpg",
+      "gallery": [
+        "/assets/images/communities/api/102_galeria/102_galeria_01.jpg",
+        "/assets/images/communities/api/102_galeria/102_galeria_02.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.017542,
+        "lng": -57.639856
+      },
+      "name": {
+        "pt": "Associação Cultural Banho de São João",
+        "en": "São João Bath Cultural Association",
+        "es": "Asociación Cultural Baño de São João"
+      },
+      "location": {
+        "pt": "Jardim dos Estados",
+        "en": "Jardim dos Estados",
+        "es": "Jardim dos Estados"
+      },
+      "description": {
+        "pt": "Associação dedicada à preservação das tradições do Banho de São João",
+        "en": "Association dedicated to preserving São João Bath traditions",
+        "es": "Asociación dedicada a preservar las tradiciones del Baño de São João"
+      },
+      "fullDescription": {
+        "pt": "Fundada em 2018 por moradores locais, a associação trabalha para documentar e preservar as tradições do Banho de São João, realizando eventos anuais e mantendo um acervo histórico.",
+        "en": "Founded in 2018 by local residents, the association works to document and preserve São João Bath traditions, holding annual events and maintaining a historical collection.",
+        "es": "Fundada en 2018 por residentes locales, la asociación trabaja para documentar y preservar las tradiciones del Baño de São João, realizando eventos anuales y manteniendo una colección histórica."
+      },
+      "traditions": {
+        "pt": "Banho de São João - Documentação histórica",
+        "en": "São João Bath - Historical documentation",
+        "es": "Baño de São João - Documentación histórica"
+      },
+      "festival_date": {
+        "pt": "23 e 24 de Junho",
+        "en": "June 23rd and 24th",
+        "es": "23 y 24 de Junio"
+      },
+      "religion": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "startYear": "2018",
+      "currentCelebrant": {
+        "pt": "João Paulo Ferreira",
+        "en": "João Paulo Ferreira",
+        "es": "João Paulo Ferreira"
+      },
+      "motivation": {
+        "pt": "Preservação histórica e cultural",
+        "en": "Historical and cultural preservation",
+        "es": "Preservación histórica y cultural"
+      },
+      "grace": {
+        "pt": "Memória coletiva e identidade cultural",
+        "en": "Collective memory and cultural identity",
+        "es": "Memoria colectiva e identidad cultural"
+      }
+    },
+    {
+      "id": "api_103",
+      "image": "/assets/images/communities/api/103_capa.jpg",
+      "gallery": [
+        "/assets/images/communities/api/103_galeria/103_galeria_01.jpg"
+      ],
+      "coordinates": {
+        "lat": -19.005542,
+        "lng": -57.645856
+      },
+      "name": {
+        "pt": "Grupo Folclórico Tradições de São João",
+        "en": "São João Traditions Folkloric Group",
+        "es": "Grupo Folclórico Tradiciones de São João"
+      },
+      "location": {
+        "pt": "Cristo Redentor",
+        "en": "Cristo Redentor",
+        "es": "Cristo Redentor"
+      },
+      "description": {
+        "pt": "Grupo dedicado à dança e música tradicionais das festas de São João",
+        "en": "Group dedicated to traditional dance and music of São João festivals",
+        "es": "Grupo dedicado a la danza y música tradicionales de las fiestas de São João"
+      },
+      "fullDescription": {
+        "pt": "Formado em 2019, o grupo reúne dançarinos e músicos que preservam e apresentam as tradições folclóricas das festas de São João, com apresentações em eventos culturais por toda a região.",
+        "en": "Formed in 2019, the group brings together dancers and musicians who preserve and present the folkloric traditions of São João festivals, with performances at cultural events throughout the region.",
+        "es": "Formado en 2019, el grupo reúne bailarines y músicos que preservan y presentan las tradiciones folclóricas de las fiestas de São João, con presentaciones en eventos culturales por toda la región."
+      },
+      "traditions": {
+        "pt": "Danças e músicas folclóricas - Quadrilhas",
+        "en": "Folkloric dances and music - Square dances",
+        "es": "Danzas y músicas folclóricas - Cuadrillas"
+      },
+      "festival_date": {
+        "pt": "Mês de Junho",
+        "en": "Month of June",
+        "es": "Mes de Junio"
+      },
+      "religion": {
+        "pt": "Católica",
+        "en": "Catholic",
+        "es": "Católica"
+      },
+      "startYear": "2019",
+      "currentCelebrant": {
+        "pt": "Ana Luiza Mendes",
+        "en": "Ana Luiza Mendes",
+        "es": "Ana Luiza Mendes"
+      },
+      "motivation": {
+        "pt": "Preservação das danças e músicas tradicionais",
+        "en": "Preservation of traditional dances and music",
+        "es": "Preservación de las danzas y músicas tradicionales"
+      },
+      "grace": {
+        "pt": "Alegria e união comunitária",
+        "en": "Joy and community unity",
+        "es": "Alegría y unión comunitaria"
+      }
+    }
+  ]
+}
