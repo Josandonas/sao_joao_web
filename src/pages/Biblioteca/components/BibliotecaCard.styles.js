@@ -5,15 +5,16 @@ export const CardWrapper = styled.div`
   background-color: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 8px 24px ${({ theme }) => transparentize(0.85, theme.colors.primary)};
+  box-shadow: 0 8px 24px rgba(255, 107, 1, 0.15);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
+  border-top: 4px solid #ff6b01;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 28px ${({ theme }) => transparentize(0.75, theme.colors.primary)};
+    box-shadow: 0 12px 28px rgba(255, 107, 1, 0.25);
   }
 `;
 
@@ -65,7 +66,7 @@ export const CardCategory = styled.span`
   position: absolute;
   top: 1rem;
   right: 1rem;
-  background-color: ${({ theme }) => transparentize(0.2, theme.colors.primary)};
+  background-color: rgba(255, 107, 1, 0.8);
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 20px;
@@ -82,7 +83,7 @@ export const CardContent = styled.div`
 `;
 
 export const CardTitle = styled.h3`
-  color: ${({ theme }) => theme.colors.primary};
+  color: #ff6b01;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   font-weight: bold;
@@ -107,13 +108,13 @@ export const CardLink = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  color: ${({ theme }) => theme.colors.primary};
+  color: #ff6b01;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease;
   
   &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
+    color: #800000;
   }
 `;
 
@@ -138,7 +139,7 @@ export const CardInfoItem = styled.li`
   margin-bottom: 0.75rem;
   
   svg {
-    color: ${({ theme }) => theme.colors.primary};
+    color: #ff6b01;
     flex-shrink: 0;
     margin-top: 0.25rem;
   }

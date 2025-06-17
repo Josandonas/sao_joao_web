@@ -16,7 +16,9 @@
   
   "biblioteca": {
     "title": "Biblioteca de Referencias",
-    "description": "La biblioteca del Baño de San Juan de Corumbá mantendrá una pequeña colección de tesis, disertaciones y artículos relacionados con la historia de la Celebración del Baño de San Juan de Corumbá-Mato Grosso do Sul.",
+    "description": "La biblioteca del Baño de San Juan de Corumbá mantendrá una pequeña colección de tesis, disertaciones y artículos relacionados con la historia de la Celebración del Baño de San Juan de Corumbá-Mato Grosso do Sul. Si tienes alguna publicación o estudio al respecto, ven a colaborar con nosotros, envíanoslo y forma parte de nuestra biblioteca: ",
+    "email": "nucleoestrategico@corumbams.gov.br",
+    "collaborate": "Si tienes alguna publicación o estudio al respecto, ven a colaborar con nosotros, envíanoslo y forma parte de nuestra biblioteca: ",
     "filters": {
       "all": "Todos",
       "historical": "Históricos",

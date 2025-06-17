@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { Container, ContentLayout, Title, AboutSection, AboutText, FilterSection, CardsContainer } from './styles';
+import { Container, ContentLayout, TitleContainer, Title, AboutSection, AboutText, FilterSection, CardsContainer } from './styles';
 
 // Componentes
 import BibliotecaCard from './components/BibliotecaCard';
@@ -36,11 +36,16 @@ const Biblioteca = () => {
   return (
     <Container>
       <ContentLayout>
-        <Title>{t('biblioteca.title', 'Biblioteca de Referências')}</Title>
+        <TitleContainer>
+          <Title>{t('biblioteca.title', 'Biblioteca de Referências')}</Title>
+        </TitleContainer>
         
         <AboutSection>
           <AboutText>
-            {t('biblioteca.description', 'A biblioteca do Banho de São João de Corumbá manterá um pequeno acervo com teses, dissertações e artigos relacionados à história da Celebração do Banho de São João de Corumbá-Mato Grosso do Sul.')}
+            {t('biblioteca.description', 'A biblioteca do Banho de São João de Corumbá manterá um pequeno acervo com teses, dissertações e artigos relacionados à história da Celebração do Banho de São João de Corumbá-Mato Grosso do Sul. Se você tem alguma publicação ou estudo ao respeito, venha colaborar conosco, nos envie e faça parte de nossa biblioteca: ')}
+            <a href={`mailto:${t('biblioteca.email', 'nucleoestrategico@corumbams.gov.br')}`}>
+              {t('biblioteca.email', 'nucleoestrategico@corumbams.gov.br')}
+            </a>
           </AboutText>
         </AboutSection>
         
