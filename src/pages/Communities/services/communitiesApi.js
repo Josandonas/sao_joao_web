@@ -6,7 +6,7 @@
 import axios from 'axios';
 import { sampleApiCommunities } from '../data/sampleApiData';
 
-// URL base da API - substitua pela URL real quando disponível
+// URL base da API - usa a variável de ambiente do Vite
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://api.example.com';
 const COMMUNITIES_ENDPOINT = '/communities';
 
@@ -26,20 +26,23 @@ const api = axios.create({
  */
 export const fetchCommunitiesFromApi = async () => {
   try {
-    // Em ambiente de desenvolvimento, podemos usar o arquivo de amostra
+    // Em ambiente de desenvolvimento sem API configurada, usamos dados simulados
     if (import.meta.env.DEV && !import.meta.env.VITE_API_URL) {
-      // Em desenvolvimento, usamos dados simulados
       try {
         // Tenta buscar do localStorage primeiro (para persistir dados cadastrados)
         const storedData = localStorage.getItem('api_communities_sample');
         if (storedData) {
-          return JSON.parse(storedData) || [];
+          const parsedData = JSON.parse(storedData);
+          if (Array.isArray(parsedData) && parsedData.length > 0) {
+            return parsedData;
+          }
         }
         
-        // Se não houver dados no localStorage, usa os dados de amostra
-        console.log('Sem dados no localStorage, usando dados de amostra');
+        // Se não houver dados válidos no localStorage, usa os dados de amostra
+        console.log('Usando dados de amostra para comunidades');
         return sampleApiCommunities.communities || [];
       } catch (error) {
+        // Apenas log no console para desenvolvedores
         console.error('Erro ao buscar dados de amostra:', error);
         return [];
       }
@@ -49,11 +52,12 @@ export const fetchCommunitiesFromApi = async () => {
     const response = await api.get(COMMUNITIES_ENDPOINT);
     return response.data.communities || [];
   } catch (error) {
+    // Apenas log no console para desenvolvedores
     console.error('Erro ao buscar comunidades da API:', error);
     
     // Em caso de erro, tenta usar o arquivo de amostra como fallback
-    try {
-      if (import.meta.env.DEV) {
+    if (import.meta.env.DEV) {
+      try {
         // Em caso de erro, tenta usar dados do localStorage
         const storedData = localStorage.getItem('api_communities_sample');
         if (storedData) {
@@ -61,11 +65,11 @@ export const fetchCommunitiesFromApi = async () => {
           return JSON.parse(storedData) || [];
         }
         // Se não houver dados no localStorage, usa os dados de amostra
-        console.warn('Sem dados no localStorage, usando dados de amostra como fallback');
+        console.warn('Usando dados de amostra como fallback');
         return sampleApiCommunities.communities || [];
+      } catch (fallbackError) {
+        console.error('Erro ao carregar dados de fallback:', fallbackError);
       }
-    } catch (fallbackError) {
-      console.error('Erro ao carregar dados de fallback:', fallbackError);
     }
     
     return [];
@@ -92,10 +96,16 @@ export const createCommunity = async (communityData) => {
       };
       
       // Adiciona ao localStorage para persistir entre recargas da página
-      const storedCommunities = localStorage.getItem('api_communities_sample') || '[]';
-      const communities = JSON.parse(storedCommunities);
-      communities.push(newCommunity);
-      localStorage.setItem('api_communities_sample', JSON.stringify(communities));
+      try {
+        const storedCommunities = localStorage.getItem('api_communities_sample') || '[]';
+        const communities = JSON.parse(storedCommunities);
+        communities.push(newCommunity);
+        localStorage.setItem('api_communities_sample', JSON.stringify(communities));
+        console.log('Comunidade salva com sucesso (simulação):', newCommunity.id);
+      } catch (storageError) {
+        // Apenas log no console para desenvolvedores
+        console.error('Erro ao salvar comunidade no localStorage:', storageError);
+      }
       
       return newCommunity;
     }
@@ -104,6 +114,7 @@ export const createCommunity = async (communityData) => {
     const response = await api.post(COMMUNITIES_ENDPOINT, communityData);
     return response.data;
   } catch (error) {
+    // Apenas log no console para desenvolvedores
     console.error('Erro ao cadastrar comunidade na API:', error);
     throw new Error('Não foi possível cadastrar a comunidade. Tente novamente mais tarde.');
   }
@@ -121,33 +132,46 @@ export const updateCommunity = async (id, communityData) => {
     if (import.meta.env.DEV && !import.meta.env.VITE_API_URL) {
       await new Promise(resolve => setTimeout(resolve, 800));
       
-      const storedCommunities = localStorage.getItem('api_communities_sample') || '[]';
-      const communities = JSON.parse(storedCommunities);
-      
-      const index = communities.findIndex(c => c.id === id);
-      if (index === -1) {
-        throw new Error('Comunidade não encontrada');
+      try {
+        const storedCommunities = localStorage.getItem('api_communities_sample') || '[]';
+        const communities = JSON.parse(storedCommunities);
+        
+        const index = communities.findIndex(c => c.id === id);
+        if (index === -1) {
+          throw new Error('Comunidade não encontrada');
+        }
+        
+        const updatedCommunity = {
+          ...communities[index],
+          ...communityData,
+          updatedAt: new Date().toISOString()
+        };
+        
+        communities[index] = updatedCommunity;
+        localStorage.setItem('api_communities_sample', JSON.stringify(communities));
+        console.log('Comunidade atualizada com sucesso (simulação):', id);
+        
+        return updatedCommunity;
+      } catch (storageError) {
+        // Apenas log no console para desenvolvedores
+        console.error('Erro ao atualizar comunidade no localStorage:', storageError);
+        throw new Error('Comunidade não encontrada ou erro ao atualizar');
       }
-      
-      const updatedCommunity = {
-        ...communities[index],
-        ...communityData,
-        updatedAt: new Date().toISOString()
-      };
-      
-      communities[index] = updatedCommunity;
-      localStorage.setItem('api_communities_sample', JSON.stringify(communities));
-      
-      return updatedCommunity;
     }
 
     // Em produção, envia para a API real
     const response = await api.put(`${COMMUNITIES_ENDPOINT}/${id}`, communityData);
     return response.data;
   } catch (error) {
+    // Apenas log no console para desenvolvedores
     console.error('Erro ao atualizar comunidade na API:', error);
     throw new Error('Não foi possível atualizar a comunidade. Tente novamente mais tarde.');
   }
 };
 
-// As funções já foram exportadas individualmente acima
+// Exporta todas as funções como objeto padrão para facilitar importação
+export default {
+  fetchCommunitiesFromApi,
+  createCommunity,
+  updateCommunity
+};

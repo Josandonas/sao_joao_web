@@ -86,6 +86,7 @@
     "registerSuccess": "Comunidade cadastrada com sucesso!",
     "errorTitle": "Erro:",
     "requiredFieldsError": "Por favor, preencha todos os campos obrigatórios (nome, descrição, localização no mapa e imagem de capa)",
+    "duplicateCommunityError": "Uma comunidade similar já existe no mapa. Por favor, verifique as coordenadas ou o nome da comunidade.",
     "namePlaceholder": "Ex: Comunidade São João",
     "locationPlaceholder": "Ex: Bairro Centro",
     "shortDescPlaceholder": "Descrição resumida da comunidade",

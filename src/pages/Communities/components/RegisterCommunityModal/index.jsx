@@ -1,6 +1,10 @@
 import React, { useState, useRef, useCallback } from 'react';
-import { processImage } from '../../services/communityService';
-import { createCommunity } from '../../services/communitiesApi';
+import communityService from '../../services/communityService';
+import communitiesApi from '../../services/communitiesApi';
+
+// Desestruturação das funções do serviço
+const { processImage, saveCommunity, communityExists, fetchAllCommunities } = communityService;
+const { createCommunity } = communitiesApi;
 import { useTranslation } from 'react-i18next';
 import { FaTimes } from 'react-icons/fa';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
@@ -207,14 +211,22 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
         gallery: optimizedGalleryImages
       };
       
-      // Salva a comunidade usando o serviço de API
-      await createCommunity(newCommunity);
+      // Verifica se a comunidade já existe
+      const existingCommunities = await fetchAllCommunities([]);
+      if (communityExists(newCommunity, existingCommunities)) {
+        throw new Error(t('communities.duplicateCommunityError') || 'Uma comunidade similar já existe no mapa.');
+      }
+      
+      // Salva a comunidade usando o serviço de comunidades
+      // Este serviço tenta salvar na API primeiro e, se falhar, salva localmente
+      await saveCommunity(newCommunity);
       
       alert(t('communities.registerSuccess'));
       
       // Fecha o modal após o envio
       onClose();
     } catch (error) {
+      // Apenas log no console para desenvolvedores
       console.error('Erro ao cadastrar comunidade:', error);
       setSubmitError(error.message);
     } finally {
