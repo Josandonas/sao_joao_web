@@ -10,7 +10,7 @@ import TestimonialVideoModal from './components/TestimonialVideo';
 
 // Hooks
 import { useVideoModal } from './hooks/useVideoModal';
-import { useCategories } from './hooks/useCategories';
+import { useTestimonials } from './hooks/useTestimonials';
 import { useTestimonialForm } from './hooks/useTestimonialForm';
 
 /**
@@ -22,7 +22,7 @@ const Testimonials = () => {
   
   // Utilizando os hooks customizados
   const { selectedVideo, videoRef, openVideoModal, closeVideoModal } = useVideoModal();
-  const { activeCategory, filteredTestimonials, changeCategory } = useCategories();
+  const { testimonials, activeCategory, filterByCategory } = useTestimonials();
   const { showForm, toggleForm, handleSubmit } = useTestimonialForm();
 
   return (
@@ -42,7 +42,7 @@ const Testimonials = () => {
       {/* Filtro de categorias */}
       <CategoryFilter 
         activeCategory={activeCategory} 
-        onCategoryChange={changeCategory} 
+        onCategoryChange={filterByCategory} 
       />
       
       {/* Formulário para envio de depoimentos */}
@@ -56,7 +56,7 @@ const Testimonials = () => {
       
       {/* Lista de depoimentos */}
       <TestimonialList 
-        testimonials={filteredTestimonials} 
+        testimonials={testimonials} 
         onOpenVideo={openVideoModal} 
       />
       

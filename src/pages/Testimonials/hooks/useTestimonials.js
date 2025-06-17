@@ -12,9 +12,12 @@ import {
   mockGetTestimonialsByCategory,
   mockSubmitTestimonial
 } from '../../../services/testimonialsMockApi';
+import { testimonialData, categories as staticCategories } from '../data/testimonialData';
 
-// Flag para controlar se deve usar a API real ou o mock
+// Configurações para controle de fonte de dados
 const USE_MOCK_API = true; // Altere para false quando a API real estiver disponível
+const USE_STATIC_DATA = true; // Se true, usa dados estáticos do testimonialData.js
+const FALLBACK_TO_STATIC = true; // Se true, usa dados estáticos como fallback em caso de erro
 
 /**
  * Hook para gerenciar depoimentos, categorias e formulário de envio
@@ -31,11 +34,32 @@ export const useTestimonials = () => {
   const [formSuccess, setFormSuccess] = useState(false);
   const [formError, setFormError] = useState(null);
   
-  // Função para buscar depoimentos da API ou do mock
+  // Função para buscar depoimentos da API ou do mock, ou usar dados estáticos
   const fetchTestimonials = useCallback(async () => {
     setLoading(true);
     setError(null);
     
+    // Se configurado para usar dados estáticos diretamente
+    if (USE_STATIC_DATA) {
+      // Adaptar dados estáticos para o formato esperado
+      const adaptedData = testimonialData.map(item => ({
+        id: `static-${item.id}`,
+        name: item.name,
+        location: item.location,
+        quote: item.quote,
+        quoteKey: item.quoteKey,
+        image: item.image,
+        videos: item.videos,
+        category: item.category,
+        isStatic: true // Marca como dado estático para identificação
+      }));
+      
+      setTestimonials(adaptedData);
+      setLoading(false);
+      return;
+    }
+    
+    // Caso contrário, tenta buscar da API ou mock
     try {
       let data;
       
@@ -49,14 +73,46 @@ export const useTestimonials = () => {
       setTestimonials(data);
     } catch (err) {
       console.error('Erro ao buscar depoimentos:', err);
-      setError('Erro ao carregar depoimentos. Tente novamente mais tarde.');
+      
+      // Se configurado para usar dados estáticos como fallback
+      if (FALLBACK_TO_STATIC) {
+        console.log('Usando dados estáticos como fallback');
+        const adaptedData = testimonialData.map(item => ({
+          id: `static-${item.id}`,
+          name: item.name,
+          location: item.location,
+          quote: item.quote,
+          quoteKey: item.quoteKey,
+          image: item.image,
+          videos: item.videos,
+          category: item.category,
+          isStatic: true
+        }));
+        
+        setTestimonials(adaptedData);
+      } else {
+        setError('Erro ao carregar depoimentos. Tente novamente mais tarde.');
+      }
     } finally {
       setLoading(false);
     }
   }, [lang]);
   
-  // Função para buscar categorias da API ou do mock
+  // Função para buscar categorias da API ou do mock, ou usar categorias estáticas
   const fetchCategories = useCallback(async () => {
+    // Se configurado para usar dados estáticos diretamente
+    if (USE_STATIC_DATA) {
+      // Adaptar categorias estáticas para o formato esperado
+      const adaptedCategories = staticCategories.map(cat => ({
+        id: cat.id,
+        label: cat.label
+      }));
+      
+      setCategories(adaptedCategories);
+      return;
+    }
+    
+    // Caso contrário, tenta buscar da API ou mock
     try {
       let data;
       
@@ -70,6 +126,19 @@ export const useTestimonials = () => {
       setCategories(data);
     } catch (err) {
       console.error('Erro ao buscar categorias:', err);
+      
+      // Se configurado para usar categorias estáticas como fallback
+      if (FALLBACK_TO_STATIC) {
+        console.log('Usando categorias estáticas como fallback');
+        
+        // Adaptar categorias estáticas para o formato esperado
+        const adaptedCategories = staticCategories.map(cat => ({
+          id: cat.id,
+          label: cat.label
+        }));
+        
+        setCategories(adaptedCategories);
+      }
       // Não definimos erro aqui para não afetar a experiência do usuário
       // Se as categorias falharem, ainda podemos mostrar os depoimentos
     }
@@ -81,6 +150,32 @@ export const useTestimonials = () => {
     setLoading(true);
     setError(null);
     
+    // Se configurado para usar dados estáticos diretamente
+    if (USE_STATIC_DATA) {
+      // Filtrar dados estáticos pela categoria
+      const filteredData = category === 'all'
+        ? testimonialData
+        : testimonialData.filter(item => item.category === category);
+      
+      // Adaptar dados estáticos para o formato esperado
+      const adaptedData = filteredData.map(item => ({
+        id: `static-${item.id}`,
+        name: item.name,
+        location: item.location,
+        quote: item.quote,
+        quoteKey: item.quoteKey,
+        image: item.image,
+        videos: item.videos,
+        category: item.category,
+        isStatic: true
+      }));
+      
+      setTestimonials(adaptedData);
+      setLoading(false);
+      return;
+    }
+    
+    // Caso contrário, tenta buscar da API ou mock
     try {
       let data;
       
@@ -94,7 +189,33 @@ export const useTestimonials = () => {
       setTestimonials(data);
     } catch (err) {
       console.error(`Erro ao filtrar depoimentos por categoria ${category}:`, err);
-      setError('Erro ao filtrar depoimentos. Tente novamente mais tarde.');
+      
+      // Se configurado para usar dados estáticos como fallback
+      if (FALLBACK_TO_STATIC) {
+        console.log(`Usando dados estáticos como fallback para categoria ${category}`);
+        
+        // Filtrar dados estáticos pela categoria
+        const filteredData = category === 'all'
+          ? testimonialData
+          : testimonialData.filter(item => item.category === category);
+        
+        // Adaptar dados estáticos para o formato esperado
+        const adaptedData = filteredData.map(item => ({
+          id: `static-${item.id}`,
+          name: item.name,
+          location: item.location,
+          quote: item.quote,
+          quoteKey: item.quoteKey,
+          image: item.image,
+          videos: item.videos,
+          category: item.category,
+          isStatic: true
+        }));
+        
+        setTestimonials(adaptedData);
+      } else {
+        setError('Erro ao filtrar depoimentos. Tente novamente mais tarde.');
+      }
     } finally {
       setLoading(false);
     }
