@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
+import { FaSpinner } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { 
   Modal, 
@@ -38,6 +39,10 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
       es: { title: '', autor: '', excerpt: '', content: '' }
     }
   });
+  
+  // Estado para controlar o envio do formulário
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
   
   // Estado para controlar a guia ativa (pt, en, es)
   const [activeTab, setActiveTab] = useState(currentLanguage);
@@ -101,43 +106,69 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
   };
   
   // Manipulador de envio do formulário
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     if (!validateForm()) {
-      alert('Por favor, preencha todos os campos obrigatórios.');
+      setError('Por favor, preencha todos os campos obrigatórios.');
       return;
     }
     
-    // Criar objeto da nova história
-    const newStory = {
-      id: Date.now(), // ID temporário baseado no timestamp
-      title: formData.title,
-      autor: formData.autor,
-      excerpt: formData.excerpt || formData.content.substring(0, 100) + '...',
-      content: formData.content
-    };
+    setIsSubmitting(true);
+    setError(null);
     
-    // Adicionar traduções se necessário
-    if (formData.addTranslations) {
-      newStory.translations = {
-        en: {
-          title: formData.translations.en.title,
-          autor: formData.translations.en.autor || formData.autor,
-          excerpt: formData.translations.en.excerpt || formData.translations.en.content.substring(0, 100) + '...',
-          content: formData.translations.en.content
-        },
-        es: {
-          title: formData.translations.es.title,
-          autor: formData.translations.es.autor || formData.autor,
-          excerpt: formData.translations.es.excerpt || formData.translations.es.content.substring(0, 100) + '...',
-          content: formData.translations.es.content
+    try {
+      // Criar objeto da nova história no formato esperado pela API
+      const newStory = {
+        // Dados em português
+        pt: {
+          title: formData.title,
+          author: formData.autor,
+          excerpt: formData.excerpt || formData.content.substring(0, 100) + '...',
+          content: formData.content
         }
       };
+      
+      // Adicionar traduções se necessário
+      if (formData.addTranslations) {
+        // Dados em inglês
+        newStory.en = {
+          title: formData.translations.en.title,
+          author: formData.translations.en.autor || formData.autor,
+          excerpt: formData.translations.en.excerpt || formData.translations.en.content.substring(0, 100) + '...',
+          content: formData.translations.en.content
+        };
+        
+        // Dados em espanhol
+        newStory.es = {
+          title: formData.translations.es.title,
+          author: formData.translations.es.autor || formData.autor,
+          excerpt: formData.translations.es.excerpt || formData.translations.es.content.substring(0, 100) + '...',
+          content: formData.translations.es.content
+        };
+      } else {
+        // Se não houver traduções, usar os dados em português como fallback
+        newStory.en = { ...newStory.pt };
+        newStory.es = { ...newStory.pt };
+      }
+      
+      // Adicionar tags e imagens (opcional)
+      newStory.tags = [];
+      newStory.images = [];
+      
+      // Chamar função de salvamento e aguardar resposta
+      const savedStory = await onSave(newStory);
+      
+      // Fechar o formulário após salvar com sucesso
+      if (savedStory) {
+        onClose();
+      }
+    } catch (err) {
+      console.error('Erro ao salvar história:', err);
+      setError(err.message || 'Erro ao salvar história. Tente novamente mais tarde.');
+    } finally {
+      setIsSubmitting(false);
     }
-    
-    // Chamar função de salvamento
-    onSave(newStory);
   };
   
   return (
@@ -343,12 +374,23 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
           </>
         )}
         
+        {error && (
+          <div style={{ color: 'red', marginBottom: '15px', textAlign: 'center' }}>
+            {error}
+          </div>
+        )}
+        
         <ButtonGroup>
-          <CancelButton type="button" onClick={onClose}>
+          <CancelButton type="button" onClick={onClose} disabled={isSubmitting}>
             Cancelar
           </CancelButton>
-          <SubmitButton type="submit">
-            Salvar
+          <SubmitButton type="submit" disabled={isSubmitting}>
+            {isSubmitting ? (
+              <>
+                <FaSpinner style={{ animation: 'spin 1s linear infinite', marginRight: '8px' }} />
+                Salvando...
+              </>
+            ) : 'Salvar'}
           </SubmitButton>
         </ButtonGroup>
       </FormContainer>
