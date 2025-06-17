@@ -5,10 +5,12 @@
 
 // Importar serviços específicos
 import storiesApiService from './storiesApiService';
+import testimonialsApiService from './testimonialsApiService';
 
 // Exportar todos os serviços
 export {
-  storiesApiService
+  storiesApiService,
+  testimonialsApiService
 };
 
 // Exportar configurações comuns de API
@@ -44,6 +46,7 @@ export const checkApiAvailability = async () => {
 
 export default {
   stories: storiesApiService,
+  testimonials: testimonialsApiService,
   config: API_CONFIG,
   checkApiAvailability
 };

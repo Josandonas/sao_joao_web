@@ -1,25 +1,39 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { categories } from '../../data/testimonialData';
 import { Categories, CategoryButton } from './styles';
+// Importação de categorias estáticas removida, agora vem via props
 
 /**
  * Componente para filtrar depoimentos por categoria
+ * @param {string} activeCategory - ID da categoria ativa
+ * @param {Array} categories - Lista de categorias disponíveis
+ * @param {Function} onCategoryChange - Função chamada quando uma categoria é selecionada
  */
-const CategoryFilter = ({ activeCategory, onCategoryChange }) => {
+const CategoryFilter = ({ activeCategory, categories = [], onCategoryChange }) => {
   const { t } = useTranslation();
 
   return (
     <Categories>
-      {categories.map(category => (
+      {categories && categories.length > 0 ? (
+        categories.map(category => (
+          <CategoryButton 
+            key={category.id}
+            isActive={activeCategory === category.id} 
+            onClick={() => onCategoryChange(category.id)}
+          >
+            {category.label}
+          </CategoryButton>
+        ))
+      ) : (
+        // Fallback para quando não há categorias disponíveis
         <CategoryButton 
-          key={category.id}
-          isActive={activeCategory === category.id} 
-          onClick={() => onCategoryChange(category.id)}
+          key="all"
+          isActive={true} 
+          onClick={() => onCategoryChange('all')}
         >
-          {t(`testimonials.category${category.id.charAt(0).toUpperCase() + category.id.slice(1)}`) || category.label}
+          {'Todos'}
         </CategoryButton>
-      ))}
+      )}
     </Categories>
   );
 };

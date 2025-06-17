@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const ModalOverlay = styled.div`
   position: fixed;
@@ -256,6 +256,56 @@ export const FileNameDisplay = styled.div`
   border: 1px solid #ddd;
 `;
 
+// Animação para o spinner
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+// Componente para exibir feedback do formulário
+export const FormFeedback = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  margin: 1.5rem 0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease;
+  
+  ${({ status }) => {
+    if (status === 'success') {
+      return `
+        background-color: #e8f5e9;
+        color: #2e7d32;
+        border: 1px solid #a5d6a7;
+      `;
+    } else if (status === 'error') {
+      return `
+        background-color: #ffebee;
+        color: #c62828;
+        border: 1px solid #ef9a9a;
+      `;
+    } else if (status === 'warning') {
+      return `
+        background-color: #fff8e1;
+        color: #f57f17;
+        border: 1px solid #ffe082;
+      `;
+    }
+    return '';
+  }}
+`;
+
+// Ícone de status
+export const StatusIcon = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-size: 1.2rem;
+`;
+
 export const SubmitButton = styled.button`
   background-color: #5f1530;
   color: white;
@@ -266,12 +316,26 @@ export const SubmitButton = styled.button`
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin: 2rem auto 0;
+  min-width: 200px;
   
-  &:hover {
+  &:hover:not(:disabled) {
     background-color: #6c0026;
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(140, 0, 51, 0.3);
+  }
+  
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  .spinner {
+    animation: ${spin} 1s linear infinite;
+    margin-right: 8px;
   }
 `;

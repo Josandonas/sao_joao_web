@@ -94,8 +94,28 @@ export const getTestimonialById = async (id, lang = 'pt') => {
  */
 export const submitTestimonial = async (testimonialData, lang = 'pt') => {
   try {
-    const response = await postToAPI('testimonials', testimonialData, { lang });
-    return response;
+    // Se for um FormData, não podemos usar JSON.stringify
+    const isFormData = testimonialData instanceof FormData;
+    
+    const headers = {
+      'Accept-Language': lang || 'pt',
+    };
+    
+    if (!isFormData) {
+      headers['Content-Type'] = 'application/json';
+    }
+    
+    const response = await fetch(`${API_BASE_URL}/testimonials`, {
+      method: 'POST',
+      headers,
+      body: isFormData ? testimonialData : JSON.stringify(testimonialData),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Erro na API: ${response.status}`);
+    }
+
+    return await response.json();
   } catch (error) {
     console.error('Erro ao enviar depoimento:', error);
     throw error;
