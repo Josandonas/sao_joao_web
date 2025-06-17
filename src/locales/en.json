@@ -3,6 +3,10 @@
     "name": "Bath of Saint John",
     "description": "A Brazilian cultural experience"
   },
+  "common": {
+    "play": "Play",
+    "pause": "Pause"
+  },
   "navigation": {
     "home": "Home",
     "stories": "Stories",
@@ -16,6 +20,10 @@
 
   "home": {
     "textSize": "Text Size",
+    "video": {
+      "title": "Discover the Bath of Saint John",
+      "description": "Click the button to watch a video about this traditional Pantanal celebration"
+    },
     "about": {
       "paragraph1": "This is a collaborative page that was created as a digital space for society, researchers and the government to interact and share information, projects and research about the Bath of Saint John of Corumbá – Mato Grosso do Sul, especially to support the safeguarding of tradition, promote the reproduction and sustainability of the festivity.",
       "paragraph2": "Recognized by the Government of the State of Mato Grosso do Sul in 2010 as intangible historical and cultural heritage, the Bath of Saint John of Corumbá and Ladário (MS), a common asset registered as national intangible heritage by the National Institute of Historical and Artistic Heritage (IPHAN) in the Book of Celebrations Registration in 2021.",

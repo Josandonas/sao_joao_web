@@ -3,6 +3,10 @@
     "name": "Baño de San Juan",
     "description": "Una experiencia cultural brasileña"
   },
+  "common": {
+    "play": "Reproducir",
+    "pause": "Pausar"
+  },
   "navigation": {
     "home": "Inicio",
     "stories": "Historias",
@@ -71,6 +75,10 @@
   },
   "home": {
     "textSize": "Tamaño de texto",
+    "video": {
+      "title": "Descubra el Baño de San Juan",
+      "description": "Haga clic en el botón para ver un video sobre esta tradicional celebración pantanera"
+    },
     "about": {
       "paragraph1": "Esta página colaborativa se creó como un espacio digital para que la sociedad, los investigadores y el gobierno interactúen y compartan información, proyectos e investigaciones sobre el Balneario de San Juan de Corumbá – Mato Grosso do Sul, especialmente para apoyar la preservación de la tradición, promover la reproducción y la sostenibilidad de la festividad.",
       "paragraph2": "Reconocido por el Gobierno del Estado de Mato Grosso do Sul en 2010 como patrimonio histórico y cultural inmaterial, el Balneario de San Juan de Corumbá y Ladário (MS), un bien común registrado como patrimonio inmaterial nacional por el Instituto Nacional del Patrimonio Histórico y Artístico (IPHAN) en el Libro de Registro de Celebraciones en 2021.",

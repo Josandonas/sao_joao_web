@@ -3,6 +3,10 @@
     "name": "Banho de São João",
     "description": "Uma experiência cultural brasileira"
   },
+  "common": {
+    "play": "Reproduzir",
+    "pause": "Pausar"
+  },
   "navigation": {
     "home": "Início",
     "stories": "Histórias",
@@ -29,6 +33,10 @@
       "book": "Explore o livro digital sobre as festas de São João.",
       "testimonials": "Assista depoimentos de pessoas que vivem estas tradições.",
       "postcards": "Envie um cartão postal virtual para seus amigos."
+    },
+    "video": {
+      "title": "Conheça o Banho de São João",
+      "description": "Clique no botão para assistir ao vídeo sobre esta tradicional celebração pantaneira"
     }
   },
   "communities": {

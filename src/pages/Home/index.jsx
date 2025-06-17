@@ -6,6 +6,7 @@ import { ContentContainer } from './styles';
 // Componentes modulares
 import Hero from './components/Hero';
 import About from './components/About';
+import VideoSection from './components/VideoSection';
 import Features from './components/Features';
 
 // Hooks e utilitários
@@ -29,6 +30,7 @@ const Home = () => {
       <ContentContainer>
         <Hero lang={lang} />
         <About fontSizeControls={fontSizeControls} />
+        <VideoSection />
         <Features features={features} />
       </ContentContainer>
   );
