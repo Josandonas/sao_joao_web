@@ -71,13 +71,12 @@ export const ModalContent = styled.div`
     position: absolute;
     top: 15px;
     right: 15px;
-    z-index: 999;
+    z-index: 1001;
   }
 `;
 
 export const Header = styled.div`
   padding: ${props => props.theme.spacing.md};
-  padding-right: 60px; /* Mantém espaço para botão de fechar */
   background: white;
   color: #333;
   position: sticky;
@@ -88,9 +87,16 @@ export const Header = styled.div`
   border-bottom: 1px solid rgba(140, 0, 51, 0.1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    position: relative;
+  }
+  
   @media (max-width: 768px) {
     padding: ${props => props.theme.spacing.md};
-    padding-right: 60px; /* Mantém espaço para botão de fechar */
   }
 `;
 
@@ -177,7 +183,7 @@ export const FontSizeButton = styled.button`
 `;
 
 export const CloseButton = styled.button`
-  font-size: 28px;
+  font-size: 24px;
   font-weight: 700;
   background-color: white;
   border: 2px solid #5f1530;
@@ -185,8 +191,8 @@ export const CloseButton = styled.button`
   cursor: pointer;
   z-index: 10;
   line-height: 1;
-  height: 48px;
-  width: 48px;
+  height: 42px;
+  width: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -194,10 +200,12 @@ export const CloseButton = styled.button`
   box-shadow: 0 3px 10px rgba(140, 0, 51, 0.25);
   transition: all 0.3s ease;
   padding: 0;
+  margin-left: 10px;
+  flex-shrink: 0;
   
   & > svg {
-    width: 28px;
-    height: 28px;
+    width: 24px;
+    height: 24px;
   }
   
   &:hover {
@@ -210,7 +218,7 @@ export const CloseButton = styled.button`
 export const Body = styled.div`
   padding: ${props => props.theme.spacing.lg};
   background-color: #ffffff;
-  font-size: ${props => props.fontScale ? props.fontScale * 1.1 : 1.1}em;
+  font-size: ${props => props['data-fontscale'] ? parseFloat(props['data-fontscale']) * 1.1 : 1.1}em;
   line-height: 1.6;
   transition: all 0.3s ease;
   
@@ -256,11 +264,11 @@ export const Paragraph = styled.p`
   margin-bottom: ${props => props.theme.spacing.md};
   line-height: 1.7;
   text-align: justify;
-  font-size: calc(${props => props.theme.fontSizes.regular} * ${props => props.fontScale || 1});
+  font-size: calc(${props => props.theme.fontSizes.regular} * ${props => props['data-fontscale'] ? parseFloat(props['data-fontscale']) : 1});
   transition: font-size 0.2s ease;
   
   &:first-of-type::first-letter {
-    font-size: calc(${props => props.theme.fontSizes.xxlarge} * ${props => props.fontScale || 1});
+    font-size: calc(${props => props.theme.fontSizes.xxlarge} * ${props => props['data-fontscale'] ? parseFloat(props['data-fontscale']) : 1});
     font-weight: ${props => props.theme.fontWeights.bold};
     color: #5f1530;
     padding-right: 4px;

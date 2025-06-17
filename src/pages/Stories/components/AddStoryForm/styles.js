@@ -225,10 +225,10 @@ export const TabContainer = styled.div`
 `;
 
 export const TabButton = styled.button`
-  background: ${props => props.active ? 'linear-gradient(135deg, #5f1530, #b5003e)' : 'transparent'};
-  color: ${props => props.active ? 'white' : props.theme.colors.text};
-  border: ${props => props.active ? 'none' : `1px solid ${props.theme.colors.lightGray}`};
-  box-shadow: ${props => props.active ? '0 4px 8px rgba(140, 0, 51, 0.2)' : 'none'};
+  background: ${props => props['data-active'] === 'true' ? 'linear-gradient(135deg, #5f1530, #b5003e)' : 'transparent'};
+  color: ${props => props['data-active'] === 'true' ? 'white' : props.theme.colors.text};
+  border: ${props => props['data-active'] === 'true' ? 'none' : `1px solid ${props.theme.colors.lightGray}`};
+  box-shadow: ${props => props['data-active'] === 'true' ? '0 4px 8px rgba(140, 0, 51, 0.2)' : 'none'};
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.lg};
   border-radius: ${props => `${props.theme.borderRadius.medium} ${props.theme.borderRadius.medium} 0 0`};
   font-weight: ${props => props.theme.fontWeights.medium};
@@ -237,6 +237,6 @@ export const TabButton = styled.button`
   transition: all 0.2s ease;
   
   &:hover {
-    background: ${props => props.active ? 'linear-gradient(135deg, #a00039, #cc0049)' : 'rgba(140, 0, 51, 0.05)'};
+    background: ${props => props['data-active'] === 'true' ? 'linear-gradient(135deg, #a00039, #cc0049)' : 'rgba(140, 0, 51, 0.05)'};
   }
 `;

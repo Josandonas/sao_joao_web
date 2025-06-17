@@ -1,100 +1,82 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import storiesJson from '../data/stories.json';
-import { fetchStoriesFromApi, createStory } from '../../../services/storiesApiService';
+import storiesApiService from '../../../services/storiesApiService';
 
 /**
  * Hook personalizado para gerenciar as histórias e o estado do modal
- * Suporta multilíngue e conteúdo de texto limpo
+ * Suporta multilíngue, integração com API e manutenção dos dados estáticos
  * 
- * @returns {Object} Objeto contendo a lista de histórias, a história selecionada, funções para abrir e fechar o modal
+ * @returns {Object} Objeto contendo a lista de histórias, estados e funções para gerenciar histórias
  */
 export const useStories = () => {
+  const { i18n } = useTranslation();
+  const currentLanguage = i18n.language || 'pt';
+  
+  // Estados principais
   const [stories, setStories] = useState([]);
   const [selectedStory, setSelectedStory] = useState(null);
-  const { i18n } = useTranslation();
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isFormOpen, setIsFormOpen] = useState(false);
+  const [isApiAvailable, setIsApiAvailable] = useState(true);
   
-  // Função para carregar histórias com base no idioma atual
-  const loadStories = useCallback(async () => {
-    // Obter o idioma atual
-    const currentLanguage = i18n.language || 'pt';
-    const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);
+  /**
+   * Verifica se a API está disponível
+   */
+  useEffect(() => {
+    const checkApiAvailability = async () => {
+      try {
+        const available = await storiesApiService.isApiAvailable();
+        setIsApiAvailable(available);
+        console.log('[DEV] API disponível:', available);
+      } catch (err) {
+        console.error('[DEV] Erro ao verificar disponibilidade da API:', err);
+        setIsApiAvailable(false);
+      }
+    };
     
+    checkApiAvailability();
+  }, []);
+  
+  /**
+   * Carrega as histórias combinando dados estáticos e da API
+   */
+  const loadStories = useCallback(async () => {
     try {
       setIsLoading(true);
       setError(null);
       
-      // Tentar buscar histórias da API
-      let apiStories = [];
-      try {
-        apiStories = await fetchStoriesFromApi();
-      } catch (apiError) {
-        console.warn('Erro ao buscar histórias da API, usando dados estáticos como fallback', apiError);
+      // Busca as histórias combinadas (estáticas + API)
+      // Esta função já garante que os dados estáticos serão retornados mesmo se a API falhar
+      const allStories = await storiesApiService.fetchStoriesFromApi(currentLanguage);
+      console.log('[DEV] Histórias carregadas:', allStories.length);
+      
+      if (allStories && allStories.length > 0) {
+        // Processa as histórias para o formato esperado pela UI
+        const processedStories = allStories.map(story => ({
+          ...story,
+          title: story[currentLanguage]?.title || story.pt?.title || story.title,
+          author: story[currentLanguage]?.author || story.pt?.author || story.author || '',
+          excerpt: story[currentLanguage]?.excerpt || story.pt?.excerpt || story.excerpt || '',
+          content: story[currentLanguage]?.content || story.pt?.content || story.content,
+          // Marca a origem da história (estática ou API)
+          source: story.source || 'api'
+        }));
+        
+        setStories(processedStories);
+      } else {
+        console.warn('[DEV] Nenhuma história retornada');
+        setStories([]);
       }
-      
-      // Se não conseguiu dados da API, usar dados estáticos como fallback
-      const storiesData = apiStories.length > 0 ? apiStories : storiesJson.stories;
-      
-      // Processar histórias conforme o formato (API ou estático)
-      const translatedStories = storiesData.map(story => {
-        // Para histórias da API (já têm campos por idioma)
-        if (story.pt && story.en && story.es) {
-          return {
-            ...story,
-            title: story[currentLanguage]?.title || story.pt.title,
-            content: story[currentLanguage]?.content || story.pt.content,
-            excerpt: story[currentLanguage]?.excerpt || story.pt.excerpt,
-            autor: story[currentLanguage]?.author || story.pt.author
-          };
-        }
-        
-        // Para histórias do formato estático
-        const translatedStory = { ...story };
-        
-        // Se o idioma não for português e existir tradução, aplicar
-        if (currentLanguage !== 'pt' && story.translations && story.translations[currentLanguage]) {
-          const translation = story.translations[currentLanguage];
-          
-          // Aplicar campos traduzidos, mantendo os campos em português como fallback
-          translatedStory.title = translation.title || story.title;
-          translatedStory.content = translation.content || story.content;
-          translatedStory.excerpt = translation.excerpt || story.excerpt;
-          translatedStory.autor = translation.autor || story.autor;
-        }
-        
-        return translatedStory;
-      });
-      
-      setStories(translatedStories);
     } catch (err) {
-      console.error('Erro ao carregar histórias:', err);
-      setError('Erro ao carregar histórias. Por favor, tente novamente mais tarde.');
-      
-      // Em caso de erro, tentar usar os dados estáticos como último recurso
-      const staticStories = storiesJson.stories.map(story => {
-        // Iniciar com os dados em português como fallback
-        const translatedStory = { ...story };
-        
-        // Se o idioma não for português e existir tradução, aplicar
-        if (currentLanguage !== 'pt' && story.translations && story.translations[currentLanguage]) {
-          const translation = story.translations[currentLanguage];
-          
-          // Aplicar campos traduzidos, mantendo os campos em português como fallback
-          translatedStory.title = translation.title || story.title;
-          translatedStory.content = translation.content || story.content;
-          translatedStory.excerpt = translation.excerpt || story.excerpt;
-          translatedStory.autor = translation.autor || story.autor;
-        }
-        
-        return translatedStory;
-      });
-      
-      setStories(staticStories);
+      console.error('[DEV] Erro ao carregar histórias:', err);
+      // Não exibimos o erro para o usuário final, apenas para desenvolvedores no console
+      setError('Não foi possível carregar as histórias.');
     } finally {
       setIsLoading(false);
     }
-  }, [i18n.language]);
+  }, [currentLanguage]);
   
   // Carregar histórias quando o componente montar ou o idioma mudar
   useEffect(() => {
@@ -107,52 +89,193 @@ export const useStories = () => {
    */
   const openStoryModal = (story) => {
     setSelectedStory(story);
+    setIsModalOpen(true);
   };
   
   /**
    * Fecha o modal da história
    */
   const closeStoryModal = () => {
-    setSelectedStory(null);
+    setIsModalOpen(false);
+    // Pequeno atraso para a animação de fechamento completar antes de limpar os dados
+    setTimeout(() => setSelectedStory(null), 300);
+  };
+  
+  /**
+   * Abre o formulário para adicionar nova história
+   */
+  const openAddStoryForm = () => {
+    setIsFormOpen(true);
+  };
+  
+  /**
+   * Fecha o formulário de adicionar história
+   */
+  const closeAddStoryForm = () => {
+    setIsFormOpen(false);
   };
   
   /**
    * Adiciona uma nova história
-   * @param {Object} newStory - Dados da nova história
+   * @param {Object} storyData - Dados da nova história
    * @returns {Promise<Object>} A história adicionada com ID gerado pela API
    */
-  const addStory = async (newStory) => {
+  const addStory = async (storyData) => {
     try {
-      // Enviar a história para a API
-      const savedStory = await createStory(newStory);
+      if (!isApiAvailable) {
+        throw new Error('A API não está disponível no momento. Tente novamente mais tarde.');
+      }
       
-      // Processar a história salva para o formato de exibição
-      const currentLanguage = i18n.language || 'pt';
-      const processedStory = {
+      // Envia para a API
+      const savedStory = await storiesApiService.createStory(storyData, currentLanguage);
+      
+      // Adiciona a nova história ao estado local com os campos traduzidos
+      const newStory = {
         ...savedStory,
-        title: savedStory[currentLanguage]?.title || savedStory.pt.title,
-        content: savedStory[currentLanguage]?.content || savedStory.pt.content,
-        excerpt: savedStory[currentLanguage]?.excerpt || savedStory.pt.excerpt,
-        autor: savedStory[currentLanguage]?.author || savedStory.pt.author
+        title: savedStory[currentLanguage]?.title || savedStory.pt?.title || savedStory.title,
+        author: savedStory[currentLanguage]?.author || savedStory.pt?.author || savedStory.author || '',
+        excerpt: savedStory[currentLanguage]?.excerpt || savedStory.pt?.excerpt || savedStory.excerpt || '',
+        content: savedStory[currentLanguage]?.content || savedStory.pt?.content || savedStory.content,
+        source: 'api'
       };
       
-      // Adicionar a história na lista local
-      setStories(prevStories => [processedStory, ...prevStories]);
-      
+      setStories(prevStories => [...prevStories, newStory]);
       console.log('Nova história adicionada com sucesso:', savedStory);
-      return savedStory;
-    } catch (error) {
-      console.error('Erro ao adicionar história:', error);
-      throw error;
+      return newStory;
+    } catch (err) {
+      console.error('Erro ao adicionar história:', err);
+      throw err;
+    }
+  };
+  
+  /**
+   * Atualiza uma história existente
+   * @param {String} id - ID da história a ser atualizada
+   * @param {Object} storyData - Novos dados da história
+   */
+  const updateStory = async (id, storyData) => {
+    try {
+      if (!isApiAvailable) {
+        throw new Error('A API não está disponível no momento. Tente novamente mais tarde.');
+      }
+      
+      // Verifica se a história existe e se é da API (não estática)
+      const existingStory = stories.find(story => story.id === id);
+      if (!existingStory) {
+        throw new Error('História não encontrada.');
+      }
+      
+      if (existingStory.source === 'static') {
+        throw new Error('Não é possível editar histórias do arquivo estático.');
+      }
+      
+      // Envia para a API
+      const updatedStory = await storiesApiService.updateStory(id, storyData, currentLanguage);
+      
+      // Atualiza no estado local
+      const processedStory = {
+        ...updatedStory,
+        title: updatedStory[currentLanguage]?.title || updatedStory.pt?.title || updatedStory.title,
+        author: updatedStory[currentLanguage]?.author || updatedStory.pt?.author || updatedStory.author || '',
+        excerpt: updatedStory[currentLanguage]?.excerpt || updatedStory.pt?.excerpt || updatedStory.excerpt || '',
+        content: updatedStory[currentLanguage]?.content || updatedStory.pt?.content || updatedStory.content,
+        source: 'api'
+      };
+      
+      setStories(prevStories => 
+        prevStories.map(story => story.id === id ? processedStory : story)
+      );
+      
+      return processedStory;
+    } catch (err) {
+      console.error('Erro ao atualizar história:', err);
+      throw err;
+    }
+  };
+  
+  /**
+   * Remove uma história existente
+   * @param {String} id - ID da história a ser removida
+   */
+  const removeStory = async (id) => {
+    try {
+      if (!isApiAvailable) {
+        throw new Error('A API não está disponível no momento. Tente novamente mais tarde.');
+      }
+      
+      // Verifica se a história existe e se é da API (não estática)
+      const existingStory = stories.find(story => story.id === id);
+      if (!existingStory) {
+        throw new Error('História não encontrada.');
+      }
+      
+      if (existingStory.source === 'static') {
+        throw new Error('Não é possível remover histórias do arquivo estático.');
+      }
+      
+      // Remove da API
+      await storiesApiService.deleteStory(id);
+      
+      // Remove do estado local
+      setStories(prevStories => prevStories.filter(story => story.id !== id));
+      
+      return true;
+    } catch (err) {
+      console.error('Erro ao remover história:', err);
+      throw err;
+    }
+  };
+  
+  /**
+   * Busca uma história específica por ID
+   * @param {String} id - ID da história
+   */
+  const getStoryById = async (id) => {
+    try {
+      // Primeiro verifica no estado local
+      const localStory = stories.find(story => story.id === id);
+      if (localStory) {
+        return localStory;
+      }
+      
+      // Se não encontrou no estado local, busca na API
+      const apiStory = await storiesApiService.getStoryById(id, currentLanguage);
+      if (apiStory) {
+        // Processa a história para o formato esperado pela UI
+        return {
+          ...apiStory,
+          title: apiStory[currentLanguage]?.title || apiStory.pt?.title || apiStory.title,
+          author: apiStory[currentLanguage]?.author || apiStory.pt?.author || apiStory.author || '',
+          excerpt: apiStory[currentLanguage]?.excerpt || apiStory.pt?.excerpt || apiStory.excerpt || '',
+          content: apiStory[currentLanguage]?.content || apiStory.pt?.content || apiStory.content,
+          source: apiStory.source || 'api'
+        };
+      }
+      
+      return null;
+    } catch (err) {
+      console.error(`Erro ao buscar história ID ${id}:`, err);
+      return null;
     }
   };
   
   return {
     stories,
     selectedStory,
+    isLoading,
+    error,
+    isModalOpen,
+    isFormOpen,
+    isApiAvailable,
     openStoryModal,
     closeStoryModal,
+    openAddStoryForm,
+    closeAddStoryForm,
     addStory,
-    loadStories
+    updateStory,
+    removeStory,
+    getStoryById,
+    loadStories,
+    currentLanguage
   };
 };

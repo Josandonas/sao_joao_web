@@ -181,7 +181,7 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
         <TabContainer>
           <TabButton 
             type="button" 
-            active={activeTab === 'pt'} 
+            data-active={(activeTab === 'pt').toString()} 
             onClick={() => handleTabChange('pt')}
           >
             Português
@@ -190,14 +190,14 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
             <>
               <TabButton 
                 type="button" 
-                active={activeTab === 'en'} 
+                data-active={(activeTab === 'en').toString()} 
                 onClick={() => handleTabChange('en')}
               >
                 English
               </TabButton>
               <TabButton 
                 type="button" 
-                active={activeTab === 'es'} 
+                data-active={(activeTab === 'es').toString()} 
                 onClick={() => handleTabChange('es')}
               >
                 Español

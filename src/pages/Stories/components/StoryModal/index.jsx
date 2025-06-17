@@ -130,15 +130,13 @@ const StoryModal = ({ story, onClose }) => {
   return (
     <Modal>
       <ModalContent>
-        {/* Wrapper para o botão de fechar com posição absoluta */}
-        <div className="close-btn-wrapper">
-          <CloseButton onClick={onClose} title="Fechar (Esc)">
-            <FaTimes />
-          </CloseButton>
-        </div>
-
         <Header>
-          <Title>{story.title}</Title>
+          <div className="header-content">
+            <Title>{story.title}</Title>
+            <CloseButton onClick={onClose} title="Fechar (Esc)">
+              <FaTimes />
+            </CloseButton>
+          </div>
           
           {/* Informação do autor e data */}
           {(story.author || story.autor || storyDate) && (
@@ -154,7 +152,7 @@ const StoryModal = ({ story, onClose }) => {
           )}
           
           {/* Controles de fonte separados abaixo do título e autor */}
-          <ControlsContainer fontScale={fontScale}>
+          <ControlsContainer data-fontscale={fontScale.toString()}>
             <FontSizeControl>
               <FontSizeButton 
                 onClick={decreaseFontSize} 
@@ -180,9 +178,9 @@ const StoryModal = ({ story, onClose }) => {
           </ControlsContainer>
         </Header>
         
-        <Body fontScale={fontScale} style={{ fontSize: `${fontScale}em` }}>
+        <Body data-fontscale={fontScale.toString()} style={{ fontSize: `${fontScale}em` }}>
           {paragraphs.map((paragraph, index) => (
-            <Paragraph key={index} style={{ fontSize: `${fontScale}em` }}>
+            <Paragraph key={index} data-fontscale={fontScale.toString()} style={{ fontSize: `${fontScale}em` }}>
               {paragraph.trim()}
             </Paragraph>
           ))}
