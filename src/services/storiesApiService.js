@@ -6,7 +6,7 @@
 import axios from 'axios';
 
 // URL base da API - substitua pela URL real quando disponível
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'https://api.example.com';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://api.example.com';
 const STORIES_ENDPOINT = '/stories';
 
 // Instância do axios configurada para a API
@@ -26,7 +26,7 @@ const api = axios.create({
 export const fetchStoriesFromApi = async () => {
   try {
     // Em ambiente de desenvolvimento, podemos usar o arquivo de amostra
-    if (process.env.NODE_ENV === 'development' && !process.env.REACT_APP_API_URL) {
+    if (import.meta.env.MODE === 'development' && !import.meta.env.VITE_API_URL) {
       // Importação dinâmica do arquivo de amostra
       const sampleData = await import('../data/api_stories_sample.json');
       return sampleData.stories || [];
@@ -40,7 +40,7 @@ export const fetchStoriesFromApi = async () => {
     
     // Em caso de erro, tenta usar o arquivo de amostra como fallback
     try {
-      if (process.env.NODE_ENV === 'development') {
+      if (import.meta.env.MODE === 'development') {
         const sampleData = await import('../data/api_stories_sample.json');
         console.warn('Usando dados de amostra devido a erro na API');
         return sampleData.stories || [];
@@ -61,7 +61,7 @@ export const fetchStoriesFromApi = async () => {
 export const createStory = async (storyData) => {
   try {
     // Em ambiente de desenvolvimento sem API, simula o cadastro
-    if (process.env.NODE_ENV === 'development' && !process.env.REACT_APP_API_URL) {
+    if (import.meta.env.MODE === 'development' && !import.meta.env.VITE_API_URL) {
       // Simula um atraso de rede
       await new Promise(resolve => setTimeout(resolve, 800));
       
@@ -99,7 +99,7 @@ export const createStory = async (storyData) => {
 export const updateStory = async (id, storyData) => {
   try {
     // Em ambiente de desenvolvimento sem API, simula a atualização
-    if (process.env.NODE_ENV === 'development' && !process.env.REACT_APP_API_URL) {
+    if (import.meta.env.MODE === 'development' && !import.meta.env.VITE_API_URL) {
       await new Promise(resolve => setTimeout(resolve, 800));
       
       const storedStories = localStorage.getItem('api_stories_sample') || '[]';
@@ -139,7 +139,7 @@ export const updateStory = async (id, storyData) => {
 export const deleteStory = async (id) => {
   try {
     // Em ambiente de desenvolvimento sem API, simula a exclusão
-    if (process.env.NODE_ENV === 'development' && !process.env.REACT_APP_API_URL) {
+    if (import.meta.env.MODE === 'development' && !import.meta.env.VITE_API_URL) {
       await new Promise(resolve => setTimeout(resolve, 800));
       
       const storedStories = localStorage.getItem('api_stories_sample') || '[]';

@@ -13,7 +13,7 @@ export {
 
 // Exportar configurações comuns de API
 export const API_CONFIG = {
-  BASE_URL: process.env.REACT_APP_API_URL || 'https://api.example.com',
+  BASE_URL: import.meta.env.VITE_API_URL || 'https://api.example.com',
   TIMEOUT: 10000,
   DEFAULT_HEADERS: {
     'Content-Type': 'application/json',
