@@ -7,6 +7,7 @@ import './utils/i18n'; // Importa a configuração de i18n
 // Importação do Bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles/bootstrap-custom.css';
+import './styles/bootstrap-carousel-custom.css'; // Novos estilos personalizados para o carrossel do Bootstrap
 import "react-image-gallery/styles/css/image-gallery.css";
 import "./styles/customGallery.css"; // Estilos personalizados para o ImageGallery com ícone de fogueira
 import './styles/global.css';
