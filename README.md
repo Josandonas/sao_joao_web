@@ -4,6 +4,70 @@
 
 Esta é uma aplicação web moderna que migra e moderniza o antigo aplicativo "Banho de São João", originalmente desenvolvido como uma aplicação portátil baseada no Firefox Portable. O projeto preserva todo o conteúdo e funcionalidades originais, mas utilizando tecnologias web modernas, arquitetura limpa e princípios de clean code. A aplicação é multilíngue, oferecendo suporte completo a Português, Inglês e Espanhol, e documenta as tradições culturais do Banho de São João na região do Pantanal Sul-Matogrossense.
 
+## Requisitos e Dependências
+
+### Requisitos de Sistema
+- **Node.js**: Compatível com versões de 16.x até 22.x (testado até a versão 22.14.0 no Windows)
+- **npm**: 7.x ou superior (ou yarn 1.22.x ou superior)
+- **Navegadores**: Chrome 90+, Firefox 90+, Safari 14+, Edge 90+
+- **Sistema Operacional**: Windows 10/11, macOS 10.15+, Ubuntu 20.04+ ou distribuições Linux similares
+
+### Dependências Principais
+- **React**: 18.2.0
+- **React DOM**: 18.2.0
+- **React Router DOM**: 6.15.0
+- **Bootstrap**: 5.3.7
+- **React Bootstrap**: 2.10.10
+- **Styled Components**: 6.0.7
+- **i18next**: 23.4.4
+- **React i18next**: 13.0.3
+- **React Icons**: 5.5.0
+- **React Image Gallery**: 1.4.0
+- **Leaflet/React Leaflet**: 1.9.4/4.2.1
+- **Video React**: 0.16.0
+- **Axios**: 1.10.0
+
+### Dependências de Desenvolvimento
+- **Vite**: 4.4.9
+- **ESLint**: 8.47.0
+- **@vitejs/plugin-react**: 4.0.4
+- **TypeScript Types (React)**: 18.2.20
+
+### Instalação e Execução
+
+```bash
+# Clone o repositório
+git clone https://github.com/Prefeitura-de-CorumbaMS/sao_joao_web.git
+cd sao_joao_web
+
+# Instale as dependências
+npm install
+# ou
+yarn install
+
+# Execute o projeto em modo de desenvolvimento
+npm run dev
+# ou
+yarn dev
+
+# Acesse a aplicação em seu navegador
+# http://localhost:3000
+```
+
+### Construção para Produção
+
+```bash
+# Gere a build de produção
+npm run build
+# ou
+yarn build
+
+# Visualize a versão de produção localmente
+npm run preview
+# ou
+yarn preview
+```
+
 ## Tecnologias Utilizadas
 
 - **React 18**: Framework JavaScript para construção de interfaces de usuário
