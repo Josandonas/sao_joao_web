@@ -1,0 +1,172 @@
+/* Estilos personalizados para o Bootstrap */
+
+/* Estilos para o menu mobile */
+@media (max-width: 991px) {
+  .nav-item-mobile {
+    position: relative;
+    margin: 0.35rem 0;
+    border-radius: 4px;
+    overflow: visible; /* Permite que a viola fique visível fora do container */
+    transition: all 0.3s ease;
+  }
+  
+  .nav-item-mobile a {
+    padding-left: 2.5rem !important;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .nav-item-mobile a.active {
+    background-color: #FFC56E;
+    color: #5f1530 !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding-left: 2.5rem !important;
+    border-left: 4px solid #5f1530;
+  }
+  
+  /* Efeito de transição suave para o menu */
+  .navbar-collapse {
+    transition: all 0.35s ease;
+    max-height: 80vh; /* Altura máxima para permitir rolagem */
+    overflow-y: auto; /* Permite rolagem dentro do menu */
+  }
+  
+  /* Garante que o conteúdo da página possa ser rolado mesmo com o menu aberto */
+  body.navbar-open {
+    overflow: auto !important;
+    height: auto !important;
+  }
+  
+  /* Ajusta a altura do menu para não ocupar toda a tela */
+  .mobile-menu-collapse.show {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+  
+  /* Melhorar o espaçamento do menu */
+  .navbar-nav {
+    padding: 0.5rem 0;
+    width: 100%;
+  }
+  
+  /* Estilos para o botão de toggle */
+  .navbar-toggler {
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-toggler:not(.collapsed) {
+    transform: rotate(90deg);
+  }
+}
+
+/* Melhorar o botão de toggle */
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(255, 197, 110, 0.25) !important;
+}
+
+/* Animação para o item selecionado */
+.nav-item-mobile a.active {
+  animation: pulse-bg 2s infinite alternate;
+}
+
+@keyframes pulse-bg {
+  0% {
+    background-color: #FFC56E;
+  }
+  100% {
+    background-color: #ffb84d;
+  }
+}
+
+/* Estilos específicos para o menu mobile */
+.mobile-menu-custom .navbar-toggler:focus {
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(255, 197, 110, 0.25);
+}
+
+/* Ajustes para a viola em dispositivos móveis */
+@media (max-width: 991px) {
+  /* Adiciona um efeito de destaque ao redor do item ativo */
+  .nav-item-mobile:has(a.active) {
+    position: relative;
+  }
+  
+  /* Efeito de transição ao abrir o menu */
+  .mobile-menu-collapse {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .mobile-menu-collapse.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Ajuste fino para o posicionamento da viola */
+  .nav-item-mobile:has(a.active)::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px; /* Tamanho consistente */
+    height: 28px; /* Tamanho consistente */
+    background-image: url('/assets/svg/Viola_Marrom.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 3;
+    filter: brightness(0.8);
+  }
+  
+  /* Corrigir problema de rolagem */
+  body {
+    overflow-y: auto !important;
+    position: relative !important;
+    height: auto !important;
+    overflow-x: hidden !important;
+  }
+  
+  /* Garantir que o menu não bloqueie a rolagem da página */
+  .navbar-collapse {
+    max-height: 60vh;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+    position: absolute;
+    width: 100%;
+    background-color: #5f1530;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+  }
+  
+  /* Garantir que o conteúdo da página não fique preso sob o menu */
+  .mobile-menu-custom {
+    position: relative;
+    z-index: 1000;
+  }
+  
+  /* Ajustar espaçamento para texto longo (Programação Oficial) */
+  .nav-item-mobile a {
+    white-space: normal;
+    word-break: break-word;
+    line-height: 1.2;
+    padding: 0.75rem 1rem !important;
+  }
+  
+  /* Estilos específicos para o item Programação Oficial */
+  .programacao-item {
+    font-size: 0.95rem !important;
+    padding-right: 0.5rem !important;
+    padding-left: 2.5rem !important;
+  }
+  
+  /* Garantir que a viola tenha tamanho consistente para todos os itens */
+  .nav-item-mobile:has(a.active)::before {
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+    min-height: 28px !important;
+  }
+}

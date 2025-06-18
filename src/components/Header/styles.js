@@ -4,12 +4,30 @@ import { Link } from 'react-router-dom';
 export const HeaderContainer = styled.header`
   background-color: #5f1530;
   color: ${props => props.theme.colors.white};
-  padding: ${props => props.theme.spacing.md};
-  display: flex;
-  flex-direction: column; /* Altera para coluna para separar a navegação dos botões de idioma */
-  box-shadow: ${props => props.theme.shadows.medium};
-  position: relative;
-  z-index: 100;
+  padding: ${props => props.theme.spacing.sm} 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  
+  /* Estilos para o botão de toggle do menu mobile */
+  .custom-toggler {
+    border-color: rgba(255, 197, 110, 0.5) !important;
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 197, 110, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 0.25rem rgba(255, 197, 110, 0.25) !important;
+    }
+  }
+  
+  /* Animação para o menu mobile */
+  .navbar-collapse {
+    transition: all 0.3s ease-in-out;
+  }
+  
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     flex-direction: column;
   }
@@ -69,6 +87,28 @@ const navLinkStyles = `
     transform: translateY(-2px);
     font-weight: 700;
   }
+  
+  /* Estilos responsivos para dispositivos móveis */
+  @media (max-width: 991px) {
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
+    width: 100%;
+    text-align: left;
+    font-size: 1rem;
+    border-radius: 4px;
+    
+    &.active {
+      padding-left: 2.5rem; /* Espaço para a viola */
+      transform: none;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #FFC56E;
+    }
+    
+    &:hover {
+      transform: none;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
 `;
 
 export const NavItem = styled.div`
@@ -81,15 +121,25 @@ export const NavItem = styled.div`
   align-items: center;
   transition: all 0.3s ease;
   
-  /* Adiciona o ícone de viola acima do item ativo */
+  /* Estilos responsivos para dispositivos móveis */
+  @media (max-width: 991px) { /* Bootstrap lg breakpoint */
+    width: 100%;
+    margin: 0.25rem 0;
+    flex-direction: row;
+    justify-content: center;
+    min-width: auto;
+    padding: 0.25rem 0;
+  }
+  
+  /* Adiciona o ícone de viola acima do item ativo em desktop e ao lado em mobile */
   &::before {
     content: '';
     position: absolute;
-    bottom: calc(100% + 0px); /* Posiciona logo acima do item, com 5px de espaço */
+    bottom: calc(100% + 0px); /* Posiciona logo acima do item em desktop */
     left: 50%;
     transform: translateX(-50%); /* Centraliza horizontalmente */
-    width: 150%; /* Mantém o tamanho ajustado */
-    height: 150%; /* Mantém o tamanho ajustado */
+    width: 150%; /* Tamanho para desktop */
+    height: 150%; /* Tamanho para desktop */
     background-image: url('/assets/svg/Viola_Marrom.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -98,7 +148,17 @@ export const NavItem = styled.div`
     transition: all 0.3s ease;
     pointer-events: none;
     filter: drop-shadow(0 2px 4px rgba(255, 197, 110, 0.6)); /* Sombra dourada */
-    /* Removida a animação de flutuação */
+    
+    /* Reposiciona a viola para dispositivos móveis */
+    @media (max-width: 991px) {
+      bottom: auto;
+      left: 0.5rem; /* Posiciona à esquerda do item */
+      top: 50%;
+      transform: translateY(-50%) scale(0.6); /* Centraliza verticalmente e reduz tamanho */
+      width: 30px;
+      height: 30px;
+      z-index: 2; /* Garante que a viola fique acima do fundo */
+    }
   }
   
   /* Adiciona um efeito de brilho atrás do ícone */
@@ -113,6 +173,14 @@ export const NavItem = styled.div`
     opacity: 0;
     transition: all 0.3s ease;
     z-index: -1;
+    
+    /* Reposiciona o brilho para dispositivos móveis */
+    @media (max-width: 991px) {
+      bottom: auto;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+    }
   }
   
   /* Mostra o ícone quando o link está ativo */
@@ -126,6 +194,11 @@ export const NavItem = styled.div`
     width: 28px;
     height: 28px;
     animation: pulseGlow 2s ease-in-out infinite alternate; /* Animação de pulso para o brilho */
+    
+    @media (max-width: 991px) {
+      width: 20px;
+      height: 20px;
+    }
   }
   
   @keyframes pulseGlow {
