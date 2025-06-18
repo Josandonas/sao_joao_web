@@ -49,6 +49,12 @@ export const Title = styled.h3`
   margin: 0;
   line-height: 1.4;
   
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: ${props => props.theme.fontSizes.medium};
+    padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.sm} 
+             ${props => props.theme.spacing.xs};
+  }
+  
   &::after {
     content: '→';
     position: absolute;
@@ -76,6 +82,12 @@ export const Excerpt = styled.p`
   flex-grow: 1;
   position: relative;
   overflow: hidden;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.sm};
+    font-size: ${props => props.theme.fontSizes.small};
+    line-height: 1.5;
+  }
   
   &::after {
     content: '';

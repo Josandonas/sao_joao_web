@@ -5,12 +5,22 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   gap: ${props => props.theme.spacing.lg};
   
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: ${props => props.theme.spacing.md};
+  }
+  
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: ${props => props.theme.spacing.md};
   }
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: ${props => props.theme.spacing.sm};
+  }
+  
+  @media (max-width: 480px) {
     grid-template-columns: 1fr;
   }
   

@@ -7,6 +7,10 @@ export const Container = styled.div`
   background-color: rgba(255, 255, 255, 0.7);
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    padding: ${props => props.theme.spacing.lg} 0;
+    padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.md};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.md} ${props => props.theme.spacing.sm};
   }
 `;

@@ -30,6 +30,13 @@ export const Modal = styled.div`
   padding: ${props => props.theme.spacing.md};
   animation: ${fadeIn} 0.3s ease;
   backdrop-filter: blur(5px);
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.xs};
+    align-items: flex-start;
+    overflow-y: auto;
+    padding-top: 20px;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -44,6 +51,12 @@ export const ModalContent = styled.div`
   flex-direction: column;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   animation: ${modalFadeIn} 0.4s ease-out;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 95%;
+    max-height: 85vh;
+    margin-top: 10px;
+  }
   
   &::-webkit-scrollbar {
     width: 10px;
@@ -86,17 +99,27 @@ export const Header = styled.div`
   z-index: 1;
   border-bottom: 1px solid rgba(140, 0, 51, 0.1);
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  position: relative;
   
   .header-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    width: 100%;
-    position: relative;
   }
   
-  @media (max-width: 768px) {
-    padding: ${props => props.theme.spacing.md};
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.sm};
+    
+    .header-content {
+      position: relative;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      padding-right: 50px; /* Espaço para o botão de fechar */
+    }
   }
 `;
 
@@ -116,6 +139,18 @@ export const Title = styled.h2`
   }
 `;
 
+export const FontControls = styled.div`
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing.sm};
+  margin-top: ${props => props.theme.spacing.sm};
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    flex-wrap: wrap;
+    gap: ${props => props.theme.spacing.xs};
+  }
+`;
+
 export const ControlsContainer = styled.div`
   display: flex;
   align-items: center;
@@ -126,6 +161,12 @@ export const ControlsContainer = styled.div`
   border-top: 1px solid rgba(140, 0, 51, 0.1);
   position: relative;
   z-index: 5;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: ${props => props.theme.spacing.xs};
+  }
 `;
 
 export const FontSizeControl = styled.div`
@@ -137,6 +178,11 @@ export const FontSizeControl = styled.div`
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
   margin-left: auto; /* Empurra para a direita */
   border: 1px solid rgba(140, 0, 51, 0.15);
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    margin-left: 0; /* Centraliza em telas pequenas */
+    margin: 0 auto;
+  }
 `;
 
 export const FontSizeButton = styled.button`
@@ -222,8 +268,13 @@ export const Body = styled.div`
   line-height: 1.6;
   transition: all 0.3s ease;
   
-  @media (max-width: 768px) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     padding: ${props => props.theme.spacing.md};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.sm};
+    font-size: ${props => props['data-fontscale'] ? parseFloat(props['data-fontscale']) * 1 : 1}em;
   }
   
   @media print {

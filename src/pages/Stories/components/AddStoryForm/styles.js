@@ -33,6 +33,13 @@ export const Modal = styled.div`
   z-index: 1000;
   animation: ${fadeIn} 0.3s ease-out;
   padding: ${props => props.theme.spacing.md};
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.xs};
+    align-items: flex-start;
+    overflow-y: auto;
+    padding-top: 20px;
+  }
 `;
 
 export const FormContainer = styled.form`
@@ -46,6 +53,16 @@ export const FormContainer = styled.form`
   position: relative;
   box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
   animation: ${slideUp} 0.4s ease-out;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: ${props => props.theme.spacing.lg};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.md};
+    max-height: 90vh;
+    border-radius: ${props => props.theme.borderRadius.medium};
+  }
   
   &::-webkit-scrollbar {
     width: 8px;
@@ -74,6 +91,17 @@ export const FormTitle = styled.h2`
   margin-bottom: ${props => props.theme.spacing.xl};
   position: relative;
   text-align: center;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: ${props => props.theme.fontSizes.xlarge};
+    margin-bottom: ${props => props.theme.spacing.lg};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: ${props => props.theme.fontSizes.large};
+    margin-bottom: ${props => props.theme.spacing.md};
+    padding-right: 30px; /* Espaço para o botão de fechar */
+  }
   
   &::after {
     content: '';
@@ -142,6 +170,16 @@ export const ButtonGroup = styled.div`
   justify-content: flex-end;
   gap: ${props => props.theme.spacing.md};
   margin-top: ${props => props.theme.spacing.xl};
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    margin-top: ${props => props.theme.spacing.lg};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    flex-direction: column-reverse;
+    gap: ${props => props.theme.spacing.sm};
+    margin-top: ${props => props.theme.spacing.md};
+  }
 `;
 
 export const Button = styled.button`
@@ -222,6 +260,12 @@ export const TabContainer = styled.div`
   border-bottom: 1px solid ${props => props.theme.colors.lightGray};
   margin-bottom: ${props => props.theme.spacing.lg};
   gap: ${props => props.theme.spacing.sm};
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    margin-bottom: ${props => props.theme.spacing.md};
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 `;
 
 export const TabButton = styled.button`
@@ -235,6 +279,17 @@ export const TabButton = styled.button`
   cursor: pointer;
   margin-bottom: -1px;
   transition: all 0.2s ease;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+    font-size: ${props => props.theme.fontSizes.small};
+    margin: 0 2px -1px;
+    flex-grow: 1;
+  }
   
   &:hover {
     background: ${props => props['data-active'] === 'true' ? 'linear-gradient(135deg, #a00039, #cc0049)' : 'rgba(140, 0, 51, 0.05)'};
