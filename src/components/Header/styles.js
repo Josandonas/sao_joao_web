@@ -135,11 +135,11 @@ export const NavItem = styled.div`
   &::before {
     content: '';
     position: absolute;
-    bottom: calc(100% + 0px); /* Posiciona logo acima do item em desktop */
+    bottom: calc(100% + 10px); /* Posiciona acima do item em desktop com espaço fixo */
     left: 50%;
     transform: translateX(-50%); /* Centraliza horizontalmente */
-    width: 150%; /* Tamanho para desktop */
-    height: 150%; /* Tamanho para desktop */
+    width: 80px; /* Tamanho fixo para desktop */
+    height: 80px; /* Tamanho fixo para desktop */
     background-image: url('/assets/svg/Viola_Marrom.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -165,9 +165,11 @@ export const NavItem = styled.div`
   &::after {
     content: '';
     position: absolute;
-    bottom: calc(100% + 25px); /* Posicionado em relação ao item, alinhado com o ícone */
+    bottom: calc(100% + 20px); /* Posicionado em relação ao item, alinhado com o ícone */
     left: 50%;
     transform: translateX(-50%);
+    width: 28px; /* Tamanho fixo para o brilho */
+    height: 28px; /* Tamanho fixo para o brilho */
     background: radial-gradient(circle, rgba(255, 197, 110, 0.6) 0%, rgba(255, 197, 110, 0) 70%);
     border-radius: 50%;
     opacity: 0;
@@ -191,8 +193,6 @@ export const NavItem = styled.div`
   /* Mostra o efeito de brilho quando o link está ativo */
   &:has(a.active)::after {
     opacity: 0.7;
-    width: 28px;
-    height: 28px;
     animation: pulseGlow 2s ease-in-out infinite alternate; /* Animação de pulso para o brilho */
     
     @media (max-width: 991px) {
@@ -204,6 +204,17 @@ export const NavItem = styled.div`
   @keyframes pulseGlow {
     0% { transform: translateX(-50%) scale(1); opacity: 0.5; }
     100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
+  }
+  
+  /* Ajuste específico para o item Programação Oficial que pode quebrar em duas linhas */
+  &:has(a.programacao-item) {
+    &::before {
+      bottom: calc(100% + 10px); /* Mantém a posição consistente */
+    }
+    
+    &::after {
+      bottom: calc(100% + 20px); /* Mantém a posição consistente */
+    }
   }
   
   /* Efeito hover para o ícone */
