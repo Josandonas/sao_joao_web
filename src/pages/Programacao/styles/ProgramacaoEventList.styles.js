@@ -8,6 +8,11 @@ export const EventListContainer = styled.div`
   
   @media (max-width: 1024px) {
     margin-top: 0;
+    padding-right: 0;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 0 0.5rem;
   }
 `;
 
@@ -52,6 +57,13 @@ export const DayHeader = styled.h3`
   
   @media (max-width: 768px) {
     font-size: ${({ theme }) => theme.fontSizes.medium};
+    margin: 1.5rem 0 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
+    margin: 1rem 0 0.75rem;
+    padding-bottom: 0.3rem;
   }
 `;
 
@@ -62,6 +74,11 @@ export const EventsGrid = styled.div`
   
   @media (max-width: 768px) {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.75rem;
   }
 `;
 
@@ -96,6 +113,16 @@ export const EventCard = styled.div`
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
+  
+  @media (max-width: 768px) {
+    padding: 1.25rem;
+    border-radius: 10px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    border-radius: 8px;
+  }
 `;
 
 // Componente com animação para os cards de eventos
@@ -118,6 +145,11 @@ export const EventTitle = styled.h4`
   font-weight: ${({ theme }) => theme.fontWeights.bold};
   color: ${({ theme }) => theme.colors.text || '#333'};
   margin-bottom: 0.75rem;
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
 `;
 
 export const EventTime = styled.div`
@@ -165,4 +197,15 @@ export const NoEventsMessage = styled.div`
   border-radius: 8px;
   margin: 1rem 0;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
 `;

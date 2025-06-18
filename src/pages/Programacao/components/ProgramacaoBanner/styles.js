@@ -11,69 +11,179 @@ export const BannerSection = styled.section`
   overflow: hidden;
   width: 100%;
   
+  @media (max-width: 1024px) {
+    height: 300px;
+  }
+  
   @media (max-width: 768px) {
     height: 200px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 180px;
   }
 `;
 
 export const CarouselContainer = styled.div`
   width: 100%;
-  height: 100%;
+  height: 500px;
   z-index: 1;
+  position: relative;
+  touch-action: pan-y; /* Melhora o comportamento de toque em dispositivos móveis */
   
-  .image-gallery {
+  .carousel {
     width: 100%;
     height: 100%;
   }
   
-  .image-gallery-slide {
+  .carousel-inner {
     width: 100%;
     height: 100%;
   }
   
-  .image-gallery-image {
+  .carousel-item {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .carousel-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
   }
   
-  .image-gallery-bullets {
-    bottom: 20px;
-    z-index: 4;
-  }
-  
-  .image-gallery-bullets .image-gallery-bullet {
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    margin: 0 5px;
-
-    transition: all 0.2s ease;
-  }
-  
-  .image-gallery-bullets .image-gallery-bullet.active {
-    background-color: #FF5F00;
-    transform: scale(1.3);
-  }
-  
-  .image-gallery-left-nav, .image-gallery-right-nav {
-    color: white;
-    font-size: 3.5em;
-    z-index: 4;
-    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+  /* Estilizando os controles de navegação */
+  .carousel-control-prev, .carousel-control-next {
+    width: 10%;
     opacity: 0.7;
+    z-index: 4;
   }
   
-  /* Adicionar um overlay sutil para melhorar o contraste com os controles */
-  &::after {
-    content: '';
-    top: 0;
-    left: 0;
+  .carousel-control-prev-icon, .carousel-control-next-icon {
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.7));
+  }
+  
+  /* Ajustes responsivos */
+  @media (max-width: 768px) {
+    .carousel-control-prev, .carousel-control-next {
+      width: 15%;
+    }
+  }
+  
+  /* Fallback para quando as imagens estão carregando */
+  .fallback-banner {
     width: 100%;
     height: 100%;
-    pointer-events: none;
-    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f0f0f0;
+    color: #666;
+    font-size: 1.2rem;
   }
 `;
 
-// Estilos de overlay removidos conforme solicitado
+// Componente para os indicadores personalizados com ícones SVG
+export const CustomCarouselIndicators = styled.div`
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  z-index: 20; /* Aumentado para garantir que fique acima de outros elementos */
+  display: flex;
+  justify-content: center;
+  margin-right: 15%;
+  margin-left: 15%;
+  margin-bottom: 0.5rem;
+  list-style: none;
+  pointer-events: auto;
+  touch-action: manipulation; /* Melhora a resposta ao toque */
+  
+  .custom-indicator {
+    width: 26px;
+    height: 26px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url('/assets/svg/fire_bom.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: all 0.3s ease;
+    }
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background-image: url('/assets/svg/fire-wood_color.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    
+    &.active {
+      transform: scale(1.2);
+      background-color: rgba(255, 255, 255, 1);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+      
+      &::before {
+        opacity: 1;
+      }
+      
+      &::after {
+        opacity: 0;
+      }
+    }
+    
+    &:hover {
+      transform: scale(1.1);
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+    
+    &:focus {
+      outline: none;
+    }
+  }
+  
+  /* Ajustes responsivos para os indicadores personalizados */
+  @media (max-width: 768px) {
+    bottom: 10px;
+    
+    .custom-indicator {
+      width: 24px;
+      height: 24px;
+      margin: 0 4px;
+      
+      &::after,
+      &::before {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+  
+  /* Ocultar os indicadores em dispositivos móveis (smartphones) */
+  @media (max-width: 480px) {
+    display: none;
+  }
+`;
+
