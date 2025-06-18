@@ -33,7 +33,7 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
   return (
     <ModalOverlay>
       <ModalContent>
-        <CloseButton onClick={onClose}><FaTimes /></CloseButton>
+        <CloseButton onClick={onClose}><FaTimes size={24} /></CloseButton>
         
         <ModalHeader>
           <h2>{postcard.titleKey ? t(postcard.titleKey) : postcard.title}</h2>

@@ -8,6 +8,7 @@ export const FiltersContainer = styled.div`
   margin: 0 auto 2.5rem;
   padding: 1rem 1.5rem;
   max-width: 900px;
+  width: 95%;
   background: linear-gradient(135deg, rgba(140, 0, 51, 0.8), rgba(120, 0, 42, 0.7));
   border-radius: 50px;
   box-shadow: 0 4px 15px rgba(140, 0, 51, 0.2);
@@ -30,6 +31,14 @@ export const FiltersContainer = styled.div`
     margin: 0 auto 1.5rem;
     padding: 0.8rem 1rem;
     border-radius: 40px;
+    gap: 8px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.7rem 0.8rem;
+    border-radius: 30px;
+    gap: 6px;
+    margin: 0 auto 1.2rem;
   }
 `;
 
@@ -83,6 +92,15 @@ export const FilterButton = styled(Button)`
     padding: 0.5rem 0.9rem;
     min-width: auto;
   }
+  
+  @media (max-width: 480px) {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: ${props => props.isActive ? '0 3px 8px rgba(140, 0, 51, 0.3)' : '0 1px 5px rgba(0, 0, 0, 0.1)'};
+  }
 `;
+
 
 

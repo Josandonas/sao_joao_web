@@ -32,11 +32,19 @@ export const PostcardItemContainer = styled.div`
       opacity: 1;
     }
   }
+  
+  @media (max-width: 768px) {
+    height: 280px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 250px;
+  }
 `;
 
 export const PostcardImage = styled.img`
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
   display: block;
@@ -61,6 +69,15 @@ export const PostcardOverlay = styled.div`
   min-height: 25%;
   display: flex;
   align-items: flex-end;
+  
+  @media (max-width: 768px) {
+    padding: 20px 15px 15px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 15px 12px 12px;
+    min-height: 30%;
+  }
 `;
 
 export const PostcardTitle = styled.h3`
@@ -89,5 +106,37 @@ export const PostcardTitle = styled.h3`
   
   ${PostcardItemContainer}:hover &:after {
     width: 80px;
+  }
+  
+  @media (max-width: 992px) {
+    font-size: 1.25rem;
+  }
+  
+  @media (max-width: 768px) {
+    font-size: 1.15rem;
+    padding-bottom: 8px;
+    
+    &:after {
+      width: 50px;
+      height: 2px;
+    }
+    
+    ${PostcardItemContainer}:hover &:after {
+      width: 65px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1rem;
+    padding-bottom: 6px;
+    letter-spacing: 0.5px;
+    
+    &:after {
+      width: 40px;
+    }
+    
+    ${PostcardItemContainer}:hover &:after {
+      width: 55px;
+    }
   }
 `;

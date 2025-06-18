@@ -320,6 +320,24 @@
         "description": "Músico tocando a tradicional viola de cocho, instrumento característico do Pantanal, feito de tronco escavado.",
         "author": "José Silveira"
       },
+      "10": {
+        "title": "Altar Tradicional",
+        "description": "Altar tradicional decorado para as festividades de São João, com velas, flores e símbolos religiosos.",
+        "location": "Corumbá, MS",
+        "author": "Teresa Oliveira"
+      },
+      "11": {
+        "title": "Ritual do Banho",
+        "description": "Momento do ritual do banho nas águas do rio, tradição central da celebração de São João Batista.",
+        "location": "Rio Paraguai, Corumbá, MS",
+        "author": "Ricardo Santos"
+      },
+      "12": {
+        "title": "Festa na Margem do Rio",
+        "description": "Celebração festiva às margens do rio, com música, dança e rituais tradicionais do Banho de São João.",
+        "location": "Porto Geral, Corumbá, MS",
+        "author": "Marina Costa"
+      },
       "13": {
         "title": "Mastro de São João",
         "description": "O tradicional mastro erguido durante as festividades de São João, decorado com oferendas e símbolos sagrados.",
