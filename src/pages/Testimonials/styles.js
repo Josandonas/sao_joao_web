@@ -3,15 +3,21 @@ import styled from 'styled-components';
 /**
  * Container principal da página de depoimentos
  * Usado apenas pelo componente principal (index.jsx)
+ * Atualizado com classes Bootstrap para responsividade
  */
 export const Container = styled.div`
-  padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.lg};
   width: 100%;
   margin: 0 auto;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #f9f9f9; /* Fundo branco claro para toda a página */
+  min-height: 100vh; /* Garantir que ocupe toda a altura da viewport */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Sombra sutil para destacar a página */
   
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    padding: ${props => props.theme.spacing.lg} 0;
+  /* Padding já é gerenciado pelas classes do Bootstrap py-4 py-md-5 */
+  
+  /* Estilos específicos para dispositivos móveis */
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 `;
 

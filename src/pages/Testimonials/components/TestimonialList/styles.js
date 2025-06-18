@@ -1,30 +1,31 @@
 import styled, { keyframes } from 'styled-components';
 
-export const TestimonialsGrid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+/**
+ * Container para a lista de depoimentos
+ * Agora usa o sistema de grid do Bootstrap para responsividade
+ */
+export const TestimonialsContainer = styled.div`
   margin-top: 2rem;
   
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-  
-  @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    grid-template-columns: 1fr;
-  }
+  /* As classes do Bootstrap Row e Col substituem o grid CSS anterior */
 `;
 
 export const TestimonialCard = styled.div`
   background-color: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%; /* Garante altura consistente */
+  display: flex;
+  flex-direction: column;
   
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    margin-bottom: 1rem;
   }
 `;
 
@@ -33,10 +34,17 @@ export const TestimonialImage = styled.img`
   height: 200px;
   object-fit: cover;
   border-bottom: 3px solid #5f1530;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    height: 180px;
+  }
 `;
 
 export const TestimonialContent = styled.div`
   padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 `;
 
 export const TestimonialName = styled.h3`
@@ -58,7 +66,11 @@ export const TestimonialQuote = styled.p`
   line-height: 1.6;
   color: #555;
   margin-bottom: 1.2rem;
-  min-height: 100px;
+  flex: 1;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    font-size: 0.9rem;
+  }
 `;
 
 export const TestimonialVideo = styled.button`
@@ -85,6 +97,13 @@ export const TestimonialVideo = styled.button`
   &:hover {
     background-color: #6c0026;
     box-shadow: 0 4px 8px rgba(140, 0, 51, 0.3);
+    color: white;
+    text-decoration: none;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 0.85rem;
+    padding: 0.5rem 1rem;
   }
 `;
 

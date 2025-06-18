@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
+import { Modal } from 'react-bootstrap';
 import {
   VideoModal,
   ModalContent,
@@ -12,7 +13,7 @@ import {
 
 /**
  * Componente para exibir o modal de vídeo do depoimento
- * Agora com suporte a vídeos em diferentes idiomas
+ * Agora com suporte a vídeos em diferentes idiomas e responsivo com Bootstrap
  */
 const TestimonialVideoModal = ({ testimonial, videoRef, onClose }) => {
   const { t } = useTranslation();
@@ -36,21 +37,24 @@ const TestimonialVideoModal = ({ testimonial, videoRef, onClose }) => {
   const videoUrl = getVideoUrl();
 
   return (
-    <VideoModal onClick={onClose}>
-      <ModalContent onClick={e => e.stopPropagation()}>
-        <CloseButton onClick={onClose}>&times;</CloseButton>
-        <VideoContainer>
+    <VideoModal onClick={onClose} className="d-flex align-items-center justify-content-center">
+      <ModalContent onClick={e => e.stopPropagation()} className="position-relative">
+        <CloseButton onClick={onClose} className="btn-close-custom">&times;</CloseButton>
+        <VideoContainer className="mb-3">
           <video 
             ref={videoRef}
             controls
             width="100%"
+            className="video-player"
             src={videoUrl}
           >
-            {t('testimonials.video.unsupportedBrowser') || 'Seu navegador não suporta a reprodução de vídeos.'}
+            {t('testimonials.video.unsupportedBrowser', 'Seu navegador não suporta a reprodução de vídeos.')}
           </video>
         </VideoContainer>
-        <TestimonialName>{testimonial.name}</TestimonialName>
-        <TestimonialLocation>{testimonial.location}</TestimonialLocation>
+        <div className="px-3 pb-3">
+          <TestimonialName className="mb-1">{testimonial.name}</TestimonialName>
+          <TestimonialLocation>{testimonial.location}</TestimonialLocation>
+        </div>
       </ModalContent>
     </VideoModal>
   );

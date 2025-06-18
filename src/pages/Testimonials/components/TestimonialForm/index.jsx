@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaTimes, FaSpinner, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { Form, Row, Col } from 'react-bootstrap';
 import {
   ModalOverlay,
   ModalContainer,
@@ -122,14 +123,14 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
   return (
     <>
       {/* O botão de gravação foi movido para o header */}
-      <ModalOverlay onClick={toggleForm}>
-        <ModalContainer onClick={(e) => e.stopPropagation()}>
-          <CloseButton onClick={toggleForm}><FaTimes /></CloseButton>
-          <RecordingForm onSubmit={onSubmit}>
-          <FormTitle>{'Registre seu Depoimento'}</FormTitle>
+      <ModalOverlay onClick={toggleForm} className="d-flex align-items-center justify-content-center">
+        <ModalContainer onClick={(e) => e.stopPropagation()} className="position-relative">
+          <CloseButton onClick={toggleForm} className="btn-close-custom"><FaTimes /></CloseButton>
+          <RecordingForm onSubmit={onSubmit} className="px-3 px-md-4 py-4">
+          <FormTitle className="mb-4">{'Registre seu Depoimento'}</FormTitle>
           
-          <FormGroup>
-            <Label htmlFor="name">{'Nome Completo'}</Label>
+          <FormGroup className="mb-3">
+            <Label htmlFor="name" className="form-label">{'Nome Completo'}</Label>
             <Input 
               type="text" 
               id="name" 
@@ -138,11 +139,12 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
               value={formData.name}
               onChange={handleChange}
               disabled={isSubmitting}
+              className="form-control"
             />
           </FormGroup>
           
-          <FormGroup>
-            <Label htmlFor="location">{'Localidade'}</Label>
+          <FormGroup className="mb-3">
+            <Label htmlFor="location" className="form-label">{'Localidade'}</Label>
             <Input 
               type="text" 
               id="location" 
@@ -151,11 +153,12 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
               value={formData.location}
               onChange={handleChange}
               disabled={isSubmitting}
+              className="form-control"
             />
           </FormGroup>
           
-          <FormGroup>
-            <Label htmlFor="category">{'Categoria'}</Label>
+          <FormGroup className="mb-3">
+            <Label htmlFor="category" className="form-label">{'Categoria'}</Label>
             <Input 
               as="select" 
               id="category" 
@@ -163,6 +166,7 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
               value={formData.category}
               onChange={handleChange}
               disabled={isSubmitting}
+              className="form-select"
             >
               <option value="">{'Selecione uma categoria'}</option>
               {categories && categories.length > 0 ? (
@@ -183,8 +187,8 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
             </Input>
           </FormGroup>
           
-          <FormGroup>
-            <Label htmlFor="testimonial">{'Seu Depoimento'}</Label>
+          <FormGroup className="mb-3">
+            <Label htmlFor="testimonial" className="form-label">{'Seu Depoimento'}</Label>
             <TextArea 
               id="testimonial" 
               rows="6" 
@@ -193,17 +197,18 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
               value={formData.testimonial}
               onChange={handleChange}
               disabled={isSubmitting}
+              className="form-control"
             />
           </FormGroup>
           
-          <FormGroup>
-            <Label htmlFor="video">{'Upload de Vídeo (opcional)'}</Label>
-            <FileUploadContainer>
-              <FileUploadButton htmlFor="video">
+          <FormGroup className="mb-4">
+            <Label htmlFor="video" className="form-label">{'Upload de Vídeo (opcional)'}</Label>
+            <FileUploadContainer className="d-flex flex-column flex-md-row align-items-md-center gap-2">
+              <FileUploadButton htmlFor="video" className="btn-upload">
                 <FileUploadIcon>📹</FileUploadIcon>
                 {"Selecionar vídeo"}
               </FileUploadButton>
-              <FileNameDisplay id="fileNameDisplay">{"Nenhum arquivo selecionado"}</FileNameDisplay>
+              <FileNameDisplay id="fileNameDisplay" className="flex-grow-1">{"Nenhum arquivo selecionado"}</FileNameDisplay>
               <Input 
                 type="file" 
                 id="video" 
@@ -213,7 +218,7 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
                 disabled={isSubmitting}
               />
             </FileUploadContainer>
-            <small>{'Tamanho máximo: 50MB. Formatos aceitos: MP4, MOV, AVI'}</small>
+            <small className="text-muted mt-2 d-block">{'Tamanho máximo: 50MB. Formatos aceitos: MP4, MOV, AVI'}</small>
           </FormGroup>
           
           {/* Feedback de status do envio */}
@@ -238,16 +243,18 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
             </FormFeedback>
           )}
           
-          <SubmitButton type="submit" disabled={isSubmitting}>
-            {isSubmitting ? (
-              <>
-                <FaSpinner className="spinner" /> 
-                {'Enviando...'}
-              </>
-            ) : (
-              'Enviar Depoimento'
-            )}
-          </SubmitButton>
+          <div className="d-grid gap-2 col-12 col-md-6 mx-auto mt-4">
+            <SubmitButton type="submit" disabled={isSubmitting} className="btn btn-lg">
+              {isSubmitting ? (
+                <>
+                  <FaSpinner className="spinner me-2" /> 
+                  {'Enviando...'}
+                </>
+              ) : (
+                'Enviar Depoimento'
+              )}
+            </SubmitButton>
+          </div>
           </RecordingForm>
         </ModalContainer>
       </ModalOverlay>

@@ -7,11 +7,12 @@ export const VideoModal = styled.div`
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   z-index: 1000;
   padding: 20px;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: 10px;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -20,9 +21,17 @@ export const ModalContent = styled.div`
   width: 100%;
   max-width: 800px;
   position: relative;
-  padding-bottom: 1.5rem;
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    max-width: 95%;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    max-width: 100%;
+    border-radius: 8px;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -47,11 +56,22 @@ export const CloseButton = styled.button`
     background-color: #5f1530;
     transform: scale(1.1);
   }
+  
+  &.btn-close-custom {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+    top: 8px;
+    right: 8px;
+  }
 `;
 
 export const VideoContainer = styled.div`
   width: 100%;
-  margin-bottom: 1rem;
   overflow: hidden;
   
   video {
@@ -59,18 +79,36 @@ export const VideoContainer = styled.div`
     width: 100%;
     border-bottom: 3px solid #5f1530;
   }
+  
+  .video-player {
+    max-height: 70vh;
+    object-fit: contain;
+    background-color: #000;
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    .video-player {
+      max-height: 50vh;
+    }
+  }
 `;
 
 export const TestimonialName = styled.h3`
   font-size: 1.2rem;
   font-weight: 600;
-  margin: 0.5rem 1.5rem 0.2rem;
   color: #333;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 1.1rem;
+  }
 `;
 
 export const TestimonialLocation = styled.div`
   font-size: 0.9rem;
   color: #777;
-  margin: 0 1.5rem;
   font-style: italic;
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    font-size: 0.85rem;
+  }
 `;
