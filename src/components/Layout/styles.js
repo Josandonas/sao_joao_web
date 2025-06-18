@@ -3,11 +3,11 @@ import styled from 'styled-components';
 export const HeaderImage = styled.div`
   width: 100%;
   height: 100%;
-  background-image: url('/assets/images/cabecalho/cabecalho.png');
+  background-image: url('/assets/images/cabecalho/cabecalho.gif');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding-top: 15%; /* Proporção base para desktop */
+  padding-top: 350px; /* Proporção base para desktop */
   
   /* Ajustes responsivos usando os breakpoints do Bootstrap */
   @media (max-width: 1200px) { /* xl */

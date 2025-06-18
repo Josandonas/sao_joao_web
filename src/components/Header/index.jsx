@@ -63,7 +63,7 @@ const Header = () => {
         <Navbar expand="lg" className="py-2 navbar-dark mobile-menu-custom" expanded={menuExpanded}>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto me-2 border-0 custom-toggler" onClick={() => setMenuExpanded(!menuExpanded)} />
           <Navbar.Collapse id="basic-navbar-nav" className="mt-2 mt-lg-0 mobile-menu-collapse">
-            <Nav className="mx-auto justify-content-center w-100">
+            <Nav className="mx-auto justify-content-between w-100">
               <NavItem className="nav-item-mobile">
                 <Link to={`/${lang}`} className={location.pathname === `/${lang}` ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.home')}

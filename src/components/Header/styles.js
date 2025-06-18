@@ -67,7 +67,7 @@ const navLinkStyles = `
   padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
   font-family: var(--font-family-heading);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 1.5rem;
   letter-spacing: 0.5px;
   text-transform: uppercase;
   transition: all 0.3s ease;

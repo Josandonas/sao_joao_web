@@ -67,7 +67,7 @@ const VideoSection = () => {
             ref={videoRef}
             src={videoPath}
             onEnded={handleVideoEnd}
-            poster="/assets/videos/intro/capa.png"
+            poster="/assets/videos/intro/capa.gif"
           />
           <PlayButton onClick={togglePlay} aria-label={isPlaying ? t('common.pause', 'Pausar') : t('common.play', 'Reproduzir')}>
             {isPlaying ? <FaPause /> : <FaPlay />}
