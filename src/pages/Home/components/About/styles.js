@@ -10,6 +10,12 @@ export const AboutSection = styled.section`
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     margin-bottom: ${props => props.theme.spacing.lg};
+    margin-top: ${props => props.theme.spacing.lg};
+  }
+  
+  @media (min-width: 1600px) {
+    margin-top: calc(${props => props.theme.spacing.xl} * 1.5);
+    margin-bottom: calc(${props => props.theme.spacing.xl} * 1.5);
   }
 `;
 
@@ -110,8 +116,42 @@ export const AboutContent = styled.div`
     min-height: 500px;
   }
   
+  /* Melhorias para telas grandes */
+  @media (min-width: 1600px) {
+    padding: ${props => props.theme.spacing.xl};
+    gap: 24px;
+    border-radius: 30px;
+    
+    .content-wrapper {
+      gap: 40px;
+    }
+    
+    .image-container {
+      max-width: 650px;
+      border-radius: 60px;
+      border-width: 6px;
+    }
+  }
+  
+  /* Ajustes para telas médias */
+  @media (max-width: 1200px) and (min-width: ${props => props.theme.breakpoints.md}) {
+    .content-wrapper {
+      gap: 20px;
+    }
+    
+    .image-container {
+      margin-right: 16px;
+      max-width: 500px;
+    }
+  }
+  
+  /* Ajustes para telas menores */
   @media (max-width: ${props => props.theme.breakpoints.md}) {
-    flex-direction: column;
+    padding: ${props => props.theme.spacing.md};
+    
+    .content-wrapper {
+      flex-direction: column;
+    }
     
     .image-container {
       width: 100% !important;
@@ -128,6 +168,17 @@ export const AboutContent = styled.div`
       width: 100%;
       height: 100%;
       object-fit: contain;
+    }
+  }
+  
+  /* Ajustes específicos para telas muito pequenas */
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    padding: ${props => props.theme.spacing.sm};
+    
+    .image-container {
+      max-width: 280px !important;
+      height: 280px;
+      border-width: 3px;
     }
   }
 `;
@@ -162,21 +213,6 @@ export const AboutText = styled.div`
     border: 2px solid rgba(255, 255, 255, 0.3);
   }
   
-  /* Indicador visual de rolagem */
-  &::after {
-    content: '⌄';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 24px;
-    color: rgba(140, 0, 51, 0.8);
-    animation: bounce 2s infinite;
-    pointer-events: none;
-    opacity: 0.8;
-    display: none;
-  }
-  
   &.has-overflow::after {
     display: block;
   }
@@ -193,14 +229,43 @@ export const AboutText = styled.div`
     }
   }
   
+  /* Melhorias para telas grandes */
+  @media (min-width: 1600px) {
+    max-width: 65%;
+    height: 500px;
+    padding: ${props => props.theme.spacing.lg};
+    border-radius: 16px;
+    
+    &::-webkit-scrollbar {
+      width: 10px;
+    }
+  }
+  
+  /* Ajustes para telas médias */
+  @media (max-width: 1200px) and (min-width: ${props => props.theme.breakpoints.md}) {
+    max-width: 60%;
+    height: 450px;
+    padding-right: ${props => props.theme.spacing.lg};
+  }
+  
+  /* Ajustes para telas menores */
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     max-width: 100%;
     height: 350px;
     margin: 0 auto;
+    padding: ${props => props.theme.spacing.sm};
+    padding-right: ${props => props.theme.spacing.md};
   }
   
+  /* Ajustes para telas muito pequenas */
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     height: 300px;
+    padding: ${props => props.theme.spacing.xs};
+    padding-right: ${props => props.theme.spacing.sm};
+    
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
   }
 `;
 
@@ -258,8 +323,29 @@ export const TextControls = styled.div`
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 8px;
   
+  /* Melhorias para telas grandes */
+  @media (min-width: 1600px) {
+    padding: 8px 14px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+  }
+  
+  /* Ajustes para telas médias */
+  @media (max-width: 1200px) and (min-width: ${props => props.theme.breakpoints.md}) {
+    padding: 6px 12px;
+  }
+  
+  /* Ajustes para telas menores */
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    align-self: center;
+    margin-bottom: 12px;
+  }
+  
+  /* Ajustes para telas muito pequenas */
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     padding: 4px 8px;
+    width: 100%;
+    justify-content: center;
   }
 `;
 
@@ -292,5 +378,27 @@ export const TextControlButton = styled.button`
   
   &:active {
     transform: scale(0.95);
+  }
+  
+  /* Melhorias para telas grandes */
+  @media (min-width: 1600px) {
+    width: 42px;
+    height: 42px;
+    font-size: 17px;
+    margin: 0 4px;
+  }
+  
+  /* Ajustes para telas médias */
+  @media (max-width: 1200px) and (min-width: ${props => props.theme.breakpoints.md}) {
+    width: 38px;
+    height: 38px;
+  }
+  
+  /* Ajustes para telas muito pequenas */
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+    border-width: 1.5px;
   }
 `;
