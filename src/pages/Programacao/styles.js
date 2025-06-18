@@ -8,6 +8,7 @@ export const Container = styled.div`
     width: 100%;
     @media (max-width: 768px) {
         padding: 0;
+        padding-bottom: 3rem;
     }
 `;
 
@@ -43,8 +44,17 @@ export const ContentLayout = styled.div`
   flex-direction: row;
   gap: 2rem;
   margin-top: 5rem;
+  padding: 0 1rem;
+  
   @media (max-width: 1024px) {
     flex-direction: column;
+    margin-top: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    margin-top: 1rem;
+    gap: 1rem;
+    padding: 0 0.5rem;
   }
 `;
 
@@ -55,9 +65,22 @@ export const CalendarSection = styled.div`
   
   @media (max-width: 1024px) {
     max-width: 100%;
+    order: 1; /* Reordena para aparecer primeiro em dispositivos móveis */
+  }
+  
+  @media (max-width: 768px) {
+    min-width: unset;
   }
 `;
 
 export const EventsSection = styled.div`
   flex: 2;
+  
+  @media (max-width: 1024px) {
+    order: 2; /* Reordena para aparecer depois do calendário em dispositivos móveis */
+  }
+  
+  @media (max-width: 768px) {
+    margin-top: 1.5rem;
+  }
 `;

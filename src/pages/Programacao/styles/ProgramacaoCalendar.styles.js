@@ -7,6 +7,12 @@ export const CalendarContainer = styled.div`
   padding: 1.5rem;
   height: 100%;
   
+  @media (max-width: 768px) {
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
   h2 {
     color: ${({ theme }) => theme.colors.primary || '#FF6B00'};
     margin-bottom: 1.5rem;
@@ -14,6 +20,11 @@ export const CalendarContainer = styled.div`
     font-family: ${({ theme }) => theme.fonts.heading};
     font-weight: ${({ theme }) => theme.fontWeights.bold};
     text-align: center;
+    
+    @media (max-width: 768px) {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
   }
 `;
 
@@ -31,8 +42,13 @@ export const MonthTitle = styled.h2`
   color: ${({ theme }) => theme.colors.primary || '#FF6B00'};
   text-transform: uppercase;
   text-align: center;
+  
   @media (max-width: 768px) {
     font-size: ${({ theme }) => theme.fontSizes.large};
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.1rem;
   }
 `;
 
@@ -66,7 +82,11 @@ export const CalendarGrid = styled.div`
   gap: 0.5rem;
   
   @media (max-width: 768px) {
-    gap: 0.25rem;
+    gap: 0.15rem;
+  }
+  
+  @media (max-width: 480px) {
+    gap: 0.1rem;
   }
   
   @media (min-width: 1025px) and (max-width: 1200px) {
@@ -120,7 +140,14 @@ export const DayCell = styled.div`
   `}
   
   @media (max-width: 768px) {
-    padding: 0.25rem;
+    padding: 0.2rem;
+    border-radius: 6px;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.1rem;
+    border-radius: 4px;
+    border-width: ${props => props.$isSelected || props.$isToday ? '2px' : '1px'};
   }
 `;
 
@@ -128,6 +155,14 @@ export const DayNumber = styled.span`
   font-size: ${({ theme }) => theme.fontSizes.medium};
   font-family: ${({ theme }) => theme.fonts.body};
   font-weight: ${({ theme }) => theme.fontWeights.normal};
+  
+  @media (max-width: 768px) {
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 0.8rem;
+  }
 `;
 
 export const EventIndicator = styled.div`
