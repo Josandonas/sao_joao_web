@@ -31,7 +31,8 @@ import {
   FieldGroup,
   LanguageTabs,
   LanguageTab,
-  CoordinatesDisplay
+  CoordinatesDisplay,
+  FormActions
 } from './styles';
 
 // Componente que permite clicar no mapa para selecionar uma localização
@@ -430,7 +431,7 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
               </>
             )}
             
-            <div className="form-actions">
+            <FormActions>
               {activeTab !== 'info' && (
                 <button 
                   type="button" 
@@ -462,7 +463,7 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
                   {isSubmitting ? t('communities.processingButton') : t('communities.submitButton')}
                 </SubmitButton>
               )}
-            </div>
+            </FormActions>
             
             {submitError && (
               <div style={{

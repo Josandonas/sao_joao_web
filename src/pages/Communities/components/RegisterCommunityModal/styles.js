@@ -589,6 +589,88 @@ export const Gallery = styled.div`
   }
 `;
 
+export const FormActions = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 1rem;
+  
+  .back-button {
+    background-color: #f5f5f5;
+    color: #444;
+    border: 1px solid #ddd;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+    max-width: 150px;
+    
+    &:hover {
+      background-color: #eee;
+    }
+    
+    &:active {
+      background-color: #e0e0e0;
+    }
+  }
+  
+  .next-button {
+    background: linear-gradient(135deg, #5f1530, #b5003e);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+    max-width: 150px;
+    box-shadow: 0 4px 8px rgba(140, 0, 51, 0.2);
+    
+    &:hover {
+      background: linear-gradient(135deg, #a00039, #cc0049);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px rgba(140, 0, 51, 0.25);
+    }
+    
+    &:active {
+      transform: translateY(0);
+      background: linear-gradient(135deg, #800030, #b5003e);
+      box-shadow: 0 2px 4px rgba(140, 0, 51, 0.2);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .back-button, .next-button {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+    position: sticky;
+    bottom: 1rem;
+    z-index: 10;
+    
+    .back-button, .next-button {
+      flex: 1;
+      max-width: none;
+      padding: 0.8rem 1rem;
+      font-size: 0.9rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+  }
+`;
+
 export default {
   RegisterModal,
   ModalContent,
@@ -611,5 +693,6 @@ export default {
   LanguageTabs,
   LanguageTab,
   CoordinatesDisplay,
-  Gallery
+  Gallery,
+  FormActions
 };
