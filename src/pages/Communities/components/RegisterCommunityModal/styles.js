@@ -12,6 +12,12 @@ export const RegisterModal = styled.div`
   justify-content: center;
   z-index: 1000;
   padding: 1rem;
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem;
+    align-items: flex-start;
+    overflow-y: auto;
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -31,6 +37,18 @@ export const ModalContent = styled.div`
     from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }
   }
+  
+  @media (max-width: 768px) {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    margin-top: 0;
+  }
 `;
 
 export const ModalHeader = styled.div`
@@ -43,6 +61,14 @@ export const ModalHeader = styled.div`
   top: 0;
   background-color: white;
   z-index: 10;
+  
+  @media (max-width: 768px) {
+    padding: 1.2rem 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 export const ModalTitle = styled.h2`
@@ -55,6 +81,14 @@ export const ModalTitle = styled.h2`
   color: transparent;
   margin: 0;
   font-size: 1.8rem;
+  
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    font-size: 1.3rem;
+  }
 `;
 
 export const CloseButton = styled.button`
@@ -89,11 +123,41 @@ export const CloseButton = styled.button`
     background-color: #f9f9f9;
     box-shadow: 0 5px 15px rgba(140, 0, 51, 0.35);
   }
+  
+  @media (max-width: 768px) {
+    height: 40px;
+    width: 40px;
+    
+    & > svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    height: 36px;
+    width: 36px;
+    top: 8px;
+    right: 8px;
+    
+    & > svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;
 
 export const ModalBody = styled.div`
   padding: 2rem;
   overflow-y: auto;
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -135,11 +199,29 @@ export const Form = styled.form`
         box-shadow: 0 6px 12px rgba(140, 0, 51, 0.35);
       }
     }
+    
+    @media (max-width: 480px) {
+      flex-direction: column;
+      gap: 1rem;
+      
+      button {
+        width: 100%;
+        padding: 0.8rem 1rem;
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    gap: 1rem;
   }
 `;
 
 export const FormGroup = styled.div`
   margin-bottom: 1.5rem;
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1rem;
+  }
 `;
 
 export const FieldGroup = styled.div`
@@ -215,6 +297,36 @@ export const ImageUploadArea = styled.div`
       color: #999;
     }
   }
+  
+  .gallery-preview {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    padding: 1.5rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 1rem;
+    
+    .upload-placeholder {
+      span {
+        font-size: 1rem;
+      }
+      
+      small {
+        font-size: 0.8rem;
+      }
+    }
+    
+    .gallery-preview {
+      gap: 0.3rem;
+    }
+  }
 `;
 
 export const ImagePreview = styled.div`
@@ -249,6 +361,30 @@ export const ImagePreview = styled.div`
   &:hover button {
     opacity: 1;
   }
+  
+  @media (max-width: 768px) {
+    margin: 0.4rem;
+    
+    img {
+      max-width: 180px;
+      max-height: 180px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    margin: 0.3rem;
+    
+    img {
+      max-width: 140px;
+      max-height: 140px;
+    }
+    
+    button {
+      opacity: 1;
+      padding: 0.3rem;
+      font-size: 0.8rem;
+    }
+  }
 `;
 
 export const SubmitButton = styled.button`
@@ -275,6 +411,17 @@ export const SubmitButton = styled.button`
     background: linear-gradient(135deg, #800030, #b5003e);
     box-shadow: 0 2px 4px rgba(140, 0, 51, 0.2);
   }
+  
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: 0.7rem 1.8rem;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    font-size: 0.95rem;
+  }
 `;
 
 export const MapSelectorContainer = styled.div`
@@ -287,6 +434,18 @@ export const MapSelectorContainer = styled.div`
     color: #777;
     margin-bottom: 1.5rem;
   }
+  
+  @media (max-width: 480px) {
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+  }
 `;
 
 export const TabsContainer = styled.div`
@@ -296,6 +455,22 @@ export const TabsContainer = styled.div`
   position: sticky;
   top: 77px;
   z-index: 5;
+  
+  @media (max-width: 768px) {
+    top: 65px;
+  }
+  
+  @media (max-width: 480px) {
+    top: 58px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+    justify-content: space-between;
+    width: 100%;
+  }
 `;
 
 export const Tab = styled.button.attrs(props => ({
@@ -318,12 +493,37 @@ export const Tab = styled.button.attrs(props => ({
     background-color: ${props => props.active ? 'white' : 'rgba(140, 0, 51, 0.05)'};
     color: #5f1530;
   }
+  
+  @media (max-width: 768px) {
+    padding: 0.8rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem 0.6rem;
+    font-size: 0.75rem;
+    flex: 1 1 25%;
+    min-width: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 `;
 
 export const LanguageTabs = styled.div`
   display: flex;
   border-bottom: 1px solid #eee;
   margin-bottom: 1.5rem;
+  
+  @media (max-width: 480px) {
+    margin-bottom: 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    scrollbar-width: none;
+  }
 `;
 
 export const LanguageTab = styled.button.attrs(props => ({
@@ -342,6 +542,12 @@ export const LanguageTab = styled.button.attrs(props => ({
   &:hover {
     color: #5f1530;
   }
+  
+  @media (max-width: 480px) {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
 `;
 
 export const CoordinatesDisplay = styled.div`
@@ -354,6 +560,17 @@ export const CoordinatesDisplay = styled.div`
   
   strong {
     color: #444;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+    
+    p {
+      margin: 0;
+      word-break: break-word;
+    }
   }
 `;
 

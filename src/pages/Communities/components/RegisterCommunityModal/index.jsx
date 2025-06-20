@@ -61,86 +61,38 @@ const LocationSelector = ({ onSelectLocation, initialPosition }) => {
   ) : null;
 };
 
-// Componente auxiliar para as abas de idioma
-const LanguageTabGroup = ({ activeTab, setActiveTab, t }) => (
-  <LanguageTabs>
-    <LanguageTab 
-      active={activeTab === 'pt'} 
-      onClick={() => setActiveTab('pt')}
-    >
-      {t('languageSelector.portuguese')}
-    </LanguageTab>
-    <LanguageTab 
-      active={activeTab === 'en'} 
-      onClick={() => setActiveTab('en')}
-    >
-      {t('languageSelector.english')}
-    </LanguageTab>
-    <LanguageTab 
-      active={activeTab === 'es'} 
-      onClick={() => setActiveTab('es')}
-    >
-      {t('languageSelector.spanish')}
-    </LanguageTab>
-  </LanguageTabs>
-);
+// Componente removido - não usaremos mais abas de idioma
 
 const RegisterCommunityModal = ({ isOpen, onClose }) => {
   const { t, i18n } = useTranslation();
   
-  // Função auxiliar para renderizar as abas de idioma
-  const renderLanguageTabs = useCallback((activeLangTab, setActiveLangTab) => (
-    <LanguageTabs>
-      <LanguageTab 
-        active={activeLangTab === 'pt'} 
-        onClick={() => setActiveLangTab('pt')}
-      >
-        {t('languageSelector.portuguese')}
-      </LanguageTab>
-      <LanguageTab 
-        active={activeLangTab === 'en'} 
-        onClick={() => setActiveLangTab('en')}
-      >
-        {t('languageSelector.english')}
-      </LanguageTab>
-      <LanguageTab 
-        active={activeLangTab === 'es'} 
-        onClick={() => setActiveLangTab('es')}
-      >
-        {t('languageSelector.spanish')}
-      </LanguageTab>
-    </LanguageTabs>
-  ), [t]);
+  // Removida função auxiliar para renderizar abas de idioma
   const fileInputRef = useRef(null);
   const galleryInputRef = useRef(null);
   const currentLang = i18n.language.split('-')[0] || 'pt';
   
   const [activeTab, setActiveTab] = useState('info');
-  const [activeLangTab, setActiveLangTab] = useState(currentLang);
   const [coordinates, setCoordinates] = useState(null);
   const [coverImage, setCoverImage] = useState(null);
   const [galleryImages, setGalleryImages] = useState([]);
   
   const [formData, setFormData] = useState({
-    name: { pt: '', en: '', es: '' },
-    location: { pt: '', en: '', es: '' },
-    description: { pt: '', en: '', es: '' },
-    fullDescription: { pt: '', en: '', es: '' },
-    traditions: { pt: '', en: '', es: '' },
-    religion: { pt: '', en: '', es: '' },
-    festival_date: { pt: '', en: '', es: '' }
+    name: '',
+    location: '',
+    description: '',
+    fullDescription: '',
+    traditions: '',
+    religion: '',
+    festival_date: ''
   });
   
   // Coordenadas do centro de Corumbá - MS
   const corumbaCoordinates = [-19.0095, -57.6511];
   
-  const handleInputChange = (field, language, value) => {
+  const handleInputChange = (field, value) => {
     setFormData(prev => ({
       ...prev,
-      [field]: {
-        ...prev[field],
-        [language]: value
-      }
+      [field]: value
     }));
   };
   
@@ -183,13 +135,25 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
     
     try {
       // Verifica se os campos obrigatórios estão preenchidos
-      if (!formData.name.pt || !formData.description.pt || !coordinates || !coverImage) {
+      if (!formData.name || !formData.description || !coordinates || !coverImage) {
+        const missingFields = [];
+        if (!formData.name) missingFields.push('Nome');
+        if (!formData.description) missingFields.push('Descrição');
+        if (!coordinates) missingFields.push('Coordenadas no mapa');
+        if (!coverImage) missingFields.push('Imagem de capa');
+        
+        console.error('Erro de validação: Campos obrigatórios não preenchidos', {
+          missingFields,
+          formData: JSON.stringify(formData)
+        });
         throw new Error(t('communities.requiredFieldsError'));
       }
       
+      console.log('Processando imagem de capa...');
       // Processa a imagem de capa para otimização
       const optimizedCoverImage = await processImage(coverImage);
       
+      console.log('Processando imagens da galeria...');
       // Processa imagens da galeria
       const optimizedGalleryImages = [];
       for (const image of galleryImages) {
@@ -197,37 +161,59 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
         optimizedGalleryImages.push(optimizedImage);
       }
       
-      // Criando o objeto da nova comunidade
+      // Obtendo o idioma atual
+      const currentLang = i18n.language.split('-')[0] || 'pt';
+      
+      // Criando o objeto da nova comunidade com estrutura multilíngue
       const newCommunity = {
-        name: formData.name,
-        location: formData.location,
-        description: formData.description,
-        fullDescription: formData.fullDescription,
-        traditions: formData.traditions,
-        religion: formData.religion,
-        festival_date: formData.festival_date,
+        name: { [currentLang]: formData.name },
+        location: { [currentLang]: formData.location },
+        description: { [currentLang]: formData.description },
+        fullDescription: { [currentLang]: formData.fullDescription },
+        traditions: { [currentLang]: formData.traditions },
+        religion: { [currentLang]: formData.religion },
+        festival_date: { [currentLang]: formData.festival_date },
         coordinates: coordinates,
         image: optimizedCoverImage,
         gallery: optimizedGalleryImages
       };
       
+      console.log('Verificando existência de comunidades similares...');
       // Verifica se a comunidade já existe
       const existingCommunities = await fetchAllCommunities([]);
       if (communityExists(newCommunity, existingCommunities)) {
+        console.error('Erro de duplicidade: Comunidade similar já existe', {
+          newCommunity: {
+            name: newCommunity.name,
+            coordinates: newCommunity.coordinates
+          },
+          existingCount: existingCommunities.length
+        });
         throw new Error(t('communities.duplicateCommunityError') || 'Uma comunidade similar já existe no mapa.');
       }
       
+      console.log('Salvando nova comunidade...');
       // Salva a comunidade usando o serviço de comunidades
       // Este serviço tenta salvar na API primeiro e, se falhar, salva localmente
       await saveCommunity(newCommunity);
       
+      console.log('Comunidade cadastrada com sucesso!');
       alert(t('communities.registerSuccess'));
       
       // Fecha o modal após o envio
       onClose();
     } catch (error) {
-      // Apenas log no console para desenvolvedores
-      console.error('Erro ao cadastrar comunidade:', error);
+      // Log detalhado no console para desenvolvedores
+      console.error('Erro ao cadastrar comunidade:', {
+        message: error.message,
+        stack: error.stack,
+        formState: {
+          activeTab,
+          hasCoordinates: !!coordinates,
+          hasCoverImage: !!coverImage,
+          galleryImagesCount: galleryImages.length
+        }
+      });
       setSubmitError(error.message);
     } finally {
       setIsSubmitting(false);
@@ -273,36 +259,15 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
           <Form onSubmit={handleSubmit}>
             {activeTab === 'info' && (
               <>
-                <LanguageTabs>
-                  <LanguageTab 
-                    active={activeLangTab === 'pt'} 
-                    onClick={() => setActiveLangTab('pt')}
-                  >
-                    Português
-                  </LanguageTab>
-                  <LanguageTab 
-                    active={activeLangTab === 'en'} 
-                    onClick={() => setActiveLangTab('en')}
-                  >
-                    English
-                  </LanguageTab>
-                  <LanguageTab 
-                    active={activeLangTab === 'es'} 
-                    onClick={() => setActiveLangTab('es')}
-                  >
-                    Español
-                  </LanguageTab>
-                </LanguageTabs>
-                
                 <FieldGroup>
                   <FormGroup>
                     <label>{t('communities.nameLabel')}</label>
                     <Input
                       type="text"
-                      value={formData.name[activeLangTab]}
-                      onChange={(e) => handleInputChange('name', activeLangTab, e.target.value)}
+                      value={formData.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
                       placeholder={t('communities.namePlaceholder')}
-                      required={activeLangTab === 'pt'}
+                      required
                     />
                   </FormGroup>
                   
@@ -310,21 +275,21 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
                     <label>{t('communities.locationLabel')}</label>
                     <Input
                       type="text"
-                      value={formData.location[activeLangTab]}
-                      onChange={(e) => handleInputChange('location', activeLangTab, e.target.value)}
+                      value={formData.location}
+                      onChange={(e) => handleInputChange('location', e.target.value)}
                       placeholder={t('communities.locationPlaceholder')}
-                      required={activeLangTab === 'pt'}
+                      required
                     />
                   </FormGroup>
                   
                   <FormGroup>
                     <label>{t('communities.shortDescLabel')}</label>
                     <TextArea
-                      value={formData.description[activeLangTab]}
-                      onChange={(e) => handleInputChange('description', activeLangTab, e.target.value)}
+                      value={formData.description}
+                      onChange={(e) => handleInputChange('description', e.target.value)}
                       placeholder={t('communities.shortDescPlaceholder')}
                       rows={3}
-                      required={activeLangTab === 'pt'}
+                      required
                     />
                   </FormGroup>
                 </FieldGroup>
@@ -420,44 +385,23 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
             
             {activeTab === 'details' && (
               <>
-                <LanguageTabs>
-                  <LanguageTab 
-                    active={activeLangTab === 'pt'} 
-                    onClick={() => setActiveLangTab('pt')}
-                  >
-                    Português
-                  </LanguageTab>
-                  <LanguageTab 
-                    active={activeLangTab === 'en'} 
-                    onClick={() => setActiveLangTab('en')}
-                  >
-                    English
-                  </LanguageTab>
-                  <LanguageTab 
-                    active={activeLangTab === 'es'} 
-                    onClick={() => setActiveLangTab('es')}
-                  >
-                    Español
-                  </LanguageTab>
-                </LanguageTabs>
-                
                 <FieldGroup>
                   <FormGroup>
                     <label>{t('communities.fullDescLabel')}</label>
                     <TextArea
-                      value={formData.fullDescription[activeLangTab]}
-                      onChange={(e) => handleInputChange('fullDescription', activeLangTab, e.target.value)}
+                      value={formData.fullDescription}
+                      onChange={(e) => handleInputChange('fullDescription', e.target.value)}
                       placeholder={t('communities.fullDescPlaceholder')}
                       rows={5}
-                      required={activeLangTab === 'pt'}
+                      required
                     />
                   </FormGroup>
                   
                   <FormGroup>
                     <label>{t('communities.traditionsLabel')}</label>
                     <TextArea
-                      value={formData.traditions[activeLangTab]}
-                      onChange={(e) => handleInputChange('traditions', activeLangTab, e.target.value)}
+                      value={formData.traditions}
+                      onChange={(e) => handleInputChange('traditions', e.target.value)}
                       placeholder={t('communities.traditionsPlaceholder')}
                       rows={3}
                     />
@@ -467,8 +411,8 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
                     <label>{t('communities.religionLabel')}</label>
                     <Input
                       type="text"
-                      value={formData.religion[activeLangTab]}
-                      onChange={(e) => handleInputChange('religion', activeLangTab, e.target.value)}
+                      value={formData.religion}
+                      onChange={(e) => handleInputChange('religion', e.target.value)}
                       placeholder={t('communities.religionPlaceholder')}
                     />
                   </FormGroup>
@@ -477,8 +421,8 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
                     <label>{t('communities.festivalDateLabel')}</label>
                     <Input
                       type="text"
-                      value={formData.festival_date[activeLangTab]}
-                      onChange={(e) => handleInputChange('festival_date', activeLangTab, e.target.value)}
+                      value={formData.festival_date}
+                      onChange={(e) => handleInputChange('festival_date', e.target.value)}
                       placeholder={t('communities.festivalDatePlaceholder')}
                     />
                   </FormGroup>
