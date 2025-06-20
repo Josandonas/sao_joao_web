@@ -11,39 +11,25 @@ import {
   TestimonialQuote,
   TestimonialVideo,
   LoadingContainer,
-  ErrorContainer,
   EmptyContainer
 } from './styles';
 
 /**
  * Componente para exibir a lista de depoimentos
  * @param {Array} testimonials - Lista de depoimentos
- * @param {boolean} loading - Indica se os depoimentos estão sendo carregados
- * @param {string|null} error - Mensagem de erro, se houver
+ * @param {boolean} isLoading - Indica se os depoimentos estão sendo carregados
  * @param {Function} onOpenVideo - Função chamada quando um vídeo é selecionado
  */
-const TestimonialList = ({ testimonials = [], loading = false, error = null, onOpenVideo }) => {
+const TestimonialList = ({ testimonials = [], isLoading = false, onOpenVideo }) => {
   const { t } = useTranslation();
 
   // Renderiza o estado de carregamento
-  if (loading) {
+  if (isLoading) {
     return (
       <LoadingContainer className="d-flex flex-column align-items-center justify-content-center py-5">
         <Spinner animation="border" variant="danger" className="mb-3" />
         <p>{t('testimonials.loading', 'Carregando depoimentos...')}</p>
       </LoadingContainer>
-    );
-  }
-
-  // Renderiza o estado de erro
-  if (error) {
-    return (
-      <ErrorContainer className="d-flex flex-column align-items-center justify-content-center py-5 text-center">
-        <p className="text-danger mb-4">{error}</p>
-        <Button variant="outline-danger" onClick={() => window.location.reload()}>
-          {t('testimonials.tryAgain', 'Tentar novamente')}
-        </Button>
-      </ErrorContainer>
     );
   }
 
@@ -59,27 +45,28 @@ const TestimonialList = ({ testimonials = [], loading = false, error = null, onO
   // Renderiza a lista de depoimentos
   return (
     <TestimonialsContainer>
-      <Row className="g-4">
-        {testimonials.map(testimonial => (
-          <Col xs={12} sm={6} lg={4} key={testimonial.id}>
-            <TestimonialCard className="h-100 shadow-sm">
+      <Row xs={1} sm={2} lg={3} className="g-4">
+        {testimonials.map((testimonial) => (
+          <Col key={testimonial.id}>
+            <TestimonialCard className="h-100 d-flex flex-column">
               <TestimonialImage 
-                src={testimonial.image} 
+                src={testimonial.image || 'https://via.placeholder.com/150'} 
                 alt={testimonial.name} 
-                className="img-fluid" 
+                className="mx-auto d-block"
               />
-              <TestimonialContent className="d-flex flex-column h-100">
-                <TestimonialName className="mb-1">{testimonial.name}</TestimonialName>
-                <TestimonialLocation className="mb-3">{testimonial.location}</TestimonialLocation>
+              <TestimonialContent className="d-flex flex-column flex-grow-1">
+                <TestimonialName className="text-center text-sm-start">{testimonial.name}</TestimonialName>
+                <TestimonialLocation className="text-center text-sm-start">{testimonial.location}</TestimonialLocation>
                 <TestimonialQuote className="flex-grow-1">
-                  "{testimonial.quoteKey ? t(`testimonials_page.quotes.${testimonial.quoteKey}`) || testimonial.quote : testimonial.quote}"
+                  "{testimonial.quote}"
                 </TestimonialQuote>
-                <TestimonialVideo 
-                  onClick={() => onOpenVideo(testimonial)}
-                  className="mt-auto btn btn-block"
-                >
-                  {t('testimonials.watchButton', 'Assistir Depoimento')}
-                </TestimonialVideo>
+                <div className="text-center mt-auto pt-3">
+                  <TestimonialVideo 
+                    onClick={() => onOpenVideo(testimonial)}
+                  >
+                    {t('testimonials.watchVideo', 'Assistir Depoimento')}
+                  </TestimonialVideo>
+                </div>
               </TestimonialContent>
             </TestimonialCard>
           </Col>

@@ -26,7 +26,7 @@ export const testimonialData = [
   {
     id: 2,
     name: 'Bianca Machado',
-    location: 'Ladário, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/bianca_machado.jpg',
     quoteKey: '2',
     quote: 'Como moradora ribeirinha, sempre tive uma relação especial com o rio. O Banho de São João é um momento de agradecer pela abundância que as águas nos proporcionam.',
@@ -40,7 +40,7 @@ export const testimonialData = [
   {
     id: 3,
     name: 'Eliane - Elinete Escobar',
-    location: 'Porto Murtinho, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/eliane_escobar.jpg',
     quoteKey: '3',
     quote: 'Preservar as tradições do Banho de São João é preservar nossa identidade cultural. Nas celebrações, nossa música acompanha a procissão e as danças tradicionais.',
@@ -54,7 +54,7 @@ export const testimonialData = [
   {
     id: 4,
     name: 'Epifania da Silva Bastos',
-    location: 'Campo Grande, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/epifania.jpg',
     quoteKey: '4',
     quote: 'Como moradora antiga, encontro no Banho de São João um exemplo perfeito do sincretismo religioso e cultural que forma a identidade pantaneira brasileira.',
@@ -68,7 +68,7 @@ export const testimonialData = [
   {
     id: 5,
     name: 'Fernando Vanucci',
-    location: 'Aquidauana, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/fernando_vanucci.jpg',
     quoteKey: '5',
     quote: 'Fiz uma promessa a São João quando meu filho estava doente. Após sua recuperação, participamos todos os anos do ritual do banho, mantendo nosso compromisso com o santo.',
@@ -96,7 +96,7 @@ export const testimonialData = [
   {
     id: 7,
     name: 'Idalina Idalina Gonçalves da Silva',
-    location: 'Coxim, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/idalina_goncalves.jpg',
     quoteKey: '7',
     quote: 'Minha avó era curandeira e utilizava as ervas e a água benta de São João em seus tratamentos. Aprendi com ela o valor medicinal e espiritual dessa tradição.',
@@ -110,7 +110,7 @@ export const testimonialData = [
   {
     id: 8,
     name: 'Izabel Meira de Castro',
-    location: 'Miranda, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/izabel_meira.jpg',
     quoteKey: '8',
     quote: 'Como benzedeira, utilizo as ervas abenaçoadas durante a festa de São João. A água coletada nessa noite é considerada mítica e curativa.',
@@ -138,7 +138,7 @@ export const testimonialData = [
   {
     id: 10,
     name: 'Joaquina Pereira',
-    location: 'Poconé, MT',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/joaquina_pereira.jpg',
     quoteKey: '10',
     quote: 'Na minha comunidade, as celebrações do Banho de São João conectam as pessoas e fortalecem nossos laços. É uma manifestação cultural que nos une como povo.',
@@ -166,7 +166,7 @@ export const testimonialData = [
   {
     id: 12,
     name: 'Lucila Lucila Alvarez de Souza',
-    location: 'Aquidauana, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/lucila_alvarez.jpg',
     quoteKey: '12',
     quote: 'Na minha família, a festa é um momento de reunião e agradecimento. Preparamos comidas típicas e recebemos vizinhos para celebrar juntos essa tradição.',
@@ -180,7 +180,7 @@ export const testimonialData = [
   {
     id: 13,
     name: 'Manoel Fernandes',
-    location: 'Porto Murtinho, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/manoel.jpg',
     quoteKey: '13',
     quote: 'Como músico, vejo na celebração do Banho de São João uma riqueza cultural única, onde ritmos tradicionais preservam nossa memória coletiva.',
@@ -194,7 +194,7 @@ export const testimonialData = [
   {
     id: 14,
     name: 'Maria Paula da Silva',
-    location: 'Campo Grande, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/maria_paula.jpg',
     quoteKey: '14',
     quote: 'Estudo as tradições do Banho de São João como parte da minha pesquisa. É impressionante como essa prática conecta elementos indígenas, europeus e africanos.',
@@ -208,7 +208,7 @@ export const testimonialData = [
   {
     id: 15,
     name: 'Marinete Luiz Cavalcanti',
-    location: 'Miranda, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/marinete_luiz.jpg',
     quoteKey: '15',
     quote: 'Aprendi a preparar as ervas e os elementos do altar com minha avó. Cada planta tem um significado e um propósito na celebração.',
@@ -222,7 +222,7 @@ export const testimonialData = [
   {
     id: 16,
     name: 'Oraide Teodora',
-    location: 'Nioaque, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/horaide.jpg',
     quoteKey: '16',
     quote: 'Preparo o altar de São João todos os anos seguindo exatamente os ensinamentos que recebi da minha mãe. Cada elemento tem um significado especial na tradição.',
@@ -236,7 +236,7 @@ export const testimonialData = [
   {
     id: 17,
     name: 'Pedro Paulo Miranda',
-    location: 'Ladário, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/pedro_paulo.jpg',
     quoteKey: '17',
     quote: 'Minha experiência com o Banho de São João começou quando fiz uma promessa pela saúde do meu pai. Desde então, é uma prática anual de gratidão.',
@@ -250,7 +250,7 @@ export const testimonialData = [
   {
     id: 18,
     name: 'Reginalda Mendes',
-    location: 'Miranda, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/reginalda_mendes.jpg',
     quoteKey: '18',
     quote: 'Participo ativamente das festividades de São João desde criança. As tradições do Arraiá Nhá Concha são parte fundamental da nossa identidade cultural.',
@@ -264,7 +264,7 @@ export const testimonialData = [
   {
     id: 19,
     name: 'Roberto Carlos da Silva',
-    location: 'Aquidauana, MS',
+    location: 'Corumbá, MS',
     image: '/assets/images/testimonials/persons/roberto_carlos.jpg',
     quoteKey: '19',
     quote: 'Como artesão, crio peças inspiradas nas simbologias do Banho de São João. É uma forma de manter viva essa expressão cultural tão rica e diversa.',

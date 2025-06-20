@@ -17,13 +17,11 @@ export const useTestimonials = () => {
   const { lang } = useParams();
   const [testimonials, setTestimonials] = useState([]);
   const [categories, setCategories] = useState([]);
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [formSubmitting, setFormSubmitting] = useState(false);
-  const [formSuccess, setFormSuccess] = useState(false);
-  const [formError, setFormError] = useState(null);
-  
+  const [filteredTestimonials, setFilteredTestimonials] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [apiAvailable, setApiAvailable] = useState(true);
+
   // Estado para controlar se a API está disponível
   const [apiStatus, setApiStatus] = useState({
     checked: false,
@@ -51,18 +49,18 @@ export const useTestimonials = () => {
 
   // Função para buscar depoimentos da API e combinar com dados estáticos
   const fetchTestimonials = useCallback(async () => {
-    setLoading(true);
-    setError(null);
+    setIsLoading(true);
     
     try {
       // Busca os depoimentos (função já combina dados estáticos + API)
       const data = await getTestimonials(lang);
       setTestimonials(data);
+      setFilteredTestimonials(data);
     } catch (err) {
       console.error('Erro ao buscar depoimentos:', err);
-      setError('Erro ao carregar depoimentos. Tente novamente mais tarde.');
+      // Erro exibido apenas no console
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   }, [lang]);
   
@@ -81,48 +79,45 @@ export const useTestimonials = () => {
   
   // Função para filtrar depoimentos por categoria
   const filterByCategory = useCallback(async (category) => {
-    setActiveCategory(category);
-    setLoading(true);
-    setError(null);
+    setSelectedCategory(category);
+    setIsLoading(true);
     
     try {
-      // Busca os depoimentos filtrados por categoria
-      const data = await getTestimonialsByCategory(category, lang);
-      setTestimonials(data);
+      if (category === null || category === 'all') {
+        // Se não houver categoria selecionada, mostra todos os depoimentos
+        setFilteredTestimonials(testimonials);
+      } else {
+        // Filtra os depoimentos pela categoria selecionada
+        const filtered = testimonials.filter(item => item.category === category);
+        setFilteredTestimonials(filtered);
+      }
     } catch (err) {
       console.error(`Erro ao filtrar depoimentos por categoria ${category}:`, err);
-      setError('Erro ao filtrar depoimentos. Tente novamente mais tarde.');
+      // Erro exibido apenas no console
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
-  }, [lang]);
+  }, [testimonials]);
   
   // Função para enviar um novo depoimento
   const submitNewTestimonial = useCallback(async (formData) => {
-    setFormSubmitting(true);
-    setFormSuccess(false);
-    setFormError(null);
-    
     try {
       // Verifica se a API está disponível
       const available = await checkApiAvailability();
       
       if (!available) {
-        throw new Error('API não está disponível no momento. Tente novamente mais tarde.');
+        console.warn('API não está disponível no momento. Tente novamente mais tarde.');
+        return false;
       }
       
       await submitTestimonial(formData, lang);
       
-      setFormSuccess(true);
       // Recarregar depoimentos após envio bem-sucedido
       fetchTestimonials();
       return true;
     } catch (err) {
       console.error('Erro ao enviar depoimento:', err);
-      setFormError(err.message || 'Erro ao enviar depoimento. Tente novamente mais tarde.');
       return false;
-    } finally {
-      setFormSubmitting(false);
     }
   }, [fetchTestimonials, lang, checkApiAvailability]);
   
@@ -138,17 +133,14 @@ export const useTestimonials = () => {
   }, [fetchTestimonials, fetchCategories]);
   
   return {
-    testimonials,
+    testimonials: filteredTestimonials,
+    allTestimonials: testimonials,
     categories,
-    activeCategory,
-    loading,
-    error,
-    formSubmitting,
-    formSuccess,
-    formError,
+    selectedCategory,
+    isLoading,
+    apiAvailable: apiStatus.available,
     filterByCategory,
-    submitNewTestimonial,
-    apiStatus
+    submitNewTestimonial
   };
 };
 

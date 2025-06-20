@@ -18,6 +18,9 @@ export const TestimonialCard = styled.div`
   height: 100%; /* Garante altura consistente */
   display: flex;
   flex-direction: column;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  border: 1px solid #eee;
+  padding: 0.5rem;
   
   &:hover {
     transform: translateY(-5px);
@@ -26,6 +29,7 @@ export const TestimonialCard = styled.div`
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     margin-bottom: 1rem;
+    padding: 0.25rem;
   }
 `;
 
@@ -45,6 +49,11 @@ export const TestimonialContent = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  text-align: center;
+  
+  @media (min-width: 768px) {
+    text-align: left;
+  }
 `;
 
 export const TestimonialName = styled.h3`
@@ -79,19 +88,35 @@ export const TestimonialVideo = styled.button`
   border: none;
   border-radius: 25px;
   padding: 0.6rem 1.2rem;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
-  width: 100%;
+  margin: 0 auto;
+  box-shadow: 0 4px 8px rgba(95, 21, 48, 0.3);
+  
+  &:hover {
+    background-color: #6c0026;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(95, 21, 48, 0.4);
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    width: 80%;
+  }
+  
+  @media (min-width: 768px) {
+    width: auto;
+  }
   
   &:before {
     content: '▶';
     margin-right: 0.5rem;
-    font-size: 0.8rem;
+    font-size: 1rem;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
   }
   
   &:hover {

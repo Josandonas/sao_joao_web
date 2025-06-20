@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FaTimes, FaSpinner, FaCheckCircle, FaExclamationTriangle } from 'react-icons/fa';
+import { FaTimes, FaSpinner } from 'react-icons/fa';
 import { Form, Row, Col } from 'react-bootstrap';
 import {
   ModalOverlay,
@@ -16,9 +16,7 @@ import {
   FileUploadContainer,
   FileUploadButton,
   FileUploadIcon,
-  FileNameDisplay,
-  FormFeedback,
-  StatusIcon
+  FileNameDisplay
 } from './styles';
 
 /**
@@ -32,10 +30,8 @@ import {
 const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], apiAvailable = true }) => {
   const { t } = useTranslation();
   
-  // Estados para controlar o feedback do formulário
+  // Estado para controlar o envio do formulário e os dados
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success', 'error' ou null
-  const [errorMessage, setErrorMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -70,8 +66,6 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
   const onSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus(null);
-    setErrorMessage('');
     
     try {
       // Criar FormData para envio
@@ -86,14 +80,13 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
       
       // Verificar se a API está disponível
       if (!apiAvailable) {
-        throw new Error('API indisponível. Tente novamente mais tarde.');
+        console.warn('API indisponível. Tente novamente mais tarde.');
       }
       
       // Enviar formulário
       const success = await handleSubmit(formDataToSubmit);
       
       if (success) {
-        setSubmitStatus('success');
         // Resetar formulário após sucesso
         setFormData({
           name: '',
@@ -104,17 +97,15 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
         });
         document.getElementById('fileNameDisplay').textContent = 'Nenhum arquivo selecionado';
         
-        // Fechar formulário após 2 segundos
+        // Fechar formulário após 1 segundo
         setTimeout(() => {
           toggleForm();
-          setSubmitStatus(null);
-        }, 2000);
+        }, 1000);
       } else {
-        throw new Error('Erro ao enviar depoimento. Tente novamente.');
+        console.error('Erro ao enviar depoimento. Tente novamente.');
       }
     } catch (error) {
-      setSubmitStatus('error');
-      setErrorMessage(error.message);
+      console.error('Erro no formulário:', error.message);
     } finally {
       setIsSubmitting(false);
     }
@@ -124,9 +115,9 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
     <>
       {/* O botão de gravação foi movido para o header */}
       <ModalOverlay onClick={toggleForm} className="d-flex align-items-center justify-content-center">
-        <ModalContainer onClick={(e) => e.stopPropagation()} className="position-relative">
+        <ModalContainer onClick={(e) => e.stopPropagation()} className="position-relative w-100 mx-3 mx-sm-auto">
           <CloseButton onClick={toggleForm} className="btn-close-custom"><FaTimes /></CloseButton>
-          <RecordingForm onSubmit={onSubmit} className="px-3 px-md-4 py-4">
+          <RecordingForm onSubmit={onSubmit} className="px-3 px-md-4 py-4 w-100">
           <FormTitle className="mb-4">{'Registre seu Depoimento'}</FormTitle>
           
           <FormGroup className="mb-3">
@@ -203,12 +194,12 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
           
           <FormGroup className="mb-4">
             <Label htmlFor="video" className="form-label">{'Upload de Vídeo (opcional)'}</Label>
-            <FileUploadContainer className="d-flex flex-column flex-md-row align-items-md-center gap-2">
-              <FileUploadButton htmlFor="video" className="btn-upload">
+            <FileUploadContainer className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2">
+              <FileUploadButton htmlFor="video" className="btn-upload w-100 w-md-auto text-center">
                 <FileUploadIcon>📹</FileUploadIcon>
                 {"Selecionar vídeo"}
               </FileUploadButton>
-              <FileNameDisplay id="fileNameDisplay" className="flex-grow-1">{"Nenhum arquivo selecionado"}</FileNameDisplay>
+              <FileNameDisplay id="fileNameDisplay" className="flex-grow-1 text-break mt-2 mt-md-0">{"Nenhum arquivo selecionado"}</FileNameDisplay>
               <Input 
                 type="file" 
                 id="video" 
@@ -221,30 +212,10 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
             <small className="text-muted mt-2 d-block">{'Tamanho máximo: 50MB. Formatos aceitos: MP4, MOV, AVI'}</small>
           </FormGroup>
           
-          {/* Feedback de status do envio */}
-          {submitStatus && (
-            <FormFeedback status={submitStatus}>
-              <StatusIcon>
-                {submitStatus === 'success' && <FaCheckCircle />}
-                {submitStatus === 'error' && <FaExclamationTriangle />}
-              </StatusIcon>
-              {submitStatus === 'success' && 'Depoimento enviado com sucesso!'}
-              {submitStatus === 'error' && (errorMessage || 'Erro ao enviar depoimento.')}
-            </FormFeedback>
-          )}
+          {/* Removidos os elementos de feedback visual */}
           
-          {/* Aviso de API indisponível */}
-          {!apiAvailable && (
-            <FormFeedback status="warning">
-              <StatusIcon>
-                <FaExclamationTriangle />
-              </StatusIcon>
-              {'API indisponível. O formulário está em modo offline.'}
-            </FormFeedback>
-          )}
-          
-          <div className="d-grid gap-2 col-12 col-md-6 mx-auto mt-4">
-            <SubmitButton type="submit" disabled={isSubmitting} className="btn btn-lg">
+          <div className="d-grid gap-2 col-12 mx-auto mt-4">
+            <SubmitButton type="submit" disabled={isSubmitting} className="btn btn-lg py-2 py-md-3">
               {isSubmitting ? (
                 <>
                   <FaSpinner className="spinner me-2" /> 

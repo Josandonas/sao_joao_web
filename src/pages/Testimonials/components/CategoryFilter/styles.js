@@ -29,9 +29,7 @@ export const FilterContainer = styled.div`
   }
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
-    padding: 0.6rem 0.75rem;
-    border-radius: 25px;
-    margin-bottom: 1.5rem;
+    display: none; /* Oculta completamente em dispositivos móveis */
   }
 `;
 
@@ -43,12 +41,12 @@ const Button = styled.button.withConfig({
 `;
 
 export const FilterButton = styled(Button)`
-  padding: 0.6rem 1.5rem;
+  padding: 0.5rem 1.2rem;
   background-color: ${props => props.active ? '#5f1530' : 'rgba(255, 255, 255, 0.95)'};
   color: ${props => props.active ? 'white' : '#444'};
   border: none;
   border-radius: 20px;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -56,9 +54,15 @@ export const FilterButton = styled(Button)`
   transform: ${props => props.active ? 'translateY(-2px)' : 'none'};
   position: relative;
   overflow: hidden;
-  margin: 0.25rem 0.35rem;
+  margin: 0.2rem 0.25rem;
   z-index: 1;
   letter-spacing: 0.3px;
+  
+  @media (min-width: 768px) {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    margin: 0.25rem 0.35rem;
+  }
   
   &:focus {
     outline: none;

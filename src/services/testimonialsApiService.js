@@ -25,7 +25,10 @@ const api = axios.create({
  * @returns {Promise<boolean>} - true se a API estiver disponível, false caso contrário
  */
 export const isApiAvailable = async () => {
-  if (!API_URL) return false;
+  if (!API_URL) {
+    console.log('URL da API não configurada');
+    return false;
+  }
   
   try {
     const response = await api.get('/health', { timeout: 3000 });
@@ -88,6 +91,8 @@ export const getTestimonials = async (lang = 'pt') => {
       const response = await api.get(`/testimonials?lang=${lang}`);
       const apiData = response.data.testimonials || [];
       
+      console.log(`Carregados ${apiData.length} depoimentos da API`);
+      
       // Combina os dados, colocando os estáticos primeiro
       return [...staticData, ...apiData];
     }
@@ -95,6 +100,7 @@ export const getTestimonials = async (lang = 'pt') => {
     console.error('Erro ao buscar depoimentos da API:', error);
   }
   
+  console.log(`Carregados ${staticData.length} depoimentos estáticos`);
   // Se a API não estiver disponível ou ocorrer um erro, retorna apenas os dados estáticos
   return staticData;
 };

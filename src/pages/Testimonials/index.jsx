@@ -25,12 +25,11 @@ const Testimonials = () => {
   const { 
     testimonials, 
     categories, 
-    activeCategory, 
-    loading, 
-    error, 
+    selectedCategory, 
+    isLoading, 
     filterByCategory, 
     submitNewTestimonial,
-    apiStatus
+    apiAvailable
   } = useTestimonials();
   
   // Estado local para controlar a exibição do formulário
@@ -68,7 +67,7 @@ const Testimonials = () => {
             
             {/* Filtro de categorias */}
             <CategoryFilter 
-              activeCategory={activeCategory} 
+              activeCategory={selectedCategory} 
               categories={categories}
               onCategoryChange={filterByCategory} 
             />
@@ -80,15 +79,14 @@ const Testimonials = () => {
                 toggleForm={toggleForm} 
                 handleSubmit={handleSubmit}
                 categories={categories}
-                apiAvailable={apiStatus.available} 
+                apiAvailable={apiAvailable} 
               />
             )}
             
             {/* Lista de depoimentos */}
             <TestimonialList 
               testimonials={testimonials}
-              loading={loading}
-              error={error} 
+              isLoading={isLoading}
               onOpenVideo={openVideoModal} 
             />
           </Col>

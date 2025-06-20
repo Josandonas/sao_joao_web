@@ -38,6 +38,13 @@ export const ModalContainer = styled.div`
   @media (max-width: 768px) {
     width: 95%;
     max-height: 95vh;
+    border-radius: 10px;
+    margin: 0 10px;
+  }
+  
+  @media (max-width: 480px) {
+    width: 100%;
+    margin: 0 5px;
   }
 `;
 
@@ -126,6 +133,7 @@ export const RecordingForm = styled.form`
   padding: 2.5rem 2rem 2rem;
   position: relative;
   overflow: hidden;
+  width: 100%;
   
   &:before {
     content: '';
@@ -136,6 +144,10 @@ export const RecordingForm = styled.form`
     height: 5px;
     background: linear-gradient(90deg, #5f1530, #b5003e);
   }
+  
+  @media (max-width: 480px) {
+    padding: 2rem 1rem 1.5rem;
+  }
 `;
 
 export const FormTitle = styled.h3`
@@ -144,6 +156,12 @@ export const FormTitle = styled.h3`
   margin-bottom: 1.5rem;
   text-align: center;
   font-weight: 700;
+  padding: 0 50px;
+  
+  @media (max-width: 480px) {
+    font-size: 1.4rem;
+    padding-right: 40px;
+  }
 `;
 
 export const FormGroup = styled.div`
@@ -218,6 +236,7 @@ export const FileUploadContainer = styled.div`
 export const FileUploadButton = styled.label`
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
   background: linear-gradient(135deg, #5f1530, #b5003e);
   color: white;
@@ -228,6 +247,11 @@ export const FileUploadButton = styled.label`
   transition: all 0.2s ease;
   box-shadow: 0 3px 6px rgba(140, 0, 51, 0.2);
   white-space: nowrap;
+  width: 100%;
+  
+  @media (min-width: 768px) {
+    width: auto;
+  }
   
   &:hover {
     transform: translateY(-2px);
@@ -249,11 +273,16 @@ export const FileNameDisplay = styled.div`
   border-radius: 5px;
   color: #555;
   font-size: 0.9rem;
-  white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   flex: 1;
   border: 1px solid #ddd;
+  word-break: break-all;
+  
+  @media (min-width: 768px) {
+    white-space: nowrap;
+    word-break: normal;
+  }
 `;
 
 // Animação para o spinner
@@ -311,7 +340,7 @@ export const SubmitButton = styled.button`
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 0.8rem 2rem;
+  padding: 0.8rem 1rem;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -320,7 +349,13 @@ export const SubmitButton = styled.button`
   align-items: center;
   justify-content: center;
   margin: 2rem auto 0;
-  min-width: 200px;
+  width: 100%;
+  
+  @media (min-width: 768px) {
+    width: auto;
+    min-width: 200px;
+    padding: 0.8rem 2rem;
+  }
   
   &:hover:not(:disabled) {
     background-color: #6c0026;
