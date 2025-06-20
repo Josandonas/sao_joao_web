@@ -8,7 +8,7 @@ import {
   VideoTitle,
   VideoDescription
 } from './styles';
-import { FaPlay, FaPause } from 'react-icons/fa';
+import { FaPlay } from 'react-icons/fa';
 
 /**
  * Componente que exibe um vídeo opcional entre seções
@@ -17,6 +17,7 @@ import { FaPlay, FaPause } from 'react-icons/fa';
 const VideoSection = () => {
   const { t, i18n } = useTranslation();
   const [isPlaying, setIsPlaying] = useState(false);
+  const [showPlayButton, setShowPlayButton] = useState(true);
   const videoRef = useRef(null);
 
   // Define o caminho do vídeo com base no idioma atual
@@ -34,21 +35,22 @@ const VideoSection = () => {
     }
   }, [i18n.language]);
 
-  // Função para alternar entre play e pause
-  const togglePlay = () => {
+  // Função para iniciar a reprodução do vídeo
+  const startVideo = () => {
     if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
+      videoRef.current.play();
+      setIsPlaying(true);
+      setShowPlayButton(false);
+      
+      // Habilita os controles padrão do vídeo após o primeiro clique
+      videoRef.current.controls = true;
     }
   };
 
   // Função para lidar com o fim do vídeo
   const handleVideoEnd = () => {
     setIsPlaying(false);
+    setShowPlayButton(true);
     if (videoRef.current) {
       videoRef.current.currentTime = 0;
     }
@@ -68,10 +70,19 @@ const VideoSection = () => {
             src={videoPath}
             onEnded={handleVideoEnd}
             poster="/assets/videos/intro/capa.gif"
+            // Controles inicialmente ocultos, serão habilitados após o primeiro clique
+            controls={!showPlayButton}
           />
-          <PlayButton onClick={togglePlay} aria-label={isPlaying ? t('common.pause', 'Pausar') : t('common.play', 'Reproduzir')}>
-            {isPlaying ? <FaPause /> : <FaPlay />}
-          </PlayButton>
+          
+          {/* Botão de play central - visível apenas antes de iniciar o vídeo */}
+          {showPlayButton && (
+            <PlayButton 
+              onClick={startVideo} 
+              aria-label={t('common.play', 'Reproduzir')}
+            >
+              <FaPlay />
+            </PlayButton>
+          )}
         </VideoWrapper>
       </VideoCard>
     </VideoSectionContainer>
