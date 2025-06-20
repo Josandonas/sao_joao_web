@@ -5,6 +5,11 @@ export const FooterContainer = styled.footer`
   padding: ${props => props.theme.spacing.lg} ${props => props.theme.spacing.md};
   margin-top: auto;
   color: white;
+  
+  /* Adiciona mais espaço no modo mobile para separar os elementos */
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    padding: ${props => props.theme.spacing.xl} ${props => props.theme.spacing.md};
+  }
 `;
 
 export const FooterContent = styled.div`
@@ -23,8 +28,14 @@ export const Copyright = styled.div`
   color: white;
   font-size: ${props => props.theme.fontSizes.small};
   
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    margin-bottom: ${props => props.theme.spacing.md};
+  /* Centraliza o copyright em todos os tamanhos de tela */
+  text-align: center;
+  
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    margin: ${props => props.theme.spacing.md} 0;
+    padding: ${props => props.theme.spacing.md} 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 `;
 
@@ -32,9 +43,13 @@ export const Boss = styled.div`
   display: flex;
   align-items: center;
   
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
-    margin-top: ${props => props.theme.spacing.md};
-    justify-content: space-around;
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    justify-content: center;
+    margin-bottom: ${props => props.theme.spacing.md};
+  }
+  
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    justify-content: flex-start;
   }
 `;
 
@@ -53,9 +68,13 @@ export const Parteners = styled.div`
   display: flex;
   align-items: center;
   
-  @media (max-width: ${props => props.theme.breakpoints.md}) {
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    justify-content: center;
     margin-top: ${props => props.theme.spacing.md};
-    justify-content: space-around;
+  }
+  
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    justify-content: flex-end;
   }
 `;
 export const FundaCulturaLogo = styled.img`
