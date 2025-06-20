@@ -14,9 +14,8 @@ export const RegisterModal = styled.div`
   padding: 1rem;
   
   @media (max-width: 480px) {
-    padding: 0.5rem;
+    padding: 0;
     align-items: flex-start;
-    overflow-y: auto;
   }
 `;
 
@@ -24,14 +23,12 @@ export const ModalContent = styled.div`
   background-color: white;
   width: 90%;
   max-width: 900px;
-  max-height: 90vh;
   border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   animation: modalFadeIn 0.4s ease-out;
-  overflow-y: auto;
   
   @keyframes modalFadeIn {
     from { opacity: 0; transform: translateY(-30px); }
@@ -40,14 +37,14 @@ export const ModalContent = styled.div`
   
   @media (max-width: 768px) {
     width: 95%;
-    max-height: 95vh;
   }
   
   @media (max-width: 480px) {
     width: 100%;
-    max-height: 100vh;
     border-radius: 0;
     margin-top: 0;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -149,7 +146,9 @@ export const CloseButton = styled.button`
 
 export const ModalBody = styled.div`
   padding: 2rem;
-  overflow-y: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   
   @media (max-width: 768px) {
     padding: 1.5rem;
@@ -157,6 +156,7 @@ export const ModalBody = styled.div`
   
   @media (max-width: 480px) {
     padding: 1rem;
+    padding-bottom: 1rem;
   }
 `;
 
@@ -164,6 +164,9 @@ export const Form = styled.form`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  position: relative;
+  height: 100%;
+  flex: 1;
   
   .form-actions {
     display: flex;
@@ -419,7 +422,8 @@ export const SubmitButton = styled.button`
   
   @media (max-width: 480px) {
     width: 100%;
-    padding: 0.8rem 1rem;
+    max-width: 45%;
+    padding: 1rem;
     font-size: 0.95rem;
   }
 `;
@@ -654,15 +658,13 @@ export const FormActions = styled.div`
   @media (max-width: 480px) {
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 1.5rem;
-    position: sticky;
-    bottom: 1rem;
-    z-index: 10;
+    margin-top: 0;
+    padding: 0.8rem;
     
     .back-button, .next-button {
       flex: 1;
-      max-width: none;
-      padding: 0.8rem 1rem;
+      max-width: 45%;
+      padding: 0.8rem;
       font-size: 0.9rem;
       white-space: nowrap;
       text-overflow: ellipsis;
