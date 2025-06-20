@@ -26,26 +26,11 @@ const api = axios.create({
  */
 export const fetchCommunitiesFromApi = async () => {
   try {
-    // Em ambiente de desenvolvimento sem API configurada, usamos dados simulados
+    // Em ambiente de desenvolvimento sem API configurada, retornamos um array vazio
+    // para não exibir os dados de exemplo no mapa
     if (import.meta.env.DEV && !import.meta.env.VITE_API_URL) {
-      try {
-        // Tenta buscar do localStorage primeiro (para persistir dados cadastrados)
-        const storedData = localStorage.getItem('api_communities_sample');
-        if (storedData) {
-          const parsedData = JSON.parse(storedData);
-          if (Array.isArray(parsedData) && parsedData.length > 0) {
-            return parsedData;
-          }
-        }
-        
-        // Se não houver dados válidos no localStorage, usa os dados de amostra
-        console.log('Usando dados de amostra para comunidades');
-        return sampleApiCommunities.communities || [];
-      } catch (error) {
-        // Apenas log no console para desenvolvedores
-        console.error('Erro ao buscar dados de amostra:', error);
-        return [];
-      }
+      console.log('Ambiente de desenvolvimento sem API configurada - não usando dados de exemplo');
+      return [];
     }
 
     // Em produção ou com API configurada, faz a requisição real
@@ -55,21 +40,10 @@ export const fetchCommunitiesFromApi = async () => {
     // Apenas log no console para desenvolvedores
     console.error('Erro ao buscar comunidades da API:', error);
     
-    // Em caso de erro, tenta usar o arquivo de amostra como fallback
+    // Em caso de erro, não usamos dados de exemplo como fallback
     if (import.meta.env.DEV) {
-      try {
-        // Em caso de erro, tenta usar dados do localStorage
-        const storedData = localStorage.getItem('api_communities_sample');
-        if (storedData) {
-          console.warn('Usando dados armazenados devido a erro na API');
-          return JSON.parse(storedData) || [];
-        }
-        // Se não houver dados no localStorage, usa os dados de amostra
-        console.warn('Usando dados de amostra como fallback');
-        return sampleApiCommunities.communities || [];
-      } catch (fallbackError) {
-        console.error('Erro ao carregar dados de fallback:', fallbackError);
-      }
+      console.warn('Erro ao acessar API, não usando dados de exemplo como fallback');
+      return [];
     }
     
     return [];
@@ -91,7 +65,7 @@ export const createCommunity = async (communityData) => {
       // Gera um ID único para simular o comportamento da API
       const newCommunity = {
         ...communityData,
-        id: `api_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+        id: `local_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
         createdAt: new Date().toISOString()
       };
       
