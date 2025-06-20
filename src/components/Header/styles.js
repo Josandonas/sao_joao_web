@@ -42,21 +42,36 @@ export const HeaderContent = styled.div`
 
 export const Navigation = styled.nav`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Impede a quebra de linha para os itens no desktop */
   flex: 1;
-  justify-content: center; /* Centraliza as opções do navbar */
-  gap: ${props => props.theme.spacing.md}; /* Adiciona espaçamento entre os itens */
-  padding-top: 4%; /* Espaço para acomodar o ícone da viola acima dos itens */
+  justify-content: center; /* Centraliza os itens no container */
+  gap: 10px; /* Espaçamento fixo entre os itens para evitar problemas de cálculo */
+  padding-top: 50px; /* Espaço fixo para acomodar o ícone da viola acima dos itens */
+  overflow-x: visible; /* Permite que os itens sejam visíveis mesmo se ultrapassarem o container */
   
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     width: 100%;
     margin-bottom: ${props => props.theme.spacing.md};
     justify-content: center;
+    padding-top: 20px;
   }
   
   @media (max-width: ${props => props.theme.breakpoints.sm}) {
     flex-direction: column;
     align-items: center;
+  }
+  
+  /* Estratégia para controlar o comportamento responsivo antes da quebra para mobile */
+  @media (max-width: 1300px) and (min-width: 992px) {
+    gap: 8px; /* Espaçamento fixo em pixels para evitar problemas de cálculo */
+  }
+  
+  @media (max-width: 1200px) and (min-width: 992px) {
+    gap: 6px; /* Espaçamento fixo em pixels */
+  }
+  
+  @media (max-width: 1100px) and (min-width: 992px) {
+    gap: 4px; /* Espaçamento fixo em pixels */
   }
 `;
 
@@ -64,15 +79,17 @@ export const Navigation = styled.nav`
 const navLinkStyles = `
   color: #FFC56E;
   text-decoration: none;
-  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  padding: 0.4rem 0.5rem;
   font-family: var(--font-family-heading);
   font-weight: 700;
-  font-size: 1.5rem;
-  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  letter-spacing: 0px;
   text-transform: uppercase;
   transition: all 0.3s ease;
-  border-radius: ${props => props.theme.borderRadius.small};
+  border-radius: 4px;
   display: block;
+  width: 100%;
+  text-align: center;
   
   &:hover {
     color: #FFC56E;
@@ -86,6 +103,45 @@ const navLinkStyles = `
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     transform: translateY(-2px);
     font-weight: 700;
+  }
+  
+  /* Estratégia para controlar o comportamento responsivo antes da quebra para mobile */
+  @media (max-width: 1400px) and (min-width: 1201px) {
+    padding: 0.35rem 0.45rem;
+    font-size: 0.9rem;
+  }
+  
+  @media (max-width: 1300px) and (min-width: 1101px) {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.85rem;
+  }
+  
+  @media (max-width: 1200px) and (min-width: 992px) {
+    padding: 0.25rem 0.35rem;
+    font-size: 0.8rem;
+  }
+  
+  @media (max-width: 1100px) and (min-width: 992px) {
+    padding: 0.2rem 0.3rem;
+    font-size: 0.75rem;
+    letter-spacing: 0;
+  }
+  
+  /* Estilos específicos para o item Programação Oficial */
+  &.programacao-item {
+    font-size: 0.9rem;
+    white-space: normal; /* Permite quebra de texto */
+    hyphens: auto; /* Adiciona hifenização */
+    word-break: break-word;
+    line-height: 1.2;
+    
+    @media (max-width: 1200px) and (min-width: 992px) {
+      font-size: 0.8rem;
+    }
+    
+    @media (max-width: 1100px) and (min-width: 992px) {
+      font-size: 0.75rem;
+    }
   }
   
   /* Estilos responsivos para dispositivos móveis */
@@ -112,14 +168,31 @@ const navLinkStyles = `
 `;
 
 export const NavItem = styled.div`
-  margin: 0 ${props => props.theme.spacing.xs};
-  min-width: 120px; /* Largura mínima para a caixa */
+  margin: 0 5px; /* Margem fixa em pixels */
+  min-width: 100px; /* Largura mínima menor para a caixa */
   text-align: center; /* Centraliza o texto dentro da caixa */
   position: relative; /* Para posicionar o ícone de viola */
   display: flex;
   flex-direction: column;
   align-items: center;
   transition: all 0.3s ease;
+  
+  /* Classe para itens que devem se adaptar responsivamente */
+  &.nav-item-responsive {
+    flex: 1; /* Distribui o espaço igualmente */
+    min-width: 80px; /* Largura mínima ainda menor */
+    max-width: 120px; /* Limita a largura máxima */
+    white-space: nowrap; /* Impede quebra de texto */
+    overflow: visible; /* Garante que o texto seja visível */
+  }
+  
+  /* Classe especial para o item Programação Oficial */
+  &.programacao-wrapper {
+    flex: 1.2; /* Um pouco mais de espaço para este item */
+    white-space: normal; /* Permite quebra de texto */
+    min-width: 130px; /* Garante largura mínima maior */
+    max-width: 150px; /* Limita a largura máxima */
+  }
   
   /* Estilos responsivos para dispositivos móveis */
   @media (max-width: 991px) { /* Bootstrap lg breakpoint */
@@ -129,17 +202,42 @@ export const NavItem = styled.div`
     justify-content: center;
     min-width: auto;
     padding: 0.25rem 0;
+    
+    &.nav-item-responsive {
+      white-space: normal; /* Permite quebra de texto no mobile */
+      max-width: none; /* Remove limite de largura no mobile */
+    }
+    
+    &.programacao-wrapper {
+      max-width: none; /* Remove limite de largura no mobile */
+    }
+  }
+  
+  /* Estratégia para controlar o comportamento responsivo antes da quebra para mobile */
+  @media (max-width: 1300px) and (min-width: 992px) {
+    min-width: 90px; /* Reduz a largura mínima */
+    margin: 0 4px; /* Margem fixa em pixels */
+  }
+  
+  @media (max-width: 1200px) and (min-width: 992px) {
+    min-width: 80px; /* Reduz a largura mínima */
+    margin: 0 3px; /* Margem fixa em pixels */
+  }
+  
+  @media (max-width: 1100px) and (min-width: 992px) {
+    min-width: 70px; /* Reduz ainda mais a largura mínima */
+    margin: 0 2px; /* Margem fixa em pixels */
   }
   
   /* Adiciona o ícone de viola acima do item ativo em desktop e ao lado em mobile */
   &::before {
     content: '';
     position: absolute;
-    bottom: calc(100% + 10px); /* Posiciona acima do item em desktop com espaço fixo */
+    bottom: calc(100% + 15px); /* Aumentado o espaço para melhor visualização */
     left: 50%;
     transform: translateX(-50%); /* Centraliza horizontalmente */
-    width: 80px; /* Tamanho fixo para desktop */
-    height: 80px; /* Tamanho fixo para desktop */
+    width: 60px; /* Tamanho reduzido para evitar sobreposição */
+    height: 60px; /* Tamanho reduzido para evitar sobreposição */
     background-image: url('/assets/svg/Viola_Marrom.svg');
     background-size: contain;
     background-repeat: no-repeat;
@@ -148,6 +246,20 @@ export const NavItem = styled.div`
     transition: all 0.3s ease;
     pointer-events: none;
     filter: drop-shadow(0 2px 4px rgba(255, 197, 110, 0.6)); /* Sombra dourada */
+    z-index: 10; /* Garante que a viola fique acima de outros elementos */
+    
+    /* Ajustes para telas intermediárias */
+    @media (max-width: 1200px) and (min-width: 992px) {
+      width: 50px;
+      height: 50px;
+      bottom: calc(100% + 12px);
+    }
+    
+    @media (max-width: 1100px) and (min-width: 992px) {
+      width: 45px;
+      height: 45px;
+      bottom: calc(100% + 10px);
+    }
     
     /* Reposiciona a viola para dispositivos móveis */
     @media (max-width: 991px) {
@@ -158,6 +270,7 @@ export const NavItem = styled.div`
       width: 30px;
       height: 30px;
       z-index: 2; /* Garante que a viola fique acima do fundo */
+      opacity: 1 !important; /* Garante que a viola seja sempre visível no mobile quando ativo */
     }
   }
   
@@ -176,18 +289,35 @@ export const NavItem = styled.div`
     transition: all 0.3s ease;
     z-index: -1;
     
+    /* Ajustes para telas intermediárias */
+    @media (max-width: 1200px) and (min-width: 992px) {
+      width: 25px;
+      height: 25px;
+      bottom: calc(100% + 18px);
+    }
+    
+    @media (max-width: 1100px) and (min-width: 992px) {
+      width: 22px;
+      height: 22px;
+      bottom: calc(100% + 16px);
+    }
+    
     /* Reposiciona o brilho para dispositivos móveis */
     @media (max-width: 991px) {
       bottom: auto;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
+      width: 15px;
+      height: 15px;
     }
   }
   
-  /* Mostra o ícone quando o link está ativo */
+  /* Mostra o ícone de viola quando o link está ativo */
   &:has(a.active)::before {
-    opacity: 1;
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
   }
   
   /* Mostra o efeito de brilho quando o link está ativo */
@@ -206,6 +336,13 @@ export const NavItem = styled.div`
     100% { transform: translateX(-50%) scale(1.2); opacity: 0.8; }
   }
   
+  @media (max-width: 991px) {
+    @keyframes pulseGlow {
+      0% { transform: translateY(-50%) scale(1); opacity: 0.5; }
+      100% { transform: translateY(-50%) scale(1.2); opacity: 0.8; }
+    }
+  }
+  
   /* Ajuste específico para o item Programação Oficial que pode quebrar em duas linhas */
   &:has(a.programacao-item) {
     &::before {
@@ -214,6 +351,26 @@ export const NavItem = styled.div`
     
     &::after {
       bottom: calc(100% + 20px); /* Mantém a posição consistente */
+    }
+    
+    @media (max-width: 1200px) and (min-width: 992px) {
+      &::before {
+        bottom: calc(100% + 8px);
+      }
+      
+      &::after {
+        bottom: calc(100% + 18px);
+      }
+    }
+    
+    @media (max-width: 1100px) and (min-width: 992px) {
+      &::before {
+        bottom: calc(100% + 6px);
+      }
+      
+      &::after {
+        bottom: calc(100% + 16px);
+      }
     }
   }
   
@@ -308,60 +465,180 @@ export const LanguageDropdown = styled.div`
   }
 `;
 
-export const LanguageOption = styled.div`
-  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
-  cursor: pointer;
-  transition: all ${props => props.theme.transitions.default};
+export const LanguageOption = styled.button`
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: ${props => props.theme.spacing.sm};
+  background: none;
+  border: none;
   color: #FFC56E;
   font-family: var(--font-family-heading);
   font-weight: 500;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  border-bottom: 1px solid rgba(255, 197, 110, 0.2);
-  
-  &:last-child {
-    border-bottom: none;
-  }
+  text-align: left;
+  cursor: pointer;
+  transition: all ${props => props.theme.transitions.default};
   
   &:hover {
-    background-color: rgba(255, 197, 110, 0.15);
+    background-color: rgba(255, 255, 255, 0.1);
   }
   
   &.active {
-    background-color: rgba(255, 197, 110, 0.25);
+    background-color: rgba(255, 197, 110, 0.2);
     font-weight: 700;
+  }
+  
+  &:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 197, 110, 0.3);
+  }
+  
+  img {
+    width: 20px;
+    height: 20px;
+    margin-right: ${props => props.theme.spacing.sm};
+    border-radius: 50%;
+    object-fit: cover;
+  }
+`;
+
+export const NavLink = styled(Link)`
+  ${props => navLinkStyles}
+`;
+
+export const Logo = styled(Link)`
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  margin-right: ${props => props.theme.spacing.lg};
+  
+  img {
+    height: 60px;
+    margin-right: ${props => props.theme.spacing.sm};
+  }
+  
+  h1 {
+    color: ${props => props.theme.colors.white};
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    font-family: var(--font-family-heading);
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    margin-bottom: ${props => props.theme.spacing.sm};
+    margin-right: 0;
+    justify-content: center;
+  }
+`;
+
+export const MobileToggle = styled.button`
+  background: none;
+  border: none;
+  color: ${props => props.theme.colors.white};
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    display: block;
+  }
+`;
+
+export const NavButton = styled.button`
+  background: none;
+  border: none;
+  color: #FFC56E;
+  text-decoration: none;
+  padding: ${props => props.theme.spacing.sm} ${props => props.theme.spacing.md};
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  border-radius: ${props => props.theme.borderRadius.small};
+  display: block;
+  width: 100%;
+  text-align: center;
+  
+  &:hover {
+    color: #FFC56E;
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  @media (max-width: 1200px) and (min-width: 992px) {
+    padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+    font-size: 1.3rem;
+  }
+  
+  @media (max-width: 1100px) and (min-width: 992px) {
+    padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.xs};
+    font-size: 1.2rem;
+  }
+  
+  @media (max-width: 991px) {
+    padding: 0.5rem 1rem;
+    margin: 0.25rem 0;
+    text-align: left;
+    font-size: 1rem;
+    border-radius: 4px;
+    
+    &:hover {
+      transform: none;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+`;
+
+// Animação para o ícone da viola
+export const floatViola = `
+  @keyframes floatViola {
+    0% { transform: translateX(-50%) translateY(0); }
+    100% { transform: translateX(-50%) translateY(-5px); }
+  }
+  
+  @media (max-width: 991px) {
+    @keyframes floatViola {
+      0% { transform: translateY(-50%) scale(0.6) translateX(0); }
+      100% { transform: translateY(-50%) scale(0.6) translateX(3px); }
+    }
   }
 `;
 
 export const LanguageButton = styled.button`
-  background: transparent;
-  border: 2px solid #FFC56E;
+  background: none;
+  border: none;
   color: #FFC56E;
-  font-family: var(--font-family-heading);
-  font-weight: 900;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+  display: flex;
+  align-items: center;
+  gap: ${props => props.theme.spacing.xs};
   cursor: pointer;
-  transition: all ${props => props.theme.transitions.default};
+  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
+  border: 2px solid #FFC56E;
   border-radius: ${props => props.theme.borderRadius.small};
+  transition: all ${props => props.theme.transitions.default};
+  font-family: var(--font-family-heading);
+  font-weight: 700;
+  
+  svg {
+    color: #FFC56E;
+  }
+  
+  span {
+    font-weight: 500;
+    margin-left: 5px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+  }
   
   &:hover {
     background-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-1px);
   }
   
-  &.active {
-    background-color: #FFC56E;
-    color: #5f1530;
-    border-color: #FFC56E;
+  @media (max-width: 991px) {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
   }
-`;
-
-export const NavButton = styled(Link)`
-  ${props => navLinkStyles}
-  min-width: 120px; /* Largura mínima para a caixa */
-  text-align: center; /* Centraliza o texto dentro da caixa */
-  box-sizing: border-box; /* Garante que o padding não aumente o tamanho total */
 `;

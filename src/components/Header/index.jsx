@@ -56,6 +56,13 @@ const Header = () => {
       document.body.classList.remove('navbar-open');
     }
   }, [menuExpanded]);
+  
+  // Função para fechar o menu mobile quando um item é clicado
+  const handleNavItemClick = () => {
+    if (menuExpanded) {
+      setMenuExpanded(false);
+    }
+  };
 
   return (
     <HeaderContainer>
@@ -63,44 +70,44 @@ const Header = () => {
         <Navbar expand="lg" className="py-2 navbar-dark mobile-menu-custom" expanded={menuExpanded}>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto me-2 border-0 custom-toggler" onClick={() => setMenuExpanded(!menuExpanded)} />
           <Navbar.Collapse id="basic-navbar-nav" className="mt-2 mt-lg-0 mobile-menu-collapse">
-            <Nav className="mx-auto justify-content-between w-100">
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}`} className={location.pathname === `/${lang}` ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
+            <Nav className="mx-auto justify-content-between w-100 flex-nowrap">
+              <NavItem className="nav-item-mobile nav-item-responsive">
+                <Link to={`/${lang}`} onClick={handleNavItemClick} className={location.pathname === `/${lang}` ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.home')}
                 </Link>
               </NavItem>
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}/stories`} className={location.pathname.includes('/stories') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
+              <NavItem className="nav-item-mobile nav-item-responsive">
+                <Link to={`/${lang}/stories`} onClick={handleNavItemClick} className={location.pathname.includes('/stories') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.stories')}
                 </Link>
               </NavItem>
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}/communities`} className={location.pathname.includes('/communities') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
+              <NavItem className="nav-item-mobile nav-item-responsive">
+                <Link to={`/${lang}/communities`} onClick={handleNavItemClick} className={location.pathname.includes('/communities') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.communities')}
                 </Link>
               </NavItem>
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}/book`} className={location.pathname.includes('/book') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
+              <NavItem className="nav-item-mobile nav-item-responsive">
+                <Link to={`/${lang}/book`} onClick={handleNavItemClick} className={location.pathname.includes('/book') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.book')}
                 </Link>
               </NavItem>
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}/postcards`} className={location.pathname.includes('/postcards') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
+              <NavItem className="nav-item-mobile nav-item-responsive">
+                <Link to={`/${lang}/postcards`} onClick={handleNavItemClick} className={location.pathname.includes('/postcards') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.postcards')}
                 </Link>
               </NavItem>
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}/testimonials`} className={location.pathname.includes('/testimonials') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
+              <NavItem className="nav-item-mobile nav-item-responsive">
+                <Link to={`/${lang}/testimonials`} onClick={handleNavItemClick} className={location.pathname.includes('/testimonials') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.testimonials')}
                 </Link>
               </NavItem>
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}/biblioteca`} className={location.pathname.includes('/biblioteca') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
+              <NavItem className="nav-item-mobile nav-item-responsive">
+                <Link to={`/${lang}/biblioteca`} onClick={handleNavItemClick} className={location.pathname.includes('/biblioteca') ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
                   {t('navigation.biblioteca', 'Biblioteca')}
                 </Link>
               </NavItem>
-              <NavItem className="nav-item-mobile">
-                <Link to={`/${lang}/programacao`} className={location.pathname.includes('/programacao') ? 'active d-flex align-items-center programacao-item' : 'd-flex align-items-center programacao-item'}>
+              <NavItem className="nav-item-mobile programacao-wrapper">
+                <Link to={`/${lang}/programacao`} onClick={handleNavItemClick} className={location.pathname.includes('/programacao') ? 'active d-flex align-items-center programacao-item' : 'd-flex align-items-center programacao-item'}>
                   {t('navigation.programacao')}
                 </Link>
               </NavItem>
