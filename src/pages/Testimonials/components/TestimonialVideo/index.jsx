@@ -18,7 +18,7 @@ import {
 const TestimonialVideoModal = ({ testimonial, videoRef, onClose }) => {
   const { t } = useTranslation();
   const { lang } = useParams(); // Obtém o idioma atual da URL
-  
+
   if (!testimonial) return null;
 
   // Seleciona o vídeo de acordo com o idioma atual
@@ -41,12 +41,12 @@ const TestimonialVideoModal = ({ testimonial, videoRef, onClose }) => {
       <ModalContent onClick={e => e.stopPropagation()} className="position-relative">
         <CloseButton onClick={onClose} className="btn-close-custom">&times;</CloseButton>
         <VideoContainer className="mb-3">
-          <video 
+          <video
             ref={videoRef}
             controls
             width="100%"
             className="video-player"
-            src={videoUrl}
+            src={PUBLIC_URL + videoUrl}
           >
             {t('testimonials.video.unsupportedBrowser', 'Seu navegador não suporta a reprodução de vídeos.')}
           </video>

@@ -47,23 +47,18 @@ const CommunityModal = ({ community, onClose }) => {
           <GalleryContainer>
             {(!sanitizedCommunity.gallery || sanitizedCommunity.gallery.length === 0) ? (
               <div className="gallery-message">
-                <ModalImage src={sanitizedCommunity.image} alt={sanitizedCommunity.name[currentLang] || sanitizedCommunity.name['pt']} />
+                <ModalImage src={PUBLIC_URL + sanitizedCommunity.image} alt={sanitizedCommunity.name[currentLang] || sanitizedCommunity.name['pt']} />
                 <p className="no-gallery-message">
                   {t('communities.noGallery')}
                 </p>
               </div>
             ) : (
               <ImageGallery
-                items={[
-                  // Adiciona a imagem de capa como a primeira da galeria
-                  {
-                    original: sanitizedCommunity.image,
-                    thumbnail: sanitizedCommunity.image
-                  },
+                items={[                 
                   // Adiciona as outras imagens da galeria
                   ...sanitizedCommunity.gallery.map(image => ({
-                    original: image,
-                    thumbnail: image
+                    original: PUBLIC_URL + image,
+                    thumbnail: PUBLIC_URL + image
                   }))
                 ]}
                 showPlayButton={false}

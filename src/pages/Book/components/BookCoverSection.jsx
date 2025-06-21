@@ -1,9 +1,9 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FiShare2, FiCopy, FiCheck, FiX } from 'react-icons/fi';
-import { 
-  BookCover, 
-  CoverImage, 
+import {
+  BookCover,
+  CoverImage,
   BookInfo
 } from '../styles/BookCoverStyles';
 import {
@@ -22,38 +22,38 @@ import {
  * @param {Object} props.shareStatus - Status do compartilhamento
  * @returns {JSX.Element} - Componente renderizado
  */
-const BookCoverSection = ({ 
-  bookContent, 
-  onShare, 
+const BookCoverSection = ({
+  bookContent,
+  onShare,
   onReadOnline,
   shareStatus = {}
 }) => {
   const bookMetadata = bookContent.metadata;
-  
+
   // Tradução
   const { t } = useTranslation();
-  
+
   // Status de compartilhamento
   const { isSharing = false, shareSuccess = false, shareError = false, shareMessage = '' } = shareStatus || {};
-  
+
   return (
     <BookCover>
       <div className="book-cover-content">
-        <CoverImage 
-          src={bookContent.metadata.coverImage} 
-          alt={bookContent.metadata.title} 
+        <CoverImage
+          src={PUBLIC_URL + bookContent.metadata.coverImage}
+          alt={bookContent.metadata.title}
         />
-        
+
         <BookInfo>
           <div className="book-title-section">
             <h2>{t('book.title', 'Banho de São João')}</h2>
             <h3>{t('book.subtitle', 'Uma Tradição do Pantanal')}</h3>
           </div>
-          
+
           <div className="book-description">
             <p>{bookContent.metadata.description}</p>
           </div>
-          
+
           <div className="book-details">
             <div className="detail-item">
               <span>{t('book.publication', 'Publicação')}:</span>
@@ -67,10 +67,14 @@ const BookCoverSection = ({
               <span>{t('book.languages', 'Idiomas')}:</span>
               <span>{bookContent.metadata.languages}</span>
             </div>
+            <div className="detail-item">
+              <span>{t('book.authors', 'Autora')}:</span>
+              <span>{bookContent.metadata.authors}</span>
+            </div>
           </div>
-          
 
-          
+
+
           {/* Mensagem de status do compartilhamento */}
           {shareMessage && (
             <ShareStatus success={shareSuccess ? "true" : undefined} error={shareError ? "true" : undefined}>

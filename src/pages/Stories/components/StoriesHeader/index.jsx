@@ -13,7 +13,7 @@ const StoriesHeader = ({ onAddStoryClick }) => {
       <PageTitle>Histórias do Banho de São João</PageTitle>
       <ButtonWrapper>
         <AddStoryButton onClick={onAddStoryClick}>
-          <span className="plus-icon">+</span> Adicionar Nova História
+          <span className="plus-icon">+</span> Compartilhe Sua História
         </AddStoryButton>
       </ButtonWrapper>
     </Container>

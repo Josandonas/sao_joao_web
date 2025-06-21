@@ -13,13 +13,13 @@ function copyPdfWorker() {
       if (!fs.existsSync('public/pdf-worker')) {
         fs.mkdirSync('public/pdf-worker', { recursive: true });
       }
-      
+
       // Caminho para o worker do PDF.js no node_modules
       const workerPath = path.resolve(__dirname, 'node_modules/pdfjs-dist/build/pdf.worker.min.js');
-      
+
       // Destino no diretório público
       const destPath = path.resolve(__dirname, 'public/pdf-worker/pdf.worker.min.js');
-      
+
       // Copiar o arquivo se existir
       if (fs.existsSync(workerPath)) {
         fs.copyFileSync(workerPath, destPath);
@@ -32,6 +32,10 @@ function copyPdfWorker() {
 }
 
 export default defineConfig({
+  // URL base para arquivos públicos
+  define: {
+    PUBLIC_URL: JSON.stringify('https://stic.corumba.ms.gov.br/saojoao/public')
+  },
   plugins: [
     react(),
     copyPdfWorker()
@@ -49,7 +53,15 @@ export default defineConfig({
     }
   },
   server: {
+    host: '0.0.0.0',
     port: 3000,
+    strictPort: true,
+    allowedHosts: [
+      'saojoao.corumba.ms.gov.br',
+      'localhost',
+      '127.0.0.1',
+      '168.227.210.77'
+    ]
   },
   build: {
     outDir: 'dist',

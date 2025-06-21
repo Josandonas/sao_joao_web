@@ -5,18 +5,18 @@ export const bookContent = {
     title: 'Banho de São João',
     subtitle: 'Uma Tradição do Pantanal',
     coverImage: '/assets/images/book/1.jpg',
-    description: 'Este livro documenta a rica tradição do Banho de São João no Pantanal brasileiro, explorando suas origens históricas, rituais, música, dança e importância cultural para as comunidades locais.',
+    description: 'A intenção do livro sempre foi a de contar, visualmente, a história dos elementos da manifestação festiva permeada por princípios religiosos, mostrando os ritos e os rituais, a devoção, a alegria e o ápice da festividade.',
     published: '2011',
     totalPages: 184, // Número total de páginas baseado nas imagens disponíveis
     languages: 'Português, English, Español',
-    authors: 'Secretaria de Cultura de Corumbá',
+    authors: 'Hélènemarie Dias Fernandes',
     isbn: '978-85-7631-123-4'
   },
   // Função para gerar páginas baseadas no idioma
   getBookPages: (lang) => {
     // Define o prefixo do caminho das imagens baseado no idioma
     let pathPrefix = '/assets/images/book/livro_pt/';
-    
+
     switch(lang) {
       case 'en':
         pathPrefix = '/assets/images/book/livro_en/';
@@ -29,7 +29,7 @@ export const bookContent = {
         pathPrefix = '/assets/images/book/livro_pt/';
         break;
     }
-    
+
     // Gera um array com todas as páginas do livro
     const pages = [];
     for (let i = 1; i <= 184; i++) {
@@ -39,7 +39,7 @@ export const bookContent = {
         image: `${pathPrefix}${i}.jpg`
       });
     }
-    
+
     return pages;
   },
   // Capítulos do livro ajustados para corresponder às páginas reais do PDF

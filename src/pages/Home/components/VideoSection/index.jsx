@@ -26,12 +26,12 @@ const VideoSection = () => {
     
     switch(currentLanguage) {
       case 'en':
-        return "/assets/videos/intro/institucional-en.mp4";
+        return `${PUBLIC_URL}/assets/videos/intro/institucional-en.mp4`;
       case 'es':
-        return "/assets/videos/intro/institucional-es.mp4";
+        return `${PUBLIC_URL}/assets/videos/intro/institucional-es.mp4`;
       case 'pt':
       default:
-        return "/assets/videos/intro/institucional-pt.mp4";
+        return `${PUBLIC_URL}/assets/videos/intro/institucional-pt.mp4`;
     }
   }, [i18n.language]);
 
@@ -69,7 +69,7 @@ const VideoSection = () => {
             ref={videoRef}
             src={videoPath}
             onEnded={handleVideoEnd}
-            poster="/assets/videos/intro/capa.gif"
+            poster={`${PUBLIC_URL}/assets/videos/intro/capa.gif`}
             // Controles inicialmente ocultos, serão habilitados após o primeiro clique
             controls={!showPlayButton}
           />

@@ -4,7 +4,7 @@ import DownloadLink from 'react-download-link';
 import {
   ReadButton,
   DownloadButton,
-  ShareButton 
+  ShareButton
 } from '../styles/ActionButtonStyles';
 import {
   Container,
@@ -23,19 +23,17 @@ import {
  * @param {Object} props.shareStatus - Status do compartilhamento
  * @returns {JSX.Element} - Componente renderizado
  */
-const BookHeader = ({ 
-  onDownload, 
-  onShare, 
-  onReadOnline, 
+const BookHeader = ({
+  onDownload,
+  onShare,
+  onReadOnline,
   shareStatus = {}
 }) => {
   const { t, i18n } = useTranslation();
-  
+
   return (
     <Container>
       <ButtonsContainer>
-
-        
         <DownloadLink
           label={
             <DownloadButton as="span">
@@ -52,20 +50,20 @@ const BookHeader = ({
             // Determinar qual arquivo PDF baixar com base no idioma atual
             const currentLang = i18n.language || 'pt';
             let pdfLang = 'pt'; // Idioma padrão
-            
+
             // Mapear o idioma atual para o arquivo PDF correspondente
             if (currentLang.startsWith('en')) {
               pdfLang = 'en';
             } else if (currentLang.startsWith('es')) {
               pdfLang = 'es';
             }
-            
+
             // Retornar o caminho completo para o arquivo PDF
             return Promise.resolve(window.location.origin + `/assets/pdf/livro_${pdfLang}.pdf`);
           }}
           style={{ textDecoration: 'none' }}
         />
-        
+
         <ShareButton onClick={onShare} disabled={shareStatus.isSharing}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="18" cy="5" r="3" />
@@ -76,7 +74,7 @@ const BookHeader = ({
           </svg>
           {shareStatus.isSharing ? t('book.sharing', 'Compartilhando...') : t('book.share', 'Compartilhar')}
         </ShareButton>
-        
+
         {/* Botão para ler o PDF online */}
         <ReadOnlineButton onClick={onReadOnline}>
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -86,7 +84,7 @@ const BookHeader = ({
           {t('book.readOnline', 'Ler Online')}
         </ReadOnlineButton>
       </ButtonsContainer>
-      
+
       {/* Mensagens de status */}
       {shareStatus.success && (
         <StatusMessage success>
@@ -97,7 +95,7 @@ const BookHeader = ({
           {shareStatus.success}
         </StatusMessage>
       )}
-      
+
       {shareStatus.error && (
         <StatusMessage>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">

@@ -85,7 +85,7 @@ const ProgramacaoBanner = ({ lang }) => {
                 <Carousel.Item key={`banner-${index}`}>
                   <img
                     className="d-block w-100"
-                    src={image.original}
+                    src={PUBLIC_URL + image.original}
                     alt={image.alt || `Banner Programação ${index + 1}`}
                     loading="lazy"
                   />

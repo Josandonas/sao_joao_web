@@ -7,9 +7,8 @@ export const PostcardItemContainer = styled.div`
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   cursor: pointer;
   transition: all 0.4s ease;
-  height: 300px;
   background-color: white;
-  
+
   &:after {
     content: '';
     position: absolute;
@@ -27,16 +26,16 @@ export const PostcardItemContainer = styled.div`
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-    
+
     &:after {
       opacity: 1;
     }
   }
-  
+
   @media (max-width: 768px) {
     height: 280px;
   }
-  
+
   @media (max-width: 480px) {
     height: 250px;
   }
@@ -69,11 +68,11 @@ export const PostcardOverlay = styled.div`
   min-height: 25%;
   display: flex;
   align-items: flex-end;
-  
+
   @media (max-width: 768px) {
     padding: 20px 15px 15px;
   }
-  
+
   @media (max-width: 480px) {
     padding: 15px 12px 12px;
     min-height: 30%;
@@ -92,7 +91,7 @@ export const PostcardTitle = styled.h3`
   max-width: 100%;
   display: block;
   text-align: left;
-  
+
   &:after {
     content: '';
     position: absolute;
@@ -103,38 +102,38 @@ export const PostcardTitle = styled.h3`
     background: linear-gradient(to right, #ff6b01, rgba(255, 107, 1, 0.5));
     transition: width 0.3s ease;
   }
-  
+
   ${PostcardItemContainer}:hover &:after {
     width: 80px;
   }
-  
+
   @media (max-width: 992px) {
     font-size: 1.25rem;
   }
-  
+
   @media (max-width: 768px) {
     font-size: 1.15rem;
     padding-bottom: 8px;
-    
+
     &:after {
       width: 50px;
       height: 2px;
     }
-    
+
     ${PostcardItemContainer}:hover &:after {
       width: 65px;
     }
   }
-  
+
   @media (max-width: 480px) {
     font-size: 1rem;
     padding-bottom: 6px;
     letter-spacing: 0.5px;
-    
+
     &:after {
       width: 40px;
     }
-    
+
     ${PostcardItemContainer}:hover &:after {
       width: 55px;
     }

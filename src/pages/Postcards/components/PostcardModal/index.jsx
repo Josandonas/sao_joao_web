@@ -20,11 +20,11 @@ import {
 
 const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
   const { t } = useTranslation();
-  
+
   // Impedir a rolagem do corpo quando o modal estiver aberto
   React.useEffect(() => {
     document.body.style.overflow = 'hidden';
-    
+
     return () => {
       document.body.style.overflow = 'auto';
     };
@@ -34,22 +34,22 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
     <ModalOverlay>
       <ModalContent>
         <CloseButton onClick={onClose}><FaTimes size={24} /></CloseButton>
-        
+
         <ModalHeader>
           <h2>{postcard.titleKey ? t(postcard.titleKey) : postcard.title}</h2>
         </ModalHeader>
-        
+
         <ModalBody>
-          <FullPostcardImage 
-            src={postcard.image} 
-            alt={postcard.titleKey ? t(postcard.titleKey) : postcard.title} 
+          <FullPostcardImage
+            src={PUBLIC_URL + postcard.image}
+            alt={postcard.titleKey ? t(postcard.titleKey) : postcard.title}
           />
-          
+
           <PostcardInfo>
             <PostcardDescription>
               {postcard.descriptionKey ? t(postcard.descriptionKey) : postcard.description}
             </PostcardDescription>
-            
+            {/*
             <PostcardMetadata>
               <MetadataItem>
                 <strong><FaMapMarkerAlt /> {t('postcards.locationLabel')}</strong> {postcard.locationKey ? t(postcard.locationKey) : postcard.location}
@@ -61,7 +61,7 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
                 <strong><FaCalendarAlt /> {t('postcards.yearLabel')}</strong> {postcard.year}
               </MetadataItem>
             </PostcardMetadata>
-            
+            */}
             <ShareContainer>
               <ShareButton onClick={onShare}>
                 <FaShare /> {t('postcards.shareButton')}

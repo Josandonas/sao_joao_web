@@ -78,7 +78,7 @@ const About = ({ fontSizeControls }) => {
                 <div className="content-wrapper">
                   <div className="image-container">
                     <img 
-                      src="/assets/images/backgrounds/carrosel_home/img (1).jpeg" 
+                      src={`${PUBLIC_URL}/assets/images/backgrounds/carrosel_home/img (1).jpeg`} 
                       alt="Porto de Corumbá" 
                       className="blend-image"
                       loading="lazy"

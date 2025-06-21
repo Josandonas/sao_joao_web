@@ -15,7 +15,7 @@ const PostcardItem = ({ postcard, onClick }) => {
   
   return (
     <PostcardItemContainer onClick={() => onClick(postcard)}>
-      <PostcardImage src={postcard.image} alt={title} />
+      <PostcardImage src={PUBLIC_URL + postcard.image} alt={title} />
       <PostcardOverlay>
         <PostcardTitle>{title}</PostcardTitle>
       </PostcardOverlay>

@@ -46,7 +46,7 @@ const BibliotecaCard = ({ item }) => {
             />
           </>
         ) : (
-          <CardImage src={item.imageUrl || '/assets/images/biblioteca/placeholder.jpg'} alt={item.title} loading="lazy" />
+          <CardImage src={`${PUBLIC_URL}/${item.imageUrl || '/assets/images/biblioteca/placeholder.jpg'}`} alt={item.title} loading="lazy" />
         )}
         <CardCategory>{t(`biblioteca.categories.${item.category}`, item.category)}</CardCategory>
       </CardImageContainer>

@@ -14,14 +14,14 @@
     "book": "Livro",
     "testimonials": "Depoimentos",
     "postcards": "Postais",
-    "programacao": "Programação Oficial",
+    "programacao": "Programação",
     "biblioteca": "Biblioteca"
   },
   "home": {
     "textSize": "Tamanho do texto",
     "about": {
       "paragraph1": "Esta é uma página colaborativa que nasceu como um espaço digital para que a sociedade, pesquisadores e governo possam interagir e compartilhar informações, projetos e pesquisas acerca do Banho de São João de Corumbá – Mato Grosso do Sul, especialmente, apoiar a salvaguarda da tradição, promover a reprodução e a sustentabilidade da festividade.",
-      "paragraph2": "Reconhecido pelo Governo do Estado de Mato Grosso do Sul, em 2010 como patrimônio imaterial histórico e cultural, o Banho de São João de Corumbá e Ladário(MS), um bem comum inscrito como patrimônio imaterial nacional pelo Instituto do Patrimônio Histórico e Artístico Nacional (IPHAN) no livro de Registro das Celebrações em 2021.",
+      "paragraph2": "Reconhecido pelo Governo do Estado de Mato Grosso do Sul, em 2010 como patrimônio imaterial histórico e cultural, o Banho de São João de Corumbá e Ladário(MS), é um bem comum inscrito como patrimônio imaterial nacional pelo Instituto do Patrimônio Histórico e Artístico Nacional (IPHAN) no livro de Registro das Celebrações em 2021.",
       "paragraph3": "Neste espaço, agora gestado pelo município de Corumbá, tem o objetivo de manter uma governança colaborativa, e desta forma, te convidamos para participar do Mapa da Cultura do Banho de São Joao de Corumbá. ",
       "paragraph4": "Aqui você pode pesquisar sobre o bem cultural, enviar a sua pesquisa acerca do tema, acessar e cadastrar a sua comunidade festeira e divulgá-la gratuitamente, resgatar histórias e contribuir para a preservação deste patrimônio imaterial.",
       "paragraph5": "Colaborativamente a página está inicialmente estruturada a partir do arcabouço multimídia cedido - Deus te Salve João Batista! Uma contribuição sobre o banho de São João de Corumbá, premiado no ano de 2012 na 25ª Edição do Prêmio Rodrigo Melo Franco de Andrade, do Instituto do Patrimônio Histórico e Artístico Nacional (Iphan), proposto pela pesquisadora Ma. Hélènemarie Dias Fernandes.",
@@ -42,7 +42,7 @@
   "communities": {
     "title": "Comunidades e Festividades",
     "introduction": "Conheça as comunidades que preservam e celebram as tradições do Banho de São João, especialmente na região do Pantanal Sul-Matogrossense. Cada uma mantém características próprias que enriquecem esse patrimônio cultural.",
-    "mapTitle": "Mapa das Comunidades",
+    "mapTitle": "Comunidades Festeiras",
     "mapDescription": "Os marcadores no mapa são representações aproximadas das comunidades que preservam e celebram as tradições do Banho de São João. Eles indicam os bairros onde estas comunidades estão presentes, não suas localizações exatas. Clique em um marcador para conhecer mais.",
     "locationLabel": "Local:",
     "traditionsLabel": "Tradições:",
@@ -96,8 +96,8 @@
     "festivalDatePlaceholder": "Ex: Junho, Dezembro, etc"
   },
   "book": {
-    "title": "Banho de São João",
-    "subtitle": "Uma Tradição do Pantanal",
+    "title": "Deus te Salve, João Batista!",
+    "subtitle": "Uma contribuição sobre o Banho de São João de Corumbá – MS",
     "bookTitle": "O Livro do Banho de São João",
     "introduction": "Este livro digital apresenta a rica tradição do Banho de São João, abordando suas origens, rituais, simbolismo e importância cultural para as comunidades pantaneiras.",
     "pageCounter": "Página {{current}} de {{total}}",
@@ -193,7 +193,7 @@
       "19": "Como artesão, crio peças inspiradas nas simbologias do Banho de São João. É uma forma de manter viva essa expressão cultural tão rica e diversa."
     }
   },
-  
+
   "biblioteca": {
     "title": "Biblioteca de Referências",
     "description": "A biblioteca do Banho de São João de Corumbá manterá um pequeno acervo com teses, dissertações e artigos relacionados à história da Celebração do Banho de São João de Corumbá-Mato Grosso do Sul. Se você tem alguma publicação ou estudo ao respeito, venha colaborar conosco, nos envie e faça parte de nossa biblioteca: ",

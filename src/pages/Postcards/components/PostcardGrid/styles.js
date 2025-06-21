@@ -2,18 +2,18 @@ import styled from 'styled-components';
 
 export const Grid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 30px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
   margin: 2.5rem auto 0;
   padding: 0.5rem;
   width: 100%;
   max-width: 1400px;
-  
+
   @media (max-width: 1200px) {
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 25px;
   }
-  
+
   @media (max-width: 768px) {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
@@ -25,7 +25,7 @@ export const Grid = styled.div`
     gap: 15px;
     padding: 0.25rem;
   }
-  
+
   @media (max-width: 360px) {
     grid-template-columns: 1fr;
     gap: 20px;
@@ -48,7 +48,7 @@ export const NoResults = styled.div`
     margin-bottom: 25px;
     color: #555;
     font-weight: 500;
-    
+
     @media (max-width: 480px) {
       font-size: 1rem;
       margin-bottom: 20px;
@@ -71,17 +71,17 @@ export const NoResults = styled.div`
       transform: translateY(-3px);
       box-shadow: 0 6px 15px rgba(140, 0, 51, 0.4);
     }
-    
+
     &:active {
       transform: translateY(-1px);
     }
-    
+
     @media (max-width: 480px) {
       padding: 10px 20px;
       font-size: 0.9rem;
     }
   }
-  
+
   @media (max-width: 768px) {
     margin: 1.5rem auto;
     padding: 30px 15px;

@@ -38,7 +38,7 @@ const Hero = () => {
     const carouselImages = [];
     for (let i = 1; i <= 14; i++) {
       carouselImages.push({
-        src: `http://dev1.corumba.ms.gov.br/saojoao/public/assets/images/backgrounds/carrosel_home/img (${i}).jpeg`,
+        src: `${PUBLIC_URL}/assets/images/backgrounds/carrosel_home/img (${i}).jpeg`,
         alt: `Slide ${i}`,
       });
     }

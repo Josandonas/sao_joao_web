@@ -45,13 +45,13 @@ const TestimonialList = ({ testimonials = [], isLoading = false, onOpenVideo }) 
   // Renderiza a lista de depoimentos
   return (
     <TestimonialsContainer>
-      <Row xs={1} sm={2} lg={3} className="g-4">
+      <Row xs={1} sm={2} lg={4} className="g-4">
         {testimonials.map((testimonial) => (
           <Col key={testimonial.id}>
             <TestimonialCard className="h-100 d-flex flex-column">
-              <TestimonialImage 
-                src={testimonial.image || 'https://via.placeholder.com/150'} 
-                alt={testimonial.name} 
+              <TestimonialImage
+                src={PUBLIC_URL + testimonial.image || ''}
+                alt={testimonial.name}
                 className="mx-auto d-block"
               />
               <TestimonialContent className="d-flex flex-column flex-grow-1">
@@ -61,7 +61,7 @@ const TestimonialList = ({ testimonials = [], isLoading = false, onOpenVideo }) 
                   "{testimonial.quote}"
                 </TestimonialQuote>
                 <div className="text-center mt-auto pt-3">
-                  <TestimonialVideo 
+                  <TestimonialVideo
                     onClick={() => onOpenVideo(testimonial)}
                   >
                     {t('testimonials.watchVideo', 'Assistir Depoimento')}
