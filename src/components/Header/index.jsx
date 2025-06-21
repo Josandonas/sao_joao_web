@@ -11,7 +11,7 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuExpanded, setMenuExpanded] = useState(false);
   const dropdownRef = useRef(null);
-  
+
   // Função para obter o nome do idioma por extenso
   const getLanguageLabel = (code) => {
     switch(code) {
@@ -21,7 +21,7 @@ const Header = () => {
       default: return 'Português';
     }
   };
-  
+
   // Alterna entre os idiomas disponíveis mantendo a página atual
   const handleLanguageChange = (newLang) => {
     if (lang === newLang) {
@@ -56,7 +56,7 @@ const Header = () => {
       document.body.classList.remove('navbar-open');
     }
   }, [menuExpanded]);
-  
+
   // Função para fechar o menu mobile quando um item é clicado
   const handleNavItemClick = () => {
     if (menuExpanded) {
@@ -67,9 +67,9 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Container fluid>
-        <Navbar expand="lg" className="py-2 navbar-dark mobile-menu-custom" expanded={menuExpanded}>
+        <Navbar expand="lg" className="p-0 navbar-dark mobile-menu-custom" expanded={menuExpanded}>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto me-2 border-0 custom-toggler" onClick={() => setMenuExpanded(!menuExpanded)} />
-          <Navbar.Collapse id="basic-navbar-nav" className="mt-2 mt-lg-0 mobile-menu-collapse">
+          <Navbar.Collapse id="basic-navbar-nav" className="p-0 mobile-menu-collapse">
             <Nav className="mx-auto justify-content-between w-100 flex-nowrap">
               <NavItem className="nav-item-mobile nav-item-responsive">
                 <Link to={`/${lang}`} onClick={handleNavItemClick} className={location.pathname === `/${lang}` ? 'active d-flex align-items-center' : 'd-flex align-items-center'}>
@@ -112,29 +112,29 @@ const Header = () => {
                 </Link>
               </NavItem>
             </Nav>
-            
+
             <LanguageSelector>
               <div className="language-dropdown-container">
                 <GlobeIcon onClick={() => setDropdownOpen(!dropdownOpen)} ref={dropdownRef}>
                   <BiGlobe size={18} />
                   <span>{getLanguageLabel(lang)}</span>
                 </GlobeIcon>
-                
+
                 <LanguageDropdown className={dropdownOpen ? 'open' : ''}>
-                  <LanguageOption 
-                    onClick={() => handleLanguageChange('pt')} 
+                  <LanguageOption
+                    onClick={() => handleLanguageChange('pt')}
                     className={lang === 'pt' ? 'active' : ''}
                   >
                     Português
                   </LanguageOption>
-                  <LanguageOption 
-                    onClick={() => handleLanguageChange('en')} 
+                  <LanguageOption
+                    onClick={() => handleLanguageChange('en')}
                     className={lang === 'en' ? 'active' : ''}
                   >
                     English
                   </LanguageOption>
-                  <LanguageOption 
-                    onClick={() => handleLanguageChange('es')} 
+                  <LanguageOption
+                    onClick={() => handleLanguageChange('es')}
                     className={lang === 'es' ? 'active' : ''}
                   >
                     Español
