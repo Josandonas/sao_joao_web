@@ -32,11 +32,11 @@ PostcardGrid.propTypes = {
   postcards: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
+      titleKey: PropTypes.string.isRequired,
       image: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-      location: PropTypes.string.isRequired,
-      author: PropTypes.string.isRequired,
+      descriptionKey: PropTypes.string.isRequired,
+      locationKey: PropTypes.string.isRequired,
+      authorKey: PropTypes.string.isRequired,
       year: PropTypes.string.isRequired,
       category: PropTypes.string.isRequired
     })

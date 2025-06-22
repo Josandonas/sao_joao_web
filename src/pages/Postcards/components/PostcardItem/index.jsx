@@ -11,7 +11,8 @@ import {
 const PostcardItem = ({ postcard, onClick }) => {
   const { t } = useTranslation();
   
-  const title = postcard.titleKey ? t(postcard.titleKey) : postcard.title;
+  // Garantir que sempre temos um título válido
+  const title = postcard.titleKey ? t(postcard.titleKey) : (postcard.title || 'Sem título');
   
   return (
     <PostcardItemContainer onClick={() => onClick(postcard)}>

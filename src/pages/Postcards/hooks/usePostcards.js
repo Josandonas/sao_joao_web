@@ -19,8 +19,8 @@ const usePostcards = () => {
   const sharePostcard = () => {
     if (selectedPostcard && navigator.share) {
       navigator.share({
-        title: selectedPostcard.title,
-        text: `Confira este postal do Banho de São João: ${selectedPostcard.title}`,
+        title: selectedPostcard.titleKey,
+        text: `Confira este postal do Banho de São João: ${selectedPostcard.titleKey}`,
         url: window.location.href
       })
         .then(() => console.log('Postal compartilhado com sucesso'))
@@ -29,7 +29,7 @@ const usePostcards = () => {
       // Fallback para navegadores que não suportam a Web Share API
       // Criamos um input temporário para copiar o link para a área de transferência
       const tempInput = document.createElement('input');
-      const text = `${selectedPostcard.title} - Postais do Banho de São João`;
+      const text = `${selectedPostcard.titleKey} - Postais do Banho de São João`;
       tempInput.value = window.location.href;
       document.body.appendChild(tempInput);
       tempInput.select();
@@ -46,7 +46,7 @@ const usePostcards = () => {
       // Cria um link temporário para download
       const link = document.createElement('a');
       const imageSrc = selectedPostcard.image;
-      const filename = `postal-${selectedPostcard.id}-${selectedPostcard.title.toLowerCase().replace(/\s+/g, '-')}.jpg`;
+      const filename = `postal-${selectedPostcard.id}-${selectedPostcard.titleKey.split('.').pop().toLowerCase().replace(/\s+/g, '-')}.jpg`;
       
       // Configura o link para download
       link.href = imageSrc;

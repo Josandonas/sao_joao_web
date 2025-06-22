@@ -37,13 +37,13 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
         <CloseButton onClick={onClose}><FaTimes size={24} /></CloseButton>
 
         <ModalHeader>
-          <h2>{postcard.titleKey ? t(postcard.titleKey) : postcard.title}</h2>
+          <h2>{t(postcard.titleKey)}</h2>
         </ModalHeader>
 
         <ModalBody>
           <FullPostcardImage
             src={PUBLIC_URL + postcard.image}
-            alt={postcard.titleKey ? t(postcard.titleKey) : postcard.title}
+            alt={t(postcard.titleKey)}
           />
 
           <PostcardInfo>
@@ -71,7 +71,7 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
                     <FaDownload /> {t('postcards.downloadButton')}
                   </DownloadButton>
                 }
-                filename={`postal-${postcard.id}-${(postcard.titleKey ? t(postcard.titleKey) : postcard.title).toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                filename={`postal-${postcard.id}-${t(postcard.titleKey).toLowerCase().replace(/\s+/g, '-')}.jpg`}
                 exportFile={() => fetch(postcard.image)
                   .then(response => response.blob())
                   .then(blob => blob)}
@@ -88,11 +88,11 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
 PostcardModal.propTypes = {
   postcard: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
+    titleKey: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
+    descriptionKey: PropTypes.string.isRequired,
+    locationKey: PropTypes.string.isRequired,
+    authorKey: PropTypes.string.isRequired,
     year: PropTypes.string.isRequired,
     category: PropTypes.string.isRequired
   }).isRequired,
