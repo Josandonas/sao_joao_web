@@ -360,5 +360,39 @@
   "footer": {
     "rights": "Todos los derechos reservados",
     "partners": "Socios"
+  },
+  "stories": {
+    "pageTitle": "Historias del Baño de San Juan",
+    "shareYourStory": "Comparta Su Historia",
+    "noStories": "No se encontraron historias.",
+    "form": {
+      "title": "Cuente su Historia",
+      "titleLabel": "Título",
+      "authorLabel": "Autor",
+      "authorPlaceholder": "Nombre del autor (opcional)",
+      "excerptLabel": "Resumen",
+      "excerptPlaceholder": "Resumen de la historia (opcional, se generará automáticamente si está vacío)",
+      "contentLabel": "Contenido",
+      "contentPlaceholder": "Contenido completo de la historia",
+      "addTranslations": "Añadir traducciones en otros idiomas",
+      "requiredField": "*",
+      "cancel": "Cancelar",
+      "save": "Guardar",
+      "saving": "Guardando...",
+      "validationError": "Por favor, complete todos los campos obligatorios."
+    },
+    "modal": {
+      "close": "Cerrar (Esc)",
+      "sentBy": "Enviada por",
+      "on": "en",
+      "decreaseFontSize": "Disminuir tamaño de fuente (Ctrl + -)",
+      "resetFontSize": "Tamaño normal de fuente (Ctrl + 0)",
+      "increaseFontSize": "Aumentar tamaño de fuente (Ctrl + +)"
+    },
+    "pagination": {
+      "prev": "Anterior",
+      "next": "Siguiente",
+      "pageInfo": "Página {{current}} de {{total}}"
+    }
   }
 }

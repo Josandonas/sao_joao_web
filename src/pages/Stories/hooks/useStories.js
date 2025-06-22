@@ -2,6 +2,9 @@ import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import storiesApiService from '../../../services/storiesApiService';
 
+// Número máximo de itens por página quando a API está disponível
+const ITEMS_PER_PAGE = 18;
+
 /**
  * Hook personalizado para gerenciar as histórias e o estado do modal
  * Suporta multilíngue, integração com API e manutenção dos dados estáticos
@@ -14,12 +17,15 @@ export const useStories = () => {
   
   // Estados principais
   const [stories, setStories] = useState([]);
+  const [allStories, setAllStories] = useState([]);
   const [selectedStory, setSelectedStory] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [isApiAvailable, setIsApiAvailable] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
   
   /**
    * Verifica se a API está disponível
@@ -53,21 +59,49 @@ export const useStories = () => {
       console.log('[DEV] Histórias carregadas:', allStories.length);
       
       if (allStories && allStories.length > 0) {
-        // Processa as histórias para o formato esperado pela UI
-        const processedStories = allStories.map(story => ({
-          ...story,
-          title: story[currentLanguage]?.title || story.pt?.title || story.title,
-          author: story[currentLanguage]?.author || story.pt?.author || story.author || '',
-          excerpt: story[currentLanguage]?.excerpt || story.pt?.excerpt || story.excerpt || '',
-          content: story[currentLanguage]?.content || story.pt?.content || story.content,
-          // Marca a origem da história (estática ou API)
-          source: story.source || 'api'
-        }));
+        // Processa as histórias para o formato esperado pela UI usando o utilitário de internacionalização
+        const processedStories = allStories.map(story => {
+          // Manter a estrutura original da história para acesso aos dados brutos
+          const localizedStory = storiesApiService.getLocalizedStory(story, currentLanguage);
+          
+          return {
+            ...story,  // Mantém os dados originais para acesso aos outros idiomas
+            title: localizedStory.title,
+            author: localizedStory.author,
+            excerpt: localizedStory.excerpt,
+            content: localizedStory.content,
+            // Marca a origem da história (estática ou API)
+            source: story.source || 'api'
+          };
+        });
         
-        setStories(processedStories);
+        // Armazena todas as histórias processadas
+        setAllStories(processedStories);
+        
+        // Aplica paginação apenas se a API estiver disponível e houver histórias da API
+        if (isApiAvailable && processedStories.some(story => story.source === 'api')) {
+          const totalItems = processedStories.length;
+          const calculatedTotalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+          setTotalPages(calculatedTotalPages);
+          
+          // Obtém apenas os itens da página atual
+          const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+          const endIndex = startIndex + ITEMS_PER_PAGE;
+          const paginatedStories = processedStories.slice(startIndex, endIndex);
+          setStories(paginatedStories);
+          
+          console.log(`[DEV] Mostrando página ${currentPage} de ${calculatedTotalPages} (${paginatedStories.length} histórias)`);
+        } else {
+          // Se a API não estiver disponível, mostra todas as histórias sem paginação
+          setStories(processedStories);
+          setTotalPages(1);
+          console.log('[DEV] API indisponível ou sem histórias da API - exibindo todas as histórias sem paginação');
+        }
       } else {
         console.warn('[DEV] Nenhuma história retornada');
         setStories([]);
+        setAllStories([]);
+        setTotalPages(1);
       }
     } catch (err) {
       console.error('[DEV] Erro ao carregar histórias:', err);
@@ -78,10 +112,38 @@ export const useStories = () => {
     }
   }, [currentLanguage]);
   
-  // Carregar histórias quando o componente montar ou o idioma mudar
+  // Carregar histórias quando o componente montar, o idioma mudar ou a página mudar
   useEffect(() => {
     loadStories();
   }, [loadStories]);
+  
+  // Atualizar histórias exibidas quando a página mudar
+  useEffect(() => {
+    if (allStories.length > 0 && isApiAvailable && allStories.some(story => story.source === 'api')) {
+      const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+      const endIndex = startIndex + ITEMS_PER_PAGE;
+      const paginatedStories = allStories.slice(startIndex, endIndex);
+      setStories(paginatedStories);
+    }
+  }, [currentPage, allStories, isApiAvailable]);
+  
+  /**
+   * Avança para a próxima página
+   */
+  const nextPage = useCallback(() => {
+    if (currentPage < totalPages) {
+      setCurrentPage(prev => prev + 1);
+    }
+  }, [currentPage, totalPages]);
+  
+  /**
+   * Volta para a página anterior
+   */
+  const prevPage = useCallback(() => {
+    if (currentPage > 1) {
+      setCurrentPage(prev => prev - 1);
+    }
+  }, [currentPage]);
   
   /**
    * Abre o modal com a história selecionada
@@ -276,6 +338,10 @@ export const useStories = () => {
     removeStory,
     getStoryById,
     loadStories,
-    currentLanguage
+    currentLanguage,
+    currentPage,
+    totalPages,
+    nextPage,
+    prevPage
   };
 };

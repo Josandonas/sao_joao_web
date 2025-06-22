@@ -336,4 +336,14 @@ export const Paragraph = styled.p`
   }
 `;
 
-
+export const Content = styled.div`
+  margin-bottom: ${props => props.theme.spacing.md};
+  line-height: 1.7;
+  text-align: justify;
+  font-size: ${props => props.fontSize || '1em'};
+  transition: font-size 0.2s ease;
+  
+  @media (max-width: 768px) {
+    text-align: left;
+  }
+`;

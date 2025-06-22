@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import { FaTimes, FaSearchMinus, FaSearchPlus, FaUndoAlt } from 'react-icons/fa';
 import {
   Modal,
@@ -17,16 +18,23 @@ import {
 } from './styles';
 
 /**
- * Componente de modal para exibir os detalhes completos de uma história
- * Renderiza texto puro em formato de parágrafos sem usar HTML
- * Inclui controles de acessibilidade para ajuste de tamanho da fonte
- * 
+ * Componente de modal para exibir uma história completa
  * @param {Object} props - Props do componente
- * @param {Object} props.story - Dados da história selecionada
+ * @param {Object} props.story - Dados da história a ser exibida
  * @param {Function} props.onClose - Função chamada ao fechar o modal
+ * @param {string} props.currentLanguage - Idioma atual (pt, en, es)
  */
-const StoryModal = ({ story, onClose }) => {
+const StoryModal = ({ story, onClose, currentLanguage = 'pt' }) => {
+  const { t, i18n } = useTranslation();
   if (!story) return null;
+  
+  // Determinar o idioma atual
+  const lang = currentLanguage || i18n.language || 'pt';
+  
+  // Obter os dados da história no idioma correto
+  const title = story[lang]?.title || story.title;
+  const content = story[lang]?.content || story.content;
+  const author = story[lang]?.author || story.author || story.autor;
   
   // Estado para controlar o tamanho da fonte (escala)
   const [fontScale, setFontScale] = useState(() => {
@@ -125,28 +133,28 @@ const StoryModal = ({ story, onClose }) => {
   }, [onClose]);
   
   // Dividir o conteúdo em parágrafos
-  const paragraphs = story.content.split('\n\n').filter(p => p.trim() !== '');
+  const paragraphs = content.split('\n\n').filter(p => p.trim() !== '');
 
   return (
     <Modal>
       <ModalContent>
         <Header>
           <div className="header-content">
-            <Title>{story.title}</Title>
-            <CloseButton onClick={onClose} title="Fechar (Esc)">
+            <Title>{title}</Title>
+            <CloseButton onClick={onClose} title={t('stories.modal.close')}>
               <FaTimes />
             </CloseButton>
           </div>
           
           {/* Informação do autor e data */}
-          {(story.author || story.autor || storyDate) && (
+          {(author || storyDate) && (
             <MetaInfo>
               <span className="author">
-                {(story.author || story.autor) && `Enviada por ${story.author || story.autor}`}
+                {author && `${t('stories.modal.sentBy')} ${author}`}
               </span>
               
               <span className="date">
-                {storyDate && `em ${storyDate}`}
+                {storyDate && `${t('stories.modal.on')} ${storyDate}`}
               </span>
             </MetaInfo>
           )}
@@ -157,21 +165,21 @@ const StoryModal = ({ story, onClose }) => {
               <FontSizeButton 
                 onClick={decreaseFontSize} 
                 className={activeButton === 'decrease' ? 'active' : ''}
-                title="Diminuir tamanho da fonte (Ctrl + -)">
+                title={t('stories.modal.decreaseFontSize')}>
                 <FaSearchMinus />
               </FontSizeButton>
               
               <FontSizeButton 
                 onClick={resetFontSize} 
                 className={activeButton === 'reset' ? 'active' : ''}
-                title="Tamanho normal da fonte (Ctrl + 0)">
+                title={t('stories.modal.resetFontSize')}>
                 <FaUndoAlt />
               </FontSizeButton>
               
               <FontSizeButton 
                 onClick={increaseFontSize} 
                 className={activeButton === 'increase' ? 'active' : ''}
-                title="Aumentar tamanho da fonte (Ctrl + +)">
+                title={t('stories.modal.increaseFontSize')}>
                 <FaSearchPlus />
               </FontSizeButton>
             </FontSizeControl>
@@ -193,10 +201,17 @@ const StoryModal = ({ story, onClose }) => {
 StoryModal.propTypes = {
   story: PropTypes.shape({
     id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    content: PropTypes.string.isRequired,
+    title: PropTypes.string,
+    content: PropTypes.string,
+    author: PropTypes.string,
+    autor: PropTypes.string,
+    date: PropTypes.string,
+    pt: PropTypes.object,
+    en: PropTypes.object,
+    es: PropTypes.object
   }),
   onClose: PropTypes.func.isRequired,
+  currentLanguage: PropTypes.string
 };
 
 export default StoryModal;

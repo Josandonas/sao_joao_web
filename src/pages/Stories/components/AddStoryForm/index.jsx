@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { FaSpinner } from 'react-icons/fa';
 import PropTypes from 'prop-types';
+import { useTranslation } from 'react-i18next';
 import {
   Modal,
   FormContainer,
@@ -27,6 +28,7 @@ import {
  * @param {string} props.currentLanguage - Idioma atual (pt, en, es)
  */
 const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
+  const { t } = useTranslation();
   // Estado para os campos do formulário
   const [formData, setFormData] = useState({
     title: '',
@@ -110,7 +112,7 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
     e.preventDefault();
 
     if (!validateForm()) {
-      setError('Por favor, preencha todos os campos obrigatórios.');
+      setError(t('stories.form.validationError'));
       return;
     }
 
@@ -175,7 +177,7 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
     <Modal>
       <FormContainer onSubmit={handleSubmit}>
         <CloseButton type="button" onClick={onClose}><FaTimes /></CloseButton>
-        <FormTitle>Conte sua História</FormTitle>
+        <FormTitle>{t('stories.form.title')}</FormTitle>
 
         {/* Seleção de idiomas */}
         <TabContainer>
@@ -200,172 +202,68 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
           )}
         </TabContainer>
 
-        {/* Campos para o idioma ativo */}
-        {activeTab === 'pt' ? (
-          <>
-            <FormGroup>
-              <Label>
-                Título <RequiredField>*</RequiredField>
-              </Label>
-              <Input
-                type="text"
-                name="title"
-                value={formData.title}
-                onChange={handleChange}
-                required
-              />
-            </FormGroup>
+        {/* Campos do formulário com suporte a internacionalização */}
+        <FormGroup>
+          <Label>
+            {t('stories.form.titleLabel')} <RequiredField>{t('stories.form.requiredField')}</RequiredField>
+          </Label>
+          <Input
+            type="text"
+            name="title"
+            value={activeTab === 'pt' ? formData.title : formData.translations[activeTab].title}
+            onChange={handleChange}
+            required
+          />
+        </FormGroup>
 
-            <FormGroup>
-              <Label>Autor</Label>
-              <Input
-                type="text"
-                name="autor"
-                value={formData.autor}
-                onChange={handleChange}
-                placeholder="Nome do autor (opcional)"
-              />
-            </FormGroup>
+        <FormGroup>
+          <Label>{t('stories.form.authorLabel')}</Label>
+          <Input
+            type="text"
+            name="autor"
+            value={activeTab === 'pt' ? formData.autor : formData.translations[activeTab].autor}
+            onChange={handleChange}
+            placeholder={t('stories.form.authorPlaceholder')}
+          />
+        </FormGroup>
 
-            <FormGroup>
-              <Label>Resumo</Label>
-              <TextArea
-                name="excerpt"
-                value={formData.excerpt}
-                onChange={handleChange}
-                placeholder="Resumo da história (opcional, será gerado automaticamente se vazio)"
-                rows={2}
-              />
-            </FormGroup>
+        <FormGroup>
+          <Label>{t('stories.form.excerptLabel')}</Label>
+          <TextArea
+            name="excerpt"
+            value={activeTab === 'pt' ? formData.excerpt : formData.translations[activeTab].excerpt}
+            onChange={handleChange}
+            placeholder={t('stories.form.excerptPlaceholder')}
+            rows={2}
+          />
+        </FormGroup>
 
-            <FormGroup>
-              <Label>
-                Conteúdo <RequiredField>*</RequiredField>
-              </Label>
-              <TextArea
-                name="content"
-                value={formData.content}
-                onChange={handleChange}
-                placeholder="História completa"
-                rows={10}
-                required
-              />
-            </FormGroup>
+        <FormGroup>
+          <Label>
+            {t('stories.form.contentLabel')} <RequiredField>{t('stories.form.requiredField')}</RequiredField>
+          </Label>
+          <TextArea
+            name="content"
+            value={activeTab === 'pt' ? formData.content : formData.translations[activeTab].content}
+            onChange={handleChange}
+            placeholder={t('stories.form.contentPlaceholder')}
+            rows={10}
+            required
+          />
+        </FormGroup>
 
-            <FormGroup>
-              <input
-                type="checkbox"
-                id="addTranslations"
-                checked={formData.addTranslations}
-                onChange={handleToggleTranslations}
-              />
-              <Label htmlFor="addTranslations" style={{ marginLeft: '8px' }}>
-                Adicionar traduções em outros idiomas
-              </Label>
-            </FormGroup>
-          </>
-        ) : activeTab === 'en' ? (
-          <>
-            <FormGroup>
-              <Label>
-                Title <RequiredField>*</RequiredField>
-              </Label>
-              <Input
-                type="text"
-                name="title"
-                value={formData.translations.en.title}
-                onChange={handleChange}
-                required
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label>Author</Label>
-              <Input
-                type="text"
-                name="autor"
-                value={formData.translations.en.autor}
-                onChange={handleChange}
-                placeholder="Author name (optional)"
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label>Summary</Label>
-              <TextArea
-                name="excerpt"
-                value={formData.translations.en.excerpt}
-                onChange={handleChange}
-                placeholder="Story summary (optional, will be generated automatically if empty)"
-                rows={2}
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label>
-                Content <RequiredField>*</RequiredField>
-              </Label>
-              <TextArea
-                name="content"
-                value={formData.translations.en.content}
-                onChange={handleChange}
-                placeholder="Full story content"
-                rows={10}
-                required
-              />
-            </FormGroup>
-          </>
-        ) : (
-          <>
-            <FormGroup>
-              <Label>
-                Título <RequiredField>*</RequiredField>
-              </Label>
-              <Input
-                type="text"
-                name="title"
-                value={formData.translations.es.title}
-                onChange={handleChange}
-                required
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label>Autor</Label>
-              <Input
-                type="text"
-                name="autor"
-                value={formData.translations.es.autor}
-                onChange={handleChange}
-                placeholder="Nombre del autor (opcional)"
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label>Resumen</Label>
-              <TextArea
-                name="excerpt"
-                value={formData.translations.es.excerpt}
-                onChange={handleChange}
-                placeholder="Resumen de la historia (opcional, se generará automáticamente si está vacío)"
-                rows={2}
-              />
-            </FormGroup>
-
-            <FormGroup>
-              <Label>
-                Contenido <RequiredField>*</RequiredField>
-              </Label>
-              <TextArea
-                name="content"
-                value={formData.translations.es.content}
-                onChange={handleChange}
-                placeholder="Contenido completo de la historia"
-                rows={10}
-                required
-              />
-            </FormGroup>
-          </>
+        {activeTab === 'pt' && (
+          <FormGroup>
+            <input
+              type="checkbox"
+              id="addTranslations"
+              checked={formData.addTranslations}
+              onChange={handleToggleTranslations}
+            />
+            <Label htmlFor="addTranslations" style={{ marginLeft: '8px' }}>
+              {t('stories.form.addTranslations')}
+            </Label>
+          </FormGroup>
         )}
 
         {error && (
@@ -376,15 +274,15 @@ const AddStoryForm = ({ onClose, onSave, currentLanguage = 'pt' }) => {
 
         <ButtonGroup>
           <CancelButton type="button" onClick={onClose} disabled={isSubmitting}>
-            Cancelar
+            {t('stories.form.cancel')}
           </CancelButton>
           <SubmitButton type="submit" disabled={isSubmitting}>
             {isSubmitting ? (
               <>
                 <FaSpinner style={{ animation: 'spin 1s linear infinite', marginRight: '8px' }} />
-                Salvando...
+                {t('stories.form.saving')}
               </>
-            ) : 'Salvar'}
+            ) : t('stories.form.save')}
           </SubmitButton>
         </ButtonGroup>
       </FormContainer>

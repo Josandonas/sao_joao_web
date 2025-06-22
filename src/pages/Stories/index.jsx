@@ -31,7 +31,11 @@ const Stories = () => {
     openAddStoryForm,
     closeAddStoryForm,
     addStory,
-    currentLanguage
+    currentLanguage,
+    currentPage,
+    totalPages,
+    nextPage,
+    prevPage
   } = useStories();
   
   // Função para salvar nova história
@@ -69,6 +73,11 @@ const Stories = () => {
         onStoryClick={openStoryModal}
         isLoading={isLoading}
         currentLanguage={currentLanguage}
+        currentPage={currentPage}
+        totalPages={totalPages}
+        onNextPage={nextPage}
+        onPrevPage={prevPage}
+        showPagination={isApiAvailable && totalPages > 1}
       />
       
       {isModalOpen && selectedStory && (

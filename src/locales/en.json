@@ -357,5 +357,39 @@
   "footer": {
     "rights": "All rights reserved",
     "partners": "Partners"
+  },
+  "stories": {
+    "pageTitle": "Stories of the Bath of Saint John",
+    "shareYourStory": "Share Your Story",
+    "noStories": "No stories found.",
+    "form": {
+      "title": "Tell your Story",
+      "titleLabel": "Title",
+      "authorLabel": "Author",
+      "authorPlaceholder": "Author name (optional)",
+      "excerptLabel": "Summary",
+      "excerptPlaceholder": "Story summary (optional, will be generated automatically if empty)",
+      "contentLabel": "Content",
+      "contentPlaceholder": "Full story content",
+      "addTranslations": "Add translations in other languages",
+      "requiredField": "*",
+      "cancel": "Cancel",
+      "save": "Save",
+      "saving": "Saving...",
+      "validationError": "Please fill in all required fields."
+    },
+    "modal": {
+      "close": "Close (Esc)",
+      "sentBy": "Sent by",
+      "on": "on",
+      "decreaseFontSize": "Decrease font size (Ctrl + -)",
+      "resetFontSize": "Normal font size (Ctrl + 0)",
+      "increaseFontSize": "Increase font size (Ctrl + +)"
+    },
+    "pagination": {
+      "prev": "Previous",
+      "next": "Next",
+      "pageInfo": "Page {{current}} of {{total}}"
+    }
   }
 }

@@ -2,6 +2,7 @@
  * Serviço para integração com a API de histórias
  * Responsável por buscar, enviar e processar dados das histórias via API
  * Mantém os dados locais do arquivo JSON e combina com os dados da API
+ * Fornece utilitários para gerenciar o conteúdo multilíngue das histórias
  */
 
 import axios from 'axios';
@@ -34,6 +35,62 @@ export const isApiAvailable = async () => {
     console.warn('API de histórias não está disponível:', error.message);
     return false;
   }
+};
+
+/**
+ * Obtém o conteúdo da história no idioma especificado
+ * @param {Object} story - Objeto da história com dados multilíngues
+ * @param {string} lang - Código do idioma (pt, en, es)
+ * @param {string} field - Campo a ser obtido (title, content, excerpt, author)
+ * @returns {string} Conteúdo no idioma especificado ou fallback para português
+ */
+export const getStoryContentByLang = (story, lang = 'pt', field) => {
+  if (!story) return '';
+  
+  // Verificar se o campo existe nas traduções do idioma solicitado
+  if (story.translations && story.translations[lang] && story.translations[lang][field]) {
+    return story.translations[lang][field];
+  }
+  
+  // Verificar se o campo existe diretamente no objeto do idioma solicitado
+  if (story[lang] && story[lang][field]) {
+    return story[lang][field];
+  }
+  
+  // Verificar se o campo existe nas traduções em português (fallback padrão)
+  if (story.translations && story.translations.pt && story.translations.pt[field]) {
+    return story.translations.pt[field];
+  }
+  
+  // Verificar se o campo existe diretamente no objeto em português
+  if (story.pt && story.pt[field]) {
+    return story.pt[field];
+  }
+  
+  // Fallback para o campo no nível raiz (compatibilidade com dados legados)
+  if (field === 'autor' && story.author) {
+    return story.author;
+  }
+  
+  return story[field] || '';
+};
+
+/**
+ * Obtém uma versão completa da história no idioma especificado
+ * @param {Object} story - Objeto da história com dados multilíngues
+ * @param {string} lang - Código do idioma (pt, en, es)
+ * @returns {Object} História com os campos no idioma especificado
+ */
+export const getLocalizedStory = (story, lang = 'pt') => {
+  if (!story) return null;
+  
+  return {
+    ...story,
+    title: getStoryContentByLang(story, lang, 'title'),
+    content: getStoryContentByLang(story, lang, 'content'),
+    excerpt: getStoryContentByLang(story, lang, 'excerpt'),
+    author: getStoryContentByLang(story, lang, 'author') || getStoryContentByLang(story, lang, 'autor')
+  };
 };
 
 /**
@@ -72,8 +129,8 @@ export const fetchStoriesFromApi = async (lang = 'pt') => {
     const staticIds = new Set(staticStories.map(story => story.id));
     const filteredApiStories = apiStories.filter(story => !staticIds.has(story.id));
     
-    // Retorna a combinação, com as histórias estáticas primeiro
-    const combinedStories = [...staticStories, ...filteredApiStories];
+    // Retorna a combinação, com as histórias da API primeiro (mais recentes) e depois as estáticas
+    const combinedStories = [...filteredApiStories, ...staticStories];
     console.log('[DEV] Total de histórias combinadas:', combinedStories.length);
     return combinedStories;
   } catch (apiError) {
@@ -252,5 +309,7 @@ export default {
   updateStory,
   deleteStory,
   getStoryById,
-  isApiAvailable
+  isApiAvailable,
+  getStoryContentByLang,
+  getLocalizedStory
 };

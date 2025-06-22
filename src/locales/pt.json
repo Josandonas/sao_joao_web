@@ -354,5 +354,39 @@
   "footer": {
     "rights": "Todos os direitos reservados",
     "partners": "Parceiros"
+  },
+  "stories": {
+    "pageTitle": "Histórias do Banho de São João",
+    "shareYourStory": "Compartilhe Sua História",
+    "noStories": "Nenhuma história encontrada.",
+    "form": {
+      "title": "Conte sua História",
+      "titleLabel": "Título",
+      "authorLabel": "Autor",
+      "authorPlaceholder": "Nome do autor (opcional)",
+      "excerptLabel": "Resumo",
+      "excerptPlaceholder": "Resumo da história (opcional, será gerado automaticamente se vazio)",
+      "contentLabel": "Conteúdo",
+      "contentPlaceholder": "História completa",
+      "addTranslations": "Adicionar traduções em outros idiomas",
+      "requiredField": "*",
+      "cancel": "Cancelar",
+      "save": "Salvar",
+      "saving": "Salvando...",
+      "validationError": "Por favor, preencha todos os campos obrigatórios."
+    },
+    "modal": {
+      "close": "Fechar (Esc)",
+      "sentBy": "Enviada por",
+      "on": "em",
+      "decreaseFontSize": "Diminuir tamanho da fonte (Ctrl + -)",
+      "resetFontSize": "Tamanho normal da fonte (Ctrl + 0)",
+      "increaseFontSize": "Aumentar tamanho da fonte (Ctrl + +)"
+    },
+    "pagination": {
+      "prev": "Anterior",
+      "next": "Próxima",
+      "pageInfo": "Página {{current}} de {{total}}"
+    }
   }
 }
