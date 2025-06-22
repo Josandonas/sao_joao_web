@@ -1,103 +1,42 @@
-// Conteúdo estático do livro
+/**
+ * Conteúdo estático do livro digital "Banho de São João"
+ * 
+ * Este arquivo contém os metadados do livro que são utilizados na interface
+ * do módulo Book da aplicação.
+ */
 export const bookContent = {
-  // Metadados do livro
+  // Metadados do livro - utilizados na exibição da capa e informações
   metadata: {
     title: 'Banho de São João',
     subtitle: 'Uma Tradição do Pantanal',
     coverImage: '/assets/images/book/1.jpg',
     description: 'A intenção do livro sempre foi a de contar, visualmente, a história dos elementos da manifestação festiva permeada por princípios religiosos, mostrando os ritos e os rituais, a devoção, a alegria e o ápice da festividade.',
     published: '2011',
-    totalPages: 184, // Número total de páginas baseado nas imagens disponíveis
+    totalPages: 184,
     languages: 'Português, English, Español',
     authors: 'Hélènemarie Dias Fernandes',
     isbn: '978-85-7631-123-4'
   },
-  // Função para gerar páginas baseadas no idioma
-  getBookPages: (lang) => {
-    // Define o prefixo do caminho das imagens baseado no idioma
-    let pathPrefix = '/assets/images/book/livro_pt/';
-
-    switch(lang) {
-      case 'en':
-        pathPrefix = '/assets/images/book/livro_en/';
-        break;
-      case 'es':
-        pathPrefix = '/assets/images/book/livro_es/';
-        break;
-      case 'pt':
-      default:
-        pathPrefix = '/assets/images/book/livro_pt/';
-        break;
+  
+  // Informações de download do PDF para cada idioma
+  pdfInfo: {
+    pt: {
+      filename: 'banho-de-sao-joao-pt.pdf',
+      path: '/assets/pdf/livro_pt.pdf'
+    },
+    en: {
+      filename: 'banho-de-sao-joao-en.pdf',
+      path: '/assets/pdf/livro_en.pdf'
+    },
+    es: {
+      filename: 'banho-de-sao-joao-es.pdf',
+      path: '/assets/pdf/livro_es.pdf'
     }
-
-    // Gera um array com todas as páginas do livro
-    const pages = [];
-    for (let i = 1; i <= 184; i++) {
-      pages.push({
-        id: i,
-        pageNumber: i,
-        image: `${pathPrefix}${i}.jpg`
-      });
-    }
-
-    return pages;
   },
-  // Capítulos do livro ajustados para corresponder às páginas reais do PDF
-  // Usando chaves de tradução para suportar múltiplos idiomas
-  chapters: [
-  {
-    id: 1,
-    chapter: 'book.cover',
-    title: 'book.title',
-    pageNumber: 1  // Capa
-  },
-  {
-    id: 2,
-    chapter: 'book.introductionChapter',
-    title: 'book.introductionChapter',
-    pageNumber: 5  // Introdução
-  },
-  {
-    id: 3,
-    chapter: 'book.chapter1',
-    title: 'book.chapter1Title',
-    pageNumber: 15  // História e Origens
-  },
-  {
-    id: 4,
-    chapter: 'book.chapter2',
-    title: 'book.chapter2Title',
-    pageNumber: 25  // Rituais e Celebrações - ajustado
-  },
-  {
-    id: 5,
-    chapter: 'book.chapter3',
-    title: 'book.chapter3Title',
-    pageNumber: 45  // Música e Dança - ajustado
-  },
-  {
-    id: 6,
-    chapter: 'book.chapter4',
-    title: 'book.chapter4Title',
-    pageNumber: 65  // Gastronomia - ajustado
-  },
-  {
-    id: 7,
-    chapter: 'book.chapter5',
-    title: 'book.chapter5Title',
-    pageNumber: 75  // Comunidades - ajustado
-  },
-  {
-    id: 8,
-    chapter: 'book.chapter6',
-    title: 'book.chapter6Title',
-    pageNumber: 85  // Patrimônio Cultural - ajustado
-  },
-  {
-    id: 9,
-    chapter: 'book.conclusion',
-    title: 'book.conclusionTitle',
-    pageNumber: 90  // Conclusão e Agradecimentos - ajustado
+  
+  // Informações para compartilhamento
+  shareInfo: {
+    title: 'Banho de São João - Uma Tradição do Pantanal',
+    text: 'Conheça a rica tradição do Banho de São João no Pantanal brasileiro.'
   }
-  ]
 };
