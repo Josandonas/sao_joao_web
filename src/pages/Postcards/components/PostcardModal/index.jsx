@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import DownloadLink from 'react-download-link';
 import { FaShare, FaDownload, FaTimes, FaMapMarkerAlt, FaUser, FaCalendarAlt } from 'react-icons/fa';
 import {
   ModalOverlay,
@@ -49,7 +50,6 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
             <PostcardDescription>
               {postcard.descriptionKey ? t(postcard.descriptionKey) : postcard.description}
             </PostcardDescription>
-            {/*
             <PostcardMetadata>
               <MetadataItem>
                 <strong><FaMapMarkerAlt /> {t('postcards.locationLabel')}</strong> {postcard.locationKey ? t(postcard.locationKey) : postcard.location}
@@ -61,14 +61,22 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
                 <strong><FaCalendarAlt /> {t('postcards.yearLabel')}</strong> {postcard.year}
               </MetadataItem>
             </PostcardMetadata>
-            */}
             <ShareContainer>
               <ShareButton onClick={onShare}>
                 <FaShare /> {t('postcards.shareButton')}
               </ShareButton>
-              <DownloadButton onClick={onDownload}>
-                <FaDownload /> {t('postcards.downloadButton')}
-              </DownloadButton>
+              <DownloadLink
+                label={
+                  <DownloadButton as="span">
+                    <FaDownload /> {t('postcards.downloadButton')}
+                  </DownloadButton>
+                }
+                filename={`postal-${postcard.id}-${(postcard.titleKey ? t(postcard.titleKey) : postcard.title).toLowerCase().replace(/\s+/g, '-')}.jpg`}
+                exportFile={() => fetch(postcard.image)
+                  .then(response => response.blob())
+                  .then(blob => blob)}
+                style={{ textDecoration: 'none' }}
+              />
             </ShareContainer>
           </PostcardInfo>
         </ModalBody>

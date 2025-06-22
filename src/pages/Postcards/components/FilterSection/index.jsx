@@ -1,10 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
+import { useMediaQuery } from 'react-responsive';
 import { FiltersContainer, FilterButton } from './styles';
 
 const FilterSection = ({ activeFilter, setActiveFilter }) => {
   const { t } = useTranslation();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  
+  // Se for dispositivo móvel, não renderiza o componente
+  if (isMobile) {
+    return null;
+  }
   
   const filterCategories = [
     { id: 'all', label: t('postcards.categoryAll') },

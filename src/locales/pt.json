@@ -269,81 +269,82 @@
     "downloadSuccess": "Download do postal iniciado!",
     "items": {
       "1": {
-        "title": "Procissão Fluvial",
-        "description": "A procissão fluvial do Banho de São João em Corumbá, com barcos decorados navegando pelo Rio Paraguai durante o entardecer.",
-        "location": "Rio Paraguai, Corumbá, MS",
-        "author": "Maria Silva"
+        "title": "Dançadores Regionais",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "2": {
         "title": "Celebração Comunitária",
-        "description": "Celebração comunitária durante o festival de São João, com decorações típicas e participantes reunidos.",
-        "location": "Ladário, MS",
-        "author": "João Pereira"
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "3": {
-        "title": "Festa na Margem do Rio",
-        "description": "Moradores celebrando o Banho de São João às margens do Rio Paraguai, com fogueiras e música tradicional.",
-        "location": "Miranda, MS",
-        "author": "Ana Coelho"
+        "title": "Bandeirolas da Ladeira Cunha e Cruz",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "4": {
-        "title": "Ritual do Banho",
-        "description": "O momento sagrado do banho da imagem de São João Batista nas águas do Rio Paraguai durante a noite de 23 para 24 de junho.",
-        "location": "Porto Geral, Corumbá, MS",
-        "author": "Carlos Ramires"
+        "title": "Viola de Cocho",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "5": {
         "title": "Promessas e Devoções",
-        "description": "Devotos cumprindo promessas e participando dos rituais tradicionais durante a celebração de São João.",
-        "location": "Aquidauana, MS",
-        "author": "Josefa Santos"
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "6": {
-        "title": "Dança do Siriri",
-        "description": "Apresentação da tradicional dança do siriri, expressão cultural típica das festividades pantaneiras.",
-        "location": "Porto Murtinho, MS",
-        "author": "Roberto Oliveira"
+        "title": "Bem-Vindo São João 2011",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "7": {
-        "title": "Dançadores Regionais",
-        "description": "Grupo de dançadores em trajes típicos apresentando coreografias tradicionais do folclore pantaneiro.",
-        "location": "Poconé, MT",
-        "author": "Luiza Mendes"
+        "title": "Flores Artesanais do São João",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "8": {
-        "title": "Músicos Tradicionais",
-        "description": "Grupo de músicos com instrumentos típicos como viola de cocho, ganzá e mocho, tocando ritmos tradicionais.",
-        "location": "Cáceres, MT",
-        "author": "Pedro Guimarães"
+        "title": "Ritual do Banho",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "9": {
-        "title": "Viola de Cocho",
-        "description": "Músico tocando a tradicional viola de cocho, instrumento característico do Pantanal, feito de tronco escavado.",
-        "author": "José Silveira"
+        "title": "Bandeirolas no Porto Geral",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "10": {
         "title": "Altar Tradicional",
-        "description": "Altar tradicional decorado para as festividades de São João, com velas, flores e símbolos religiosos.",
-        "location": "Corumbá, MS",
-        "author": "Teresa Oliveira"
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "11": {
         "title": "Ritual do Banho",
-        "description": "Momento do ritual do banho nas águas do rio, tradição central da celebração de São João Batista.",
-        "location": "Rio Paraguai, Corumbá, MS",
-        "author": "Ricardo Santos"
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "12": {
-        "title": "Festa na Margem do Rio",
-        "description": "Celebração festiva às margens do rio, com música, dança e rituais tradicionais do Banho de São João.",
-        "location": "Porto Geral, Corumbá, MS",
-        "author": "Marina Costa"
+        "title": "Altar Tradicional",
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       },
       "13": {
         "title": "Mastro de São João",
-        "description": "O tradicional mastro erguido durante as festividades de São João, decorado com oferendas e símbolos sagrados.",
-        "location": "Cuiabá, MT",
-        "author": "Paulo Mendes"
+        "description": "Não há descrições...",
+        "location": "Não Informado",
+        "author": "Não Informado"
       }
     }
   },
