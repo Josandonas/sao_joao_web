@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import DownloadLink from 'react-download-link';
+import DownloadLink from 'react-download-link'; // Mantenha esta importação
+// import FileSaver from 'file-saver'; // Opcional: Se quiser usar FileSaver.js diretamente
+
 import {
-  ReadButton,
   DownloadButton,
   ShareButton
 } from '../styles/ActionButtonStyles';
 import {
   Container,
-  PageTitle,
   ButtonsContainer,
   StatusMessage,
   ReadOnlineButton
@@ -17,19 +17,62 @@ import {
 /**
  * Componente de cabeçalho para a página do livro
  * @param {Object} props - Props do componente
- * @param {Function} props.onDownload - Função para download do PDF
+ * @param {Function} props.onDownload - Função para download do PDF (será chamada, mas o download é interno agora)
  * @param {Function} props.onShare - Função para compartilhar o livro
  * @param {Function} props.onReadOnline - Função para abrir o PDF em uma nova aba
  * @param {Object} props.shareStatus - Status do compartilhamento
  * @returns {JSX.Element} - Componente renderizado
  */
 const BookHeader = ({
-  onDownload,
+  // onDownload, // Pode remover se a lógica de download estiver toda aqui
   onShare,
   onReadOnline,
   shareStatus = {}
 }) => {
   const { t, i18n } = useTranslation();
+
+  // Função auxiliar para determinar o caminho do PDF
+  const getPdfPath = () => {
+    const currentLang = i18n.language || 'pt';
+    let pdfLang = 'pt';
+
+    if (currentLang.startsWith('en')) {
+      pdfLang = 'en';
+    } else if (currentLang.startsWith('es')) {
+      pdfLang = 'es';
+    }
+
+    return `${window.location.origin}/assets/pdf/livro_${pdfLang}.pdf`;
+  };
+
+  // Função que será passada para exportFile
+  const handleDownloadPdf = async () => {
+    const pdfUrl = getPdfPath();
+    console.log('Tentando baixar PDF de:', pdfUrl); // Para depuração
+
+    try {
+      const response = await fetch(pdfUrl);
+
+      if (!response.ok) {
+        // Lidar com erros de status HTTP (404, 500, 401, etc.)
+        console.error('Erro ao baixar o PDF. Status:', response.status, response.statusText);
+        const errorText = await response.text(); // Tentar ler a resposta de erro
+        console.error('Resposta de erro do servidor:', errorText);
+        // Você pode mostrar uma mensagem de erro para o usuário aqui
+        throw new Error(`Falha no download do PDF: ${response.status} ${response.statusText}`);
+      }
+
+      // IMPORTANTE: Retornar o conteúdo do arquivo como Blob
+      const blob = await response.blob();
+      console.log('PDF Blob criado com sucesso. Tamanho:', blob.size, 'bytes'); // Para depuração
+      return blob; // É isso que react-download-link precisa!
+
+    } catch (error) {
+      console.error('Erro durante o fetch do PDF:', error);
+      // Retornar null ou re-lançar para que o DownloadLink saiba que falhou
+      return null;
+    }
+  };
 
   return (
     <Container>
@@ -45,22 +88,8 @@ const BookHeader = ({
               {t('book.downloadPdf')}
             </DownloadButton>
           }
-          filename={`banho-de-sao-joao-${i18n.language}.pdf`}
-          exportFile={() => {
-            // Determinar qual arquivo PDF baixar com base no idioma atual
-            const currentLang = i18n.language || 'pt';
-            let pdfLang = 'pt'; // Idioma padrão
-
-            // Mapear o idioma atual para o arquivo PDF correspondente
-            if (currentLang.startsWith('en')) {
-              pdfLang = 'en';
-            } else if (currentLang.startsWith('es')) {
-              pdfLang = 'es';
-            }
-
-            // Retornar o caminho completo para o arquivo PDF
-            return Promise.resolve(window.location.origin + `/assets/pdf/livro_${pdfLang}.pdf`);
-          }}
+          filename={`${t('book.pdfFileName')}_${i18n.language}.pdf`}
+          exportFile={handleDownloadPdf} // Agora passa a função assíncrona que retorna o Blob
           style={{ textDecoration: 'none' }}
         />
 

@@ -59,47 +59,60 @@ export const ReadButton = styled(BaseButton)`
 
 // Botão para download
 export const DownloadButton = styled(BaseButton)`
-  background: ${props => props.theme.colors.secondary};
+  background: linear-gradient(1deg, #5f1530, #a00036);
   color: white;
   
   &:hover {
-    background: ${props => props.theme.colors.secondaryDark};
+    background: linear-gradient(1deg, #4f1128, #900030);
+    transform: translateY(-2px);
   }
 `;
 
 // Botão para compartilhar
 export const ShareButton = styled(BaseButton)`
-  background: ${props => props.theme.colors.accent};
+  background: linear-gradient(1deg, #5f1530, #a00036);
   color: white;
   
   &:hover {
-    background: ${props => props.theme.colors.accentDark};
+    background: linear-gradient(1deg, #4f1128, #900030);
+    transform: translateY(-2px);
   }
 `;
 
 // Botão para voltar à capa
 export const BackToCoverButton = styled(BaseButton)`
-  background-color: ${props => props.theme.colors.secondary};
+  background-color: #8B4513; /* Marrom que remete à terra e tradição */
   color: white;
   
   &:hover {
-    background-color: ${props => props.theme.colors.secondaryDark};
+    background-color: #6B3100; /* Marrom mais escuro para hover */
+  }
+`;
+
+// Botão para ler online
+export const ReadOnlineButton = styled(BaseButton)`
+  background: linear-gradient(1deg, #5f1530, #a00036);
+  color: white;
+  
+  &:hover {
+    background: linear-gradient(1deg, #4f1128, #900030);
+    transform: translateY(-2px);
   }
 `;
 
 // Botão para alternar modo de tela cheia
 export const FullscreenButton = styled(BaseButton)`
-  background-color: ${props => props.theme.colors.tertiary};
+  background-color: #A0522D; /* Marrom avermelhado */
   color: white;
   
   &:hover {
-    background-color: ${props => props.theme.colors.tertiaryDark};
+    background-color: #803D21; /* Marrom avermelhado mais escuro para hover */
   }
 `;
 
 // Botão de navegação entre páginas
 export const NavButton = styled.button`
-  background-color: ${props => props.theme.colors.primary};
+  background-color: #FFC080; /* Laranja claro que combina com o tema do Banho de São João */
   color: white;
   border: none;
   border-radius: 50%;
