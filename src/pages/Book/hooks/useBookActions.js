@@ -1,5 +1,4 @@
 import { useState, useCallback } from 'react';
-import { forceDownloadPdf } from '../services/pdfDownloadService';
 
 /**
  * Hook para gerenciar ações relacionadas ao livro
@@ -40,16 +39,10 @@ export const useBookActions = (options = {}) => {
       
       console.log('Iniciando download do PDF:', pdfUrl);
       
-      // Usar o método de download direto
-      forceDownloadPdf(pdfUrl)
-        .then(() => {
-          console.log('Download iniciado com sucesso');
-        })
-        .catch((error) => {
-          console.error('Erro ao baixar PDF:', error);
-          
-          // Aqui poderia ter um fallback se necessário
-        });
+      // Abrir o PDF em uma nova aba como fallback
+      window.open(pdfUrl, '_blank');
+      console.log('Download iniciado com sucesso');
+      
     } catch (error) {
       console.error('Erro ao iniciar download:', error);
     }
