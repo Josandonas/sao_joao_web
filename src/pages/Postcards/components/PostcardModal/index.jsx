@@ -71,10 +71,30 @@ const PostcardModal = ({ postcard, onClose, onShare, onDownload }) => {
                     <FaDownload /> {t('postcards.downloadButton')}
                   </DownloadButton>
                 }
-                filename={`postal-${postcard.id}-${t(postcard.titleKey).toLowerCase().replace(/\s+/g, '-')}.jpg`}
-                exportFile={() => fetch(postcard.image)
-                  .then(response => response.blob())
-                  .then(blob => blob)}
+                filename={`postal-${postcard.id}.jpg`}
+                exportFile={async () => {
+                  const imageUrl = PUBLIC_URL + postcard.image;
+                  console.log('Tentando baixar imagem de:', imageUrl);
+                  
+                  try {
+                    const response = await fetch(imageUrl);
+                    
+                    if (!response.ok) {
+                      console.error('Erro ao baixar a imagem. Status:', response.status, response.statusText);
+                      const errorText = await response.text();
+                      console.error('Resposta de erro do servidor:', errorText);
+                      throw new Error(`Falha no download da imagem: ${response.status} ${response.statusText}`);
+                    }
+                    
+                    const blob = await response.blob();
+                    console.log('Imagem Blob criada com sucesso. Tamanho:', blob.size, 'bytes');
+                    return blob;
+                    
+                  } catch (error) {
+                    console.error('Erro durante o fetch da imagem:', error);
+                    return null;
+                  }
+                }}
                 style={{ textDecoration: 'none' }}
               />
             </ShareContainer>
