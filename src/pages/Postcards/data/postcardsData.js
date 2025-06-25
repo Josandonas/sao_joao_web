@@ -57,7 +57,7 @@ const postcardsData = [
     descriptionKey: 'postcards.items.6.description',
     locationKey: 'postcards.items.6.location',
     authorKey: 'postcards.items.6.author',
-    year: '2012',
+    year: '2011',
     category: 'dances'
   },
   {
