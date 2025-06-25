@@ -222,12 +222,15 @@ O projeto utiliza i18next para gerenciar traduções em três idiomas (Portuguê
 
 Este projeto é uma migração do aplicativo original "Banho de São João", que era baseado em Firefox Portable, HTML, CSS e JavaScript. A migração mantém todo o conteúdo e a essência do trabalho original, adaptando-o para uma plataforma web moderna, acessível e responsiva.
 
+## Melhorias Concluídas
+
+- ✅ Otimização da conversão de vídeos FLV para formatos web modernos (MP4/WebM)
+- ✅ Refinamento da experiência do usuário em todos os módulos
+- ✅ Otimizações para dispositivos móveis e tablets
+- ✅ Sistema otimizado de gerenciamento de traduções com cache e persistência
+
 ## Próximos Passos
 
-- Expandir o acervo do módulo Biblioteca com mais referências bibliográficas e links sobre o Banho de São João
-- Otimizar a conversão de vídeos FLV para formatos web modernos (MP4/WebM)
-- Implementação de PWA para uso offline
+- Expandir o acervo do módulo Biblioteca com mais referências bibliográficas e links sobre o Banho de São João por meio de API
 - Testes automatizados para garantir a qualidade
-- Melhorias de performance e acessibilidade
-- Refinamento da experiência do usuário em todos os módulos
-- Otimizações para dispositivos móveis e tablets
+- Adicionar Ferramentas de acessibilidade
