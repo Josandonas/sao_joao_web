@@ -108,12 +108,14 @@ export const DayCell = styled.div`
   background-color: ${props => {
     if (props.$isEmpty) return 'transparent';
     if (props.$isSelected) return 'rgba(255, 107, 0, 0.3)';
+    if (props.$isLegacy) return 'rgba(139, 69, 19, 0.1)';
     if (props.$isActive) return 'rgba(255, 107, 0, 0.15)';
     if (props.$isToday) return 'rgba(0, 123, 255, 0.1)';
     return '#f9f9f9';
   }};
   border: ${props => {
     if (props.$isSelected) return '2px solid #FF6B00';
+    if (props.$isLegacy && props.$hasEvents) return '1px dashed #8B4513';
     if (props.$isToday) return '2px solid #007bff';
     return '1px solid #eee';
   }};
@@ -168,11 +170,29 @@ export const DayNumber = styled.span`
 export const EventIndicator = styled.div`
   width: 6px;
   height: 6px;
-  background-color: ${({ theme }) => theme.colors.primary || '#FF6B00'};
+  background-color: ${props => props.$isLegacy ? '#8B4513' : props.theme.colors.primary || '#FF6B00'};
   border-radius: 50%;
   
   @media (max-width: 768px) {
     width: 4px;
     height: 4px;
+  }
+`;
+
+export const CalendarMessage = styled.div`
+  background-color: rgba(255, 107, 0, 0.1);
+  border-left: 4px solid ${({ theme }) => theme.colors.primary || '#FF6B00'};
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  color: #333;
+  text-align: center;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
   }
 `;

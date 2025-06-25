@@ -191,6 +191,137 @@
       "noEvents": "No events for this date",
       "allEvents": "All events",
       "filter": "Filter events"
+    },
+    "avisos": {
+      "semEventosProximos": "There are no events for today or for the next 10 days.",
+      "eventoFuturo": "There will be an event in {{dias}} days.",
+      "eventoFuturoSingular": "There will be an event tomorrow.",
+      "legado": "Historical event from 2025",
+      "eventoHistorico": "This is a historical event from previous editions.",
+      "eventoHojeLegado": "This event is part of the historical program."
+    },
+    "eventos2025": {
+      "titulo": "Legacy Events 2025",
+      "descricao": "Historic events from the 2025 Saint John's Bath celebration",
+      "eventos": [
+        {
+          "id": 1,
+          "title": "Saint John's Triduum",
+          "date": "2025-06-20T17:00:00",
+          "time": "5:00 PM",
+          "location": "Saint John the Baptist Chapel, Ladeira Cunha e Cruz",
+          "description": "Religious celebration of Saint John the Baptist Triduum.",
+          "category": "religious"
+        },
+        {
+          "id": 2,
+          "title": "Saint John's Triduum",
+          "date": "2025-06-21T17:00:00",
+          "time": "5:00 PM",
+          "location": "Saint John the Baptist Chapel, Ladeira Cunha e Cruz",
+          "description": "Second day of the religious celebration of Saint John the Baptist Triduum.",
+          "category": "religious"
+        },
+        {
+          "id": 3,
+          "title": "Saint John's Triduum",
+          "date": "2025-06-22T17:00:00",
+          "time": "5:00 PM",
+          "location": "Saint John the Baptist Chapel, Ladeira Cunha e Cruz",
+          "description": "Third day of the religious celebration of Saint John the Baptist Triduum.",
+          "category": "religious"
+        },
+        {
+          "id": 4,
+          "title": "Opening of the food court and craft stand",
+          "date": "2025-06-20T18:00:00",
+          "time": "6:00 PM",
+          "location": "Porto Geral",
+          "description": "Opening of the food court and craft stand, local shows and Shrine Contest.",
+          "category": "cultural"
+        },
+        {
+          "id": 5,
+          "title": "Regional Show: Victor Gregório and Marco Aurélio",
+          "date": "2025-06-20T22:30:00",
+          "time": "10:30 PM",
+          "location": "Porto Geral",
+          "description": "Performance by the duo Victor Gregório and Marco Aurélio.",
+          "category": "show"
+        },
+        {
+          "id": 6,
+          "title": "Children's Square Dance Contest",
+          "date": "2025-06-21T19:00:00",
+          "time": "7:00 PM",
+          "location": "Porto Geral",
+          "description": "Children's Square Dance Contest, presentation of the Bem te Vi Children's Choir, and local shows.",
+          "category": "cultural"
+        },
+        {
+          "id": 7,
+          "title": "National Show: Bruninho and Davi",
+          "date": "2025-06-22T01:00:00",
+          "time": "1:00 AM",
+          "location": "Porto Geral",
+          "description": "Performance by the duo Bruninho and Davi.",
+          "category": "show"
+        },
+        {
+          "id": 8,
+          "title": "Square Dance Contest",
+          "date": "2025-06-22T19:00:00",
+          "time": "7:00 PM",
+          "location": "Porto Geral",
+          "description": "Square Dance Contest with local groups.",
+          "category": "cultural"
+        },
+        {
+          "id": 9,
+          "title": "Regional Show: Loubet",
+          "date": "2025-06-22T22:30:00",
+          "time": "10:30 PM",
+          "location": "Porto Geral",
+          "description": "Performance by singer Loubet.",
+          "category": "show"
+        },
+        {
+          "id": 10,
+          "title": "Visitation of the faithful to Saint John the Baptist Chapel",
+          "date": "2025-06-23T08:00:00",
+          "time": "8:00 AM",
+          "location": "Saint John the Baptist Chapel, Ladeira Cunha e Cruz",
+          "description": "Visitation of the faithful to Saint John the Baptist Chapel.",
+          "category": "religious"
+        },
+        {
+          "id": 11,
+          "title": "Concentration of the City Hall shrine and Solemn Mass",
+          "date": "2025-06-23T20:00:00",
+          "time": "8:00 PM",
+          "location": "Saint John the Baptist Chapel",
+          "description": "Concentration of the City Hall shrine and the Solemn Mass in honor of Saint John the Baptist.",
+          "category": "religious"
+        },
+        {
+          "id": 12,
+          "title": "Raising of Saint John's pole",
+          "date": "2025-06-23T23:30:00",
+          "time": "11:30 PM",
+          "location": "Porto Geral",
+          "description": "Raising of Saint John's pole and the traditional Cururu and Siriri circle.",
+          "category": "religious"
+        },
+        {
+          "id": 13,
+          "title": "National Show: Michel Teló",
+          "date": "2025-06-24T00:30:00",
+          "time": "12:30 AM",
+          "location": "Porto Geral",
+          "description": "Performance by singer Michel Teló.",
+          "category": "show"
+        }
+      ]
     }
   },
 

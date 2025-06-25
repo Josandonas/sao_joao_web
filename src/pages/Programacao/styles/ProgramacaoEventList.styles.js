@@ -130,6 +130,23 @@ export const AnimatedEventCard = styled(EventCard)`
   transition: all 0.5s ease;
   opacity: ${props => props.$isAnimating ? 0 : 1};
   transform: translateY(${props => props.$isAnimating ? '20px' : '0'});
+  
+  /* Estilo para eventos legados */
+  ${props => props.$isLegacy && `
+    position: relative;
+    
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 20px 20px 0;
+      border-color: transparent ${props.theme.colors.secondary || '#FF9A3C'} transparent transparent;
+    }
+  `}
 `;
 
 export const EventDate = styled.div`
@@ -207,5 +224,22 @@ export const NoEventsMessage = styled.div`
     padding: 1rem;
     font-size: 0.9rem;
     border-radius: 6px;
+  }
+`;
+
+export const EventInfoMessage = styled.div`
+  background-color: rgba(255, 107, 0, 0.1);
+  border-left: 4px solid ${({ theme }) => theme.colors.primary || '#FF6B00'};
+  padding: 0.75rem 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-size: ${({ theme }) => theme.fontSizes.small};
+  color: #333;
+  
+  @media (max-width: 768px) {
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
   }
 `;

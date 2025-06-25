@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { 
-  CalendarContainer, 
-  CalendarHeader,
-  MonthTitle,
+import {
+  CalendarContainer,
   CalendarGrid,
+  CalendarHeader,
+  CalendarMessage,
   DayCell,
-  NavigationButton,
   DayNumber,
-  EventIndicator
+  EventIndicator,
+  MonthTitle,
+  NavigationButton
 } from '../styles/ProgramacaoCalendar.styles';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { useProgramacaoEvents } from '../hooks/useProgramacaoEvents';
@@ -22,7 +23,7 @@ import { useProgramacaoEvents } from '../hooks/useProgramacaoEvents';
  */
 const ProgramacaoCalendar = ({ selectedDate, onDateSelect }) => {
   const { t } = useTranslation();
-  const { events, getEventsByDate } = useProgramacaoEvents();
+  const { events, getEventsByDate, hasEventsOnDate, mensagemAviso, isLegacyEvent } = useProgramacaoEvents();
   
   // Estado para controlar o mês e ano exibidos
   const [currentDate, setCurrentDate] = useState(new Date(2025, 5, 1)); // Junho de 2025
@@ -67,15 +68,13 @@ const ProgramacaoCalendar = ({ selectedDate, onDateSelect }) => {
   // Função para lidar com clique em um dia
   const handleDayClick = (dayInfo) => {
     if (dayInfo) {
-      // Verificar novamente se o dia tem eventos
-      const dateString = dayInfo.date.toISOString().split('T')[0];
-      const dayEvents = getEventsByDate(dateString);
-      
-      if (dayEvents && dayEvents.length > 0) {
-        console.log(`Selecionando data ${dateString} com ${dayEvents.length} eventos`);
+      // Verificar se o dia tem eventos usando a nova função hasEventsOnDate
+      if (hasEventsOnDate(dayInfo.date)) {
+        console.log(`Selecionando data ${dayInfo.date.toISOString().split('T')[0]} com eventos`);
         onDateSelect(dayInfo.date);
       } else {
-        console.log(`Dia ${dateString} não possui eventos`);
+        console.log(`Dia ${dayInfo.date.toISOString().split('T')[0]} não possui eventos`);
+        // Podemos adicionar um feedback visual ou sonoro aqui
       }
     }
   };
@@ -121,15 +120,27 @@ const ProgramacaoCalendar = ({ selectedDate, onDateSelect }) => {
       }
     });
     
+    // Data atual para comparar
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
     // Adicionar os dias do mês
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
-      const dayEvents = eventsByDay[day] || [];
+      date.setHours(0, 0, 0, 0);
+      
+      // Usar hasEventsOnDate para verificar se o dia tem eventos
+      const hasEvents = hasEventsOnDate(date);
+      
+      // Verificar se é um evento legado
+      const dayEvents = getEventsByDate(date.toISOString().split('T')[0]);
+      const hasLegacyEvents = dayEvents.some(event => isLegacyEvent(event));
       
       days.push({
         day,
         date,
-        hasEvents: dayEvents.length > 0,
+        hasEvents,
+        isLegacy: hasLegacyEvents,
         events: dayEvents
       });
     }
@@ -182,6 +193,7 @@ const ProgramacaoCalendar = ({ selectedDate, onDateSelect }) => {
   return (
     <CalendarContainer>
       <h2>{t('programacao.calendar.title', 'Calendário de Eventos')}</h2>
+      
       <CalendarHeader>
         <NavigationButton onClick={prevMonth}>
           <FaChevronLeft />
@@ -204,14 +216,16 @@ const ProgramacaoCalendar = ({ selectedDate, onDateSelect }) => {
             $isEmpty={!dayInfo}
             $isToday={dayInfo && dayInfo.date.toDateString() === new Date().toDateString()}
             $hasEvents={dayInfo && dayInfo.hasEvents}
+            $isLegacy={dayInfo && dayInfo.isLegacy}
             $isActive={isJune2025 && dayInfo && dayInfo.day >= 22 && dayInfo.day <= 24}
             $isSelected={dayInfo && isDateSelected(dayInfo.date)}
             onClick={() => dayInfo && handleDayClick(dayInfo)}
+            title={dayInfo && dayInfo.isLegacy ? t('programacao.avisos.legado') : ''}
           >
             {dayInfo && (
               <>
                 <DayNumber>{dayInfo.day}</DayNumber>
-                {dayInfo.hasEvents && <EventIndicator />}
+                {dayInfo.hasEvents && <EventIndicator $isLegacy={dayInfo.isLegacy} />}
               </>
             )}
           </DayCell>

@@ -21,8 +21,11 @@ const Programacao = () => {
   // Função para encontrar a data de hoje ou o próximo evento
   useEffect(() => {
     if (events.length > 0) {
+      // Obter a data atual real
       const today = new Date();
       today.setHours(0, 0, 0, 0);
+      
+      console.log('Data atual (hoje):', today.toDateString());
       
       // Verificar se há eventos hoje
       const todayEvents = events.filter(event => {
@@ -34,28 +37,23 @@ const Programacao = () => {
         );
       });
       
-      if (todayEvents.length > 0) {
-        // Se houver eventos hoje, selecione a data de hoje
-        console.log('Eventos encontrados para hoje:', todayEvents.length);
-        setSelectedDate(today);
-      } else {
-        // Caso contrário, encontre o próximo evento futuro
-        const futureEvents = events.filter(event => new Date(event.date) >= today);
+      // Sempre selecionar a data de hoje primeiro, independentemente de haver eventos
+      setSelectedDate(today);
+      console.log('Data selecionada inicialmente:', today.toDateString());
+      
+      // Se não houver eventos hoje, podemos mostrar uma mensagem, mas mantemos a data atual selecionada
+      if (todayEvents.length === 0) {
+        console.log('Não há eventos para hoje');
+        
+        // Opcionalmente, podemos buscar o próximo evento futuro para exibir informações adicionais
+        const futureEvents = events.filter(event => new Date(event.date) > today);
         
         if (futureEvents.length > 0) {
           // Ordenar eventos futuros cronologicamente
           futureEvents.sort((a, b) => new Date(a.date) - new Date(b.date));
-          
-          // Selecionar a data do próximo evento
-          const nextEventDate = new Date(futureEvents[0].date);
-          nextEventDate.setHours(0, 0, 0, 0);
-          setSelectedDate(nextEventDate);
+          console.log('Próximo evento será em:', new Date(futureEvents[0].date).toDateString());
         } else {
-          // Se não houver eventos futuros, mostrar o último evento passado
-          const sortedEvents = [...events].sort((a, b) => new Date(b.date) - new Date(a.date));
-          const lastEventDate = new Date(sortedEvents[0].date);
-          lastEventDate.setHours(0, 0, 0, 0);
-          setSelectedDate(lastEventDate);
+          console.log('Não há eventos futuros programados');
         }
       }
     }
