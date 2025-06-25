@@ -11,7 +11,7 @@ export const bookContent = {
     subtitle: 'Uma Tradição do Pantanal',
     coverImage: '/assets/images/book/1.jpg',
     description: 'A intenção do livro sempre foi a de contar, visualmente, a história dos elementos da manifestação festiva permeada por princípios religiosos, mostrando os ritos e os rituais, a devoção, a alegria e o ápice da festividade.',
-    published: '2011',
+    published: '2012',
     totalPages: 184,
     languages: 'Português, English, Español',
     authors: 'Hélènemarie Dias Fernandes',
