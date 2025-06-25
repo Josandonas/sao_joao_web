@@ -406,6 +406,11 @@ export const LanguageSelector = styled.div`
     justify-content: center;
     width: 100%;
   }
+  
+  /* Estilos para mobile */
+  @media (max-width: 991px) {
+    margin-top: 0;
+  }
 `;
 
 export const GlobeIcon = styled.div`
@@ -459,6 +464,19 @@ export const LanguageDropdown = styled.div`
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
+  }
+  
+  /* Ajustes para mobile */
+  @media (max-width: ${props => props.theme.breakpoints.sm}) {
+    right: 0;
+    width: 160px;
+    max-width: 90vw;
+  }
+  
+  /* Posicionamento especial para o dropdown fixo */
+  .language-selector-fixed & {
+    top: calc(100% + 5px);
+    right: 0;
   }
 `;
 
@@ -541,6 +559,57 @@ export const MobileToggle = styled.button`
   }
 `;
 
+export const LanguageButton = styled.button`
+  background: transparent;
+  border: 1px solid #FFC56E;
+  color: #FFC56E;
+  border-radius: ${props => props.theme.borderRadius.small};
+  padding: 4px 8px;
+  margin: 0 3px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  
+  .flag-icon {
+    margin-right: 4px;
+    width: 16px !important;
+    height: auto !important;
+  }
+  
+  &:hover {
+    background-color: rgba(255, 197, 110, 0.2);
+  }
+  
+  &.active {
+    background-color: #FFC56E;
+    color: #5f1530;
+    
+    .flag-icon {
+      color: #5f1530;
+    }
+  }
+  
+  @media (max-width: 991px) {
+    padding: 3px 6px;
+    font-size: 0.75rem;
+    margin: 0 2px;
+    min-width: 45px;
+    
+    .flag-icon {
+      width: 14px !important;
+      margin-right: 2px;
+    }
+  }
+`;
+
+
 export const NavButton = styled.button`
   background: none;
   border: none;
@@ -600,42 +669,5 @@ export const floatViola = `
       0% { transform: translateY(-50%) scale(0.6) translateX(0); }
       100% { transform: translateY(-50%) scale(0.6) translateX(3px); }
     }
-  }
-`;
-
-export const LanguageButton = styled.button`
-  background: none;
-  border: none;
-  color: #FFC56E;
-  display: flex;
-  align-items: center;
-  gap: ${props => props.theme.spacing.xs};
-  cursor: pointer;
-  padding: ${props => props.theme.spacing.xs} ${props => props.theme.spacing.sm};
-  border: 2px solid #FFC56E;
-  border-radius: ${props => props.theme.borderRadius.small};
-  transition: all ${props => props.theme.transitions.default};
-  font-family: var(--font-family-heading);
-  font-weight: 700;
-
-  svg {
-    color: #FFC56E;
-  }
-
-  span {
-    font-weight: 500;
-    margin-left: 5px;
-    font-size: 0.9rem;
-    letter-spacing: 0.5px;
-  }
-
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-1px);
-  }
-
-  @media (max-width: 991px) {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
   }
 `;

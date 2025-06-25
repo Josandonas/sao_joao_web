@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { BiGlobe } from 'react-icons/bi';
+import ReactCountryFlag from 'react-country-flag';
 import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import { HeaderContainer, HeaderContent, Navigation, NavItem, LanguageSelector, LanguageButton, NavButton, LanguageDropdown, LanguageOption, GlobeIcon } from './styles';
 const Header = () => {
@@ -56,6 +57,8 @@ const Header = () => {
       document.body.classList.remove('navbar-open');
     }
   }, [menuExpanded]);
+  
+  // Remover o useEffect para detectar tamanho da tela, já que não precisamos mais do seletor fixo
 
   // Função para fechar o menu mobile quando um item é clicado
   const handleNavItemClick = () => {
@@ -66,9 +69,34 @@ const Header = () => {
 
   return (
     <HeaderContainer>
+      
       <Container fluid>
         <Navbar expand="lg" className="p-0 navbar-dark mobile-menu-custom" expanded={menuExpanded}>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" className="ms-auto me-2 border-0 custom-toggler" onClick={() => setMenuExpanded(!menuExpanded)} />
+          {/* Botões de idioma para mobile (ao lado do toggle) */}
+          <div className="d-flex d-lg-none ms-auto me-2 align-items-center">
+            <LanguageButton
+              onClick={() => handleLanguageChange('pt')}
+              className={lang === 'pt' ? 'active' : ''}
+              title="Português"
+            >
+              <ReactCountryFlag countryCode="BR" className="flag-icon" svg /> PT
+            </LanguageButton>
+            <LanguageButton
+              onClick={() => handleLanguageChange('en')}
+              className={lang === 'en' ? 'active' : ''}
+              title="English"
+            >
+              <ReactCountryFlag countryCode="US" className="flag-icon" svg /> EN
+            </LanguageButton>
+            <LanguageButton
+              onClick={() => handleLanguageChange('es')}
+              className={lang === 'es' ? 'active' : ''}
+              title="Español"
+            >
+              <ReactCountryFlag countryCode="ES" className="flag-icon" svg /> ES
+            </LanguageButton>
+          </div>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-2 border-0 custom-toggler" onClick={() => setMenuExpanded(!menuExpanded)} />
           <Navbar.Collapse id="basic-navbar-nav" className="p-0 mobile-menu-collapse">
             <Nav className="mx-auto justify-content-between w-100 flex-nowrap">
               <NavItem className="nav-item-mobile nav-item-responsive">
@@ -113,7 +141,10 @@ const Header = () => {
               </NavItem>
             </Nav>
 
-            <LanguageSelector>
+            {/* Removida a versão mobile simplificada (dentro do menu) */}
+
+            {/* Versão desktop com dropdown */}
+            <LanguageSelector className="d-none d-lg-flex">
               <div className="language-dropdown-container">
                 <GlobeIcon onClick={() => setDropdownOpen(!dropdownOpen)} ref={dropdownRef}>
                   <BiGlobe size={18} />
