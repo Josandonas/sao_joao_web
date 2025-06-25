@@ -177,8 +177,8 @@ Todos os módulos do projeto estão concluídos e compartilham as seguintes cara
 ### Módulos Principais
 
 1. **Livro Digital (Book)**
-   - Navegação por capítulos e modo tela cheia
-   - Controles de navegação e visualização otimizada
+   - Visualização em tela do navegador
+   - Baixar livro em PDF
 
 2. **Comunidades (Communities)**
    - Mapa interativo com comunidades tradicionais georreferenciadas
