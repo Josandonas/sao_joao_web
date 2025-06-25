@@ -2,36 +2,23 @@
 
 ## Sobre o Projeto
 
-Esta é uma aplicação web moderna que migra e moderniza o antigo aplicativo "Banho de São João", originalmente desenvolvido como uma aplicação portátil baseada no Firefox Portable. O projeto preserva todo o conteúdo e funcionalidades originais, mas utilizando tecnologias web modernas, arquitetura limpa e princípios de clean code. A aplicação é multilíngue, oferecendo suporte completo a Português, Inglês e Espanhol, e documenta as tradições culturais do Banho de São João na região do Pantanal Sul-Matogrossense.
+Esta é uma aplicação web moderna que documenta as tradições culturais do Banho de São João na região do Pantanal Sul-Matogrossense. O projeto migra e moderniza o antigo aplicativo originalmente desenvolvido como aplicação portátil baseada no Firefox Portable, preservando seu conteúdo e funcionalidades, mas utilizando tecnologias web modernas e princípios de clean code. A aplicação é completamente multilíngue, com suporte a Português, Inglês e Espanhol.
 
 ## Requisitos e Dependências
 
 ### Requisitos de Sistema
-- **Node.js**: Compatível com versões de 16.x até 22.x (testado até a versão 22.14.0 no Windows)
-- **npm**: 7.x ou superior (ou yarn 1.22.x ou superior)
+- **Node.js**: 16.x até 22.x (testado até 22.14.0 no Windows)
+- **npm**: 7.x+ ou yarn 1.22.x+
 - **Navegadores**: Chrome 90+, Firefox 90+, Safari 14+, Edge 90+
-- **Sistema Operacional**: Windows 10/11, macOS 10.15+, Ubuntu 20.04+ ou distribuições Linux similares
+- **Sistema Operacional**: Windows 10/11, macOS 10.15+, Ubuntu 20.04+
 
-### Dependências Principais
-- **React**: 18.2.0
-- **React DOM**: 18.2.0
-- **React Router DOM**: 6.15.0
-- **Bootstrap**: 5.3.7
-- **React Bootstrap**: 2.10.10
-- **Styled Components**: 6.0.7
-- **i18next**: 23.4.4
-- **React i18next**: 13.0.3
-- **React Icons**: 5.5.0
-- **React Image Gallery**: 1.4.0
-- **Leaflet/React Leaflet**: 1.9.4/4.2.1
-- **Video React**: 0.16.0
-- **Axios**: 1.10.0
-
-### Dependências de Desenvolvimento
-- **Vite**: 4.4.9
-- **ESLint**: 8.47.0
-- **@vitejs/plugin-react**: 4.0.4
-- **TypeScript Types (React)**: 18.2.20
+### Principais Dependências
+- **Frontend**: React 18.2.0, React Router 6.15.0, Bootstrap 5.3.7, Styled Components 6.0.7
+- **Internacionalização**: i18next 23.4.4, React i18next 13.0.3
+- **UI/UX**: React Bootstrap 2.10.10, React Icons 5.5.0, React Image Gallery 1.4.0
+- **Mapas e Mídia**: Leaflet/React Leaflet 1.9.4/4.2.1, Video React 0.16.0
+- **Dados**: Axios 1.10.0
+- **Desenvolvimento**: Vite 4.4.9, ESLint 8.47.0
 
 ### Instalação e Execução
 
@@ -68,22 +55,24 @@ npm run preview
 yarn preview
 ```
 
-## Tecnologias Utilizadas
+## Arquitetura e Tecnologias
 
-- **React 18**: Framework JavaScript para construção de interfaces de usuário
-- **React Router 6**: Gerenciamento de rotas na aplicação
-- **Styled Components**: CSS-in-JS para estilização de componentes
-- **React i18next**: Internacionalização para suporte a múltiplos idiomas (Português, Inglês e Espanhol)
-- **React Icons**: Biblioteca de ícones para UI consistente
-- **Video React**: Reprodução de vídeo responsiva para depoimentos em formato FLV
-- **Leaflet/React Leaflet**: Mapas interativos para geolocalização de comunidades
-- **React Image Gallery**: Galerias de imagens responsivas para os cartões postais
-- **Polished**: Utilitário para manipulação de cores nos componentes estilizados
-- **React Calendar**: Componente de calendário para o módulo de Programação Oficial
-- **Date-fns**: Biblioteca para manipulação de datas no calendário de eventos
-- **React Transition Group**: Animações e transições entre componentes
-- **Axios**: Cliente HTTP para requisições a APIs externas
-- **Vite**: Bundler e ferramenta de desenvolvimento
+### Stack Principal
+- **Frontend**: React 18 com arquitetura de componentes e hooks
+- **Roteamento**: React Router 6 com suporte a rotas parametrizadas por idioma
+- **Estilização**: Styled Components para CSS-in-JS e Bootstrap para componentes base
+- **Internacionalização**: React i18next com traduções completas em Português, Inglês e Espanhol
+
+### Recursos Específicos
+- **Mapas**: Leaflet/React Leaflet para geolocalização de comunidades
+- **Mídia**: Video React para reprodução de depoimentos em vídeo
+- **Imagens**: React Image Gallery para exibição otimizada de galerias
+- **Calendário**: React Calendar e Date-fns para o módulo de Programação
+- **UI/UX**: React Icons, React Transition Group para animações, Polished para manipulação de cores
+
+### Infraestrutura
+- **Desenvolvimento**: Vite como bundler e servidor de desenvolvimento
+- **API**: Axios para comunicação com backend
 
 ## Estrutura do Projeto
 
@@ -178,73 +167,60 @@ sao_joao_web/
 └── vite.config.js            # Configuração do Vite
 ```
 
-## Funcionalidades
+## Funcionalidades e Módulos
 
-- **Múltiplos idiomas**: Suporte completo a Português, Inglês e Espanhol
-- **Design responsivo**: Adaptação a diferentes tamanhos de tela
-- **Navegação intuitiva**: Interface limpa e moderna
-- **Módulo Book (Concluído)**: Livro digital completo com navegação por capítulos e modo tela cheia
-- **Módulo Communities (Concluído)**: 
-  - Mapa interativo com comunidades tradicionais georreferenciadas
-  - Modal detalhado com informações multilíngues sobre cada comunidade
-  - Sistema de cadastro de novas comunidades com suporte a múltiplos idiomas
-  - Upload de imagens para capa e galeria das comunidades
-  - Armazenamento local das comunidades cadastradas
-- **Depoimentos em vídeo (Concluído)**: 
-  - Reprodução de vídeos de moradores locais com player customizado
-  - Filtro de depoimentos por categoria
-  - Modal para assistir aos vídeos com botão de fechar
-  - Formulário modal para envio de novos depoimentos com upload de vídeo customizado
-  - Mensagem de compatibilidade para navegadores sem suporte a vídeo
-- **Histórias e tradições (Concluído)**:
-  - Conteúdo cultural sobre o Banho de São João com suporte a múltiplos idiomas
-  - Modal com controle de zoom de texto para melhor acessibilidade
-  - Navegação via teclado (Esc para fechar, Ctrl+/- para ajustar zoom)
-  - Persistência das preferências de tamanho de fonte via localStorage
-  - Animações e transições suaves para melhor experiência de usuário
-- **Cartões postais digitais (Concluído)**:
-  - Galeria de imagens representativas com metadados culturais
-  - Categorização e filtragem de cartões por tema
-  - Visualização em modo galeria com imagens otimizadas
-  - Modal detalhado para cada cartão postal com informações completas
-  - Navegação intuitiva entre cartões postais via modal
-- **Programação Oficial (Concluído)**:
-  - Calendário interativo para visualização de eventos do festival
-  - Lista de eventos filtrada por data selecionada
-  - Destaque para eventos do dia atual e do dia seguinte
-  - Suporte completo a internacionalização (Português, Inglês e Espanhol)
-  - Interface responsíva com estilos consistentes com o tema global
+Todos os módulos do projeto estão concluídos e compartilham as seguintes características:
+- **Internacionalização completa**: Suporte a Português, Inglês e Espanhol
+- **Design responsivo**: Adaptação a diferentes dispositivos
+- **Acessibilidade**: Controles intuitivos e navegação via teclado
 
-## Instalação e Execução
+### Módulos Principais
 
-1. Clone este repositório
-2. Instale as dependências:
-   ```
-   npm install
-   ```
-3. Execute a aplicação em modo de desenvolvimento:
-   ```
-   npm run dev
-   ```
-4. Para construir a versão de produção:
-   ```
-   npm run build
-   ```
+1. **Livro Digital (Book)**
+   - Navegação por capítulos e modo tela cheia
+   - Controles de navegação e visualização otimizada
+
+2. **Comunidades (Communities)**
+   - Mapa interativo com comunidades tradicionais georreferenciadas
+   - Sistema de cadastro de novas comunidades com upload de imagens
+   - Armazenamento local das comunidades cadastradas
+
+3. **Depoimentos (Testimonials)**
+   - Reprodução de vídeos com player customizado
+   - Filtro por categorias e formulário para novos depoimentos
+
+4. **Histórias (Stories)**
+   - Conteúdo cultural com controle de zoom para acessibilidade
+   - Persistência de preferências via localStorage
+
+5. **Cartões Postais (Postcards)**
+   - Galeria de imagens com metadados culturais
+   - Categorização e navegação intuitiva entre cartões
+
+6. **Programação (Programacao)**
+   - Calendário interativo de eventos do festival
+   - Destaque para eventos atuais e filtragem por data
+
+7. **Biblioteca (Biblioteca)**
+   - Cards interativos com documentos e mapas
+   - Filtros por categoria e acesso a referências bibliográficas
+
+## Gerenciamento de Traduções e Performance
+
+### Sistema de Internacionalização
+
+O projeto utiliza i18next para gerenciar traduções em três idiomas (Português, Inglês e Espanhol). As traduções estão organizadas em arquivos JSON estruturados por módulo, acessíveis via hook `useTranslation`.
+
+### Otimizações Implementadas
+
+- **Cache de Traduções**: Armazenamento em estado global para evitar recarregamentos
+- **Persistência**: Uso de localStorage para acelerar visitas subsequentes
+- **Controle de Versão**: Mecanismo para invalidar cache quando traduções são atualizadas
+- **Carregamento Dinâmico**: Lazy loading de arquivos de tradução por idioma e módulo
 
 ## Migração do Projeto Original
 
 Este projeto é uma migração do aplicativo original "Banho de São João", que era baseado em Firefox Portable, HTML, CSS e JavaScript. A migração mantém todo o conteúdo e a essência do trabalho original, adaptando-o para uma plataforma web moderna, acessível e responsiva.
-
-## Status dos Módulos
-
-- ✅ **Livro Digital (Book)**: Concluído com navegação por capítulos, visualização em tela cheia e controles
-- ✅ **Comunidades (Communities)**: Concluído com mapa interativo, visualização detalhada e cadastro de novas comunidades
-- ✅ **Página Inicial (Home)**: Concluído com seções hero, sobre, features com layout responsivo e distribuição harmoniosa de cards
-- ✅ **Depoimentos (Testimonials)**: Concluído com categorias filtráveis, reprodução de vídeos, formulário modal e internacionalização completa
-- ✅ **Histórias (Stories)**: Concluído com exibição de histórias e tradições culturais, modal acessível e controles de tamanho de texto
-- ✅ **Cartões Postais (Postcards)**: Concluído com galeria interativa, modal detalhado e navegação intuitiva
-- ✅ **Programação Oficial (Programacao)**: Concluído com calendário interativo, lista de eventos por data e suporte completo a internacionalização
-- ✅ **Biblioteca (Biblioteca)**: Concluído com cards interativos contendo iframes para documentos e mapas, filtros por categoria e suporte completo a internacionalização
 
 ## Próximos Passos
 
