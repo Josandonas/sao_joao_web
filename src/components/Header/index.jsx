@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+// Substituímos o hook padrão pelo nosso hook otimizado
+import useOptimizedTranslation from '../../hooks/useOptimizedTranslation';
 import { BiGlobe } from 'react-icons/bi';
 import ReactCountryFlag from 'react-country-flag';
-import { Container, Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Container, Navbar, Nav, NavDropdown, Spinner } from 'react-bootstrap';
 import { HeaderContainer, HeaderContent, Navigation, NavItem, LanguageSelector, LanguageButton, NavButton, LanguageDropdown, LanguageOption, GlobeIcon } from './styles';
 const Header = () => {
-  const { t, i18n } = useTranslation();
+  // Usando o hook otimizado para traduções
+  const { t, i18n, changeLanguage, isReady } = useOptimizedTranslation();
   const { lang } = useParams();
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [menuExpanded, setMenuExpanded] = useState(false);
+  const [isChangingLanguage, setIsChangingLanguage] = useState(false);
   const dropdownRef = useRef(null);
 
   // Função para obter o nome do idioma por extenso
@@ -24,15 +27,28 @@ const Header = () => {
   };
 
   // Alterna entre os idiomas disponíveis mantendo a página atual
-  const handleLanguageChange = (newLang) => {
+  const handleLanguageChange = async (newLang) => {
     if (lang === newLang) {
       setDropdownOpen(false);
       return;
     }
 
-    const currentPath = location.pathname;
-    const newPath = currentPath.replace(`/${lang}`, `/${newLang}`);
-    window.location.href = newPath;
+    try {
+      // Indica que está carregando o novo idioma
+      setIsChangingLanguage(true);
+      setDropdownOpen(false);
+      
+      // Pré-carrega as traduções do novo idioma usando nosso sistema de cache
+      await changeLanguage(newLang);
+      
+      // Atualiza a URL para refletir o novo idioma
+      const currentPath = location.pathname;
+      const newPath = currentPath.replace(`/${lang}`, `/${newLang}`);
+      window.location.href = newPath;
+    } catch (error) {
+      console.error('Erro ao mudar idioma:', error);
+      setIsChangingLanguage(false);
+    }
   };
 
   // Fecha o dropdown quando clicar fora dele
@@ -78,22 +94,40 @@ const Header = () => {
               onClick={() => handleLanguageChange('pt')}
               className={lang === 'pt' ? 'active' : ''}
               title="Português"
+              disabled={isChangingLanguage}
             >
-              <ReactCountryFlag countryCode="BR" className="flag-icon" svg /> PT
+              {isChangingLanguage && lang !== 'pt' ? (
+                <Spinner animation="border" size="sm" className="me-1" />
+              ) : (
+                <ReactCountryFlag countryCode="BR" className="flag-icon" svg />
+              )}{' '}
+              PT
             </LanguageButton>
             <LanguageButton
               onClick={() => handleLanguageChange('en')}
               className={lang === 'en' ? 'active' : ''}
               title="English"
+              disabled={isChangingLanguage}
             >
-              <ReactCountryFlag countryCode="US" className="flag-icon" svg /> EN
+              {isChangingLanguage && lang !== 'en' ? (
+                <Spinner animation="border" size="sm" className="me-1" />
+              ) : (
+                <ReactCountryFlag countryCode="US" className="flag-icon" svg />
+              )}{' '}
+              EN
             </LanguageButton>
             <LanguageButton
               onClick={() => handleLanguageChange('es')}
               className={lang === 'es' ? 'active' : ''}
               title="Español"
+              disabled={isChangingLanguage}
             >
-              <ReactCountryFlag countryCode="ES" className="flag-icon" svg /> ES
+              {isChangingLanguage && lang !== 'es' ? (
+                <Spinner animation="border" size="sm" className="me-1" />
+              ) : (
+                <ReactCountryFlag countryCode="ES" className="flag-icon" svg />
+              )}{' '}
+              ES
             </LanguageButton>
           </div>
           <Navbar.Toggle aria-controls="basic-navbar-nav" className="me-2 border-0 custom-toggler" onClick={() => setMenuExpanded(!menuExpanded)} />
@@ -155,20 +189,44 @@ const Header = () => {
                   <LanguageOption
                     onClick={() => handleLanguageChange('pt')}
                     className={lang === 'pt' ? 'active' : ''}
+                    disabled={isChangingLanguage}
                   >
-                    Português
+                    {isChangingLanguage && lang !== 'pt' ? (
+                      <>
+                        <Spinner animation="border" size="sm" className="me-2" />
+                        Carregando...
+                      </>
+                    ) : (
+                      'Português'
+                    )}
                   </LanguageOption>
                   <LanguageOption
                     onClick={() => handleLanguageChange('en')}
                     className={lang === 'en' ? 'active' : ''}
+                    disabled={isChangingLanguage}
                   >
-                    English
+                    {isChangingLanguage && lang !== 'en' ? (
+                      <>
+                        <Spinner animation="border" size="sm" className="me-2" />
+                        Loading...
+                      </>
+                    ) : (
+                      'English'
+                    )}
                   </LanguageOption>
                   <LanguageOption
                     onClick={() => handleLanguageChange('es')}
                     className={lang === 'es' ? 'active' : ''}
+                    disabled={isChangingLanguage}
                   >
-                    Español
+                    {isChangingLanguage && lang !== 'es' ? (
+                      <>
+                        <Spinner animation="border" size="sm" className="me-2" />
+                        Cargando...
+                      </>
+                    ) : (
+                      'Español'
+                    )}
                   </LanguageOption>
                 </LanguageDropdown>
               </div>
