@@ -55,7 +55,7 @@ export const useStories = () => {
       
       // Busca as histórias combinadas (estáticas + API)
       // Esta função já garante que os dados estáticos serão retornados mesmo se a API falhar
-      const allStories = await storiesService.fetchStoriesFromApi(currentLanguage);
+      const allStories = await storiesService.fetchStories(currentLanguage);
       console.log('[DEV] Histórias carregadas:', allStories.length);
       
       if (allStories && allStories.length > 0) {
