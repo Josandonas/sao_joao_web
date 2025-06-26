@@ -352,7 +352,21 @@
     "categoryCultural": "Cultural Expressions",
     "categoryFaith": "Faith and Devotion",
     "categoryAcademic": "Researchers",
-    "watchButton": "Watch Testimonial"
+    "watchButton": "Watch Testimonial",
+    "registerButton": "Share Your Testimonial",
+    "namePlaceholder": "Full name",
+    "locationPlaceholder": "City/State",
+    "selectCategory": "Select a category",
+    "yourTestimonial": "Your testimonial",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "errorSubmitting": "Error submitting testimonial. Please try again later.",
+    "apiUnavailable": "API is currently unavailable. Please try again later.",
+    "loadingMessage": "Loading testimonials...",
+    "errorLoading": "Could not load testimonials. Please try again later.",
+    "formError": "Form error. Please try again.",
+    "processingButton": "Submitting...",
+    "noVideoAvailable": "No video available"
   },
   "testimonials_page": {
     "title": "Testimonials",

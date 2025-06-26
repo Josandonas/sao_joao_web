@@ -18,18 +18,27 @@ import { useTestimonials } from './hooks/useTestimonials';
  * princípios de Clean Code aplicados e responsividade com Bootstrap
  */
 const Testimonials = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || 'pt';
+  
+  // Debug para verificar o idioma atual
+  console.log(`[DEBUG] Testimonials Page - Idioma atual: ${currentLang}`);
   
   // Utilizando os hooks customizados
   const { selectedVideo, videoRef, openVideoModal, closeVideoModal } = useVideoModal();
   const { 
     testimonials, 
+    filteredTestimonials, // Todos os depoimentos filtrados (sem paginação)
     categories, 
     selectedCategory, 
     isLoading, 
     filterByCategory, 
     submitNewTestimonial,
-    apiAvailable
+    apiAvailable,
+    // Informações de paginação
+    currentPage,
+    totalPages,
+    changePage
   } = useTestimonials();
   
   // Estado local para controlar a exibição do formulário
@@ -60,7 +69,7 @@ const Testimonials = () => {
               </Title>
               <ButtonWrapper>
                 <RecordButton onClick={toggleForm} className="btn-responsive">
-                  {t('testimonials.recordButton', 'Registrar Depoimento')}
+                  {t('testimonials.registerButton', 'Registrar Depoimento')}
                 </RecordButton>
               </ButtonWrapper>
             </HeaderContainer>
@@ -83,11 +92,14 @@ const Testimonials = () => {
               />
             )}
             
-            {/* Lista de depoimentos */}
+            {/* Lista de depoimentos com paginação */}
             <TestimonialList 
               testimonials={testimonials}
               isLoading={isLoading}
-              onOpenVideo={openVideoModal} 
+              onOpenVideo={openVideoModal}
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={changePage}
             />
           </Col>
         </Row>

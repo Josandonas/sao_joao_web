@@ -354,7 +354,24 @@
     "successMessage": "¡Gracias! Su testimonio será revisado y añadido pronto.",
     "video": {
       "unsupportedBrowser": "Su navegador no soporta la reproducción de videos."
-    }
+    },
+    "registerButton": "Cuente su Testimonio",
+    "namePlaceholder": "Nombre completo",
+    "locationPlaceholder": "Ciudad/Estado",
+    "selectCategory": "Seleccione una categoría",
+    "yourTestimonial": "Su testimonio",
+    "submit": "Enviar",
+    "cancel": "Cancelar",
+    "errorSubmitting": "Error al enviar testimonio. Por favor, inténtelo de nuevo más tarde.",
+    "apiUnavailable": "API no está disponible en este momento. Por favor, inténtelo de nuevo más tarde.",
+    "loadingMessage": "Cargando testimonios...",
+    "errorLoading": "No se pudieron cargar los testimonios. Por favor, inténtelo de nuevo más tarde.",
+    "formError": "Error en el formulario. Por favor, inténtelo de nuevo.",
+    "processingButton": "Enviando...",
+    "noVideoAvailable": "No hay video disponible",
+    "quoteLabel": "Su testimonio",
+    "quotePlaceholder": "Comparta su experiencia con el Baño de San Juan...",
+    "videoUploadLabel": "Seleccionar video"
   },
   
   "testimonials_page": {

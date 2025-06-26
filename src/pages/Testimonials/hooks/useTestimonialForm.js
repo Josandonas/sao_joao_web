@@ -1,5 +1,6 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { testimonialsService, isApiAvailable } from '../../../services';
 
 // Não precisamos mais da flag USE_MOCK_API, pois o serviço padronizado já lida com fallback
@@ -8,7 +9,15 @@ import { testimonialsService, isApiAvailable } from '../../../services';
  * Hook para gerenciar o formulário de envio de depoimentos
  */
 export const useTestimonialForm = () => {
-  const { lang } = useParams();
+  const { lang: urlLang } = useParams();
+  const { t, i18n } = useTranslation();
+  
+  // Usar o idioma do i18n se disponível, caso contrário usar o parâmetro da URL
+  const lang = i18n.language || urlLang || 'pt';
+  
+  // Log para debug do idioma atual
+  console.log(`[DEBUG] useTestimonialForm: Idioma atual - URL: ${urlLang}, i18n: ${i18n.language}, usado: ${lang}`);
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -119,6 +128,19 @@ export const useTestimonialForm = () => {
     }
   }, [formData, lang, resetForm, validateForm]);
 
+  // Efeito para monitorar mudanças no idioma e atualizar mensagens de erro
+  useEffect(() => {
+    // Se houver um erro, limpa para evitar exibir mensagens no idioma antigo
+    if (error) {
+      setError(null);
+    }
+    
+    console.log(`[DEBUG] useTestimonialForm: Idioma alterado para ${lang}`);
+    
+    // Aqui poderia resetar o formulário ou fazer outras ações necessárias quando o idioma mudar
+    // Por exemplo, buscar categorias traduzidas para o formulário
+  }, [lang]);
+
   return {
     formData,
     loading,
@@ -126,6 +148,7 @@ export const useTestimonialForm = () => {
     error,
     updateFormField,
     resetForm,
-    submitForm
+    submitForm,
+    lang // Exporta o idioma atual para uso no componente
   };
 };

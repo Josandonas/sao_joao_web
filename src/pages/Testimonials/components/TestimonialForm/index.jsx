@@ -28,10 +28,15 @@ import {
  * @param {boolean} apiAvailable - Indica se a API está disponível
  */
 const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], apiAvailable = true }) => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const currentLang = i18n.language || 'pt';
+  
+  // Debug para verificar o idioma atual
+  console.log(`[DEBUG] TestimonialForm - Idioma atual: ${currentLang}`);
   
   // Estado para controlar o envio do formulário e os dados
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState(null);
   const [formData, setFormData] = useState({
     name: '',
     location: '',
@@ -95,17 +100,19 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
           testimonial: '',
           video: null
         });
-        document.getElementById('fileNameDisplay').textContent = 'Nenhum arquivo selecionado';
+        document.getElementById('fileNameDisplay').textContent = t('testimonials.noFileSelected', 'Nenhum arquivo selecionado');
         
         // Fechar formulário após 1 segundo
         setTimeout(() => {
           toggleForm();
         }, 1000);
       } else {
-        console.error('Erro ao enviar depoimento. Tente novamente.');
+        console.error(t('testimonials.errorSubmitting', 'Erro ao enviar depoimento. Tente novamente.'));
+        setError(t('testimonials.errorSubmitting', 'Erro ao enviar depoimento. Tente novamente.'));
       }
     } catch (error) {
-      console.error('Erro no formulário:', error.message);
+      console.error(t('testimonials.formError', 'Erro no formulário:'), error.message);
+      setError(t('testimonials.formError', 'Erro no formulário. Tente novamente.'));
     } finally {
       setIsSubmitting(false);
     }
@@ -118,15 +125,22 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
         <ModalContainer onClick={(e) => e.stopPropagation()} className="position-relative w-100 mx-3 mx-sm-auto">
           <CloseButton onClick={toggleForm} className="btn-close-custom"><FaTimes /></CloseButton>
           <RecordingForm onSubmit={onSubmit} className="px-3 px-md-4 py-4 w-100">
-          <FormTitle className="mb-4">{'Registre seu Depoimento'}</FormTitle>
+          <FormTitle className="mb-4">{t('testimonials.formTitle')}</FormTitle>
+          
+          {/* Mensagem de erro */}
+          {error && (
+            <div className="alert alert-danger mb-3" role="alert">
+              {error}
+            </div>
+          )}
           
           <FormGroup className="mb-3">
-            <Label htmlFor="name" className="form-label">{'Nome Completo'}</Label>
+            <Label htmlFor="name" className="form-label">{t('testimonials.nameLabel')}</Label>
             <Input 
               type="text" 
               id="name" 
               required 
-              placeholder="Seu nome completo"
+              placeholder={t('testimonials.namePlaceholder')}
               value={formData.name}
               onChange={handleChange}
               disabled={isSubmitting}
@@ -135,12 +149,12 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
           </FormGroup>
           
           <FormGroup className="mb-3">
-            <Label htmlFor="location" className="form-label">{'Localidade'}</Label>
+            <Label htmlFor="location" className="form-label">{t('testimonials.locationLabel')}</Label>
             <Input 
               type="text" 
               id="location" 
               required 
-              placeholder="Cidade, Estado"
+              placeholder={t('testimonials.locationPlaceholder')}
               value={formData.location}
               onChange={handleChange}
               disabled={isSubmitting}
@@ -149,7 +163,7 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
           </FormGroup>
           
           <FormGroup className="mb-3">
-            <Label htmlFor="category" className="form-label">{'Categoria'}</Label>
+            <Label htmlFor="category" className="form-label">{t('testimonials.categoryLabel')}</Label>
             <Input 
               as="select" 
               id="category" 
@@ -159,7 +173,7 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
               disabled={isSubmitting}
               className="form-select"
             >
-              <option value="">{'Selecione uma categoria'}</option>
+              <option value="">{t('testimonials.selectCategory')}</option>
               {categories && categories.length > 0 ? (
                 categories.map(category => (
                   <option key={category.id} value={category.id}>
@@ -179,12 +193,12 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
           </FormGroup>
           
           <FormGroup className="mb-3">
-            <Label htmlFor="testimonial" className="form-label">{'Seu Depoimento'}</Label>
+            <Label htmlFor="testimonial" className="form-label">{t('testimonials.quoteLabel')}</Label>
             <TextArea 
               id="testimonial" 
               rows="6" 
               required 
-              placeholder="Compartilhe sua história ou experiência relacionada ao Banho de São João"
+              placeholder={t('testimonials.quotePlaceholder')}
               value={formData.testimonial}
               onChange={handleChange}
               disabled={isSubmitting}
@@ -193,13 +207,13 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
           </FormGroup>
           
           <FormGroup className="mb-4">
-            <Label htmlFor="video" className="form-label">{'Upload de Vídeo (opcional)'}</Label>
+            <Label htmlFor="video" className="form-label">{t('testimonials.videoLabel')}</Label>
             <FileUploadContainer className="d-flex flex-column flex-md-row align-items-start align-items-md-center gap-2">
               <FileUploadButton htmlFor="video" className="btn-upload w-100 w-md-auto text-center">
                 <FileUploadIcon>📹</FileUploadIcon>
-                {"Selecionar vídeo"}
+                {t('testimonials.videoUploadLabel')}
               </FileUploadButton>
-              <FileNameDisplay id="fileNameDisplay" className="flex-grow-1 text-break mt-2 mt-md-0">{"Nenhum arquivo selecionado"}</FileNameDisplay>
+              <FileNameDisplay id="fileNameDisplay" className="flex-grow-1 text-break mt-2 mt-md-0">{t('testimonials.noFileSelected')}</FileNameDisplay>
               <Input 
                 type="file" 
                 id="video" 
@@ -209,7 +223,7 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
                 disabled={isSubmitting}
               />
             </FileUploadContainer>
-            <small className="text-muted mt-2 d-block">{'Tamanho máximo: 50MB. Formatos aceitos: MP4, MOV, AVI'}</small>
+            <small className="text-muted mt-2 d-block">{t('testimonials.videoFormatHelp')}</small>
           </FormGroup>
           
           {/* Removidos os elementos de feedback visual */}
@@ -219,10 +233,10 @@ const TestimonialForm = ({ showForm, toggleForm, handleSubmit, categories = [], 
               {isSubmitting ? (
                 <>
                   <FaSpinner className="spinner me-2" /> 
-                  {'Enviando...'}
+                  {t('testimonials.processingButton', 'Enviando...')}
                 </>
               ) : (
-                'Enviar Depoimento'
+                t('testimonials.submitButton', 'Enviar Depoimento')
               )}
             </SubmitButton>
           </div>
