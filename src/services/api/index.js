@@ -64,7 +64,13 @@ export const isApiAvailable = async () => {
     const response = await api.get('/health', { timeout: 5000 });
     return response.status === 200;
   } catch (error) {
-    console.warn('API não está disponível:', error.message);
+    // Mantendo os logs de erro para feedback aos desenvolvedores
+    if (import.meta.env.DEV) {
+      // Em ambiente de desenvolvimento, exibir mensagem mais informativa
+      console.warn('API não está disponível ou endpoint /health não existe:', error.message);
+    } else {
+      console.error('API não está disponível:', error.message);
+    }
     return false;
   }
 };

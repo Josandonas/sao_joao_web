@@ -7,12 +7,18 @@ import api, { delay, isApiAvailable } from './index';
 
 const ENDPOINT = '/postcards';
 
+// Número de itens por página para paginação
+const ITEMS_PER_PAGE = 15;
+
 /**
- * Busca todos os postais
- * @param {string} lang - Idioma atual (pt, en, es)
- * @returns {Promise<Array>} Lista de postais
+ * Busca postais com suporte a paginação
+ * @param {Object} options - Opções de busca
+ * @param {number} options.page - Número da página (começando em 1)
+ * @param {number} options.limit - Número de itens por página
+ * @param {string} options.lang - Idioma atual (pt, en, es)
+ * @returns {Promise<Object>} Objeto com lista de postais e metadados de paginação
  */
-export const fetchPostcards = async (lang = 'pt') => {
+export const fetchPostcards = async ({ page = 1, limit = ITEMS_PER_PAGE, lang = 'pt' } = {}) => {
   try {
     // Verifica se a API está disponível
     const apiAvailable = await isApiAvailable();
@@ -31,9 +37,32 @@ export const fetchPostcards = async (lang = 'pt') => {
       }
     }
 
-    // Com API disponível, faz a requisição real
-    const response = await api.get(ENDPOINT, { params: { lang } });
-    return response.data.postcards || [];
+    // Com API disponível, faz a requisição real com paginação
+    const response = await api.get(ENDPOINT, { 
+      params: { 
+        _page: page, 
+        _limit: limit, 
+        _sort: 'createdAt', 
+        _order: 'desc',
+        lang 
+      } 
+    });
+    
+    // Extrair total de itens do header ou do corpo da resposta
+    const totalItems = parseInt(response.headers['x-total-count'] || '0', 10) || response.data.totalItems || 0;
+    const totalPages = Math.ceil(totalItems / limit);
+    
+    return {
+      postcards: response.data.postcards || response.data || [],
+      pagination: {
+        page,
+        limit,
+        totalItems,
+        totalPages,
+        hasNextPage: page < totalPages,
+        hasPrevPage: page > 1
+      }
+    };
   } catch (error) {
     console.error('Erro ao buscar postais:', error);
     
@@ -43,14 +72,43 @@ export const fetchPostcards = async (lang = 'pt') => {
         const storedData = localStorage.getItem('postcards_data');
         if (storedData) {
           console.warn('Usando dados armazenados devido a erro na API');
-          return JSON.parse(storedData) || [];
+          const postcards = JSON.parse(storedData) || [];
+          
+          // Aplicar paginação manualmente
+          const startIndex = (page - 1) * limit;
+          const endIndex = startIndex + limit;
+          const paginatedPostcards = postcards.slice(startIndex, endIndex);
+          const totalItems = postcards.length;
+          const totalPages = Math.ceil(totalItems / limit);
+          
+          return {
+            postcards: paginatedPostcards,
+            pagination: {
+              page,
+              limit,
+              totalItems,
+              totalPages,
+              hasNextPage: page < totalPages,
+              hasPrevPage: page > 1
+            }
+          };
         }
       } catch (fallbackError) {
         console.error('Erro ao carregar dados de fallback:', fallbackError);
       }
     }
     
-    return [];
+    return {
+      postcards: [],
+      pagination: {
+        page,
+        limit,
+        totalItems: 0,
+        totalPages: 0,
+        hasNextPage: false,
+        hasPrevPage: false
+      }
+    };
   }
 };
 
@@ -127,7 +185,7 @@ export const getPostcardById = async (id, lang = 'pt') => {
  * @param {Object|FormData} postcardData - Dados do postal ou FormData com arquivo
  * @returns {Promise<Object>} Postal cadastrado com ID gerado
  */
-export const createPostcard = async (postcardData) => {
+export const submitPostcard = async (postcardData) => {
   try {
     // Verifica se a API está disponível
     const apiAvailable = await isApiAvailable();
@@ -189,9 +247,38 @@ export const createPostcard = async (postcardData) => {
   }
 };
 
+/**
+ * Busca os postais base/atuais (conjunto fixo que sempre deve ser exibido)
+ * @param {string} lang - Idioma atual (pt, en, es)
+ * @returns {Promise<Array>} Lista de postais base
+ */
+export const fetchBasePostcards = async (lang = 'pt') => {
+  try {
+    // Verifica se a API está disponível
+    const apiAvailable = await isApiAvailable();
+    
+    if (!apiAvailable && import.meta.env.DEV) {
+      // Em desenvolvimento sem API, retorna dados locais
+      return postcardsData || [];
+    }
+
+    // Com API disponível, faz a requisição real
+    const response = await api.get(`${ENDPOINT}/base`, { params: { lang } });
+    return response.data.postcards || [];
+  } catch (error) {
+    console.error('Erro ao buscar postais base:', error);
+    // Em caso de erro, retorna os dados locais como fallback
+    return postcardsData || [];
+  }
+};
+
+// Importar os dados base de postais para usar como fallback
+import postcardsData from '../../pages/Postcards/data/postcardsData';
+
 export default {
   fetchPostcards,
   fetchPostcardCategories,
   getPostcardById,
-  createPostcard
+  submitPostcard,
+  fetchBasePostcards
 };

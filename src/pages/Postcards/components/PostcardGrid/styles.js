@@ -87,3 +87,29 @@ export const NoResults = styled.div`
     padding: 30px 15px;
   }
 `;
+
+export const LoadingContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  text-align: center;
+  width: 100%;
+  
+  svg {
+    color: #ff6b01;
+    margin-bottom: 1rem;
+    animation: spin 1s linear infinite;
+  }
+  
+  p {
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+`;
