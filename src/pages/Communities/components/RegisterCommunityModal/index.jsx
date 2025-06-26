@@ -1,11 +1,7 @@
 import React, { useState, useRef, useCallback } from 'react';
-import communityService from '../../services/communityService';
-import communitiesApi from '../../services/communitiesApi';
-
-// Desestruturação das funções do serviço
-const { processImage, saveCommunity, communityExists, fetchAllCommunities } = communityService;
-const { createCommunity } = communitiesApi;
 import { useTranslation } from 'react-i18next';
+import { communitiesService } from '../../../../services';
+
 import { FaTimes } from 'react-icons/fa';
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet';
 import L from 'leaflet';
@@ -152,13 +148,13 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
       
       console.log('Processando imagem de capa...');
       // Processa a imagem de capa para otimização
-      const optimizedCoverImage = await processImage(coverImage);
+      const optimizedCoverImage = await communitiesService.processImage(coverImage);
       
       console.log('Processando imagens da galeria...');
       // Processa imagens da galeria
       const optimizedGalleryImages = [];
       for (const image of galleryImages) {
-        const optimizedImage = await processImage(image);
+        const optimizedImage = await communitiesService.processImage(image);
         optimizedGalleryImages.push(optimizedImage);
       }
       
@@ -181,8 +177,8 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
       
       console.log('Verificando existência de comunidades similares...');
       // Verifica se a comunidade já existe
-      const existingCommunities = await fetchAllCommunities([]);
-      if (communityExists(newCommunity, existingCommunities)) {
+      const existingCommunities = await communitiesService.fetchAllCommunities();
+      if (communitiesService.communityExists(newCommunity, existingCommunities)) {
         console.error('Erro de duplicidade: Comunidade similar já existe', {
           newCommunity: {
             name: newCommunity.name,
@@ -196,7 +192,7 @@ const RegisterCommunityModal = ({ isOpen, onClose }) => {
       console.log('Salvando nova comunidade...');
       // Salva a comunidade usando o serviço de comunidades
       // Este serviço tenta salvar na API primeiro e, se falhar, salva localmente
-      await saveCommunity(newCommunity);
+      await communitiesService.createCommunity(newCommunity);
       
       console.log('Comunidade cadastrada com sucesso!');
       alert(t('communities.registerSuccess'));

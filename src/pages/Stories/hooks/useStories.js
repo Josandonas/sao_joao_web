@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import storiesApiService from '../../../services/storiesApiService';
+import { storiesService } from '../../../services';
 
 // Número máximo de itens por página quando a API está disponível
 const ITEMS_PER_PAGE = 18;
@@ -33,7 +33,7 @@ export const useStories = () => {
   useEffect(() => {
     const checkApiAvailability = async () => {
       try {
-        const available = await storiesApiService.isApiAvailable();
+        const available = await storiesService.isApiAvailable();
         setIsApiAvailable(available);
         console.log('[DEV] API disponível:', available);
       } catch (err) {
@@ -55,14 +55,14 @@ export const useStories = () => {
       
       // Busca as histórias combinadas (estáticas + API)
       // Esta função já garante que os dados estáticos serão retornados mesmo se a API falhar
-      const allStories = await storiesApiService.fetchStoriesFromApi(currentLanguage);
+      const allStories = await storiesService.fetchStoriesFromApi(currentLanguage);
       console.log('[DEV] Histórias carregadas:', allStories.length);
       
       if (allStories && allStories.length > 0) {
         // Processa as histórias para o formato esperado pela UI usando o utilitário de internacionalização
         const processedStories = allStories.map(story => {
           // Manter a estrutura original da história para acesso aos dados brutos
-          const localizedStory = storiesApiService.getLocalizedStory(story, currentLanguage);
+          const localizedStory = storiesService.getLocalizedStory(story, currentLanguage);
           
           return {
             ...story,  // Mantém os dados originais para acesso aos outros idiomas
@@ -189,7 +189,7 @@ export const useStories = () => {
       }
       
       // Envia para a API
-      const savedStory = await storiesApiService.createStory(storyData, currentLanguage);
+      const savedStory = await storiesService.createStory(storyData, currentLanguage);
       
       // Adiciona a nova história ao estado local com os campos traduzidos
       const newStory = {
@@ -232,7 +232,7 @@ export const useStories = () => {
       }
       
       // Envia para a API
-      const updatedStory = await storiesApiService.updateStory(id, storyData, currentLanguage);
+      const updatedStory = await storiesService.updateStory(id, storyData, currentLanguage);
       
       // Atualiza no estado local
       const processedStory = {
@@ -276,7 +276,7 @@ export const useStories = () => {
       }
       
       // Remove da API
-      await storiesApiService.deleteStory(id);
+      await storiesService.deleteStory(id);
       
       // Remove do estado local
       setStories(prevStories => prevStories.filter(story => story.id !== id));
@@ -301,7 +301,7 @@ export const useStories = () => {
       }
       
       // Se não encontrou no estado local, busca na API
-      const apiStory = await storiesApiService.getStoryById(id, currentLanguage);
+      const apiStory = await storiesService.getStoryById(id, currentLanguage);
       if (apiStory) {
         // Processa a história para o formato esperado pela UI
         return {

@@ -1,10 +1,9 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { getProgramacaoEvents } from '../../../services/api';
+import { programacaoService } from '../../../services';
 
-// Flag para controlar se deve usar a API real ou apenas eventos legados
-const USE_REAL_API = false; // Altere para true quando a API real estiver disponível
+// Removemos a flag USE_REAL_API pois o serviço padronizado já lida com fallback
 
 /**
  * Hook personalizado para gerenciar os eventos da programação oficial
@@ -36,35 +35,30 @@ export const useProgramacaoEvents = () => {
       
       let todosEventos = [];
       
-      // Se a API real estiver disponível, buscar eventos da API
-      if (USE_REAL_API) {
-        try {
-          const eventosAPI = await getProgramacaoEvents(lang) || [];
-          
-          // Criar um mapa de IDs para evitar duplicações
-          const eventosMap = new Map();
-          
-          // Adicionar eventos legados ao mapa
-          eventosLegadosComFlag.forEach(evento => {
-            const chaveUnica = `${evento.id}-${evento.title}`;
-            eventosMap.set(chaveUnica, evento);
-          });
-          
-          // Adicionar eventos da API ao mapa, substituindo eventos legados com mesmo ID se existirem
-          eventosAPI.forEach(evento => {
-            const chaveUnica = `${evento.id}-${evento.title}`;
-            eventosMap.set(chaveUnica, evento);
-          });
-          
-          // Converter o mapa de volta para array
-          todosEventos = Array.from(eventosMap.values());
-        } catch (apiError) {
-          console.error('Erro ao buscar eventos da API:', apiError);
-          // Em caso de erro na API, usar apenas eventos legados
-          todosEventos = eventosLegadosComFlag;
-        }
-      } else {
-        // Se a API não estiver disponível, usar apenas eventos legados
+      try {
+        // Buscar eventos da API usando o serviço padronizado (que já lida com fallback)
+        const { events: eventosAPI } = await programacaoService.getProgramacaoEvents(lang) || { events: [] };
+        
+        // Criar um mapa de IDs para evitar duplicações
+        const eventosMap = new Map();
+        
+        // Adicionar eventos legados ao mapa
+        eventosLegadosComFlag.forEach(evento => {
+          const chaveUnica = `${evento.id}-${evento.title}`;
+          eventosMap.set(chaveUnica, evento);
+        });
+        
+        // Adicionar ou substituir eventos da API
+        eventosAPI.forEach(evento => {
+          const chaveUnica = `${evento.id}-${evento.title}`;
+          eventosMap.set(chaveUnica, evento);
+        });
+        
+        // Converter o mapa de volta para array
+        todosEventos = Array.from(eventosMap.values());
+      } catch (apiError) {
+        console.error('Erro ao buscar eventos da API:', apiError);
+        // Em caso de erro na API, usar apenas eventos legados
         todosEventos = eventosLegadosComFlag;
       }
       

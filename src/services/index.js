@@ -3,19 +3,34 @@
  * Facilita a importação e manutenção dos serviços em todo o projeto
  */
 
+// Importar configuração base da API
+import apiConfig, { isApiAvailable, delay } from './api/index';
+
 // Importar serviços específicos
-import storiesApiService from './storiesApiService';
-import testimonialsApiService from './testimonialsApiService';
+import storiesService from './api/stories';
+import testimonialsService from './api/testimonials';
+import communitiesService from './api/communities';
+import programacaoService from './api/programacao';
+import postcardsService from './api/postcards';
+import bibliotecaService from './api/biblioteca';
+import bookService from './api/book';
 
 // Exportar todos os serviços
 export {
-  storiesApiService,
-  testimonialsApiService
+  storiesService,
+  testimonialsService,
+  communitiesService,
+  programacaoService,
+  postcardsService,
+  bibliotecaService,
+  bookService,
+  isApiAvailable,
+  delay
 };
 
 // Exportar configurações comuns de API
 export const API_CONFIG = {
-  BASE_URL: import.meta.env.VITE_API_URL || 'https://api.example.com',
+  BASE_URL: import.meta.env.VITE_API_URL || '/api',
   TIMEOUT: 10000,
   DEFAULT_HEADERS: {
     'Content-Type': 'application/json',
@@ -28,25 +43,19 @@ export const API_CONFIG = {
  * @returns {Promise<boolean>} true se a API estiver disponível, false caso contrário
  */
 export const checkApiAvailability = async () => {
-  try {
-    // Importar axios dinamicamente para evitar dependência circular
-    const axios = (await import('axios')).default;
-    
-    // Tentar fazer uma requisição simples para verificar se a API está disponível
-    await axios.get(`${API_CONFIG.BASE_URL}/health`, {
-      timeout: 5000
-    });
-    
-    return true;
-  } catch (error) {
-    console.warn('API não está disponível:', error.message);
-    return false;
-  }
+  return isApiAvailable();
 };
 
+// Exportação padrão com todos os serviços organizados
 export default {
-  stories: storiesApiService,
-  testimonials: testimonialsApiService,
+  stories: storiesService,
+  testimonials: testimonialsService,
+  communities: communitiesService,
+  programacao: programacaoService,
+  postcards: postcardsService,
+  biblioteca: bibliotecaService,
+  book: bookService,
+  api: apiConfig,
   config: API_CONFIG,
   checkApiAvailability
 };

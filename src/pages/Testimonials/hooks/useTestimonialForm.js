@@ -1,10 +1,8 @@
 import { useState, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { submitTestimonial } from '../../../services/testimonialsApi';
-import { mockSubmitTestimonial } from '../../../services/testimonialsMockApi';
+import { testimonialsService, isApiAvailable } from '../../../services';
 
-// Flag para controlar se deve usar a API real ou o mock
-const USE_MOCK_API = true; // Altere para false quando a API real estiver disponível
+// Não precisamos mais da flag USE_MOCK_API, pois o serviço padronizado já lida com fallback
 
 /**
  * Hook para gerenciar o formulário de envio de depoimentos
@@ -108,12 +106,8 @@ export const useTestimonialForm = () => {
         formDataToSend.append('image', formData.imageFile);
       }
       
-      // Enviar para API ou mock
-      if (USE_MOCK_API) {
-        await mockSubmitTestimonial(formData);
-      } else {
-        await submitTestimonial(formDataToSend, lang);
-      }
+      // Enviar para o serviço padronizado que já lida com fallback
+      await testimonialsService.submitTestimonial(formDataToSend);
       
       setSuccess(true);
       resetForm();

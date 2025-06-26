@@ -1,13 +1,7 @@
 import { useState, useCallback, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import {
-  getTestimonials,
-  getTestimonialCategories,
-  getTestimonialsByCategory,
-  submitTestimonial,
-  isApiAvailable
-} from '../../../services/testimonialsApiService';
+import { testimonialsService, isApiAvailable } from '../../../services';
 
 /**
  * Hook para gerenciar depoimentos, categorias e formulário de envio
@@ -53,7 +47,7 @@ export const useTestimonials = () => {
     
     try {
       // Busca os depoimentos (função já combina dados estáticos + API)
-      const data = await getTestimonials(lang);
+      const data = await testimonialsService.fetchTestimonials(lang);
       setTestimonials(data);
       setFilteredTestimonials(data);
     } catch (err) {
@@ -68,7 +62,7 @@ export const useTestimonials = () => {
   const fetchCategories = useCallback(async () => {
     try {
       // Busca as categorias (função já combina dados estáticos + API)
-      const data = await getTestimonialCategories(lang);
+      const data = await testimonialsService.fetchTestimonialCategories(lang);
       setCategories(data);
     } catch (err) {
       console.error('Erro ao buscar categorias:', err);
@@ -110,7 +104,7 @@ export const useTestimonials = () => {
         return false;
       }
       
-      await submitTestimonial(formData, lang);
+      await testimonialsService.submitTestimonial(formData, lang);
       
       // Recarregar depoimentos após envio bem-sucedido
       fetchTestimonials();
