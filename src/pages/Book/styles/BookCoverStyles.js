@@ -71,7 +71,7 @@ export const BookInfo = styled.div`
     h2 {
       font-family: ${props => props.theme.fonts.heading};
       font-size: ${props => props.theme.fontSizes.xxlarge};
-      color: ${props => props.theme.colors.primary};
+      color: #ff6b01;
       margin-bottom: ${props => props.theme.spacing.sm};
       line-height: 1.2;
       font-weight: ${props => props.theme.fontWeights.bold};
@@ -80,7 +80,7 @@ export const BookInfo = styled.div`
     h3 {
       font-family: ${props => props.theme.fonts.heading};
       font-size: ${props => props.theme.fontSizes.large};
-      color: ${props => props.theme.colors.secondary};
+      color: #ff6b01;
       font-weight: ${props => props.theme.fontWeights.light};
     }
   }

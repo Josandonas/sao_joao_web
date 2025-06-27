@@ -4,6 +4,7 @@ import { Container } from './styles';
 import { bookContent } from './data/bookContent';
 import BookCoverSection from './components/BookCoverSection';
 import BookHeader from './components/BookHeader';
+import BookYearSelector from './components/BookYearSelector';
 import { useParams } from 'react-router-dom';
 
 // Importar o contexto do livro
@@ -22,14 +23,18 @@ const BookPageContent = () => {
   
   // Usar o contexto do livro
   const { 
-    actions: { handleDownload, handleShare, handleReadOnline, shareStatus }
+    bookData,
+    actions: { handleShare, handleReadOnline, shareStatus },
+    books: { selectedBook }
   } = useBookContext();
   
   return (
     <Container>
+      {/* Seletor de ano do livro */}
+      <BookYearSelector />
+      
       {/* Cabeçalho da página do livro com botões de ação */}
       <BookHeader 
-        onDownload={handleDownload}
         onShare={handleShare}
         onReadOnline={handleReadOnline}
         shareStatus={shareStatus}
@@ -37,8 +42,7 @@ const BookPageContent = () => {
       
       {/* Seção da capa */}
       <BookCoverSection
-        bookContent={bookContent}
-        onDownload={handleDownload}
+        bookContent={bookData}
         onShare={handleShare}
         onReadOnline={handleReadOnline}
         shareStatus={shareStatus}
@@ -59,12 +63,19 @@ const BookPage = () => {
   // Hook de tradução
   const { i18n } = useTranslation();
   
-  // Define o caminho do PDF baseado no idioma atual
+  // Determina o idioma atual para uso no contexto
+  const currentLang = useMemo(() => {
+    if (i18n.language.startsWith('en')) return 'en';
+    if (i18n.language.startsWith('es')) return 'es';
+    return 'pt';
+  }, [i18n.language]);
+  
+  // Define o caminho do PDF baseado no idioma atual (fallback para o livro legado)
   const pdfPath = useMemo(() => {
     // Garantir que a URL seja absoluta para evitar problemas de caminho relativo
     const basePath = window.location.origin;
     
-    switch (i18n.language) {
+    switch (currentLang) {
       case 'en':
         return `${basePath}/assets/pdf/livro_en.pdf`;
       case 'es':
@@ -73,7 +84,7 @@ const BookPage = () => {
       default:
         return `${basePath}/assets/pdf/livro_pt.pdf`;
     }
-  }, [i18n.language]);
+  }, [currentLang]);
   
   // Dados iniciais para o contexto
   const initialData = {
@@ -84,7 +95,7 @@ const BookPage = () => {
   };
   
   return (
-    <BookProvider initialData={initialData}>
+    <BookProvider initialData={initialData} lang={currentLang}>
       <BookPageContent />
     </BookProvider>
   );

@@ -1,5 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useBookActions } from '../hooks/useBookActions';
+import { useBooks } from '../hooks/useBooks';
 
 /**
  * Contexto para gerenciar o estado global do módulo Book
@@ -12,26 +13,47 @@ const BookContext = createContext();
  * @param {Object} props - Propriedades do componente
  * @param {React.ReactNode} props.children - Componentes filhos
  * @param {Object} props.initialData - Dados iniciais para o contexto
+ * @param {string} props.lang - Idioma atual (pt, en, es)
  */
-export const BookProvider = ({ children, initialData = {} }) => {
+export const BookProvider = ({ children, initialData = {}, lang = 'pt' }) => {
   // Estado para armazenar dados do livro
   const [bookData, setBookData] = useState(initialData.bookContent || {});
   
-  // Hooks personalizados - sem incluir handleDownload que agora é gerenciado aqui
+  // Hook para gerenciar a coleção de livros e seleção de ano
+  const { 
+    allBooks,
+    selectedBook,
+    loading: booksLoading,
+    error: booksError,
+    selectBookByYear,
+    getSelectedBookPdfUrl
+  } = useBooks({ lang });
+  
+  // Atualizar o pdfUrl com base no livro selecionado
+  const currentPdfUrl = getSelectedBookPdfUrl(lang);
+  
+  // Hooks personalizados para ações do livro
   const { handleShare, handleReadOnline, shareStatus } = useBookActions({
-    shareTitle: initialData.shareTitle,
-    shareText: initialData.shareText,
+    shareTitle: selectedBook?.shareInfo?.title || initialData.shareTitle,
+    shareText: selectedBook?.shareInfo?.text || initialData.shareText,
     onSuccess: initialData.onSuccess,
     onError: initialData.onError,
-    pdfUrl: initialData.pdfUrl
+    pdfUrl: currentPdfUrl || initialData.pdfUrl
   });
   
   // Estado para erros globais
   const [globalError, setGlobalError] = useState(null);
   
-  // Não precisamos mais da função handleDownload pois agora usamos o DownloadLink diretamente no componente
-  
-
+  // Atualizar bookData quando o livro selecionado mudar
+  useEffect(() => {
+    if (selectedBook) {
+      setBookData({
+        metadata: selectedBook.metadata || {},
+        pdfInfo: selectedBook.pdfInfo || {},
+        shareInfo: selectedBook.shareInfo || {}
+      });
+    }
+  }, [selectedBook]);
   
   // Manipulador global de erros
   const handleError = (error) => {
@@ -46,6 +68,16 @@ export const BookProvider = ({ children, initialData = {} }) => {
   const contextValue = {
     bookData,
     globalError,
+    
+    // Dados dos livros
+    books: {
+      allBooks,
+      selectedBook,
+      loading: booksLoading,
+      error: booksError,
+      selectBookByYear,
+      getSelectedBookPdfUrl
+    },
     
     // Ações agrupadas para manter a interface consistente
     actions: {

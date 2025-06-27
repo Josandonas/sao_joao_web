@@ -1,6 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { FiShare2, FiCopy, FiCheck, FiX } from 'react-icons/fi';
+import { useBookContext } from '../context/BookContext';
 import {
   BookCover,
   CoverImage,
@@ -28,6 +29,11 @@ const BookCoverSection = ({
   onReadOnline,
   shareStatus = {}
 }) => {
+  // Usar o contexto para obter informações adicionais do livro selecionado
+  const { books } = useBookContext();
+  const { selectedBook } = books;
+  
+  // Usar os metadados do livro passados como prop
   const bookMetadata = bookContent.metadata;
 
   // Tradução
@@ -40,37 +46,43 @@ const BookCoverSection = ({
     <BookCover>
       <div className="book-cover-content">
         <CoverImage
-          src={PUBLIC_URL + bookContent.metadata.coverImage}
-          alt={bookContent.metadata.title}
+          src={bookMetadata.coverImage.startsWith('http') ? bookMetadata.coverImage : (PUBLIC_URL + bookMetadata.coverImage)}
+          alt={bookMetadata.title}
         />
 
         <BookInfo>
           <div className="book-title-section">
-            <h2>{t('book.title', 'Banho de São João')}</h2>
-            <h3>{t('book.subtitle', 'Uma Tradição do Pantanal')}</h3>
+            <h2>{bookMetadata.title || t('book.title', 'Banho de São João')}</h2>
+            <h3>{bookMetadata.subtitle || t('book.subtitle', 'Uma Tradição do Pantanal')}</h3>
           </div>
 
           <div className="book-description">
-            <p>{bookContent.metadata.description}</p>
+            <p>{bookMetadata.description}</p>
           </div>
 
           <div className="book-details">
             <div className="detail-item">
               <span>{t('book.publication', 'Publicação')}:</span>
-              <span>{bookContent.metadata.published}</span>
+              <span>{bookMetadata.published || selectedBook?.year}</span>
             </div>
             <div className="detail-item">
               <span>{t('book.pages', 'Páginas')}:</span>
-              <span>{bookContent.metadata.totalPages}</span>
+              <span>{bookMetadata.totalPages}</span>
             </div>
             <div className="detail-item">
               <span>{t('book.languages', 'Idiomas')}:</span>
-              <span>{bookContent.metadata.languages}</span>
+              <span>{bookMetadata.languages}</span>
             </div>
             <div className="detail-item">
               <span>{t('book.authors', 'Autora')}:</span>
-              <span>{bookContent.metadata.authors}</span>
+              <span>{bookMetadata.authors}</span>
             </div>
+            {selectedBook?.isLegacy === false && (
+              <div className="detail-item">
+                <span>{t('book.year', 'Ano')}:</span>
+                <span>{selectedBook.year}</span>
+              </div>
+            )}
           </div>
 
 

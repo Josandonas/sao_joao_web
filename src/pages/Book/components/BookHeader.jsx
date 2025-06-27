@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import DownloadLink from 'react-download-link'; // Mantenha esta importação
-// import FileSaver from 'file-saver'; // Opcional: Se quiser usar FileSaver.js diretamente
+import DownloadLink from 'react-download-link';
+import { useBookContext } from '../context/BookContext';
 
 import {
   DownloadButton,
@@ -17,19 +17,18 @@ import {
 /**
  * Componente de cabeçalho para a página do livro
  * @param {Object} props - Props do componente
- * @param {Function} props.onDownload - Função para download do PDF (será chamada, mas o download é interno agora)
  * @param {Function} props.onShare - Função para compartilhar o livro
  * @param {Function} props.onReadOnline - Função para abrir o PDF em uma nova aba
  * @param {Object} props.shareStatus - Status do compartilhamento
  * @returns {JSX.Element} - Componente renderizado
  */
 const BookHeader = ({
-  // onDownload, // Pode remover se a lógica de download estiver toda aqui
   onShare,
   onReadOnline,
   shareStatus = {}
 }) => {
   const { t, i18n } = useTranslation();
+  const { books } = useBookContext();
 
   // Função auxiliar para determinar o caminho do PDF
   const getPdfPath = () => {
@@ -41,14 +40,20 @@ const BookHeader = ({
     } else if (currentLang.startsWith('es')) {
       pdfLang = 'es';
     }
-
-    return `${window.location.origin}/assets/pdf/livro_${pdfLang}.pdf`;
+    
+    // Usar o PDF do livro selecionado via contexto
+    return books.getSelectedBookPdfUrl(pdfLang);
   };
 
   // Função que será passada para exportFile
   const handleDownloadPdf = async () => {
     const pdfUrl = getPdfPath();
     console.log('Tentando baixar PDF de:', pdfUrl); // Para depuração
+    
+    if (!pdfUrl) {
+      console.error('URL do PDF não disponível');
+      return null;
+    }
 
     try {
       const response = await fetch(pdfUrl);

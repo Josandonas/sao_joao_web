@@ -112,6 +112,15 @@
     "publication": "Publicação",
     "pages": "Páginas",
     "languages": "Idiomas",
+    "authors": "Autora",
+    "year": "Ano",
+    "yearSelector": {
+      "title": "Selecione o ano:",
+      "legacy": "Edição Original",
+      "selectYear": "Selecione um ano",
+      "noBooks": "Nenhum livro disponível",
+      "loading": "Carregando livros..."
+    },
     "fullscreen": "Tela Cheia",
     "exitFullscreen": "Sair da Tela Cheia",
     "enableZoom": "Ativar Zoom",

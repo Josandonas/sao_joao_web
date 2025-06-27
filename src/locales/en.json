@@ -112,6 +112,15 @@
     "publication": "Publication",
     "pages": "Pages",
     "languages": "Languages",
+    "authors": "Author",
+    "year": "Year",
+    "yearSelector": {
+      "title": "Select year:",
+      "legacy": "Original Edition",
+      "selectYear": "Select a year",
+      "noBooks": "No books available",
+      "loading": "Loading books..."
+    },
     "fullscreen": "Fullscreen",
     "exitFullscreen": "Exit Fullscreen",
     "enableZoom": "Enable Zoom",
