@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { transparentize } from 'polished';
 
+// Container principal
 export const Container = styled.div`
   margin: 0;
   padding: 0;
@@ -14,6 +15,7 @@ export const Container = styled.div`
   }
 `;
 
+// Layout de conteúdo
 export const ContentLayout = styled.div`
   max-width: 1200px;
   margin: 0 auto;
@@ -24,6 +26,7 @@ export const ContentLayout = styled.div`
   }
 `;
 
+// Container de título
 export const TitleContainer = styled.div`
   margin-bottom: 2rem;
   position: relative;
@@ -49,6 +52,7 @@ export const TitleContainer = styled.div`
   }
 `;
 
+// Título
 export const Title = styled.h1`
   font-family: ${props => props.theme.fonts.heading};
   font-weight: ${props => props.theme.fontWeights.bold};
@@ -85,6 +89,7 @@ export const Title = styled.h1`
   }
 `;
 
+// Seção Sobre
 export const AboutSection = styled.div`
   background-color: ${({ theme }) => transparentize(0.92, theme.colors.primary)};
   border-radius: 12px;
@@ -109,6 +114,7 @@ export const AboutSection = styled.div`
   }
 `;
 
+// Texto da seção Sobre
 export const AboutText = styled.p`
   color: ${({ theme }) => theme.colors.text};
   font-size: 1.2rem;
@@ -123,21 +129,52 @@ export const AboutText = styled.p`
   }
 `;
 
-export const FilterSection = styled.div`
-  margin-bottom: 2rem;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-`;
-
-export const CardsContainer = styled.div`
+// Grid para exibição dos cards da biblioteca
+export const BibliotecaGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  margin-bottom: 2rem;
   
   @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @media (max-width: 576px) {
     grid-template-columns: 1fr;
     gap: 1.5rem;
+  }
+`;
+
+// Container para a paginação
+export const PaginationContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  
+  .pagination {
+    .page-item {
+      .page-link {
+        color: var(--text-color);
+        border-color: var(--border-color);
+        
+        &:hover {
+          background-color: var(--light-bg-hover);
+        }
+      }
+      
+      &.active .page-link {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+        color: white;
+      }
+      
+      &.disabled .page-link {
+        color: var(--text-muted);
+        pointer-events: none;
+        cursor: not-allowed;
+      }
+    }
   }
 `;

@@ -144,7 +144,7 @@
   },
   "biblioteca": {
     "title": "Reference Library",
-    "description": "The Bath of Saint John Library in Corumbá will maintain a small collection of theses, dissertations, and articles related to the history of the Bath of Saint John Celebration in Corumbá-Mato Grosso do Sul. If you have any publication or study on the subject, come collaborate with us, send it to us and be part of our library: ",
+    "description": "Explore our collection of references about the Bath of Saint John, including articles, books, historical documents, and multimedia resources.",
     "email": "nucleoestrategico@corumbams.gov.br",
     "collaborate": "If you have any publication or study on the subject, come collaborate with us, send it to us and be part of our library: ",
     "filters": {
@@ -156,7 +156,25 @@
       "historical": "Historical",
       "cultural": "Cultural"
     },
-    "visitWebsite": "Visit website"
+    "visitWebsite": "Visit website",
+    "noItems": "No items found for this category.",
+    "loading": "Loading items...",
+    "error": "Error loading items. Please try again.",
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page {{page}} of {{total}}"
+    }
+  },
+  
+  "galeria": {
+    "title": "Image Gallery",
+    "description": "Check out historical and recent images of the Bath of Saint John celebration in Corumbá.",
+    "noImages": "No images available for the selected year.",
+    "errorLoading": "Error loading images. Please try again.",
+    "imageAlt": "Bath of Saint John image",
+    "thumbnailAlt": "Thumbnail",
+    "selectYear": "Select year:"
   },
 
   "programacao": {

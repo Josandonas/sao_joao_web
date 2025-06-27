@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaMapMarkerAlt, FaExternalLinkAlt, FaPhone, FaClock, FaInfoCircle } from 'react-icons/fa';
+import PropTypes from 'prop-types';
 import {
   CardWrapper,
   CardImageContainer,
@@ -103,6 +104,23 @@ const BibliotecaCard = ({ item }) => {
       </CardContent>
     </CardWrapper>
   );
+};
+
+BibliotecaCard.propTypes = {
+  item: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    category: PropTypes.string.isRequired,
+    imageUrl: PropTypes.string,
+    iframeUrl: PropTypes.string,
+    address: PropTypes.string,
+    phone: PropTypes.string,
+    hours: PropTypes.string,
+    additionalInfo: PropTypes.string,
+    website: PropTypes.string,
+    location: PropTypes.string
+  }).isRequired
 };
 
 export default BibliotecaCard;

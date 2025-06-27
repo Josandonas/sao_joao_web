@@ -20,7 +20,7 @@
   
   "biblioteca": {
     "title": "Biblioteca de Referencias",
-    "description": "La biblioteca del Baño de San Juan de Corumbá mantendrá una pequeña colección de tesis, disertaciones y artículos relacionados con la historia de la Celebración del Baño de San Juan de Corumbá-Mato Grosso do Sul. Si tienes alguna publicación o estudio al respecto, ven a colaborar con nosotros, envíanoslo y forma parte de nuestra biblioteca: ",
+    "description": "Explora nuestra colección de referencias sobre el Baño de San Juan, incluyendo artículos, libros, documentos históricos y recursos multimedia.",
     "email": "nucleoestrategico@corumbams.gov.br",
     "collaborate": "Si tienes alguna publicación o estudio al respecto, ven a colaborar con nosotros, envíanoslo y forma parte de nuestra biblioteca: ",
     "filters": {
@@ -32,7 +32,25 @@
       "historical": "Histórico",
       "cultural": "Cultural"
     },
-    "visitWebsite": "Visitar sitio web"
+    "visitWebsite": "Visitar sitio web",
+    "noItems": "No se encontraron elementos para esta categoría.",
+    "loading": "Cargando elementos...",
+    "error": "Error al cargar elementos. Por favor, inténtelo de nuevo.",
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Siguiente",
+      "page": "Página {{page}} de {{total}}"
+    }
+  },
+  
+  "galeria": {
+    "title": "Galería de Imágenes",
+    "description": "Mira imágenes históricas y recientes de la celebración del Baño de San Juan en Corumbá.",
+    "noImages": "No hay imágenes disponibles para el año seleccionado.",
+    "errorLoading": "Error al cargar imágenes. Por favor, inténtelo de nuevo.",
+    "imageAlt": "Imagen del Baño de San Juan",
+    "thumbnailAlt": "Miniatura",
+    "selectYear": "Seleccione el año:"
   },
 
   "programacao": {

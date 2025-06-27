@@ -1,16 +1,24 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import PropTypes from 'prop-types';
+import { useMediaQuery } from 'react-responsive';
 import { FilterContainer, FilterButton } from './BibliotecaFilter.styles';
 
 /**
  * Componente de filtro para os itens da biblioteca
  * @param {Object} props - Propriedades do componente
- * @param {string} props.activeFilter - Filtro ativo no momento
+ * @param {string} props.currentCategory - Filtro ativo no momento
  * @param {Function} props.onFilterChange - Função chamada quando um filtro é selecionado
  * @returns {JSX.Element} - Componente renderizado
  */
-const BibliotecaFilter = ({ activeFilter, onFilterChange }) => {
+const BibliotecaFilter = ({ currentCategory, onFilterChange }) => {
   const { t } = useTranslation();
+  const isMobile = useMediaQuery({ maxWidth: 767 });
+  
+  // Se for dispositivo móvel, não renderiza o componente
+  if (isMobile) {
+    return null;
+  }
   
   // Categorias disponíveis para filtro
   const categories = [
@@ -24,7 +32,7 @@ const BibliotecaFilter = ({ activeFilter, onFilterChange }) => {
       {categories.map((category) => (
         <FilterButton
           key={category.id}
-          $isActive={activeFilter === category.id}
+          $isActive={currentCategory === category.id}
           onClick={() => onFilterChange(category.id)}
         >
           {category.label}
@@ -32,6 +40,11 @@ const BibliotecaFilter = ({ activeFilter, onFilterChange }) => {
       ))}
     </FilterContainer>
   );
+};
+
+BibliotecaFilter.propTypes = {
+  currentCategory: PropTypes.string.isRequired,
+  onFilterChange: PropTypes.func.isRequired
 };
 
 export default BibliotecaFilter;

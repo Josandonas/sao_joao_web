@@ -216,7 +216,7 @@
 
   "biblioteca": {
     "title": "Biblioteca de Referências",
-    "description": "A biblioteca do Banho de São João de Corumbá manterá um pequeno acervo com teses, dissertações e artigos relacionados à história da Celebração do Banho de São João de Corumbá-Mato Grosso do Sul. Se você tem alguma publicação ou estudo ao respeito, venha colaborar conosco, nos envie e faça parte de nossa biblioteca: ",
+    "description": "Explore nossa coleção de referências sobre o Banho de São João, incluindo artigos, livros, documentos históricos e recursos multimídia.",
     "email": "nucleoestrategico@corumbams.gov.br",
     "collaborate": "Se você tem alguma publicação ou estudo ao respeito, venha colaborar conosco, nos envie e faça parte de nossa biblioteca: ",
     "filters": {
@@ -228,7 +228,25 @@
       "historical": "Histórico",
       "cultural": "Cultural"
     },
-    "visitWebsite": "Visitar website"
+    "visitWebsite": "Visitar website",
+    "noItems": "Nenhum item encontrado para esta categoria.",
+    "loading": "Carregando itens...",
+    "error": "Erro ao carregar itens. Por favor, tente novamente.",
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próximo",
+      "page": "Página {{page}} de {{total}}"
+    }
+  },
+  
+  "galeria": {
+    "title": "Galeria de Imagens",
+    "description": "Confira imagens históricas e recentes da celebração do Banho de São João em Corumbá.",
+    "noImages": "Nenhuma imagem disponível para o ano selecionado.",
+    "errorLoading": "Erro ao carregar imagens. Por favor, tente novamente.",
+    "imageAlt": "Imagem do Banho de São João",
+    "thumbnailAlt": "Miniatura",
+    "selectYear": "Selecione o ano:"
   },
 
   "programacao": {
