@@ -1,0 +1,110 @@
+/**
+ * Estilos personalizados para o painel administrativo
+ */
+
+/* Ajustes para o sidebar */
+.sidebar {
+  box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  color: #2470dc;
+}
+
+.sidebar .nav-link:hover {
+  color: #0d6efd;
+}
+
+.sidebar .nav-link i {
+  margin-right: 8px;
+}
+
+.sidebar-heading {
+  font-size: .75rem;
+  text-transform: uppercase;
+}
+
+/* Ajustes para o conteúdo principal */
+.table-responsive {
+  margin-bottom: 1rem;
+}
+
+/* Ajustes para formulários */
+.form-label {
+  font-weight: 500;
+}
+
+/* Ajustes para cards */
+.card {
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Ajustes para botões de ação em tabelas */
+.btn-group .btn {
+  padding: 0.25rem 0.5rem;
+}
+
+/* Ajustes para paginação */
+.pagination {
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+/* Ajustes para alertas */
+.alert {
+  margin-bottom: 1.5rem;
+}
+
+/* Ajustes para estatísticas no dashboard */
+.stat-card {
+  border-left: 4px solid;
+  border-radius: 4px;
+}
+
+.stat-card.primary {
+  border-left-color: #4e73df;
+}
+
+.stat-card.success {
+  border-left-color: #1cc88a;
+}
+
+.stat-card.info {
+  border-left-color: #36b9cc;
+}
+
+.stat-card.warning {
+  border-left-color: #f6c23e;
+}
+
+.stat-card .stat-icon {
+  font-size: 2rem;
+  opacity: 0.3;
+}
+
+/* Ajustes para visualização de vídeos */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
