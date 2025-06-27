@@ -70,7 +70,7 @@ const BookCoverSection = ({
               <span>{bookMetadata.totalPages}</span>
             </div>
             <div className="detail-item">
-              <span>{t('book.languages')}:</span>
+              <span>{t('book.language')}:</span>
               <span>{t('book.languages')}</span>
             </div>
             <div className="detail-item">
