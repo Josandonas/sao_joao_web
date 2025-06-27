@@ -52,34 +52,34 @@ const BookCoverSection = ({
 
         <BookInfo>
           <div className="book-title-section">
-            <h2>{bookMetadata.title || t('book.title', 'Banho de São João')}</h2>
-            <h3>{bookMetadata.subtitle || t('book.subtitle', 'Uma Tradição do Pantanal')}</h3>
+            <h2>{t('book.title')}</h2>
+            <h3>{t('book.subtitle')}</h3>
           </div>
 
           <div className="book-description">
-            <p>{bookMetadata.description}</p>
+            <p>{t('book.introduction')}</p>
           </div>
 
           <div className="book-details">
             <div className="detail-item">
-              <span>{t('book.publication', 'Publicação')}:</span>
+              <span>{t('book.publication')}:</span>
               <span>{bookMetadata.published || selectedBook?.year}</span>
             </div>
             <div className="detail-item">
-              <span>{t('book.pages', 'Páginas')}:</span>
+              <span>{t('book.pages')}:</span>
               <span>{bookMetadata.totalPages}</span>
             </div>
             <div className="detail-item">
-              <span>{t('book.languages', 'Idiomas')}:</span>
-              <span>{bookMetadata.languages}</span>
+              <span>{t('book.languages')}:</span>
+              <span>{t('book.languages')}</span>
             </div>
             <div className="detail-item">
-              <span>{t('book.authors', 'Autora')}:</span>
-              <span>{bookMetadata.authors}</span>
+              <span>{t('book.authors')}:</span>
+              <span>{t('book.author')}</span>
             </div>
             {selectedBook?.isLegacy === false && (
               <div className="detail-item">
-                <span>{t('book.year', 'Ano')}:</span>
+                <span>{t('book.year')}:</span>
                 <span>{selectedBook.year}</span>
               </div>
             )}

@@ -96,10 +96,10 @@
     "festivalDatePlaceholder": "Ex: June, December, etc"
   },
   "book": {
-    "title": "Bath of Saint John",
+    "title": "Saint John's Bath",
     "subtitle": "A Pantanal Tradition",
-    "bookTitle": "The Book of the Bath of Saint John",
-    "introduction": "This digital book presents the rich tradition of the Bath of Saint John, covering its origins, rituals, symbolism, and cultural importance for the Pantanal communities.",
+    "bookTitle": "The Book of Saint John's Bath",
+    "introduction": "The intention of the book has always been to visually tell the story of the elements of the festive manifestation permeated by religious principles, showing the rites and rituals, devotion, joy and the apex of the festivity.",
     "pageCounter": "Page {{current}} of {{total}}",
     "chaptersTitle": "Chapters",
     "backToCover": "Back to Cover",
@@ -111,8 +111,9 @@
     "readOnline": "Read Online",
     "publication": "Publication",
     "pages": "Pages",
-    "languages": "Languages",
+    "languages": "Português, English, Español",
     "authors": "Author",
+    "author": "Hélène Maria Dias Fernandes",
     "year": "Year",
     "yearSelector": {
       "title": "Select year:",

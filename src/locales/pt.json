@@ -96,10 +96,10 @@
     "festivalDatePlaceholder": "Ex: Junho, Dezembro, etc"
   },
   "book": {
-    "title": "Deus te Salve, João Batista!",
-    "subtitle": "Uma contribuição sobre o Banho de São João de Corumbá – MS",
+    "title": "Banho de São João",
+    "subtitle": "Uma Tradição do Pantanal",
     "bookTitle": "O Livro do Banho de São João",
-    "introduction": "Este livro digital apresenta a rica tradição do Banho de São João, abordando suas origens, rituais, simbolismo e importância cultural para as comunidades pantaneiras.",
+    "introduction": "A intenção do livro sempre foi a de contar, visualmente, a história dos elementos da manifestação festiva permeada por princípios religiosos, mostrando os ritos e tos rituais, a devoção, a alegria e o ápice da festividade",
     "pageCounter": "Página {{current}} de {{total}}",
     "chaptersTitle": "Capítulos",
     "backToCover": "Voltar à Capa",
@@ -111,8 +111,9 @@
     "readOnline": "Ler Online",
     "publication": "Publicação",
     "pages": "Páginas",
-    "languages": "Idiomas",
+    "languages": "Português, English, Español",
     "authors": "Autora",
+    "author": "Hélène Maria Dias Fernandes",
     "year": "Ano",
     "yearSelector": {
       "title": "Selecione o ano:",
