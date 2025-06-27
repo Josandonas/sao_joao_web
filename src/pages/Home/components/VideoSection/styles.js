@@ -31,6 +31,24 @@ export const VideoCard = styled.div`
   text-align: center;
   justify-content: center;
   
+  .video-header {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    
+    &.centered {
+      justify-content: center;
+    }
+    
+    @media (max-width: ${props => props.theme.breakpoints.md}) {
+      flex-direction: column;
+      gap: 1rem;
+    }
+  }
+  
   @media (max-width: 1200px) {
     max-width: calc(90% + 20px);
   }
@@ -88,6 +106,67 @@ export const VideoDescription = styled.p`
   }
 `;
 
+export const YearSelector = styled.div`
+  z-index: 10;
+  
+  .dropdown-toggle {
+    background: transparent;
+    color: ${props => props.theme.colors.primary};
+    border-color: ${props => props.theme.colors.primary};
+    border-radius: 8px;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    &:hover, &:focus {
+      background-color: ${props => rgba(props.theme.colors.primary, 0.1)};
+      border-color: ${props => darken(0.1, props.theme.colors.primary)};
+      color: ${props => darken(0.1, props.theme.colors.primary)};
+    }
+    
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+  
+  .dropdown-menu {
+    border-radius: 8px;
+    border: 1px solid ${props => rgba(props.theme.colors.primary, 0.2)};
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    min-width: 120px;
+  }
+  
+  .dropdown-item {
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    color: ${props => props.theme.colors.text};
+    
+    &:hover {
+      background-color: ${props => rgba(props.theme.colors.primary, 0.1)};
+      color: ${props => props.theme.colors.primary};
+    }
+    
+    &.active {
+      background-color: ${props => props.theme.colors.primary};
+      color: white;
+    }
+  }
+  
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
+    width: 100%;
+    
+    .dropdown-toggle {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+`;
+
 export const VideoWrapper = styled.div`
   position: relative;
   width: 85%;
@@ -98,6 +177,26 @@ export const VideoWrapper = styled.div`
   margin: 1.5rem auto;
   z-index: 1;
   border: 4px solid white;
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  .video-loading, .carousel-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    background-color: ${props => rgba(props.theme.colors.background, 0.8)};
+    
+    .spinner-border {
+      width: 3rem;
+      height: 3rem;
+      color: ${props => props.theme.colors.primary};
+    }
+  }
   transition: all 0.3s ease;
   
   &::before {

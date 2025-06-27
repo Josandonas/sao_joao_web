@@ -5,7 +5,8 @@
   },
   "common": {
     "play": "Play",
-    "pause": "Pause"
+    "pause": "Pause",
+    "loading": "Loading..."
   },
   "navigation": {
     "home": "Home",
@@ -20,9 +21,14 @@
 
   "home": {
     "textSize": "Text Size",
+    "hero": {
+      "loading": "Loading images..."
+    },
     "video": {
       "title": "Discover the Bath of Saint John",
-      "description": "Click the button to watch a video about this traditional Pantanal celebration"
+      "description": "Click the button to watch a video about this traditional Pantanal celebration",
+      "yearSelector": "Select year",
+      "loading": "Loading video..."
     },
     "about": {
       "paragraph1": "This is a collaborative page that was created as a digital space for society, researchers and the government to interact and share information, projects and research about the Bath of Saint John of Corumbá – Mato Grosso do Sul, especially to support the safeguarding of tradition, promote the reproduction and sustainability of the festivity.",

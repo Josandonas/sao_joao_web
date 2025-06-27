@@ -5,7 +5,8 @@
   },
   "common": {
     "play": "Reproduzir",
-    "pause": "Pausar"
+    "pause": "Pausar",
+    "loading": "Carregando..."
   },
   "navigation": {
     "home": "Início",
@@ -19,6 +20,9 @@
   },
   "home": {
     "textSize": "Tamanho do texto",
+    "hero": {
+      "loading": "Carregando imagens..."
+    },
     "about": {
       "paragraph1": "Esta é uma página colaborativa que nasceu como um espaço digital para que a sociedade, pesquisadores e governo possam interagir e compartilhar informações, projetos e pesquisas acerca do Banho de São João de Corumbá – Mato Grosso do Sul, especialmente, apoiar a salvaguarda da tradição, promover a reprodução e a sustentabilidade da festividade.",
       "paragraph2": "Reconhecido pelo Governo do Estado de Mato Grosso do Sul, em 2010 como patrimônio imaterial histórico e cultural, o Banho de São João de Corumbá e Ladário(MS), é um bem comum inscrito como patrimônio imaterial nacional pelo Instituto do Patrimônio Histórico e Artístico Nacional (IPHAN) no livro de Registro das Celebrações em 2021.",
@@ -36,7 +40,9 @@
     },
     "video": {
       "title": "Conheça o Banho de São João",
-      "description": "Clique no botão para assistir ao vídeo sobre esta tradicional celebração pantaneira"
+      "description": "Clique no botão para assistir ao vídeo sobre esta tradicional celebração pantaneira",
+      "yearSelector": "Selecione o ano",
+      "loading": "Carregando vídeo..."
     }
   },
   "communities": {

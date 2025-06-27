@@ -5,7 +5,8 @@
   },
   "common": {
     "play": "Reproducir",
-    "pause": "Pausar"
+    "pause": "Pausar",
+    "loading": "Cargando..."
   },
   "navigation": {
     "home": "Inicio",
@@ -224,9 +225,14 @@
   },
   "home": {
     "textSize": "Tamaño de texto",
+    "hero": {
+      "loading": "Cargando imágenes..."
+    },
     "video": {
       "title": "Descubra el Baño de San Juan",
-      "description": "Haga clic en el botón para ver un video sobre esta tradicional celebración pantanera"
+      "description": "Haga clic en el botón para ver un video sobre esta tradicional celebración pantanera",
+      "yearSelector": "Seleccione el año",
+      "loading": "Cargando video..."
     },
     "about": {
       "paragraph1": "Esta página colaborativa se creó como un espacio digital para que la sociedad, los investigadores y el gobierno interactúen y compartan información, proyectos e investigaciones sobre el Balneario de San Juan de Corumbá – Mato Grosso do Sul, especialmente para apoyar la preservación de la tradición, promover la reproducción y la sostenibilidad de la festividad.",

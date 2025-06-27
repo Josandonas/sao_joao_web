@@ -1,39 +1,39 @@
-import React, { useState, useRef, useMemo } from 'react';
+import React, { useState, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import { Dropdown } from 'react-bootstrap';
 import { 
   VideoSectionContainer, 
   VideoCard,
   VideoWrapper, 
   PlayButton, 
   VideoTitle,
-  VideoDescription
+  VideoDescription,
+  YearSelector
 } from './styles';
-import { FaPlay } from 'react-icons/fa';
+import { FaPlay, FaCalendarAlt } from 'react-icons/fa';
+import useVideoGallery from './hooks/useVideoGallery';
 
 /**
  * Componente que exibe um vídeo opcional entre seções
  * O vídeo só será reproduzido se o usuário clicar no botão de play
  */
 const VideoSection = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const [isPlaying, setIsPlaying] = useState(false);
   const [showPlayButton, setShowPlayButton] = useState(true);
   const videoRef = useRef(null);
+  
+  const {
+    availableYears,
+    selectedYear,
+    videoPath,
+    loading,
+    yearsLoading,
+    showYearSelector,
+    selectYear
+  } = useVideoGallery();
 
-  // Define o caminho do vídeo com base no idioma atual
-  const videoPath = useMemo(() => {
-    const currentLanguage = i18n.language;
-    
-    switch(currentLanguage) {
-      case 'en':
-        return `${PUBLIC_URL}/assets/videos/intro/institucional-en.mp4`;
-      case 'es':
-        return `${PUBLIC_URL}/assets/videos/intro/institucional-es.mp4`;
-      case 'pt':
-      default:
-        return `${PUBLIC_URL}/assets/videos/intro/institucional-pt.mp4`;
-    }
-  }, [i18n.language]);
+  // O caminho do vídeo agora é gerenciado pelo hook useVideoGallery
 
   // Função para iniciar a reprodução do vídeo
   const startVideo = () => {
@@ -59,29 +59,61 @@ const VideoSection = () => {
   return (
     <VideoSectionContainer>
       <VideoCard>
-        <VideoTitle>{t('home.video.title', 'Conheça o Banho de São João')}</VideoTitle>
+        <div className={`video-header ${!showYearSelector ? 'centered' : ''}`}>
+          <VideoTitle>{t('home.video.title', 'Conheça o Banho de São João')}</VideoTitle>
+          
+          {/* Dropdown para seleção de ano - visível apenas quando houver mais de um ano disponível */}
+          {showYearSelector && (
+          <YearSelector>
+            <Dropdown onSelect={(eventKey) => selectYear(Number(eventKey))}>
+              <Dropdown.Toggle variant="outline-primary" id="video-year-dropdown" disabled={yearsLoading}>
+                <FaCalendarAlt /> {selectedYear || t('home.video.yearSelector', 'Selecione o ano')}
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                {availableYears.map(year => (
+                  <Dropdown.Item key={year} eventKey={year} active={year === selectedYear}>
+                    {year}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </YearSelector>
+          )}
+        </div>
+        
         <VideoDescription>
           {t('home.video.description', 'Clique no botão para assistir ao vídeo sobre esta tradicional celebração pantaneira')}
         </VideoDescription>
         
         <VideoWrapper>
-          <video 
-            ref={videoRef}
-            src={videoPath}
-            onEnded={handleVideoEnd}
-            poster={`${PUBLIC_URL}/assets/videos/intro/capa.gif`}
-            // Controles inicialmente ocultos, serão habilitados após o primeiro clique
-            controls={!showPlayButton}
-          />
-          
-          {/* Botão de play central - visível apenas antes de iniciar o vídeo */}
-          {showPlayButton && (
-            <PlayButton 
-              onClick={startVideo} 
-              aria-label={t('common.play', 'Reproduzir')}
-            >
-              <FaPlay />
-            </PlayButton>
+          {loading ? (
+            <div className="video-loading">
+              <div className="spinner-border text-primary" role="status">
+                <span className="visually-hidden">{t('common.loading', 'Carregando...')}</span>
+              </div>
+            </div>
+          ) : (
+            <>
+              <video 
+                ref={videoRef}
+                src={videoPath}
+                onEnded={handleVideoEnd}
+                poster={`${PUBLIC_URL}/assets/videos/intro/capa.gif`}
+                // Controles inicialmente ocultos, serão habilitados após o primeiro clique
+                controls={!showPlayButton}
+              />
+              
+              {/* Botão de play central - visível apenas antes de iniciar o vídeo */}
+              {showPlayButton && (
+                <PlayButton 
+                  onClick={startVideo} 
+                  aria-label={t('common.play', 'Reproduzir')}
+                >
+                  <FaPlay />
+                </PlayButton>
+              )}
+            </>
           )}
         </VideoWrapper>
       </VideoCard>
