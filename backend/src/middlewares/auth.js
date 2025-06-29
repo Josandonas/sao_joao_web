@@ -15,14 +15,11 @@ const { logger } = require('../utils/logger');
  */
 const authenticate = async (req, res, next) => {
   try {
-    // Verificar se o token está presente no header
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    // Verificar se o token está presente no cookie
+    const token = req.cookies.auth_token;
+    if (!token) {
       throw new AppError('Acesso não autorizado. Token não fornecido.', 401);
     }
-
-    // Extrair o token
-    const token = authHeader.split(' ')[1];
 
     // Verificar e decodificar o token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);

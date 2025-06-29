@@ -1,0 +1,40 @@
+<!-- Componente de Mensagens Flash -->
+<% if (locals.messages && Object.keys(locals.messages).length > 0) { %>
+  <div class="flash-messages">
+    <% if (locals.messages.success) { %>
+      <% locals.messages.success.forEach(function(message) { %>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+          <i class="bi bi-check-circle-fill me-2"></i> <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }); %>
+    <% } %>
+    
+    <% if (locals.messages.error) { %>
+      <% locals.messages.error.forEach(function(message) { %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <i class="bi bi-exclamation-triangle-fill me-2"></i> <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }); %>
+    <% } %>
+    
+    <% if (locals.messages.info) { %>
+      <% locals.messages.info.forEach(function(message) { %>
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <i class="bi bi-info-circle-fill me-2"></i> <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }); %>
+    <% } %>
+    
+    <% if (locals.messages.warning) { %>
+      <% locals.messages.warning.forEach(function(message) { %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <i class="bi bi-exclamation-circle-fill me-2"></i> <%= message %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% }); %>
+    <% } %>
+  </div>
+<% } %>

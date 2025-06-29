@@ -74,7 +74,7 @@ const createCoreTables = async () => {
       )
     `);
     
-    // Tabela de logs de erro
+    // Tabela de logs de erro (legado)
     await database.query(`
       CREATE TABLE IF NOT EXISTS error_logs (
         id INT AUTO_INCREMENT PRIMARY KEY,
@@ -83,6 +83,23 @@ const createCoreTables = async () => {
         timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         stack TEXT,
         metadata JSON
+      )
+    `);
+    
+    // Tabela de logs do sistema (nova implementação)
+    await database.query(`
+      CREATE TABLE IF NOT EXISTS logs_sistema (
+        id INT AUTO_INCREMENT PRIMARY KEY,
+        level VARCHAR(10) NOT NULL,
+        message TEXT NOT NULL,
+        timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        stack TEXT,
+        metadata JSON,
+        source VARCHAR(100),
+        module VARCHAR(50),
+        INDEX idx_level (level),
+        INDEX idx_timestamp (timestamp),
+        INDEX idx_module (module)
       )
     `);
     

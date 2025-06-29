@@ -1,0 +1,51 @@
+<!-- Componente de Sidebar -->
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="sidebar-sticky pt-3">
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Administração</span>
+    </h6>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'dashboard' ? 'active' : '' %>" href="/admin">
+          <i class="bi bi-speedometer2"></i> Dashboard
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'users' ? 'active' : '' %>" href="/admin/users">
+          <i class="bi bi-people"></i> Usuários
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'logs' ? 'active' : '' %>" href="/admin/logs">
+          <i class="bi bi-journal-text"></i> Logs do Sistema
+        </a>
+      </li>
+    </ul>
+
+    <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+      <span>Conteúdo</span>
+    </h6>
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'testimonials' ? 'active' : '' %>" href="/admin/testimonials">
+          <i class="bi bi-chat-quote"></i> Depoimentos
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'postcards' ? 'active' : '' %>" href="/admin/postcards">
+          <i class="bi bi-card-image"></i> Cartões Postais
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'biblioteca' ? 'active' : '' %>" href="/admin/biblioteca">
+          <i class="bi bi-book"></i> Biblioteca
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'galeria' ? 'active' : '' %>" href="/admin/galeria">
+          <i class="bi bi-images"></i> Galeria
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -14,6 +14,8 @@ const bcrypt = require('bcryptjs');
  */
 const renderLoginPage = (req, res) => {
   res.render('login', {
+    layout: 'layouts/auth',
+    pageTitle: 'Login',
     messages: req.flash()
   });
 };

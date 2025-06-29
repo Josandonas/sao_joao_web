@@ -6,7 +6,7 @@ const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/adminController');
 const adminTestimonialRoutes = require('./adminTestimonialRoutes');
-const { authenticateJWT, isAdmin } = require('../middlewares/auth');
+const { authenticate, isAdmin } = require('../middlewares/auth');
 const { asyncHandler } = require('../middlewares/errorHandler');
 
 // Middleware para verificar se o usuário está autenticado via cookie
@@ -33,7 +33,7 @@ router.post('/login', asyncHandler(adminController.processLogin));
 router.get('/logout', asyncHandler(adminController.processLogout));
 
 // Middleware para proteger rotas administrativas
-router.use(authenticateJWT);
+router.use(authenticate);
 router.use(isAdmin);
 
 // Rotas protegidas (requerem autenticação e permissão de administrador)

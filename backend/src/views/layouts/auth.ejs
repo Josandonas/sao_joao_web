@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <%- include('../components/header') %>
+  <style>
+    body {
+      min-height: 100vh;
+      background-color: #f5f5f5;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    .auth-container {
+      display: flex;
+      min-height: 100vh;
+    }
+    .auth-illustration {
+      flex: 1;
+      background: linear-gradient(135deg, #6f42c1 0%, #4e73df 100%);
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 3rem;
+      color: white;
+      overflow: hidden;
+    }
+    .auth-form {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 3rem;
+      min-height: 100vh;
+    }
+    .moon {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.8);
+      position: absolute;
+      top: 15%;
+      right: 15%;
+      box-shadow: 0 0 40px rgba(255, 255, 255, 0.5);
+    }
+    .stars {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .clouds {
+      position: absolute;
+      bottom: 10%;
+      left: 0;
+      width: 100%;
+      height: 30%;
+    }
+    .welcome {
+      font-size: 1.2rem;
+      color: #6f42c1;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    h1 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #212529;
+    }
+    @media (max-width: 992px) {
+      .auth-container {
+        flex-direction: column;
+      }
+      .auth-illustration {
+        min-height: 300px;
+      }
+      .auth-form {
+        min-height: auto;
+      }
+    }
+  </style>
+  <%- style %>
+</head>
+<body>
+  <div class="auth-container">
+    <div class="auth-illustration">
+      <div class="stars"></div>
+      <div class="clouds"></div>
+      <div class="moon d-flex align-items-center justify-content-center">
+        <i class="bi bi-moon-stars" style="font-size: 3rem; color: rgba(0,0,0,0.2);"></i>
+      </div>
+      <h2 class="display-4 mb-2">São João Web</h2>
+      <p class="lead">Sistema de Gerenciamento de Eventos</p>
+    </div>
+    
+    <div class="auth-form">
+      <%- include('../components/flashMessages') %>
+      <%- body %>
+      
+      <div class="text-center mt-4">
+        <p class="text-muted">&copy; <%= new Date().getFullYear() %> São João Web</p>
+      </div>
+    </div>
+  </div>
+  
+  <%- include('../components/scripts') %>
+  <script src="/public/js/auth.js"></script>
+  <%- typeof script !== 'undefined' ? script : '' %>
+</body>
+</html>

@@ -14,9 +14,11 @@ const session = require('express-session');
 const expressLayouts = require('express-ejs-layouts');
 const { setupDatabase } = require('./config/database');
 const { initializeDatabase } = require('./config/initDb');
-const { setupRoutes } = require('./routes');
+const { logger, setupLogRotation } = require('./utils/logger');
 const { errorHandler } = require('./middlewares/errorHandler');
-const { logger } = require('./utils/logger');
+const { setupRoutes } = require('./routes');
+const { runAllDiagnostics } = require('./utils/diagnostics');
+const { addTemplateVariables } = require('./middlewares/templateVariables');
 
 // Criar aplicação Express
 const app = express();
@@ -56,6 +58,9 @@ app.use(session({
 app.use(flash());
 app.use(morgan('combined', { stream: { write: message => logger.http(message.trim()) } }));
 
+// Middleware para adicionar variáveis comuns a todos os templates
+app.use(addTemplateVariables);
+
 // Servir arquivos estáticos da pasta public
 app.use('/public', express.static(path.join(__dirname, '../public')));
 
@@ -75,6 +80,16 @@ const startServer = async () => {
   try {
     console.log('Iniciando servidor...');
     
+    // Executar diagnóstico completo do sistema
+    console.log('Executando diagnóstico do sistema...');
+    const diagnosticResults = await runAllDiagnostics(true); // true = encerrar em caso de falha crítica
+    
+    if (!diagnosticResults.overallSuccess) {
+      logger.warn('Diagnóstico completado com avisos, mas continuando inicialização');
+    } else {
+      logger.info('Diagnóstico completado com sucesso');
+    }
+    
     // Conectar ao banco de dados
     console.log('Configurando banco de dados...');
     await setupDatabase();
@@ -88,8 +103,13 @@ const startServer = async () => {
     } catch (dbInitError) {
       console.error('ERRO NA INICIALIZAÇÃO DO BANCO DE DADOS:', dbInitError);
       console.error('Stack trace completo:', dbInitError.stack);
+      logger.error(`Erro na inicialização do banco de dados: ${dbInitError.message}`, { stack: dbInitError.stack });
       throw dbInitError;
     }
+    
+    // Configurar agendamento de limpeza de logs
+    setupLogRotation();
+    logger.info('Agendamento de limpeza de logs configurado');
     
     // Iniciar o servidor HTTP
     app.listen(PORT, () => {
