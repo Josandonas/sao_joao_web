@@ -5,31 +5,39 @@
 const authRoutes = require('./authRoutes');
 const adminRoutes = require('./adminRoutes');
 const testimonialRoutes = require('./testimonialRoutes');
+const landingController = require('../controllers/landingController');
 const { notFoundHandler } = require('../middlewares/errorHandler');
+const { redirectToHome, protectPublicRoutes } = require('../middlewares/routeHandler');
 
 /**
  * Configura todas as rotas da API no aplicativo Express
  * @param {Object} app - Instância do aplicativo Express
  */
 const setupRoutes = (app) => {
-  // Rotas de autenticação
-  app.use('/api/auth', authRoutes);
-  
-  // Rotas de depoimentos
-  app.use('/api/testimonials', testimonialRoutes);
-  
-  // Rotas do painel administrativo
+  // Rotas do painel administrativo - devem ser montadas primeiro para garantir acesso ao dashboard
   app.use('/admin', adminRoutes);
+  
+  // Middleware para proteger rotas públicas de usuários já autenticados
+  // Este middleware deve ser aplicado antes das rotas públicas
+  app.use(protectPublicRoutes);
+  
+  // Rotas de autenticação - tanto API quanto web
+  app.use('/', authRoutes);
   
   // Rota padrão da API
   app.get('/api', (req, res) => {
     res.json({ message: 'API do São João Web' });
   });
   
-  // Rota raiz - redirecionar para o painel administrativo
-  app.get('/', (req, res) => {
-    res.redirect('/admin');
-  });
+  // Rotas de depoimentos
+  app.use('/api/testimonials', testimonialRoutes);
+  
+  // Rota raiz - exibir a landing page (deve ser montada por último para não interferir com outras rotas)
+  app.get('/', landingController.renderLandingPage);
+  
+  // Middleware para redirecionar rotas não autenticadas para a página inicial
+  // Deve ser aplicado depois de todas as rotas definidas
+  app.use(redirectToHome);
   
   // Adicionar outras rotas aqui conforme forem criadas
   // app.use('/api/postcards', postcardRoutes);

@@ -1,0 +1,104 @@
+<!-- Seção Hero -->
+<section class="landing-hero d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-3 fw-bold mb-4">São João Web</h1>
+        <p class="lead mb-4">Plataforma de Gerenciamento da Festa de São João de Corumbá</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="/login" class="btn btn-light btn-lg px-4 me-md-2">
+            <i class="bi bi-box-arrow-in-right me-2"></i>Acessar Painel
+          </a>
+          <a href="#features" class="btn btn-outline-light btn-lg px-4">
+            <i class="bi bi-info-circle me-2"></i>Saiba Mais
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block text-center">
+        <div class="position-relative">
+          <div class="display-1 text-center mb-4">
+            <i class="bi bi-moon-stars" style="font-size: 8rem; opacity: 0.8;"></i>
+          </div>
+          <div class="position-absolute" style="top: 20%; left: 20%; animation: twinkle 3s infinite;">
+            <i class="bi bi-star-fill" style="font-size: 2rem; opacity: 0.7;"></i>
+          </div>
+          <div class="position-absolute" style="top: 40%; left: 70%; animation: twinkle 2s infinite;">
+            <i class="bi bi-star-fill" style="font-size: 1.5rem; opacity: 0.6;"></i>
+          </div>
+          <div class="position-absolute" style="top: 70%; left: 30%; animation: twinkle 4s infinite;">
+            <i class="bi bi-star-fill" style="font-size: 2.5rem; opacity: 0.8;"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção de Recursos -->
+<section id="features" class="landing-features">
+  <div class="container">
+    <h2 class="text-center mb-5">Recursos da Plataforma</h2>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="bi bi-calendar-event text-primary" style="font-size: 2.5rem;"></i>
+            </div>
+            <h5 class="card-title">Gerenciamento de Eventos</h5>
+            <p class="card-text">Organize e gerencie todos os eventos da festa de São João com facilidade.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="bi bi-image text-primary" style="font-size: 2.5rem;"></i>
+            </div>
+            <h5 class="card-title">Galeria de Fotos</h5>
+            <p class="card-text">Compartilhe momentos especiais da festa através de uma galeria de fotos organizada.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body text-center">
+            <div class="mb-3">
+              <i class="bi bi-people text-primary" style="font-size: 2.5rem;"></i>
+            </div>
+            <h5 class="card-title">Gerenciamento de Usuários</h5>
+            <p class="card-text">Controle de acesso e permissões para diferentes níveis de usuários.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Seção CTA -->
+<section class="landing-cta">
+  <div class="container text-center">
+    <h2 class="mb-4">Pronto para começar?</h2>
+    <p class="lead mb-5">Acesse o painel administrativo para gerenciar todos os aspectos da festa de São João.</p>
+    <a href="/login" class="btn btn-primary btn-lg px-5">
+      <i class="bi bi-box-arrow-in-right me-2"></i>Acessar Painel
+    </a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="landing-footer">
+  <div class="container text-center">
+    <p>&copy; <%= new Date().getFullYear() %> São João Web - Prefeitura Municipal de Corumbá</p>
+  </div>
+</footer>
+
+<%- contentFor('style') %>
+<style>
+  @keyframes twinkle {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+  }
+</style>

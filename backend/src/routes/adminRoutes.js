@@ -9,32 +9,12 @@ const adminTestimonialRoutes = require('./adminTestimonialRoutes');
 const { authenticate, isAdmin } = require('../middlewares/auth');
 const { asyncHandler } = require('../middlewares/errorHandler');
 
-// Middleware para verificar se o usuário está autenticado via cookie
-const checkAdminAuth = (req, res, next) => {
-  // Se o usuário já está autenticado, redirecionar para o dashboard
-  if (req.path === '/login' && req.cookies.auth_token) {
-    return res.redirect('/admin');
-  }
-  
-  // Se o usuário não está autenticado e tenta acessar uma rota protegida
-  if (req.path !== '/login' && !req.cookies.auth_token) {
-    return res.redirect('/admin/login');
-  }
-  
-  next();
-};
-
-// Aplicar middleware de verificação de autenticação em todas as rotas
-router.use(checkAdminAuth);
-
-// Rotas públicas (sem autenticação)
-router.get('/login', adminController.renderLoginPage);
-router.post('/login', asyncHandler(adminController.processLogin));
-router.get('/logout', asyncHandler(adminController.processLogout));
-
-// Middleware para proteger rotas administrativas
+// Todas as rotas do painel administrativo requerem autenticação
 router.use(authenticate);
 router.use(isAdmin);
+
+// Rota de logout específica para o painel administrativo
+router.get('/logout', asyncHandler(require('../controllers/authController').processLogout));
 
 // Rotas protegidas (requerem autenticação e permissão de administrador)
 router.get('/', asyncHandler(adminController.renderDashboard));

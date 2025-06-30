@@ -11,6 +11,57 @@ const { logUserAction } = require('../middlewares/auth');
 const { logger } = require('../utils/logger');
 
 /**
+ * Renderiza a página de login do painel administrativo
+ * @param {Object} req - Objeto de requisição
+ * @param {Object} res - Objeto de resposta
+ */
+const renderLoginPage = (req, res) => {
+  // Usar o layout auth.ejs com a página login.ejs
+  res.render('auth/login', {
+    layout: 'layouts/auth',
+    pageTitle: 'Login',
+    messages: req.flash()
+  });
+};
+
+// O processLogin foi removido e consolidado no authController.login
+// para seguir o princípio de responsabilidade única
+
+/**
+ * Processa o logout do usuário
+ * @param {Object} req - Objeto de requisição
+ * @param {Object} res - Objeto de resposta
+ */
+const processLogout = async (req, res) => {
+  try {
+    // Registrar logout no log de ações se o usuário estiver autenticado
+    if (req.user) {
+      await query(
+        'INSERT INTO user_action_logs (user_id, action, ip_address, user_agent) VALUES (?, ?, ?, ?)',
+        [req.user.id, 'LOGOUT_ADMIN_PANEL', req.ip, req.get('User-Agent')]
+      );
+    }
+    
+    // Limpar cookie de autenticação com as mesmas opções usadas ao criar
+    res.clearCookie('auth_token', {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax'
+    });
+    
+    logger.info('Cookie auth_token removido com sucesso');
+    
+    // Redirecionar para a página inicial
+    req.flash('success', 'Você saiu com sucesso.');
+    res.redirect('/');
+  } catch (error) {
+    logger.error(`Erro ao processar logout: ${error.message}`, { error });
+    res.redirect('/');
+  }
+};
+
+
+/**
  * Gera um token JWT para o usuário
  * @param {Object} user - Dados do usuário
  * @returns {string} Token JWT
@@ -24,53 +75,125 @@ const generateToken = (user) => {
 };
 
 /**
- * Login de usuário
- * @route POST /api/auth/login
+ * Login de usuário - Suporta tanto API quanto interface web
+ * @route POST /api/auth/login e POST /admin/login
  */
 const login = asyncHandler(async (req, res, next) => {
-  const { username, password } = req.body;
+  try {
+    // Determinar se é uma requisição web ou API baseado na URL e no content-type
+    const isWebRequest = !req.originalUrl.includes('/api/') && 
+      (!req.headers['content-type'] || req.headers['content-type'].includes('application/x-www-form-urlencoded'));
+    
+    // Log completo para depuração
+    logger.info('=== TENTATIVA DE LOGIN ===');
+    logger.info(`URL: ${req.originalUrl}, Método: ${req.method}`);
+    logger.info(`Tipo de requisição: ${isWebRequest ? 'WEB' : 'API'}`);
+    logger.info(`Dados: ${JSON.stringify(req.body)}`);
+    
+    const { username, password } = req.body;
 
-  // Validar dados de entrada
-  if (!username || !password) {
-    return next(new AppError('Por favor, forneça nome de usuário e senha.', 400));
-  }
-
-  // Buscar usuário no banco de dados
-  const users = await query('SELECT * FROM users WHERE username = ?', [username]);
-  const user = users[0];
-
-  // Verificar se o usuário existe
-  if (!user) {
-    return next(new AppError('Credenciais inválidas.', 401));
-  }
-
-  // Verificar senha
-  const isPasswordValid = await bcrypt.compare(password, user.password);
-  if (!isPasswordValid) {
-    return next(new AppError('Credenciais inválidas.', 401));
-  }
-
-  // Gerar token JWT
-  const token = generateToken(user);
-
-  // Registrar login (auditoria)
-  await logUserAction(user.id, 'login', 'user', user.id, {
-    method: 'login',
-    timestamp: new Date()
-  }, req);
-
-  // Responder com token e dados do usuário
-  res.status(200).json({
-    status: 'success',
-    token,
-    user: {
-      id: user.id,
-      username: user.username,
-      fullName: user.full_name,
-      email: user.email,
-      isAdmin: user.is_admin
+    // Validar dados de entrada
+    if (!username || !password) {
+      logger.warn('Tentativa de login sem username ou password');
+      if (isWebRequest) {
+        req.flash('error', 'Por favor, preencha todos os campos');
+        return res.redirect('/login');
+      }
+      return next(new AppError('Por favor, forneça nome de usuário e senha.', 400));
     }
-  });
+
+    // Buscar usuário no banco de dados
+    const users = await query('SELECT * FROM users WHERE username = ?', [username]);
+    
+    // Verificar se o usuário existe
+    if (users.length === 0) {
+      logger.warn(`Tentativa de login com usuário inexistente: ${username}`);
+      if (isWebRequest) {
+        req.flash('error', 'Usuário ou senha inválidos');
+        return res.redirect('/login');
+      }
+      return next(new AppError('Credenciais inválidas.', 401));
+    }
+    
+    const user = users[0];
+
+    // Verificar senha
+    const isPasswordValid = await bcrypt.compare(password, user.password);
+    
+    if (!isPasswordValid) {
+      logger.warn(`Senha incorreta para o usuário: ${username}`);
+      if (isWebRequest) {
+        req.flash('error', 'Usuário ou senha inválidos');
+        return res.redirect('/login');
+      }
+      return next(new AppError('Credenciais inválidas.', 401));
+    }
+    
+    logger.info(`Login bem-sucedido para o usuário: ${username}`);
+    
+    // Verificar se JWT_SECRET está definido
+    if (!process.env.JWT_SECRET) {
+      process.env.JWT_SECRET = 'sao_joao_web_secret_key_2025'; // Fallback para desenvolvimento
+      logger.info('Usando JWT_SECRET padrão para desenvolvimento');
+    }
+
+    // Gerar token JWT
+    const token = generateToken(user);
+
+    // Registrar login (auditoria simplificada)
+    try {
+      await query(
+        'INSERT INTO user_action_logs (user_id, action, ip_address, user_agent) VALUES (?, ?, ?, ?)',
+        [user.id, 'LOGIN_ADMIN_PANEL', req.ip, req.get('User-Agent')]
+      );
+    } catch (logError) {
+      logger.error(`Erro ao registrar log de login: ${logError.message}`);
+    }
+    
+    // Definir cookie com opções adequadas para desenvolvimento
+    res.cookie('auth_token', token, {
+      httpOnly: true,
+      secure: false, // Desabilitar secure para desenvolvimento local
+      path: '/',
+      maxAge: 24 * 60 * 60 * 1000, // 1 dia
+      sameSite: 'lax' // Permitir envio do cookie em navegação normal
+    });
+    
+    // Log para debug
+    logger.info(`Cookie auth_token definido para o usuário: ${username} (ID: ${user.id})`);
+    logger.info(`Token JWT: ${token.substring(0, 20)}...`);
+    
+    logger.info('Cookie auth_token definido');
+
+    // Resposta diferente dependendo do tipo de requisição
+    if (isWebRequest) {
+      // Para requisições web, redirecionar para o dashboard
+      req.flash('success', `Bem-vindo, ${user.full_name || username}!`);
+      logger.info('Redirecionando para o dashboard');
+      return res.redirect('/admin');
+    } else {
+      // Para requisições API, responder com JSON
+      res.status(200).json({
+        status: 'success',
+        token,
+        user: {
+          id: user.id,
+          username: user.username,
+          fullName: user.full_name,
+          email: user.email,
+          isAdmin: user.is_admin
+        }
+      });
+    }
+  } catch (error) {
+    logger.error(`Erro ao processar login: ${error.message}`, { error });
+    if (req.path.startsWith('/login') || 
+        (req.headers['content-type'] && req.headers['content-type'].includes('application/x-www-form-urlencoded'))) {
+      req.flash('error', 'Ocorreu um erro ao processar o login. Por favor, tente novamente.');
+      return res.redirect('/login');
+    }
+    return next(new AppError('Erro ao processar login', 500));
+  }
 });
 
 /**
@@ -353,5 +476,7 @@ module.exports = {
   updateUser,
   deleteUser,
   updateUserPermissions,
-  getAllModules
+  getAllModules,
+  renderLoginPage,
+  processLogout
 };

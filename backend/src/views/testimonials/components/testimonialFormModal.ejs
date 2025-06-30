@@ -38,9 +38,11 @@
                   <span class="input-group-text"><i class="bi bi-tag"></i></span>
                   <select class="form-select" id="category" name="category" required>
                     <option value="">Selecione uma categoria</option>
-                    <% categories.forEach(category => { %>
-                      <option value="<%= category %>"><%= category %></option>
-                    <% }) %>
+                    <% if (typeof categories !== 'undefined' && categories) { %>
+                      <% categories.forEach(category => { %>
+                        <option value="<%= category %>"><%= category %></option>
+                      <% }) %>
+                    <% } %>
                     <option value="other">Outra categoria</option>
                   </select>
                 </div>
@@ -108,7 +110,7 @@
         <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
           <i class="bi bi-x-circle me-1"></i> Cancelar
         </button>
-        <button type="button" class="btn btn-primary" id="saveTestimonialBtn">
+        <button type="submit" class="btn btn-primary" id="saveTestimonialBtn" form="testimonialForm">
           <i class="bi bi-save me-1"></i> Salvar Depoimento
         </button>
       </div>

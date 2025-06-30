@@ -3,6 +3,8 @@
  */
 
 document.addEventListener('DOMContentLoaded', function() {
+  console.log('Script de depoimentos carregado');
+  
   // Referências aos elementos do modal
   const testimonialFormModal = document.getElementById('testimonialFormModal');
   const testimonialForm = document.getElementById('testimonialForm');
@@ -14,9 +16,47 @@ document.addEventListener('DOMContentLoaded', function() {
   const currentVideoContainer = document.getElementById('currentVideoContainer');
   const currentVideo = document.getElementById('currentVideo');
   const saveTestimonialBtn = document.getElementById('saveTestimonialBtn');
+  const newTestimonialBtn = document.getElementById('newTestimonialBtn');
   
-  // Inicializar o modal
-  const modal = new bootstrap.Modal(testimonialFormModal);
+  // Verificar se os elementos necessários existem
+  if (!testimonialFormModal) {
+    console.error('Elemento do modal não encontrado');
+    return;
+  }
+  
+  console.log('Modal encontrado:', testimonialFormModal.id);
+  
+  // Configurar o botão de novo depoimento para abrir o modal
+  if (newTestimonialBtn) {
+    console.log('Botão de novo depoimento encontrado');
+    newTestimonialBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      console.log('Botão de novo depoimento clicado');
+      
+      if (testimonialForm) {
+        resetForm();
+        modalTitle.textContent = 'Novo Depoimento';
+        testimonialForm.action = '/admin/testimonials/create';
+      }
+      
+      try {
+        // Tentar usar a API do Bootstrap 5
+        if (typeof bootstrap !== 'undefined') {
+          const bsModal = new bootstrap.Modal(testimonialFormModal);
+          bsModal.show();
+          console.log('Modal aberto via Bootstrap API');
+        } else {
+          // Fallback para atributo data-bs-toggle
+          testimonialFormModal.classList.add('show');
+          testimonialFormModal.style.display = 'block';
+          document.body.classList.add('modal-open');
+          console.log('Modal aberto via classList');
+        }
+      } catch (error) {
+        console.error('Erro ao abrir modal:', error);
+      }
+    });
+  }
   
   // Mostrar/ocultar campo de nova categoria
   if (categorySelect) {
@@ -37,14 +77,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
   
-  // Abrir modal para novo depoimento
-  const newTestimonialBtn = document.getElementById('newTestimonialBtn');
-  if (newTestimonialBtn) {
-    newTestimonialBtn.addEventListener('click', function() {
-      resetForm();
-      modalTitle.textContent = 'Novo Depoimento';
-      testimonialForm.action = '/admin/testimonials/create';
-      modal.show();
+  // Configurar o botão "Criar Novo Depoimento" que aparece quando não há depoimentos
+  const createNewTestimonialBtn = document.getElementById('createNewTestimonialBtn');
+  if (createNewTestimonialBtn) {
+    console.log('Botão de criar novo depoimento encontrado');
+    createNewTestimonialBtn.addEventListener('click', function(e) {
+      console.log('Botão de criar novo depoimento clicado');
+      
+      if (testimonialForm) {
+        resetForm();
+        modalTitle.textContent = 'Novo Depoimento';
+        testimonialForm.action = '/admin/testimonials/create';
+      }
+    });
+  }
+  
+  // Configurar o botão de salvar para submeter o formulário
+  if (saveTestimonialBtn && testimonialForm) {
+    saveTestimonialBtn.addEventListener('click', function() {
+      console.log('Botão de salvar clicado, submetendo formulário');
+      testimonialForm.submit();
     });
   }
   
@@ -91,7 +143,22 @@ document.addEventListener('DOMContentLoaded', function() {
           currentVideo.load();
         }
         
-        modal.show();
+        // Abrir o modal usando a API do Bootstrap 5
+        try {
+          if (typeof bootstrap !== 'undefined') {
+            const bsModal = new bootstrap.Modal(testimonialFormModal);
+            bsModal.show();
+            console.log('Modal de edição aberto via Bootstrap API');
+          } else {
+            // Fallback para manipulação direta
+            testimonialFormModal.classList.add('show');
+            testimonialFormModal.style.display = 'block';
+            document.body.classList.add('modal-open');
+            console.log('Modal de edição aberto via classList');
+          }
+        } catch (error) {
+          console.error('Erro ao abrir modal de edição:', error);
+        }
       } catch (error) {
         console.error('Erro:', error);
         Swal.fire({

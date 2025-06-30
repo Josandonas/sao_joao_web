@@ -70,6 +70,18 @@ app.use('/public', express.static(path.join(__dirname, '../public')));
 // Servir arquivos estáticos das pastas de views (CSS e JS específicos de cada módulo)
 app.use('/views', express.static(path.join(__dirname, 'views')));
 
+// Servir arquivos estáticos do node_modules
+app.use('/vendor', express.static(path.join(__dirname, '../node_modules')));
+
+// Atalhos específicos para facilitar o acesso aos arquivos mais comuns do Bootstrap
+app.use('/css/bootstrap.min.css', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/css/bootstrap.min.css')));
+app.use('/js/bootstrap.bundle.min.js', express.static(path.join(__dirname, '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js')));
+
+// Servir arquivos de ícones do Bootstrap
+app.use('/css/bootstrap-icons.css', express.static(path.join(__dirname, '../node_modules/bootstrap-icons/font/bootstrap-icons.css')));
+// Importante: Mapear o diretório de fontes para o caminho relativo que o CSS espera
+app.use('/css/fonts', express.static(path.join(__dirname, '../node_modules/bootstrap-icons/font/fonts')));
+
 // Rota de verificação de saúde da API
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'ok', message: 'API São João Web está funcionando!' });
