@@ -1,0 +1,76 @@
+/**
+ * Estilos específicos para autenticação
+ */
+
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+
+.auth-card {
+  max-width: 450px;
+  width: 100%;
+  border-radius: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.auth-header {
+  background-color: rgba(13, 110, 253, 0.05);
+  padding: 2rem 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.auth-body {
+  padding: 2rem;
+}
+
+.auth-footer {
+  background-color: rgba(13, 110, 253, 0.05);
+  padding: 1rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: center;
+  font-size: 0.875rem;
+}
+
+/* Animação para o ícone de usuário */
+.auth-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Compatibilidade com navegadores mais antigos */
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.auth-icon {
+  -webkit-animation: pulse 2s infinite;
+  animation: pulse 2s infinite;
+}

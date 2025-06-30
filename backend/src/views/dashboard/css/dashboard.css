@@ -1,0 +1,89 @@
+/**
+ * Estilos específicos para o dashboard
+ */
+
+/* Cards de estatísticas */
+.stat-card {
+  border-radius: 0.5rem;
+  transition: transform 0.2s;
+  border-left: 5px solid;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+}
+
+.stat-card.primary {
+  border-left-color: var(--bs-primary);
+}
+
+.stat-card.success {
+  border-left-color: var(--bs-success);
+}
+
+.stat-card.info {
+  border-left-color: var(--bs-info);
+}
+
+.stat-card.warning {
+  border-left-color: var(--bs-warning);
+}
+
+.stat-icon {
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+/* Timeline para atividades recentes */
+.timeline {
+  position: relative;
+  list-style: none;
+  padding-left: 0;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 40px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.timeline-content {
+  padding-bottom: 15px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.timeline-item:last-child .timeline-content {
+  border-bottom: none;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .stat-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Adicionar compatibilidade com navegadores mais antigos */
+.stat-card {
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+
+.stat-card:hover {
+  -webkit-transform: translateY(-5px);
+  transform: translateY(-5px);
+}

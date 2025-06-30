@@ -1,0 +1,27 @@
+<%- contentFor('script') %>
+<!-- Importar CSS específico do módulo -->
+<link rel="stylesheet" href="/views/auth/css/auth.css">
+
+<%- contentFor('body') %>
+
+<div class="auth-wrapper">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="text-center">
+        <img src="/public/img/logo.png" alt="Logo" height="60" class="mb-3">
+      </div>
+    </div>
+    <div class="auth-body">
+      <!-- Exibir mensagens flash -->
+      <div class="mb-3">
+        <%- include('../components/flashMessages') %>
+      </div>
+      
+      <!-- Incluir componente de formulário de login -->
+      <%- include('./components/loginForm') %>
+    </div>
+    <div class="auth-footer">
+      <p class="mb-0">&copy; <%= new Date().getFullYear() %> Prefeitura Municipal de Corumbá - Todos os direitos reservados</p>
+    </div>
+  </div>
+</div>

@@ -1,196 +1,21 @@
+<%- contentFor('script') %>
+<!-- Importar CSS específico do módulo -->
+<link rel="stylesheet" href="/views/testimonials/css/testimonials.css">
+<!-- Importar script específico do módulo -->
+<script src="/views/testimonials/js/testimonials.js"></script>
+
 <%- contentFor('body') %>
 
-<%- contentFor('script') %>
-<script src="/public/js/testimonials.js"></script>
-
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <div>
-    <h1 class="h3 fw-bold mb-0">Gerenciamento de Depoimentos</h1>
-    <nav aria-label="breadcrumb" class="mt-1">
-      <ol class="breadcrumb small mb-0">
-        <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Depoimentos</li>
-      </ol>
-    </nav>
-  </div>
-  <a href="/admin/testimonials/new" class="btn btn-primary">
+<div class="d-flex justify-content-end mb-4">
+  <button type="button" id="newTestimonialBtn" class="btn btn-primary">
     <i class="bi bi-plus-circle me-1"></i> Novo Depoimento
-  </a>
+  </button>
 </div>
 
-<!-- Filtros -->
-<div class="card shadow-sm mb-4">
-  <div class="card-header bg-white py-3">
-    <h5 class="m-0 fw-bold text-primary">Filtros</h5>
-  </div>
-  <div class="card-body">
-    <form action="/admin/testimonials" method="GET" class="row g-3">
-      <div class="col-md-4">
-        <label for="category" class="form-label">Categoria</label>
-        <select class="form-select" id="category" name="category">
-          <option value="">Todas as categorias</option>
-          <% categories.forEach(category => { %>
-            <option value="<%= category %>" <%= selectedCategory === category ? 'selected' : '' %>><%= category %></option>
-          <% }) %>
-        </select>
-      </div>
-      <div class="col-md-4">
-        <label for="status" class="form-label">Status</label>
-        <select class="form-select" id="status" name="status">
-          <option value="all" <%= status === 'all' ? 'selected' : '' %>>Todos</option>
-          <option value="published" <%= status === 'published' ? 'selected' : '' %>>Publicados</option>
-          <option value="draft" <%= status === 'draft' ? 'selected' : '' %>>Rascunhos</option>
-        </select>
-      </div>
-      <div class="col-md-4 d-flex align-items-end">
-        <button type="submit" class="btn btn-primary">
-          <i class="bi bi-filter me-1"></i> Filtrar
-        </button>
-        <a href="/admin/testimonials" class="btn btn-outline-secondary ms-2">
-          <i class="bi bi-x-circle me-1"></i> Limpar
-        </a>
-      </div>
-    </form>
-  </div>
-</div>
+<!-- Incluir componente de filtros -->
+<%- include('./components/testimonialFilters') %>
 
-<!-- Lista de Depoimentos -->
-<div class="card shadow-sm mb-4">
-  <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-    <h5 class="m-0 fw-bold text-primary">Depoimentos</h5>
-    <span class="badge bg-primary rounded-pill"><%= pagination.total %> registros</span>
-  </div>
-  <div class="card-body p-0">
-    <% if (testimonials && testimonials.length > 0) { %>
-      <div class="table-responsive">
-        <table class="table table-hover align-middle mb-0">
-          <thead class="table-light">
-            <tr>
-              <th>Nome</th>
-              <th>Categoria</th>
-              <th>Status</th>
-              <th>Data</th>
-              <th class="text-end">Ações</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% testimonials.forEach(testimonial => { %>
-              <tr>
-                <td>
-                  <div class="d-flex align-items-center">
-                    <div>
-                      <div class="fw-bold"><%= testimonial.name %></div>
-                      <div class="small text-muted"><%= testimonial.location %></div>
-                    </div>
-                  </div>
-                </td>
-                <td>
-                  <span class="badge bg-light text-dark"><%= testimonial.category %></span>
-                </td>
-                <td>
-                  <% if (testimonial.is_available_for_frontend) { %>
-                    <span class="badge bg-success">Publicado</span>
-                  <% } else { %>
-                    <span class="badge bg-secondary">Rascunho</span>
-                  <% } %>
-                </td>
-                <td>
-                  <span class="small text-muted"><%= new Date(testimonial.created_at).toLocaleDateString('pt-BR') %></span>
-                </td>
-                <td class="text-end">
-                  <div class="btn-group btn-group-sm">
-                    <a href="/admin/testimonials/<%= testimonial.id %>" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Visualizar">
-                      <i class="bi bi-eye"></i>
-                    </a>
-                    <a href="/admin/testimonials/<%= testimonial.id %>/edit" class="btn btn-outline-primary" data-bs-toggle="tooltip" title="Editar">
-                      <i class="bi bi-pencil"></i>
-                    </a>
-                    <% if (testimonial.is_available_for_frontend) { %>
-                      <button type="button" class="btn btn-outline-secondary btn-unpublish" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Despublicar">
-                        <i class="bi bi-eye-slash"></i>
-                      </button>
-                    <% } else { %>
-                      <button type="button" class="btn btn-outline-success btn-publish" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Publicar">
-                        <i class="bi bi-check-lg"></i>
-                      </button>
-                    <% } %>
-                    <button type="button" class="btn btn-outline-danger btn-delete" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Excluir">
-                      <i class="bi bi-trash"></i>
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            <% }) %>
-          </tbody>
-        </table>
-      </div>
-      
-      <!-- Paginação -->
-      <% if (pagination.totalPages > 1) { %>
-        <div class="d-flex justify-content-between align-items-center p-3 border-top">
-          <div class="small text-muted">
-            Mostrando <strong><%= ((pagination.page - 1) * pagination.limit) + 1 %></strong> a <strong><%= Math.min(pagination.page * pagination.limit, pagination.total) %></strong> de <strong><%= pagination.total %></strong> registros
-          </div>
-          <nav aria-label="Navegação de páginas">
-            <ul class="pagination pagination-sm mb-0">
-              <li class="page-item <%= pagination.page === 1 ? 'disabled' : '' %>">
-                <a class="page-link" href="/admin/testimonials?page=<%= pagination.page - 1 %>&category=<%= selectedCategory %>&status=<%= status %>" aria-label="Anterior">
-                  <span aria-hidden="true">&laquo;</span>
-                </a>
-              </li>
-              
-              <% 
-                // Mostrar apenas 5 páginas de cada vez
-                let startPage = Math.max(1, pagination.page - 2);
-                let endPage = Math.min(pagination.totalPages, startPage + 4);
-                
-                // Ajustar startPage se estamos perto do final
-                if (endPage - startPage < 4) {
-                  startPage = Math.max(1, endPage - 4);
-                }
-              %>
-              
-              <% if (startPage > 1) { %>
-                <li class="page-item">
-                  <a class="page-link" href="/admin/testimonials?page=1&category=<%= selectedCategory %>&status=<%= status %>">1</a>
-                </li>
-                <% if (startPage > 2) { %>
-                  <li class="page-item disabled"><span class="page-link">...</span></li>
-                <% } %>
-              <% } %>
-              
-              <% for(let i = startPage; i <= endPage; i++) { %>
-                <li class="page-item <%= pagination.page === i ? 'active' : '' %>">
-                  <a class="page-link" href="/admin/testimonials?page=<%= i %>&category=<%= selectedCategory %>&status=<%= status %>"><%= i %></a>
-                </li>
-              <% } %>
-              
-              <% if (endPage < pagination.totalPages) { %>
-                <% if (endPage < pagination.totalPages - 1) { %>
-                  <li class="page-item disabled"><span class="page-link">...</span></li>
-                <% } %>
-                <li class="page-item">
-                  <a class="page-link" href="/admin/testimonials?page=<%= pagination.totalPages %>&category=<%= selectedCategory %>&status=<%= status %>"><%= pagination.totalPages %></a>
-                </li>
-              <% } %>
-              
-              <li class="page-item <%= pagination.page === pagination.totalPages ? 'disabled' : '' %>">
-                <a class="page-link" href="/admin/testimonials?page=<%= pagination.page + 1 %>&category=<%= selectedCategory %>&status=<%= status %>" aria-label="Próxima">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      <% } %>
-    <% } else { %>
-      <div class="text-center py-5">
-        <i class="bi bi-chat-square-text text-muted" style="font-size: 3rem;"></i>
-        <p class="text-muted mt-3 mb-3">Nenhum depoimento encontrado com os filtros selecionados.</p>
-        <a href="/admin/testimonials/new" class="btn btn-primary">
-          <i class="bi bi-plus-circle me-1"></i> Criar Novo Depoimento
-        </a>
-      </div>
-    <% } %>
-  </div>
-</div>
+<!-- Incluir componente de listagem de depoimentos -->
+<%- include('./components/testimonialList') %>
+<!-- Incluir o modal de formulário de depoimentos -->
+<%- include("./components/testimonialFormModal") %>

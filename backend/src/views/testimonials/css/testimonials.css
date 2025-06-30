@@ -1,0 +1,66 @@
+/**
+ * Estilos específicos para o módulo de depoimentos
+ */
+
+/* Estilo para o container de vídeo */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Estilo para cards de depoimentos */
+.testimonial-card {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Estilo para o texto do depoimento com limite de altura */
+.testimonial-text {
+  max-height: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+/* Indicador de status do depoimento */
+.status-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+/* Estilo para o formulário de filtro */
+.filter-form {
+  background-color: rgba(248, 249, 250, 0.8);
+  border-radius: 0.5rem;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+  .testimonial-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .testimonial-actions .btn {
+    width: 100%;
+  }
+}

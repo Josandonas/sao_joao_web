@@ -1,0 +1,62 @@
+<%- contentFor('script') %>
+<!-- Importar CSS específico do módulo -->
+<link rel="stylesheet" href="/views/dashboard/css/dashboard.css">
+<!-- Importar script específico do módulo -->
+<script src="/views/dashboard/js/dashboard.js"></script>
+
+<%- contentFor('body') %>
+
+<div class="row">
+  <!-- Estatísticas gerais -->
+  <div class="col-xl-3 col-md-6 mb-4">
+    <%- include('./components/statCard', {
+      color: 'primary',
+      title: 'Depoimentos',
+      value: stats.testimonials,
+      icon: 'bi-chat-quote',
+      link: '/admin/testimonials'
+    }) %>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <%- include('./components/statCard', {
+      color: 'success',
+      title: 'Postais',
+      value: stats.postcards,
+      icon: 'bi-card-image',
+      link: '/admin/postcards'
+    }) %>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <%- include('./components/statCard', {
+      color: 'info',
+      title: 'Biblioteca',
+      value: stats.biblioteca,
+      icon: 'bi-book',
+      link: '/admin/biblioteca'
+    }) %>
+  </div>
+
+  <div class="col-xl-3 col-md-6 mb-4">
+    <%- include('./components/statCard', {
+      color: 'warning',
+      title: 'Usuários',
+      value: stats.users,
+      icon: 'bi-people',
+      link: '/admin/users'
+    }) %>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-lg-7">
+    <!-- Depoimentos pendentes -->
+    <%- include('./components/pendingTestimonials') %>
+  </div>
+  
+  <div class="col-lg-5">
+    <!-- Atividades recentes -->
+    <%- include('./components/recentActivities') %>
+  </div>
+</div>

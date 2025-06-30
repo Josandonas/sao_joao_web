@@ -3,6 +3,9 @@
  */
 
 require('dotenv').config();
+// Garantir que as variáveis de ambiente essenciais estejam definidas
+const envSetup = require('./config/env-setup');
+envSetup.checkEnvVariables();
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -63,6 +66,9 @@ app.use(addTemplateVariables);
 
 // Servir arquivos estáticos da pasta public
 app.use('/public', express.static(path.join(__dirname, '../public')));
+
+// Servir arquivos estáticos das pastas de views (CSS e JS específicos de cada módulo)
+app.use('/views', express.static(path.join(__dirname, 'views')));
 
 // Rota de verificação de saúde da API
 app.get('/health', (req, res) => {

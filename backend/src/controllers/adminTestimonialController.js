@@ -72,6 +72,7 @@ const renderTestimonialsPage = async (req, res) => {
     res.render('testimonials/index', {
       pageTitle: 'Depoimentos',
       activeRoute: 'testimonials',
+      layout: 'layouts/main',
       user: req.user,
       messages: req.flash(),
       testimonials,
@@ -105,6 +106,7 @@ const renderNewTestimonialForm = async (req, res) => {
     res.render('testimonials/form', {
       pageTitle: 'Novo Depoimento',
       activeRoute: 'testimonials',
+      layout: 'layouts/main',
       user: req.user,
       messages: req.flash(),
       testimonial: null,
@@ -139,6 +141,7 @@ const renderEditTestimonialForm = async (req, res) => {
     res.render('testimonials/form', {
       pageTitle: 'Editar Depoimento',
       activeRoute: 'testimonials',
+      layout: 'layouts/main',
       user: req.user,
       messages: req.flash(),
       testimonial: testimonials[0],
@@ -171,6 +174,7 @@ const renderViewTestimonialPage = async (req, res) => {
     res.render('testimonials/view', {
       pageTitle: 'Visualizar Depoimento',
       activeRoute: 'testimonials',
+      layout: 'layouts/main',
       user: req.user,
       messages: req.flash(),
       testimonial: testimonials[0]
@@ -199,7 +203,19 @@ const createTestimonial = async (req, res) => {
     // Verificar se há arquivo de vídeo
     let videoPath = null;
     if (req.file) {
-      videoPath = `/public/videos/${req.file.filename}`;
+      const uploadDir = path.join(__dirname, '../../public/uploads/testimonials');
+      
+      // Criar diretório se não existir
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+      
+      // Salvar o arquivo com nome único
+      const fileName = `video_${Date.now()}${path.extname(req.file.originalname)}`;
+      const filePath = path.join(uploadDir, fileName);
+      
+      fs.writeFileSync(filePath, req.file.buffer);
+      videoPath = fileName;
     }
     
     // Inserir depoimento no banco de dados
@@ -209,17 +225,14 @@ const createTestimonial = async (req, res) => {
     );
     
     // Registrar ação (auditoria)
-    await logUserAction(req.user.id, 'create', 'testimonial', result.insertId, {
-      name,
-      category
-    }, req);
+    logUserAction(req, `Criou depoimento ID ${result.insertId} - ${name}`);
     
     req.flash('success', 'Depoimento criado com sucesso');
     res.redirect('/admin/testimonials');
   } catch (error) {
-    logger.error(`Erro ao criar depoimento: ${error.message}`, { error });
+    logger.error(`Erro ao criar depoimento: ${error.message}`);
     req.flash('error', 'Ocorreu um erro ao criar o depoimento');
-    res.redirect('/admin/testimonials/new');
+    res.redirect('/admin/testimonials');
   }
 };
 
@@ -259,11 +272,23 @@ const updateTestimonial = async (req, res) => {
     
     // Verificar se há arquivo de vídeo
     if (req.file) {
-      updateData.video_path = `/public/videos/${req.file.filename}`;
+      const uploadDir = path.join(__dirname, '../../public/uploads/testimonials');
+      
+      // Criar diretório se não existir
+      if (!fs.existsSync(uploadDir)) {
+        fs.mkdirSync(uploadDir, { recursive: true });
+      }
+      
+      // Salvar o arquivo com nome único
+      const fileName = `video_${Date.now()}${path.extname(req.file.originalname)}`;
+      const filePath = path.join(uploadDir, fileName);
+      
+      fs.writeFileSync(filePath, req.file.buffer);
+      updateData.video_path = fileName;
       
       // Excluir vídeo antigo se existir
       if (existingTestimonial.video_path) {
-        const oldVideoPath = path.join(__dirname, '../../', existingTestimonial.video_path.replace('/public', 'public'));
+        const oldVideoPath = path.join(uploadDir, existingTestimonial.video_path);
         if (fs.existsSync(oldVideoPath)) {
           fs.unlinkSync(oldVideoPath);
         }
@@ -274,7 +299,8 @@ const updateTestimonial = async (req, res) => {
       
       // Excluir vídeo antigo se existir
       if (existingTestimonial.video_path) {
-        const oldVideoPath = path.join(__dirname, '../../', existingTestimonial.video_path.replace('/public', 'public'));
+        const uploadDir = path.join(__dirname, '../../public/uploads/testimonials');
+        const oldVideoPath = path.join(uploadDir, existingTestimonial.video_path);
         if (fs.existsSync(oldVideoPath)) {
           fs.unlinkSync(oldVideoPath);
         }
@@ -289,16 +315,14 @@ const updateTestimonial = async (req, res) => {
     await executeQuery(`UPDATE testimonials SET ${updateFields} WHERE id = ?`, updateParams);
     
     // Registrar ação (auditoria)
-    await logUserAction(req.user.id, 'update', 'testimonial', testimonialId, {
-      updatedFields: Object.keys(updateData)
-    }, req);
+    logUserAction(req, `Atualizou depoimento ID ${testimonialId} - ${name}`);
     
     req.flash('success', 'Depoimento atualizado com sucesso');
-    res.redirect(`/admin/testimonials/${testimonialId}`);
+    res.redirect('/admin/testimonials');
   } catch (error) {
-    logger.error(`Erro ao atualizar depoimento: ${error.message}`, { error });
+    logger.error(`Erro ao atualizar depoimento: ${error.message}`);
     req.flash('error', 'Ocorreu um erro ao atualizar o depoimento');
-    res.redirect(`/admin/testimonials/${req.params.id}/edit`);
+    res.redirect('/admin/testimonials');
   }
 };
 
@@ -411,6 +435,38 @@ const deleteTestimonial = async (req, res) => {
   }
 };
 
+/**
+ * Retorna os dados de um depoimento em formato JSON
+ * @param {Object} req - Objeto de requisição
+ * @param {Object} res - Objeto de resposta
+ */
+const getTestimonialData = async (req, res) => {
+  try {
+    const testimonialId = req.params.id;
+    
+    // Buscar depoimento no banco de dados
+    const [testimonial] = await executeQuery('SELECT * FROM testimonials WHERE id = ?', [testimonialId]);
+    
+    if (!testimonial || testimonial.length === 0) {
+      return res.status(404).json({ error: 'Depoimento não encontrado' });
+    }
+    
+    // Ajustar o caminho do vídeo se existir
+    if (testimonial.video_path) {
+      testimonial.video_path = `/public/uploads/testimonials/${testimonial.video_path}`;
+    }
+    
+    // Registrar ação do usuário
+    logUserAction(req, `Obteve dados do depoimento ID ${testimonialId} via API`);
+    
+    // Retornar os dados do depoimento
+    return res.json(testimonial);
+  } catch (error) {
+    logger.error(`Erro ao obter dados do depoimento: ${error.message}`);
+    return res.status(500).json({ error: 'Erro ao obter dados do depoimento' });
+  }
+};
+
 module.exports = {
   renderTestimonialsPage,
   renderNewTestimonialForm,
@@ -420,5 +476,6 @@ module.exports = {
   updateTestimonial,
   publishTestimonial,
   unpublishTestimonial,
-  deleteTestimonial
+  deleteTestimonial,
+  getTestimonialData
 };

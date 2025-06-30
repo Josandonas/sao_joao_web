@@ -27,18 +27,40 @@ const errorHandler = (err, req, res, next) => {
     user: req.user ? req.user.id : 'anônimo'
   });
   
-  // Responder ao cliente
-  res.status(statusCode).json({
-    status: 'error',
-    message: process.env.NODE_ENV === 'production' && statusCode === 500
-      ? 'Erro interno do servidor'
-      : message,
-    // Incluir detalhes do erro apenas em ambiente de desenvolvimento
-    ...(process.env.NODE_ENV !== 'production' && {
-      stack: err.stack,
-      details: err.details || {}
-    })
-  });
+  // Verificar se é uma requisição de API ou uma página HTML
+  const isApiRequest = req.path.startsWith('/api/') || 
+                      req.xhr || 
+                      req.headers.accept?.indexOf('json') !== -1;
+  
+  if (isApiRequest) {
+    // Responder com JSON para requisições de API
+    return res.status(statusCode).json({
+      status: 'error',
+      message: process.env.NODE_ENV === 'production' && statusCode === 500
+        ? 'Erro interno do servidor'
+        : message,
+      // Incluir detalhes do erro apenas em ambiente de desenvolvimento
+      ...(process.env.NODE_ENV !== 'production' && {
+        stack: err.stack,
+        details: err.details || {}
+      })
+    });
+  } else {
+    // Para erros de autenticação, redirecionar para a página de login
+    if (statusCode === 401) {
+      if (req.session) {
+        req.flash('error', message);
+      }
+      return res.redirect('/admin/login');
+    }
+    
+    // Para outros erros, renderizar a página de erro
+    return res.status(statusCode).render('error', {
+      pageTitle: 'Erro',
+      error: message,
+      layout: 'layouts/auth'
+    });
+  }
 };
 
 /**

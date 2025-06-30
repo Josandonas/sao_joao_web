@@ -1,132 +1,17 @@
-<%- contentFor('body') %>
-
 <%- contentFor('script') %>
-<script src="/public/js/testimonials.js"></script>
+<!-- Importar CSS específico do módulo -->
+<link rel="stylesheet" href="/views/testimonials/css/testimonials.css">
+<!-- Importar script específico do módulo -->
+<script src="/views/testimonials/js/testimonials.js"></script>
 
-<div class="d-flex justify-content-between align-items-center mb-4">
-  <div>
-    <h1 class="h3 fw-bold mb-0">Visualizar Depoimento</h1>
-    <nav aria-label="breadcrumb" class="mt-1">
-      <ol class="breadcrumb small mb-0">
-        <li class="breadcrumb-item"><a href="/admin">Dashboard</a></li>
-        <li class="breadcrumb-item"><a href="/admin/testimonials">Depoimentos</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Visualizar</li>
-      </ol>
-    </nav>
-  </div>
-  <div>
-    <a href="/admin/testimonials/<%= testimonial.id %>/edit" class="btn btn-primary">
-      <i class="bi bi-pencil me-1"></i> Editar
-    </a>
-    <a href="/admin/testimonials" class="btn btn-outline-secondary ms-2">
-      <i class="bi bi-arrow-left me-1"></i> Voltar
-    </a>
-  </div>
+<div class="d-flex justify-content-end mb-4">
+  <a href="/admin/testimonials/<%= testimonial.id %>/edit" class="btn btn-primary">
+    <i class="bi bi-pencil me-1"></i> Editar
+  </a>
+  <a href="/admin/testimonials" class="btn btn-outline-secondary ms-2">
+    <i class="bi bi-arrow-left me-1"></i> Voltar
+  </a>
 </div>
 
-<div class="row g-4">
-  <div class="col-lg-8">
-    <div class="card shadow-sm mb-4">
-      <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
-        <h5 class="m-0 fw-bold text-primary">Informações do Depoimento</h5>
-        <% if (testimonial.is_available_for_frontend) { %>
-          <span class="badge bg-success">Publicado</span>
-        <% } else { %>
-          <span class="badge bg-secondary">Rascunho</span>
-        <% } %>
-      </div>
-      <div class="card-body">
-        <div class="row g-4 mb-4">
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label class="form-label text-muted small">Nome</label>
-              <div class="fw-bold"><%= testimonial.name %></div>
-            </div>
-            
-            <div class="mb-3">
-              <label class="form-label text-muted small">Localização</label>
-              <div><%= testimonial.location %></div>
-            </div>
-            
-            <div class="mb-3">
-              <label class="form-label text-muted small">Categoria</label>
-              <div><span class="badge bg-light text-dark"><%= testimonial.category %></span></div>
-            </div>
-          </div>
-          
-          <div class="col-md-6">
-            <div class="mb-3">
-              <label class="form-label text-muted small">Data de Criação</label>
-              <div><i class="bi bi-calendar3 me-1 text-muted"></i> <%= new Date(testimonial.created_at).toLocaleString('pt-BR') %></div>
-            </div>
-            
-            <div class="mb-3">
-              <label class="form-label text-muted small">Última Atualização</label>
-              <div><i class="bi bi-clock-history me-1 text-muted"></i> <%= new Date(testimonial.updated_at).toLocaleString('pt-BR') %></div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mb-4">
-          <label class="form-label text-muted small">Depoimento</label>
-          <div class="p-3 bg-light rounded border">
-            <%= testimonial.testimonial %>
-          </div>
-        </div>
-        
-        <hr class="my-4">
-        
-        <div class="d-flex justify-content-between">
-          <% if (testimonial.is_available_for_frontend) { %>
-            <button type="button" class="btn btn-outline-secondary btn-unpublish" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Despublicar depoimento">
-              <i class="bi bi-eye-slash me-1"></i> Despublicar
-            </button>
-          <% } else { %>
-            <button type="button" class="btn btn-outline-success btn-publish" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Publicar depoimento">
-              <i class="bi bi-check-lg me-1"></i> Publicar
-            </button>
-          <% } %>
-          
-          <button type="button" class="btn btn-outline-danger btn-delete" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Excluir depoimento">
-            <i class="bi bi-trash me-1"></i> Excluir
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <div class="col-lg-4">
-    <% if (testimonial.video_path) { %>
-      <div class="card shadow-sm mb-4">
-        <div class="card-header bg-white py-3">
-          <h5 class="m-0 fw-bold text-primary">Vídeo do Depoimento</h5>
-        </div>
-        <div class="card-body p-0">
-          <div class="video-container">
-            <video controls class="w-100">
-              <source src="<%= testimonial.video_path %>" type="video/mp4">
-              Seu navegador não suporta a reprodução de vídeos.
-            </video>
-          </div>
-          <div class="p-3">
-            <div class="d-flex align-items-center">
-              <i class="bi bi-film text-primary me-2"></i>
-              <span class="small">Vídeo anexado ao depoimento</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% } else { %>
-      <div class="card shadow-sm mb-4">
-        <div class="card-header bg-white py-3">
-          <h5 class="m-0 fw-bold text-primary">Mídia</h5>
-        </div>
-        <div class="card-body text-center py-5">
-          <i class="bi bi-camera-video text-muted" style="font-size: 2rem;"></i>
-          <p class="text-muted mt-3">Nenhum vídeo anexado a este depoimento.</p>
-        </div>
-      </div>
-    <% } %>
-    
-  </div>
-</div>
+<!-- Incluir componente de detalhes do depoimento -->
+<%- include('./components/testimonialDetail') %>

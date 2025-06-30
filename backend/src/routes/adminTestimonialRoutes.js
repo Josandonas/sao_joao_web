@@ -45,4 +45,7 @@ router.get('/:id/unpublish', asyncHandler(adminTestimonialController.unpublishTe
 // Excluir depoimento
 router.get('/:id/delete', asyncHandler(adminTestimonialController.deleteTestimonial));
 
+// Obter dados do depoimento em formato JSON para o modal
+router.get('/:id/data', asyncHandler(adminTestimonialController.getTestimonialData));
+
 module.exports = router;

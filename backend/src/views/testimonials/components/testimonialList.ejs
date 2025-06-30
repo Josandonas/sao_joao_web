@@ -1,0 +1,142 @@
+<%# Componente para listagem de depoimentos %>
+
+<!-- Lista de Depoimentos -->
+<div class="card shadow-sm mb-4">
+  <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+    <h5 class="m-0 fw-bold text-primary">Depoimentos</h5>
+    <span class="badge bg-primary rounded-pill"><%= pagination.total %> registros</span>
+  </div>
+  <div class="card-body p-0">
+    <% if (testimonials && testimonials.length > 0) { %>
+      <div class="table-responsive">
+        <table class="table table-hover align-middle mb-0">
+          <thead class="table-light">
+            <tr>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Status</th>
+              <th>Data</th>
+              <th class="text-end">Ações</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% testimonials.forEach(testimonial => { %>
+              <tr>
+                <td>
+                  <div class="d-flex align-items-center">
+                    <div>
+                      <div class="fw-bold"><%= testimonial.name %></div>
+                      <div class="small text-muted"><%= testimonial.location %></div>
+                    </div>
+                  </div>
+                </td>
+                <td>
+                  <span class="badge bg-light text-dark"><%= testimonial.category %></span>
+                </td>
+                <td>
+                  <% if (testimonial.is_available_for_frontend) { %>
+                    <span class="badge bg-success">Publicado</span>
+                  <% } else { %>
+                    <span class="badge bg-secondary">Rascunho</span>
+                  <% } %>
+                </td>
+                <td>
+                  <span class="small text-muted"><%= new Date(testimonial.created_at).toLocaleDateString('pt-BR') %></span>
+                </td>
+                <td class="text-end">
+                  <div class="btn-group btn-group-sm">
+                    <a href="/admin/testimonials/<%= testimonial.id %>" class="btn btn-outline-secondary" data-bs-toggle="tooltip" title="Visualizar">
+                      <i class="bi bi-eye"></i>
+                    </a>
+                    <button type="button" class="btn btn-outline-primary edit-testimonial-btn" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Editar">
+                      <i class="bi bi-pencil"></i>
+                    </button>
+                    <% if (testimonial.is_available_for_frontend) { %>
+                      <button type="button" class="btn btn-outline-secondary btn-unpublish" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Despublicar">
+                        <i class="bi bi-eye-slash"></i>
+                      </button>
+                    <% } else { %>
+                      <button type="button" class="btn btn-outline-success btn-publish" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Publicar">
+                        <i class="bi bi-check-lg"></i>
+                      </button>
+                    <% } %>
+                    <button type="button" class="btn btn-outline-danger btn-delete" data-id="<%= testimonial.id %>" data-bs-toggle="tooltip" title="Excluir">
+                      <i class="bi bi-trash"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Paginação -->
+      <% if (pagination.totalPages > 1) { %>
+        <div class="d-flex justify-content-between align-items-center p-3 border-top">
+          <div class="small text-muted">
+            Mostrando <strong><%= ((pagination.page - 1) * pagination.limit) + 1 %></strong> a <strong><%= Math.min(pagination.page * pagination.limit, pagination.total) %></strong> de <strong><%= pagination.total %></strong> registros
+          </div>
+          <nav aria-label="Navegação de páginas">
+            <ul class="pagination pagination-sm mb-0">
+              <li class="page-item <%= pagination.page === 1 ? 'disabled' : '' %>">
+                <a class="page-link" href="/admin/testimonials?page=<%= pagination.page - 1 %>&category=<%= selectedCategory %>&status=<%= status %>" aria-label="Anterior">
+                  <span aria-hidden="true">&laquo;</span>
+                </a>
+              </li>
+              
+              <% 
+                // Mostrar apenas 5 páginas de cada vez
+                let startPage = Math.max(1, pagination.page - 2);
+                let endPage = Math.min(pagination.totalPages, startPage + 4);
+                
+                // Ajustar startPage se estamos perto do final
+                if (endPage - startPage < 4) {
+                  startPage = Math.max(1, endPage - 4);
+                }
+              %>
+              
+              <% if (startPage > 1) { %>
+                <li class="page-item">
+                  <a class="page-link" href="/admin/testimonials?page=1&category=<%= selectedCategory %>&status=<%= status %>">1</a>
+                </li>
+                <% if (startPage > 2) { %>
+                  <li class="page-item disabled"><span class="page-link">...</span></li>
+                <% } %>
+              <% } %>
+              
+              <% for(let i = startPage; i <= endPage; i++) { %>
+                <li class="page-item <%= pagination.page === i ? 'active' : '' %>">
+                  <a class="page-link" href="/admin/testimonials?page=<%= i %>&category=<%= selectedCategory %>&status=<%= status %>"><%= i %></a>
+                </li>
+              <% } %>
+              
+              <% if (endPage < pagination.totalPages) { %>
+                <% if (endPage < pagination.totalPages - 1) { %>
+                  <li class="page-item disabled"><span class="page-link">...</span></li>
+                <% } %>
+                <li class="page-item">
+                  <a class="page-link" href="/admin/testimonials?page=<%= pagination.totalPages %>&category=<%= selectedCategory %>&status=<%= status %>"><%= pagination.totalPages %></a>
+                </li>
+              <% } %>
+              
+              <li class="page-item <%= pagination.page === pagination.totalPages ? 'disabled' : '' %>">
+                <a class="page-link" href="/admin/testimonials?page=<%= pagination.page + 1 %>&category=<%= selectedCategory %>&status=<%= status %>" aria-label="Próxima">
+                  <span aria-hidden="true">&raquo;</span>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      <% } %>
+    <% } else { %>
+      <div class="text-center py-5">
+        <i class="bi bi-chat-square-text text-muted" style="font-size: 3rem;"></i>
+        <p class="text-muted mt-3 mb-3">Nenhum depoimento encontrado com os filtros selecionados.</p>
+        <button type="button" id="newTestimonialBtn" class="btn btn-primary">
+          <i class="bi bi-plus-circle me-1"></i> Criar Novo Depoimento
+        </button>
+      </div>
+    <% } %>
+  </div>
+</div>

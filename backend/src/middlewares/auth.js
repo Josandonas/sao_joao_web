@@ -15,33 +15,91 @@ const { logger } = require('../utils/logger');
  */
 const authenticate = async (req, res, next) => {
   try {
+    logger.info(`Verificando autenticação para rota: ${req.method} ${req.path}`);
+    
     // Verificar se o token está presente no cookie
     const token = req.cookies.auth_token;
+    
     if (!token) {
-      throw new AppError('Acesso não autorizado. Token não fornecido.', 401);
+      logger.warn(`Token não encontrado no cookie para rota: ${req.path}`);
+      
+      // Para rotas de API, retornar erro
+      if (req.path.startsWith('/api/')) {
+        throw new AppError('Acesso não autorizado. Token não fornecido.', 401);
+      }
+      
+      // Para rotas de páginas, redirecionar para login
+      logger.info('Redirecionando para página de login devido à ausência de token');
+      req.flash('error', 'Sessão expirada ou inválida. Por favor, faça login novamente.');
+      return res.redirect('/admin/login');
+    }
+
+    // Verificar se JWT_SECRET está definido
+    if (!process.env.JWT_SECRET) {
+      logger.error('JWT_SECRET não está definido no ambiente!');
+      process.env.JWT_SECRET = 'sao_joao_web_secret_key_2025'; // Fallback para desenvolvimento
+      logger.info('Usando JWT_SECRET padrão para desenvolvimento');
     }
 
     // Verificar e decodificar o token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    let decoded;
+    try {
+      decoded = jwt.verify(token, process.env.JWT_SECRET);
+      logger.info(`Token JWT verificado com sucesso para usuário ID: ${decoded.id}`);
+    } catch (jwtError) {
+      logger.error(`Erro ao verificar token JWT: ${jwtError.message}`);
+      
+      // Para rotas de API, retornar erro
+      if (req.path.startsWith('/api/')) {
+        throw new AppError(`Token inválido ou expirado: ${jwtError.message}`, 401);
+      }
+      
+      // Para rotas de páginas, redirecionar para login
+      req.flash('error', 'Sua sessão expirou ou é inválida. Por favor, faça login novamente.');
+      return res.redirect('/admin/login');
+    }
 
     // Buscar o usuário no banco de dados
-    const user = await query('SELECT id, username, full_name, email, is_admin FROM users WHERE id = ?', [decoded.id]);
+    try {
+      const user = await query('SELECT id, username, full_name, email, is_admin FROM users WHERE id = ?', [decoded.id]);
 
-    // Verificar se o usuário existe
-    if (!user || user.length === 0) {
-      throw new AppError('Usuário não encontrado.', 401);
+      // Verificar se o usuário existe
+      if (!user || user.length === 0) {
+        logger.warn(`Usuário não encontrado para ID: ${decoded.id}`);
+        
+        if (req.path.startsWith('/api/')) {
+          throw new AppError('Usuário não encontrado.', 401);
+        }
+        
+        req.flash('error', 'Usuário não encontrado. Por favor, faça login novamente.');
+        return res.redirect('/admin/login');
+      }
+
+      // Adicionar o usuário ao objeto de requisição
+      req.user = user[0];
+      logger.info(`Usuário autenticado: ${user[0].username} (ID: ${user[0].id})`);
+
+      next();
+    } catch (dbError) {
+      logger.error(`Erro ao buscar usuário no banco de dados: ${dbError.message}`);
+      
+      if (req.path.startsWith('/api/')) {
+        throw new AppError(`Erro ao verificar usuário: ${dbError.message}`, 500);
+      }
+      
+      req.flash('error', 'Ocorreu um erro ao verificar suas credenciais. Por favor, tente novamente.');
+      return res.redirect('/admin/login');
     }
-
-    // Adicionar o usuário ao objeto de requisição
-    req.user = user[0];
-
-    next();
   } catch (error) {
-    if (error.name === 'JsonWebTokenError') {
-      return next(new AppError('Token inválido.', 401));
-    }
-    if (error.name === 'TokenExpiredError') {
-      return next(new AppError('Token expirado.', 401));
+    if (error.name === 'JsonWebTokenError' || error.name === 'TokenExpiredError') {
+      // Para rotas de API, retornar erro
+      if (req.path.startsWith('/api/')) {
+        return next(new AppError(error.name === 'TokenExpiredError' ? 'Token expirado.' : 'Token inválido.', 401));
+      }
+      
+      // Para rotas de páginas, redirecionar para login
+      req.flash('error', 'Sessão expirada ou inválida. Por favor, faça login novamente.');
+      return res.redirect('/admin/login');
     }
     next(error);
   }

@@ -1,0 +1,37 @@
+<%# Componente para filtros de depoimentos %>
+
+<!-- Filtros -->
+<div class="card shadow-sm mb-4">
+  <div class="card-header bg-white py-3">
+    <h5 class="m-0 fw-bold text-primary">Filtros</h5>
+  </div>
+  <div class="card-body">
+    <form action="/admin/testimonials" method="GET" class="row g-3">
+      <div class="col-md-4">
+        <label for="category" class="form-label">Categoria</label>
+        <select class="form-select" id="category" name="category">
+          <option value="">Todas as categorias</option>
+          <% categories.forEach(category => { %>
+            <option value="<%= category %>" <%= selectedCategory === category ? 'selected' : '' %>><%= category %></option>
+          <% }) %>
+        </select>
+      </div>
+      <div class="col-md-4">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select" id="status" name="status">
+          <option value="all" <%= status === 'all' ? 'selected' : '' %>>Todos</option>
+          <option value="published" <%= status === 'published' ? 'selected' : '' %>>Publicados</option>
+          <option value="draft" <%= status === 'draft' ? 'selected' : '' %>>Rascunhos</option>
+        </select>
+      </div>
+      <div class="col-md-4 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary">
+          <i class="bi bi-filter me-1"></i> Filtrar
+        </button>
+        <a href="/admin/testimonials" class="btn btn-outline-secondary ms-2">
+          <i class="bi bi-x-circle me-1"></i> Limpar
+        </a>
+      </div>
+    </form>
+  </div>
+</div>
