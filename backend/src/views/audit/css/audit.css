@@ -1,0 +1,62 @@
+/**
+ * Estilos para o módulo de auditoria
+ */
+
+/* Tabela de logs */
+.audit-table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.audit-table th, 
+.audit-table td {
+  vertical-align: middle;
+}
+
+.log-actions {
+  width: 100px;
+  text-align: center;
+}
+
+.log-user {
+  width: 150px;
+}
+
+.log-date {
+  width: 180px;
+}
+
+.log-module {
+  width: 120px;
+}
+
+.log-action {
+  width: 120px;
+}
+
+/* Filtros */
+.filter-row {
+  margin-bottom: 1rem;
+}
+
+/* Detalhes do log */
+.log-details {
+  margin-top: 1rem;
+}
+
+.log-data {
+  background-color: #f8f9fa;
+  padding: 1rem;
+  border-radius: 0.25rem;
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* Badges para status */
+.badge-module {
+  background-color: #6c757d;
+}
+
+.badge-action {
+  background-color: #17a2b8;
+}

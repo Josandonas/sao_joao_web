@@ -1,0 +1,39 @@
+<%- contentFor('title') %>
+<%= locals.pageTitle %>
+
+<%- contentFor('style') %>
+<link rel="stylesheet" href="/views/users/css/users.css">
+
+
+
+<%- contentFor('content') %>
+<div class="container-fluid px-4">
+  <!-- Título da página -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Detalhes do Usuário - <%= locals.user.full_name %></h1>
+    <div>
+      <a href="/admin/users/<%= locals.user.id %>/edit" class="btn btn-primary">
+        <i class="bi bi-pencil"></i> Editar
+      </a>
+      <a href="/admin/users" class="btn btn-outline-secondary ms-2">
+        <i class="bi bi-arrow-left"></i> Voltar
+      </a>
+    </div>
+  </div>
+  
+  <%- include('../components/flashMessages') %>
+  
+  <!-- Conteúdo principal -->
+  <div class="row">
+    <div class="col-12">
+      <!-- Detalhes do usuário -->
+      <%- include('./components/userDetail', { user: locals.user, permissions: locals.permissions, currentUser: locals.currentUser }) %>
+      
+      <!-- Seção de permissões -->
+      <%- include('./components/userPermissions', { user: locals.user, permissions: locals.permissions, allModules: locals.allModules, currentUser: locals.currentUser }) %>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('script') %>
+<script src="/views/users/js/users.js"></script>

@@ -1,0 +1,87 @@
+<% pageTitle = 'Detalhes do Log de Auditoria' %>
+
+<%- contentFor('style') %>
+<link rel="stylesheet" href="/views/audit/css/audit.css">
+
+
+
+<div class="container-fluid px-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Detalhes do Log de Auditoria</h1>
+    <a href="/admin/audit" class="btn btn-secondary">
+      <i class="bi bi-arrow-left"></i> Voltar
+    </a>
+  </div>
+  
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card shadow mb-4">
+        <div class="card-header py-3 d-flex justify-content-between align-items-center">
+          <h6 class="m-0 font-weight-bold text-primary">
+            Log #<%= log.id %> - <%= new Date(log.timestamp).toLocaleString('pt-BR') %>
+          </h6>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th style="width: 200px;">ID</th>
+                  <td><%= log.id %></td>
+                </tr>
+                <tr>
+                  <th>Usuário</th>
+                  <td>
+                    <% if (log.username) { %>
+                      <%= log.full_name %> (<%= log.username %>)
+                    <% } else { %>
+                      <span class="text-muted">Usuário não encontrado</span>
+                    <% } %>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Ação</th>
+                  <td>
+                    <span class="badge <%= log.action === 'create' ? 'bg-success' : 
+                                        log.action === 'update' ? 'bg-warning' : 
+                                        log.action === 'delete' ? 'bg-danger' : 
+                                        log.action === 'login' ? 'bg-info' : 
+                                        log.action === 'logout' ? 'bg-secondary' : 'bg-primary' %>">
+                      <%= log.action.toUpperCase() %>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Módulo</th>
+                  <td><%= log.entity %></td>
+                </tr>
+                <tr>
+                  <th>ID da Entidade</th>
+                  <td><%= log.entity_id || 'N/A' %></td>
+                </tr>
+                <tr>
+                  <th>Data e Hora</th>
+                  <td><%= new Date(log.timestamp).toLocaleString('pt-BR') %></td>
+                </tr>
+                <tr>
+                  <th>Endereço IP</th>
+                  <td><%= log.ip_address %></td>
+                </tr>
+                <tr>
+                  <th>User Agent</th>
+                  <td><small><%= log.user_agent %></small></td>
+                </tr>
+                <tr>
+                  <th>Detalhes</th>
+                  <td>
+                    <pre class="audit-details"><%= log.details ? JSON.stringify(JSON.parse(log.details), null, 2) : 'Sem detalhes' %></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

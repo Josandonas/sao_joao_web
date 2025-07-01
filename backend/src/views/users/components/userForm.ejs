@@ -1,0 +1,85 @@
+<!-- Componente de formulário de usuário (usado tanto para criação quanto edição) -->
+<% if (!locals.isModal) { %>
+<form class="user-form" method="POST" action="<%= locals.formAction || '' %>">
+<% } %>
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="<%= locals.isModal ? 'username_modal' : 'username' %>" class="form-label required-field">Username</label>
+      <input type="text" class="form-control" id="<%= locals.isModal ? 'username_modal' : 'username' %>" name="username" 
+             value="<%= locals.user ? locals.user.username : '' %>" 
+             <%= locals.isEditing ? 'readonly' : 'required' %>>
+      <div class="form-text">
+        <%= locals.isEditing ? 'O username não pode ser alterado.' : 'Escolha um username único para login.' %>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="<%= locals.isModal ? 'fullName_modal' : 'fullName' %>" class="form-label required-field">Nome Completo</label>
+      <input type="text" class="form-control" id="<%= locals.isModal ? 'fullName_modal' : 'fullName' %>" name="fullName" 
+             value="<%= locals.user ? locals.user.full_name : '' %>" required>
+    </div>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="<%= locals.isModal ? 'email_modal' : 'email' %>" class="form-label required-field">Email</label>
+      <input type="email" class="form-control" id="<%= locals.isModal ? 'email_modal' : 'email' %>" name="email" 
+             value="<%= locals.user ? locals.user.email : '' %>" required>
+    </div>
+    <div class="col-md-6">
+      <label for="<%= locals.isModal ? 'phone_modal' : 'phone' %>" class="form-label">Telefone</label>
+      <input type="tel" class="form-control" id="<%= locals.isModal ? 'phone_modal' : 'phone' %>" name="phone" 
+             value="<%= locals.user && locals.user.phone ? locals.user.phone : '' %>">
+    </div>
+  </div>
+  
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label for="<%= locals.isModal ? 'password_modal' : 'password' %>" class="form-label <%= locals.isEditing ? '' : 'required-field' %>">
+        <%= locals.isEditing ? 'Nova Senha (deixe em branco para manter a atual)' : 'Senha' %>
+      </label>
+      <input type="password" class="form-control" id="<%= locals.isModal ? 'password_modal' : 'password' %>" name="password" 
+             <%= locals.isEditing ? '' : 'required' %>>
+      <div class="password-strength-meter">
+        <div id="<%= locals.isModal ? 'passwordStrengthBar_modal' : 'passwordStrengthBar' %>"></div>
+      </div>
+      <div class="password-strength-text" id="<%= locals.isModal ? 'passwordStrengthText_modal' : 'passwordStrengthText' %>"></div>
+    </div>
+    <div class="col-md-6">
+      <label for="<%= locals.isModal ? 'passwordConfirm_modal' : 'passwordConfirm' %>" class="form-label <%= locals.isEditing ? '' : 'required-field' %>">
+        Confirmar Senha
+      </label>
+      <input type="password" class="form-control" id="<%= locals.isModal ? 'passwordConfirm_modal' : 'passwordConfirm' %>" name="passwordConfirm" 
+             <%= locals.isEditing ? '' : 'required' %>>
+    </div>
+  </div>
+  
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" id="<%= locals.isModal ? 'isAdmin_modal' : 'isAdmin' %>" name="isAdmin" 
+               <%= locals.user && locals.user.is_admin ? 'checked' : '' %>>
+        <label class="form-check-label" for="<%= locals.isModal ? 'isAdmin_modal' : 'isAdmin' %>">
+          Administrador
+        </label>
+        <div class="form-text">
+          Administradores têm acesso completo ao sistema.
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <% if (!locals.isModal) { %>
+  <div class="d-flex justify-content-between">
+    <a href="/admin/users" class="btn btn-secondary">
+      <i class="bi bi-arrow-left"></i> Voltar
+    </a>
+    <button type="submit" class="btn btn-primary">
+      <i class="bi bi-save"></i> <%= locals.isEditing ? 'Atualizar' : 'Salvar' %>
+    </button>
+  </div>
+  <% } %>
+
+  <input type="hidden" name="userId" id="<%= locals.isModal ? 'userId_modal' : 'userId' %>" value="<%= locals.user ? locals.user.id : '' %>">
+<% if (!locals.isModal) { %>
+</form>
+<% } %>

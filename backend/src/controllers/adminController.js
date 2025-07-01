@@ -37,12 +37,12 @@ const renderDashboard = async (req, res) => {
     let activities = [];
     try {
       activities = await query(
-        `SELECT a.*, u.name FROM audit_logs a 
+        `SELECT a.*, u.full_name FROM user_action_logs a 
          LEFT JOIN users u ON a.user_id = u.id 
-         ORDER BY a.created_at DESC LIMIT 10`
+         ORDER BY a.timestamp DESC LIMIT 10`
       );
     } catch (err) {
-      logger.warn('Tabela audit_logs não encontrada ou erro ao consultar:', err);
+      logger.warn('Tabela user_action_logs não encontrada ou erro ao consultar:', err);
       // Continuar com array vazio se a tabela não existir
     }
     
@@ -75,16 +75,87 @@ const renderDashboard = async (req, res) => {
  */
 const renderUsersPage = async (req, res) => {
   try {
-    // Obter todos os usuários
-    const users = await query('SELECT * FROM users ORDER BY created_at DESC');
+    // Parâmetros de paginação e filtros
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 10;
+    const offset = (page - 1) * limit;
+    const search = req.query.search || '';
+    const role = req.query.role || '';
+    const sort = req.query.sort || 'created_at_desc';
+    
+    // Construir a consulta SQL com filtros
+    let countSql = 'SELECT COUNT(*) as total FROM users';
+    let sql = 'SELECT * FROM users';
+    const params = [];
+    
+    // Adicionar filtros à consulta
+    const whereConditions = [];
+    
+    if (search) {
+      whereConditions.push('(username LIKE ? OR full_name LIKE ? OR email LIKE ?)');
+      const searchParam = `%${search}%`;
+      params.push(searchParam, searchParam, searchParam);
+    }
+    
+    if (role) {
+      if (role === 'admin') {
+        whereConditions.push('is_admin = 1');
+      } else if (role === 'user') {
+        whereConditions.push('is_admin = 0');
+      }
+    }
+    
+    if (whereConditions.length > 0) {
+      countSql += ' WHERE ' + whereConditions.join(' AND ');
+      sql += ' WHERE ' + whereConditions.join(' AND ');
+    }
+    
+    // Adicionar ordenação
+    if (sort === 'created_at_desc') {
+      sql += ' ORDER BY created_at DESC';
+    } else if (sort === 'created_at_asc') {
+      sql += ' ORDER BY created_at ASC';
+    } else if (sort === 'username_asc') {
+      sql += ' ORDER BY username ASC';
+    } else if (sort === 'username_desc') {
+      sql += ' ORDER BY username DESC';
+    }
+    
+    // Adicionar paginação
+    sql += ' LIMIT ? OFFSET ?';
+    params.push(limit, offset);
+    
+    // Executar consultas
+    const [countResult] = await query(countSql, params.slice(0, params.length - 2));
+    const users = await query(sql, params);
+    const total = countResult.total;
+    
+    // Construir query string para links de paginação
+    const queryParams = new URLSearchParams();
+    if (search) queryParams.append('search', search);
+    if (role) queryParams.append('role', role);
+    if (sort) queryParams.append('sort', sort);
+    const queryString = queryParams.toString();
     
     // Renderizar página de usuários
-    res.render('users', {
+    res.render('users/index', {
       pageTitle: 'Gerenciamento de Usuários',
       activeRoute: 'users',
-      user: req.user,
+      currentUser: req.user,
       messages: req.flash(),
-      users
+      users,
+      pagination: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit)
+      },
+      filters: {
+        search,
+        role,
+        sort
+      },
+      queryString
     });
   } catch (error) {
     logger.error(`Erro ao renderizar página de usuários: ${error.message}`, { error });
@@ -233,7 +304,7 @@ const updateProfile = async (req, res) => {
 
 module.exports = {
   renderDashboard,
-  renderUsersPage,
+  // renderUsersPage removido pois a rota foi movida para userRoutes.js
   renderLogsPage,
   renderProfilePage,
   updateProfile

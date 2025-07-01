@@ -1,0 +1,87 @@
+<!-- Componente de filtros para auditoria -->
+<div class="card shadow mb-4">
+  <div class="card-header py-3 d-flex justify-content-between align-items-center">
+    <h6 class="m-0 font-weight-bold text-primary">Filtros</h6>
+    <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+      <i class="bi bi-funnel"></i> Mostrar/Ocultar
+    </button>
+  </div>
+  <div class="collapse" id="filterCollapse">
+    <div class="card-body">
+      <form id="auditFilterForm" method="GET" action="/admin/audit">
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="searchTerm" class="form-label">Busca Geral</label>
+            <input type="text" class="form-control" id="searchTerm" name="search" placeholder="Buscar em todos os campos" value="<%= locals.filters && locals.filters.search ? locals.filters.search : '' %>">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="moduleFilter" class="form-label">Módulo</label>
+            <select class="form-select" id="moduleFilter" name="module">
+              <option value="">Todos os Módulos</option>
+              <% if (locals.filterOptions && locals.filterOptions.modules) { %>
+                <% locals.filterOptions.modules.forEach(moduleItem => { %>
+                  <option value="<%= moduleItem.entity %>" <%= locals.filters && locals.filters.module === moduleItem.entity ? 'selected' : '' %>><%= moduleItem.entity %></option>
+                <% }); %>
+              <% } %>
+            </select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="actionFilter" class="form-label">Ação</label>
+            <select class="form-select" id="actionFilter" name="action">
+              <option value="">Todas as Ações</option>
+              <% if (locals.filterOptions && locals.filterOptions.actions) { %>
+                <% locals.filterOptions.actions.forEach(actionItem => { %>
+                  <option value="<%= actionItem.action %>" <%= locals.filters && locals.filters.action === actionItem.action ? 'selected' : '' %>><%= actionItem.action.toUpperCase() %></option>
+                <% }); %>
+              <% } %>
+            </select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="userFilter" class="form-label">Usuário</label>
+            <select class="form-select" id="userFilter" name="userId">
+              <option value="">Todos os Usuários</option>
+              <% if (locals.filterOptions && locals.filterOptions.users) { %>
+                <% locals.filterOptions.users.forEach(user => { %>
+                  <option value="<%= user.id %>" <%= locals.filters && locals.filters.userId === user.id.toString() ? 'selected' : '' %>><%= user.username %> (<%= user.full_name %>)</option>
+                <% }); %>
+              <% } %>
+            </select>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="startDate" class="form-label">Data Inicial</label>
+            <input type="date" class="form-control" id="startDate" name="startDate" value="<%= locals.filters && locals.filters.startDate ? locals.filters.startDate : '' %>">
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="endDate" class="form-label">Data Final</label>
+            <input type="date" class="form-control" id="endDate" name="endDate" value="<%= locals.filters && locals.filters.endDate ? locals.filters.endDate : '' %>">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 mb-3">
+            <label for="sortBy" class="form-label">Ordenar por</label>
+            <select class="form-select" id="sortBy" name="sort">
+              <option value="timestamp_desc" <%= locals.filters && locals.filters.sort === 'timestamp_desc' ? 'selected' : '' %>>Data (mais recente)</option>
+              <option value="timestamp_asc" <%= locals.filters && locals.filters.sort === 'timestamp_asc' ? 'selected' : '' %>>Data (mais antiga)</option>
+              <option value="user_asc" <%= locals.filters && locals.filters.sort === 'user_asc' ? 'selected' : '' %>>Usuário (A-Z)</option>
+              <option value="user_desc" <%= locals.filters && locals.filters.sort === 'user_desc' ? 'selected' : '' %>>Usuário (Z-A)</option>
+              <option value="action_asc" <%= locals.filters && locals.filters.sort === 'action_asc' ? 'selected' : '' %>>Ação (A-Z)</option>
+              <option value="action_desc" <%= locals.filters && locals.filters.sort === 'action_desc' ? 'selected' : '' %>>Ação (Z-A)</option>
+              <option value="module_asc" <%= locals.filters && locals.filters.sort === 'module_asc' ? 'selected' : '' %>>Módulo (A-Z)</option>
+              <option value="module_desc" <%= locals.filters && locals.filters.sort === 'module_desc' ? 'selected' : '' %>>Módulo (Z-A)</option>
+            </select>
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="submit" class="btn btn-primary me-2">
+            <i class="bi bi-search"></i> Filtrar
+          </button>
+          <a href="/admin/audit" class="btn btn-outline-secondary">
+            <i class="bi bi-x-circle"></i> Limpar
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

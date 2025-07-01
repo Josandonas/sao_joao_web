@@ -34,6 +34,7 @@ app.use(expressLayouts);
 app.set('layout', 'layouts/main');
 app.set('layout extractScripts', true);
 app.set('layout extractStyles', true);
+app.set('layout extractMetas', true);
 
 // Middlewares de segurança e utilidades
 app.use(helmet({
@@ -65,7 +66,7 @@ app.use(morgan('combined', { stream: { write: message => logger.http(message.tri
 app.use(addTemplateVariables);
 
 // Servir arquivos estáticos da pasta public
-app.use('/public', express.static(path.join(__dirname, '../public')));
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Servir arquivos estáticos das pastas de views (CSS e JS específicos de cada módulo)
 app.use('/views', express.static(path.join(__dirname, 'views')));

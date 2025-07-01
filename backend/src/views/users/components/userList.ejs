@@ -1,0 +1,87 @@
+<!-- Componente de listagem de usuários -->
+<% if (users && users.length > 0) { %>
+  <div class="table-responsive">
+    <table class="table table-hover users-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col" class="user-role">Perfil</th>
+          <th scope="col">Criado em</th>
+          <th scope="col" class="user-actions">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% users.forEach((user, index) => { %>
+          <tr>
+            <td><%= (pagination.page - 1) * pagination.limit + index + 1 %></td>
+            <td><%= user.full_name %></td>
+            <td><%= user.username %></td>
+            <td><%= user.email %></td>
+            <td class="user-role">
+              <% if (user.is_admin) { %>
+                <span class="badge bg-primary">Administrador</span>
+              <% } else { %>
+                <span class="badge bg-secondary">Usuário</span>
+              <% } %>
+            </td>
+            <td><%= new Date(user.created_at).toLocaleDateString('pt-BR') %></td>
+            <td class="user-actions">
+              <div class="btn-group" role="group">
+                <a href="/admin/users/<%= user.id %>/view" class="btn btn-sm btn-info action-btn" title="Visualizar">
+                  <i class="bi bi-eye"></i>
+                </a>
+                <a href="/admin/users/<%= user.id %>/edit" class="btn btn-sm btn-warning action-btn" title="Editar">
+                  <i class="bi bi-pencil"></i>
+                </a>
+                <% if (user.id !== currentUser.id) { %>
+                  <button type="button" class="btn btn-sm btn-danger action-btn delete-user-btn" 
+                          data-bs-toggle="modal" 
+                          data-bs-target="#deleteUserModal" 
+                          data-user-id="<%= user.id %>" 
+                          data-user-name="<%= user.full_name %>"
+                          title="Excluir">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                <% } else { %>
+                  <button type="button" class="btn btn-sm btn-danger action-btn" disabled title="Não é possível excluir o próprio usuário">
+                    <i class="bi bi-trash"></i>
+                  </button>
+                <% } %>
+              </div>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  </div>
+  
+  <!-- Modal de confirmação de exclusão -->
+  <div class="modal fade delete-confirmation-modal" id="deleteUserModal" tabindex="-1" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header bg-danger text-white">
+          <h5 class="modal-title" id="deleteUserModalLabel">Confirmar Exclusão</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <p>Tem certeza que deseja excluir o usuário <span id="deleteUserName"></span>?</p>
+          <p class="text-danger"><strong>Atenção:</strong> Esta ação não pode ser desfeita.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+          <form method="POST" action="">
+            <input type="hidden" id="deleteUserId" name="userId">
+            <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+<% } else { %>
+  <div class="alert alert-info">
+    <i class="bi bi-info-circle"></i> Nenhum usuário encontrado. Utilize o botão "Novo Usuário" para adicionar um usuário ao sistema.
+  </div>
+<% } %>

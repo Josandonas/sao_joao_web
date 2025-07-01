@@ -1,0 +1,26 @@
+<%- contentFor('title') %>
+Auditoria do Sistema
+
+<%- contentFor('style') %>
+<link rel="stylesheet" href="/views/audit/css/audit.css">
+
+
+
+<%- contentFor('body') %>
+<div class="container-fluid px-4">
+  <!-- Filtros -->
+  <%- include('./components/auditFilters', { 
+    filters: locals.filters || {}, 
+    filterOptions: locals.filterOptions || {} 
+  }) %>
+  
+  <!-- Lista de Logs -->
+  <%- include('./components/auditList', { 
+    logs: locals.logs || [], 
+    pagination: locals.pagination || {}, 
+    queryString: locals.queryString || '' 
+  }) %>
+</div>
+
+<%- contentFor('script') %>
+<script src="/views/audit/js/audit.js"></script>

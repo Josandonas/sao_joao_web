@@ -29,7 +29,7 @@ const setupRoutes = (app) => {
     res.json({ message: 'API do São João Web' });
   });
   
-  // Rotas de depoimentos
+  // Rotas de depoimentos API
   app.use('/api/testimonials', testimonialRoutes);
   
   // Rota raiz - exibir a landing page (deve ser montada por último para não interferir com outras rotas)

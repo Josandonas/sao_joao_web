@@ -1,0 +1,91 @@
+/**
+ * Estilos específicos para o módulo de gerenciamento de usuários
+ */
+
+/* Estilos para a tabela de usuários */
+.users-table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.users-table th {
+  background-color: #f8f9fa;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.users-table .user-actions {
+  min-width: 150px;
+  text-align: center;
+}
+
+.users-table .user-role {
+  text-align: center;
+}
+
+.users-table .user-status {
+  text-align: center;
+}
+
+/* Estilos para os formulários de usuário */
+.user-form .required-field::after {
+  content: "*";
+  color: red;
+  margin-left: 4px;
+}
+
+.user-form .password-strength-meter {
+  height: 5px;
+  margin-top: 5px;
+  background-color: #e9ecef;
+  border-radius: 3px;
+}
+
+.user-form .password-strength-meter div {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease-in-out;
+}
+
+.user-form .password-strength-text {
+  font-size: 0.8rem;
+  margin-top: 3px;
+}
+
+/* Estilos para os detalhes do usuário */
+.user-details .user-avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e9ecef;
+}
+
+.user-details .user-info-card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.user-details .user-info-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilos para o modal de confirmação de exclusão */
+.delete-confirmation-modal .user-to-delete {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+  .users-table .user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .users-table .action-btn {
+    width: 100%;
+    margin: 2px 0;
+  }
+}

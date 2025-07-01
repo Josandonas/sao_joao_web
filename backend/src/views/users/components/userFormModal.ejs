@@ -1,0 +1,24 @@
+<!-- Modal para criação/edição de usuários -->
+<div class="modal fade" id="userFormModal" tabindex="-1" aria-labelledby="userFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userFormModalLabel">
+          <%= locals.isEditing ? 'Editar Usuário' : 'Novo Usuário' %>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <form class="user-form" id="userModalForm" method="POST" action="<%= locals.formAction || '' %>">
+          <%- include('./userForm', { user: locals.user || {}, formAction: locals.formAction || '', isEditing: locals.isEditing || false, currentUser: locals.currentUser || {}, isModal: true }) %>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="saveUserBtn">
+          <i class="bi bi-save"></i> <%= locals.isEditing ? 'Atualizar' : 'Salvar' %>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

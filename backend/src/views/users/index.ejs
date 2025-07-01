@@ -1,0 +1,63 @@
+<%- contentFor('title') %>
+Gerenciamento de Usuários
+
+<%- contentFor('style') %>
+<link rel="stylesheet" href="/views/users/css/users.css">
+
+
+
+<%- contentFor('body') %>
+<div class="container-fluid px-4">
+  <!-- Título da página -->
+  <div class="d-flex justify-content-end mb-4">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userFormModal">
+      <i class="bi bi-person-plus"></i> Novo Usuário
+    </button>
+  </div>
+  
+  <%- include('../components/flashMessages') %>
+  
+  <!-- Filtros e busca -->
+  <%- include('./components/userFilters', { filters: locals.filters || {} }) %>
+  
+  <!-- Lista de usuários -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary">Usuários</h6>
+    </div>
+    <div class="card-body">
+      <%- include('./components/userList', { users: locals.users || [], pagination: locals.pagination || { page: 1, limit: 10, totalPages: 1 }, currentUser: locals.currentUser || {} }) %>
+    </div>
+  </div>
+  
+  <!-- Paginação -->
+  <% if (locals.pagination && locals.pagination.totalPages > 1) { %>
+    <nav aria-label="Paginação de usuários">
+      <ul class="pagination justify-content-center">
+        <li class="page-item <%= locals.pagination.page === 1 ? 'disabled' : '' %>">
+          <a class="page-link" href="/admin/users?page=<%= locals.pagination.page - 1 %><%= locals.queryString || '' %>" aria-label="Anterior">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        
+        <% for(let i = 1; i <= locals.pagination.totalPages; i++) { %>
+          <li class="page-item <%= locals.pagination.page === i ? 'active' : '' %>">
+            <a class="page-link" href="/admin/users?page=<%= i %><%= locals.queryString || '' %>"><%= i %></a>
+          </li>
+        <% } %>
+        
+        <li class="page-item <%= locals.pagination.page === locals.pagination.totalPages ? 'disabled' : '' %>">
+          <a class="page-link" href="/admin/users?page=<%= locals.pagination.page + 1 %><%= locals.queryString || '' %>" aria-label="Próximo">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  <% } %>
+</div>
+
+<%- contentFor('script') %>
+<script src="/js/users.js"></script>
+
+<!-- Modal de formulário de usuário -->
+<%- include('./components/userFormModal', { isEditing: false, formAction: '/admin/users/create', user: {}, currentUser: locals.currentUser || {} }) %>

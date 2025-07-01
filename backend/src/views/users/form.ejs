@@ -1,0 +1,30 @@
+<%- contentFor('title') %>
+<%= locals.pageTitle %>
+
+<%- contentFor('style') %>
+<link rel="stylesheet" href="/views/users/css/users.css">
+
+
+
+<%- contentFor('content') %>
+<div class="container-fluid px-4">
+  <!-- Título da página -->
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="h3 mb-0 text-gray-800"><%= locals.isEditing ? `Editar Usuário - ${locals.user.full_name}` : 'Novo Usuário' %></h1>
+  </div>
+  
+  <%- include('../components/flashMessages') %>
+  
+  <!-- Conteúdo principal -->
+  <div class="card shadow mb-4">
+    <div class="card-header py-3">
+      <h6 class="m-0 font-weight-bold text-primary"><%= locals.isEditing ? 'Formulário de Edição' : 'Formulário de Cadastro' %></h6>
+    </div>
+    <div class="card-body">
+      <%- include('./components/userForm', { user: locals.user || {}, formAction: locals.formAction, isEditing: locals.isEditing, currentUser: locals.currentUser || {} }) %>
+    </div>
+  </div>
+</div>
+
+<%- contentFor('script') %>
+<script src="/views/users/js/users.js"></script>

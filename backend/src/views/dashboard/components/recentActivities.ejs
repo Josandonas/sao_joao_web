@@ -8,14 +8,14 @@
       <ul class="timeline">
         <% activities.forEach(activity => { %>
           <li class="timeline-item mb-4">
-            <div class="timeline-marker <%= activity.type === 'create' ? 'bg-success' : activity.type === 'update' ? 'bg-primary' : 'bg-danger' %>">
-              <i class="bi <%= activity.type === 'create' ? 'bi-plus' : activity.type === 'update' ? 'bi-pencil' : 'bi-trash' %>"></i>
+            <div class="timeline-marker <%= activity.action.toLowerCase().includes('create') ? 'bg-success' : activity.action.toLowerCase().includes('update') || activity.action.toLowerCase().includes('login') ? 'bg-primary' : 'bg-danger' %>">
+              <i class="bi <%= activity.action.toLowerCase().includes('create') ? 'bi-plus' : activity.action.toLowerCase().includes('update') ? 'bi-pencil' : activity.action.toLowerCase().includes('login') ? 'bi-box-arrow-in-right' : activity.action.toLowerCase().includes('logout') ? 'bi-box-arrow-right' : 'bi-activity' %>"></i>
             </div>
             <div class="timeline-content">
-              <h6 class="mb-0"><%= activity.user.name %></h6>
-              <p class="text-muted mb-0"><%= activity.description %></p>
+              <h6 class="mb-0"><%= activity.full_name || 'Usuário' %></h6>
+              <p class="text-muted mb-0"><%= activity.action %> - <%= activity.entity || '' %></p>
               <small class="text-muted">
-                <i class="bi bi-clock me-1"></i> <%= new Date(activity.created_at).toLocaleString('pt-BR') %>
+                <i class="bi bi-clock me-1"></i> <%= new Date(activity.timestamp).toLocaleString('pt-BR') %>
               </small>
             </div>
           </li>
