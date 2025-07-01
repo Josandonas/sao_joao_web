@@ -185,7 +185,7 @@ const renderAuditList = asyncHandler(async (req, res) => {
  */
 const renderAuditDetail = asyncHandler(async (req, res, next) => {
   const logId = req.params.id;
-  
+  console.log(`Buscando detalhes do log ID: ${logId}`);
   // Buscar log
   const logs = await query(
     `SELECT 
@@ -224,7 +224,169 @@ const renderAuditDetail = asyncHandler(async (req, res, next) => {
   });
 });
 
+/**
+ * Buscar detalhes de um log de auditoria
+ * @route GET /admin/audit/item/:id
+ */
+/*
+const getAuditDetail = asyncHandler(async (req, res) => {
+  const logId = req.params.id;
+  console.log(`Buscando detalhes do log ID: ${logId}`);
+  try {
+    // Buscar log
+    const logs = await query(
+      `SELECT 
+        l.id, 
+        l.user_id, 
+        l.action, 
+        l.entity, 
+        l.entity_id, 
+        l.details, 
+        l.ip_address, 
+        l.user_agent, 
+        l.timestamp,
+        u.username,
+        u.full_name
+      FROM 
+        user_action_logs l
+      LEFT JOIN 
+        users u ON l.user_id = u.id
+      WHERE 
+        l.id = ?`,
+      [logId]
+    );
+    console.log(logs);
+    
+    if (!logs || logs.length === 0) {
+      return res.status(404).json({ success: false, message: 'Registro de auditoria não encontrado.' });
+    }
+    
+    // Formatar o log para a resposta
+    const log = logs[0];
+    
+    // Garantir que os campos existam e estejam formatados corretamente
+    let formattedDetails = null;
+    if (log.details) {
+      try {
+        formattedDetails = typeof log.details === 'string' ? JSON.parse(log.details) : log.details;
+      } catch (e) {
+        formattedDetails = { error: 'Formato inválido', raw: log.details };
+      }
+    }
+    
+    let formattedLog = {
+      id: log.id,
+      user_id: log.user_id,
+      username: log.username || 'N/A',
+      full_name: log.full_name || 'N/A',
+      action: log.action,
+      entity: log.entity,
+      entity_id: log.entity_id,
+      ip_address: log.ip_address,
+      user_agent: log.user_agent,
+      timestamp: log.timestamp,
+      formattedTimestamp: new Date(log.timestamp).toLocaleString('pt-BR'),
+      formattedDetails: formattedDetails
+    };
+    
+    res.json({ success: true, log: formattedLog });
+  } catch (error) {
+    res.status(500).json({ success: false, message: 'Erro ao buscar detalhes do log', error: error.message });
+  }
+});
+*/
+/**
+ * Renderiza o modal de detalhes de um log de auditoria
+ * @route GET /admin/audit/modal/:id
+ */
+const renderAuditModal = asyncHandler(async (req, res) => {
+  const logId = req.params.id;
+  console.log(`Renderizando modal para o log ID: ${logId}`);
+  
+  try {
+    // Buscar log
+    const logs = await query(
+      `SELECT 
+        l.id, 
+        l.user_id, 
+        l.action, 
+        l.entity, 
+        l.entity_id, 
+        l.details, 
+        l.ip_address, 
+        l.user_agent, 
+        l.timestamp,
+        u.username,
+        u.full_name
+      FROM 
+        user_action_logs l
+      LEFT JOIN 
+        users u ON l.user_id = u.id
+      WHERE 
+        l.id = ?`,
+      [logId]
+    );
+    
+    console.log(`Resultado da consulta para o log ID ${logId}:`, logs ? logs.length : 0, 'registros encontrados');
+    
+    if (!logs || logs.length === 0) {
+      console.log(`Log ID ${logId} não encontrado`);
+      return res.status(404).render('audit/components/auditDetailModalContent', {
+        error: 'Registro de auditoria não encontrado.'
+      });
+    }
+    
+    // Formatar o log para a resposta
+    const log = logs[0];
+    console.log(`Log encontrado:`, { id: log.id, action: log.action, entity: log.entity });
+    
+    // Garantir que os campos existam e estejam formatados corretamente
+    let formattedDetails = null;
+    if (log.details) {
+      try {
+        formattedDetails = typeof log.details === 'string' ? JSON.parse(log.details) : log.details;
+        console.log('Detalhes JSON parseados com sucesso');
+      } catch (e) {
+        console.error(`Erro ao parsear JSON dos detalhes:`, e);
+        formattedDetails = { error: 'Formato inválido', raw: log.details };
+      }
+    }
+    
+    let formattedLog = {
+      id: log.id,
+      user_id: log.user_id,
+      username: log.username || 'N/A',
+      full_name: log.full_name || 'N/A',
+      action: log.action,
+      entity: log.entity,
+      entity_id: log.entity_id,
+      ip_address: log.ip_address,
+      user_agent: log.user_agent,
+      timestamp: log.timestamp,
+      formattedTimestamp: new Date(log.timestamp).toLocaleString('pt-BR'),
+      formattedDetails: formattedDetails
+    };
+    
+    console.log('Log formatado e pronto para renderizar');
+    
+    // Renderizar apenas o conteúdo interno do modal
+    res.render('audit/components/auditDetailModalContent', {
+      log: formattedLog,
+      error: null
+    });
+    
+    console.log('Conteúdo do modal renderizado com sucesso para o log ID:', logId);
+  } catch (error) {
+    console.error(`Erro ao renderizar modal:`, error);
+    res.status(500).render('audit/components/auditDetailModalContent', {
+      error: 'Erro ao buscar detalhes do log: ' + error.message
+    });
+  }
+});
+
 module.exports = {
   renderAuditList,
-  renderAuditDetail
+  renderAuditDetail,
+//  getAuditDetail,
+  renderAuditModal
 };

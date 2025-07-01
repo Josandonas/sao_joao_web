@@ -48,8 +48,31 @@
   background-color: #f8f9fa;
   padding: 1rem;
   border-radius: 0.25rem;
+}
+
+/* Estilos para o modal de detalhes */
+.audit-details {
+  max-height: 300px;
+  overflow-y: auto;
   font-family: monospace;
   white-space: pre-wrap;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+/* Botão de detalhes */
+.view-audit-details {
+  white-space: nowrap;
+}
+
+/* Spinner de carregamento */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
 }
 
 /* Badges para status */

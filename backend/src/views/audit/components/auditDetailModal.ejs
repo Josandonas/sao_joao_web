@@ -1,0 +1,80 @@
+<!-- Modal para exibir detalhes do log -->
+<div class="modal fade" id="auditDetailModal" tabindex="-1" aria-labelledby="auditDetailModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="auditDetailModalLabel">Detalhes do Log de Auditoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <% if (typeof error !== 'undefined' && error) { %>
+          <div class="alert alert-danger">
+            <%= error %>
+          </div>
+        <% } else if (typeof log !== 'undefined' && log) { %>
+          <div id="auditDetailContent">
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th>ID</th>
+                  <td id="audit-id"><%= log.id %></td>
+                </tr>
+                <tr>
+                  <th>Usuário</th>
+                  <td id="audit-user"><%= log.username ? `${log.full_name} (${log.username})` : 'N/A' %></td>
+                </tr>
+                <tr>
+                  <th >Ação</th>
+                  <td id="audit-action">
+                    <% 
+                      const badgeClass = 
+                        log.action === 'create' ? 'bg-success' : 
+                        log.action === 'update' ? 'bg-warning' : 
+                        log.action === 'delete' ? 'bg-danger' : 
+                        log.action === 'login' ? 'bg-info' : 
+                        log.action === 'logout' ? 'bg-secondary' : 'bg-primary';
+                    %>
+                    <span class="badge <%= badgeClass %>"><%= log.action ? log.action.toUpperCase() : 'N/A' %></span>
+                  </td>
+                </tr>
+                <tr>
+                  <th>Módulo</th>
+                  <td id="audit-entity"><%= log.entity || 'N/A' %></td>
+                </tr>
+                <tr>
+                  <th>ID da Entidade</th>
+                  <td id="audit-entity-id"><%= log.entity_id || 'N/A' %></td>
+                </tr>
+                <tr>
+                  <th>Data e Hora</th>
+                  <td id="audit-timestamp"><%= log.formattedTimestamp || 'N/A' %></td>
+                </tr>
+                <tr>
+                  <th>Endereço IP</th>
+                  <td id="audit-ip"><%= log.ip_address || 'N/A' %></td>
+                </tr>
+                <tr>
+                  <th>User Agent</th>
+                  <td id="audit-user-agent"><%= log.user_agent || 'N/A' %></td>
+                </tr>
+                <tr>
+                  <th>Detalhes</th>
+                  <td>
+                    <pre id="audit-details" class="audit-details"><%= log.formattedDetails ? JSON.stringify(log.formattedDetails) : 'Sem detalhes' %></pre>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        <% } else { %>
+          <div class="alert alert-warning">
+            Nenhum dado disponível para exibição.
+          </div>
+        <% } %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
