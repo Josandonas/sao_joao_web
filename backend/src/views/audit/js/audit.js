@@ -95,9 +95,6 @@ function setupAuditDetailModal() {
     return;
   }
   
-  // Inicializar o modal do Bootstrap
-  const modal = new bootstrap.Modal(auditDetailModal);
-  
   // Adicionar event listeners aos botões de detalhes
   const detailButtons = document.querySelectorAll('.view-audit-details');
   console.log('Botões de detalhes encontrados:', detailButtons.length);
@@ -128,8 +125,22 @@ function setupAuditDetailModal() {
         `;
       }
       
-      // Mostrar o modal
-      modal.show();
+      // Abrir o modal usando a API do Bootstrap 5
+      try {
+        if (typeof bootstrap !== 'undefined') {
+          const bsModal = new bootstrap.Modal(auditDetailModal);
+          bsModal.show();
+          console.log('Modal de detalhes aberto via Bootstrap API');
+        } else {
+          // Fallback para manipulação direta
+          auditDetailModal.classList.add('show');
+          auditDetailModal.style.display = 'block';
+          document.body.classList.add('modal-open');
+          console.log('Modal de detalhes aberto via classList');
+        }
+      } catch (error) {
+        console.error('Erro ao abrir modal de detalhes:', error);
+      }
       
       // Buscar dados do log via AJAX
       fetch(`/admin/audit/modal/${logId}`)
