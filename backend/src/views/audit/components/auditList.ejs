@@ -1,5 +1,4 @@
-<!-- Componente de listagem de logs de auditoria -->
-<% if (logs && logs.length > 0) { %>
+<% if (logs && logs.length> 0) { %>
   <div class="card shadow mb-4">
     <div class="card-header py-3">
       <h6 class="m-0 font-weight-bold text-primary">Registros de Auditoria</h6>
@@ -17,10 +16,14 @@
             </tr>
           </thead>
           <tbody>
-            <% logs.forEach((log, index) => { %>
+            <% logs.forEach((log, index)=> { %>
               <tr>
-                <td><%= (pagination.page - 1) * pagination.limit + index + 1 %></td>
-                <td><%= new Date(log.timestamp).toLocaleString('pt-BR') %></td>
+                <td>
+                  <%= (pagination.page - 1) * pagination.limit + index + 1 %>
+                </td>
+                <td>
+                  <%= new Date(log.timestamp).toLocaleString('pt-BR') %>
+                </td>
                 <td>
                   <% if (log.username) { %>
                     <%= log.username %>
@@ -30,85 +33,90 @@
                 </td>
                 <td>
                   <span class="badge <%= log.action === 'create' ? 'bg-success' : 
-                                      log.action === 'update' ? 'bg-warning' : 
-                                      log.action === 'delete' ? 'bg-danger' : 
-                                      log.action === 'login' ? 'bg-info' : 
-                                      log.action === 'logout' ? 'bg-secondary' : 'bg-primary' %>">
+                                                        log.action === 'update' ? 'bg-warning' : 
+                                                        log.action === 'delete' ? 'bg-danger' : 
+                                                        log.action === 'login' ? 'bg-info' : 
+                                                        log.action === 'logout' ? 'bg-secondary' : 'bg-primary' %>">
                     <%= log.action.toUpperCase() %>
                   </span>
                 </td>
                 <td>
-                  <button type="button" 
-                    class="btn btn-sm btn-secondary view-audit-details"
-                    data-bs-toggle="modal" 
-                    data-bs-target="#auditDetailModal"
-                    data-id="<%= log.id %>"
-                    title="Ver Detalhes">
+                  <button class="btn btn-sm btn-secondary view-audit-details"
+                  data-bs-toggle="modal"
+                  data-bs-target="#auditDetailModal"
+                  data-id="<%= log.id %>"
+                  title="Ver Detalhes do Log">
                     <i class="bi bi-eye me-1"></i> Ver Detalhes
                   </button>
                 </td>
               </tr>
-            <% }); %>
+              <% }); %>
           </tbody>
         </table>
       </div>
-      
-      <!-- Paginação -->
-      <% if (pagination && pagination.totalPages > 1) { %>
+
+      <% if (pagination && pagination.totalPages> 1) { %>
         <div class="d-flex justify-content-center mt-4">
           <nav aria-label="Navegação de página">
             <ul class="pagination">
               <li class="page-item <%= pagination.page <= 1 ? 'disabled' : '' %>">
-                <a class="page-link" href="<%= pagination.page <= 1 ? '#' : '/admin/audit?page=' + (pagination.page - 1) + queryString %>" aria-label="Anterior">
+                <a class="page-link"
+                  href="<%= pagination.page <= 1 ? '#' : '/admin/audit?page=' + (pagination.page - 1) + queryString %>"
+                  aria-label="Anterior">
                   <span aria-hidden="true">&laquo;</span>
                 </a>
               </li>
-              
-              <% 
-                let startPage = Math.max(1, pagination.page - 2);
-                let endPage = Math.min(pagination.totalPages, pagination.page + 2);
-                
-                if (startPage > 1) { %>
-                  <li class="page-item">
-                    <a class="page-link" href="/admin/audit?page=1<%= queryString %>">1</a>
+
+              <% let startPage=Math.max(1, pagination.page - 2); let endPage=Math.min(pagination.totalPages,
+                pagination.page + 2); if (startPage> 1) { %>
+                <li class="page-item">
+                  <a class="page-link" href="/admin/audit?page=1<%= queryString %>">1</a>
+                </li>
+                <% if (startPage> 2) { %>
+                  <li class="page-item disabled">
+                    <span class="page-link">...</span>
                   </li>
-                  <% if (startPage > 2) { %>
-                    <li class="page-item disabled">
-                      <span class="page-link">...</span>
-                    </li>
                   <% } %>
-                <% } %>
-                
-                <% for (let i = startPage; i <= endPage; i++) { %>
-                  <li class="page-item <%= pagination.page === i ? 'active' : '' %>">
-                    <a class="page-link" href="/admin/audit?page=<%= i %><%= queryString %>"><%= i %></a>
-                  </li>
-                <% } %>
-                
-                <% if (endPage < pagination.totalPages) { %>
-                  <% if (endPage < pagination.totalPages - 1) { %>
-                    <li class="page-item disabled">
-                      <span class="page-link">...</span>
-                    </li>
-                  <% } %>
-                  <li class="page-item">
-                    <a class="page-link" href="/admin/audit?page=<%= pagination.totalPages %><%= queryString %>"><%= pagination.totalPages %></a>
-                  </li>
-                <% } %>
-              
-              <li class="page-item <%= pagination.page >= pagination.totalPages ? 'disabled' : '' %>">
-                <a class="page-link" href="<%= pagination.page >= pagination.totalPages ? '#' : '/admin/audit?page=' + (pagination.page + 1) + queryString %>" aria-label="Próximo">
-                  <span aria-hidden="true">&raquo;</span>
-                </a>
-              </li>
+                    <% } %>
+
+                      <% for (let i=startPage; i <=endPage; i++) { %>
+                        <li class="page-item <%= pagination.page === i ? 'active' : '' %>">
+                          <a class="page-link" href="/admin/audit?page=<%= i %><%= queryString %>">
+                            <%= i %>
+                          </a>
+                        </li>
+                        <% } %>
+
+                          <% if (endPage < pagination.totalPages) { %>
+                            <% if (endPage < pagination.totalPages - 1) { %>
+                              <li class="page-item disabled">
+                                <span class="page-link">...</span>
+                              </li>
+                              <% } %>
+                                <li class="page-item">
+                                  <a class="page-link"
+                                    href="/admin/audit?page=<%= pagination.totalPages %><%= queryString %>">
+                                    <%= pagination.totalPages %>
+                                  </a>
+                                </li>
+                                <% } %>
+
+                                  <li
+                                    class="page-item <%= pagination.page >= pagination.totalPages ? 'disabled' : '' %>">
+                                    <a class="page-link"
+                                      href="<%= pagination.page >= pagination.totalPages ? '#' : '/admin/audit?page=' + (pagination.page + 1) + queryString %>"
+                                      aria-label="Próximo">
+                                      <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                  </li>
             </ul>
           </nav>
         </div>
-      <% } %>
+        <% } %>
     </div>
   </div>
-<% } else { %>
-  <div class="alert alert-info">
-    <i class="bi bi-info-circle"></i> Nenhum registro de auditoria encontrado com os filtros selecionados.
-  </div>
-<% } %>
+  <% } else { %>
+    <div class="alert alert-info">
+      <i class="bi bi-info-circle"></i> Nenhum registro de auditoria encontrado com os filtros selecionados.
+    </div>
+    <% } %>

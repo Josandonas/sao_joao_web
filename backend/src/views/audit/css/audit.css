@@ -1,14 +1,93 @@
 /**
- * Estilos para o módulo de auditoria
+ * Estilos consolidados para o módulo de Auditoria
  */
 
-/* Tabela de logs */
+/* ====================================================================
+ * Seção de estilos da primeira versão do audit.css
+ * ==================================================================== */
+
+/* Estilização da tabela de auditoria (regra mais específica do segundo arquivo será aplicada) */
 .audit-table {
+  font-size: 0.9rem;
+}
+
+.audit-table th {
+  background-color: #f8f9fc;
+}
+
+/* Estilização para os detalhes do log em formato JSON (regra mais específica do segundo arquivo será aplicada) */
+.audit-details {
+  background-color: #f8f9fc;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  padding: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 0.8rem; /* Esta será sobrescrita pela de 13px do segundo arquivo se não for mais específica */
+  font-family: monospace;
+  white-space: pre-wrap;
+}
+
+/* Cores para os badges de ação */
+.badge.bg-success {
+  background-color: #1cc88a !important;
+}
+
+.badge.bg-warning {
+  background-color: #f6c23e !important;
+  color: #212529;
+}
+
+.badge.bg-danger {
+  background-color: #e74a3b !important;
+}
+
+.badge.bg-info {
+  background-color: #36b9cc !important;
+}
+
+.badge.bg-secondary {
+  background-color: #858796 !important;
+}
+
+.badge.bg-primary {
+  background-color: #4e73df !important;
+}
+
+/* Estilização para o painel de filtros */
+#filterCollapse .form-label {
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+/* Estilização para os selects */
+.form-select {
+  padding-right: 2rem;
+}
+
+/* Ajustes para dispositivos móveis (da primeira versão) */
+@media (max-width: 768px) {
+  .audit-table {
+      font-size: 0.8rem;
+  }
+
+  .audit-table .btn-sm {
+      padding: 0.15rem 0.3rem;
+      font-size: 0.75rem;
+  }
+}
+
+/* ====================================================================
+* Seção de estilos da segunda versão do audit.css (mesclado e priorizado onde há conflito)
+* ==================================================================== */
+
+/* Tabela de logs */
+.audit-table { /* Esta regra sobrescreverá a anterior do .audit-table */
   width: 100%;
   margin-bottom: 1rem;
 }
 
-.audit-table th, 
+.audit-table th,
 .audit-table td {
   vertical-align: middle;
 }
@@ -50,16 +129,57 @@
   border-radius: 0.25rem;
 }
 
-/* Estilos para o modal de detalhes */
-.audit-details {
+/* Estilos para o modal de detalhes (Regras mais completas) */
+.audit-details { /* Esta regra sobrescreverá a anterior do .audit-details */
   max-height: 300px;
   overflow-y: auto;
-  font-family: monospace;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
   white-space: pre-wrap;
   background-color: #f8f9fa;
-  padding: 10px;
+  padding: 12px;
   border-radius: 4px;
-  font-size: 12px;
+  font-size: 13px; /* Mais específico que 0.8rem ou 12px da media query antiga */
+  border: 1px solid #dee2e6;
+  color: #333;
+  line-height: 1.5;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,.05);
+}
+
+/* Estilo para JSON formatado */
+.formatted-json {
+  color: #000;
+}
+
+/* Estilização para o modal de detalhes */
+#auditDetailModal .modal-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+
+#auditDetailModal .modal-body {
+  padding: 1.5rem;
+}
+
+#auditDetailModal .table th {
+  width: 25%;
+}
+
+#auditDetailModal .table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0,0,0,.02);
+}
+
+/* Melhorias para visualização em dispositivos móveis (do segundo arquivo, mais abrangente para modal) */
+@media (max-width: 768px) {
+  .audit-details {
+      max-height: 200px;
+      font-size: 12px;
+      padding: 8px;
+  }
+
+  #auditDetailModal .table th {
+      width: 35%;
+  }
+  /* A regra .audit-table do primeiro arquivo em media query ainda existe, mas não conflitua diretamente aqui */
 }
 
 /* Botão de detalhes */

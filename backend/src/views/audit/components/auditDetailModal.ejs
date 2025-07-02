@@ -1,5 +1,4 @@
-<!-- Modal para exibir detalhes do log -->
-<div class="modal fade" id="auditDetailModal" tabindex="-1" aria-labelledby="auditDetailModalLabel" aria-hidden="true">
+<div class="modal fade" id="auditDetailModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -8,59 +7,77 @@
       </div>
       <div class="modal-body">
         <% if (typeof error !== 'undefined' && error) { %>
-          <div class="alert alert-danger">
+          <div class="alert alert-danger" id="audit-modal-error">
+            <i class="bi bi-exclamation-triangle-fill me-2"></i>
             <%= error %>
           </div>
         <% } else if (typeof log !== 'undefined' && log) { %>
-          <div id="auditDetailContent">
-            <table class="table table-bordered">
+          <div id="auditDetailContent" class="modal-content-wrapper" data-log-id="<%= log.id %>" data-timestamp="<%= new Date().getTime() %>">
+            <div class="alert alert-info mb-3">
+              <i class="bi bi-info-circle me-2"></i>
+              Detalhes do registro de auditoria #<%= log.id %>
+            </div>
+            
+            <table class="table table-bordered table-striped">
               <tbody>
                 <tr>
-                  <th>ID</th>
+                  <th class="table-light" style="width: 30%">ID</th>
                   <td id="audit-id"><%= log.id %></td>
                 </tr>
                 <tr>
-                  <th>Usuário</th>
-                  <td id="audit-user"><%= log.username ? `${log.full_name} (${log.username})` : 'N/A' %></td>
-                </tr>
-                <tr>
-                  <th >Ação</th>
-                  <td id="audit-action">
-                    <% 
-                      const badgeClass = 
-                        log.action === 'create' ? 'bg-success' : 
-                        log.action === 'update' ? 'bg-warning' : 
-                        log.action === 'delete' ? 'bg-danger' : 
-                        log.action === 'login' ? 'bg-info' : 
-                        log.action === 'logout' ? 'bg-secondary' : 'bg-primary';
-                    %>
-                    <span class="badge <%= badgeClass %>"><%= log.action ? log.action.toUpperCase() : 'N/A' %></span>
+                  <th class="table-light">Usuário</th>
+                  <td id="audit-user">
+                    <% if (exists(log.username)) { %>
+                      <%= exists(log.full_name) ? `${log.full_name} (${log.username})` : log.username %>
+                    <% } else { %>
+                      <span class="text-muted">N/A</span>
+                    <% } %>
                   </td>
                 </tr>
                 <tr>
-                  <th>Módulo</th>
-                  <td id="audit-entity"><%= log.entity || 'N/A' %></td>
+                  <th class="table-light">Ação</th>
+                  <td id="audit-action">
+                    <% 
+                      const action = exists(log.action) ? log.action : 'unknown';
+                      const badgeClass = 
+                        action === 'create' ? 'bg-success' : 
+                        action === 'update' ? 'bg-warning' : 
+                        action === 'delete' ? 'bg-danger' : 
+                        action === 'login' ? 'bg-info' : 
+                        action === 'logout' ? 'bg-secondary' : 'bg-primary';
+                    %>
+                    <span class="badge <%= badgeClass %>"><%= action.toUpperCase() %></span>
+                  </td>
                 </tr>
                 <tr>
-                  <th>ID da Entidade</th>
-                  <td id="audit-entity-id"><%= log.entity_id || 'N/A' %></td>
+                  <th class="table-light">Módulo</th>
+                  <td id="audit-entity"><%= exists(log.entity) ? log.entity : 'N/A' %></td>
                 </tr>
                 <tr>
-                  <th>Data e Hora</th>
-                  <td id="audit-timestamp"><%= log.formattedTimestamp || 'N/A' %></td>
+                  <th class="table-light">ID da Entidade</th>
+                  <td id="audit-entity-id"><%= exists(log.entity_id) ? log.entity_id : 'N/A' %></td>
                 </tr>
                 <tr>
-                  <th>Endereço IP</th>
-                  <td id="audit-ip"><%= log.ip_address || 'N/A' %></td>
+                  <th class="table-light">Data e Hora</th>
+                  <td id="audit-timestamp"><%= exists(log.formattedTimestamp) ? log.formattedTimestamp : 'N/A' %></td>
                 </tr>
                 <tr>
-                  <th>User Agent</th>
-                  <td id="audit-user-agent"><%= log.user_agent || 'N/A' %></td>
+                  <th class="table-light">Endereço IP</th>
+                  <td id="audit-ip"><%= exists(log.ip_address) ? log.ip_address : 'N/A' %></td>
                 </tr>
                 <tr>
-                  <th>Detalhes</th>
+                  <th class="table-light">User Agent</th>
+                  <td id="audit-user-agent">
+                    <div style="max-height: 80px; overflow-y: auto; font-size: 0.85em;">
+                      <%= exists(log.user_agent) ? log.user_agent : 'N/A' %>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th class="table-light">Detalhes</th>
                   <td>
-                    <pre id="audit-details" class="audit-details"><%= log.formattedDetails ? JSON.stringify(log.formattedDetails) : 'Sem detalhes' %></pre>
+                    <pre id="audit-details" class="audit-details p-2 border rounded bg-light">
+<%= formatJSON(log.formattedDetails) %></pre>
                   </td>
                 </tr>
               </tbody>
@@ -68,7 +85,8 @@
           </div>
         <% } else { %>
           <div class="alert alert-warning">
-            Nenhum dado disponível para exibição.
+            <i class="bi bi-exclamation-circle me-2"></i>
+            Nenhum dado disponível para exibição. Tente novamente ou contate o administrador do sistema.
           </div>
         <% } %>
       </div>
@@ -78,3 +96,27 @@
     </div>
   </div>
 </div>
+
+<%
+// Helper para verificar se uma variável existe e não é nula
+function exists(value) {
+  return typeof value !== 'undefined' && value !== null;
+}
+
+// Helper para formatar JSON de forma segura
+function formatJSON(obj) {
+  try {
+    if (!obj) return 'Sem detalhes';
+    if (typeof obj === 'string') {
+      // Tentar parsear se for string
+      return JSON.stringify(JSON.parse(obj), null, 2);
+    } else {
+      // Se já for objeto, apenas formatar
+      return JSON.stringify(obj, null, 2);
+    }
+  } catch (e) {
+    // Retorna a string original ou uma representação se houver erro
+    return String(obj);
+  }
+}
+%>
