@@ -6,89 +6,14 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
-        <% if (typeof error !== 'undefined' && error) { %>
-          <div class="alert alert-danger" id="audit-modal-error">
-            <i class="bi bi-exclamation-triangle-fill me-2"></i>
-            <%= error %>
+        <!-- O conteúdo será carregado dinamicamente via AJAX -->
+        <!-- Spinner de carregamento inicial -->
+        <div class="text-center p-5" id="loading-placeholder">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Carregando...</span>
           </div>
-        <% } else if (typeof log !== 'undefined' && log) { %>
-          <div id="auditDetailContent" class="modal-content-wrapper" data-log-id="<%= log.id %>" data-timestamp="<%= new Date().getTime() %>">
-            <div class="alert alert-info mb-3">
-              <i class="bi bi-info-circle me-2"></i>
-              Detalhes do registro de auditoria #<%= log.id %>
-            </div>
-            
-            <table class="table table-bordered table-striped">
-              <tbody>
-                <tr>
-                  <th class="table-light" style="width: 30%">ID</th>
-                  <td id="audit-id"><%= log.id %></td>
-                </tr>
-                <tr>
-                  <th class="table-light">Usuário</th>
-                  <td id="audit-user">
-                    <% if (exists(log.username)) { %>
-                      <%= exists(log.full_name) ? `${log.full_name} (${log.username})` : log.username %>
-                    <% } else { %>
-                      <span class="text-muted">N/A</span>
-                    <% } %>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="table-light">Ação</th>
-                  <td id="audit-action">
-                    <% 
-                      const action = exists(log.action) ? log.action : 'unknown';
-                      const badgeClass = 
-                        action === 'create' ? 'bg-success' : 
-                        action === 'update' ? 'bg-warning' : 
-                        action === 'delete' ? 'bg-danger' : 
-                        action === 'login' ? 'bg-info' : 
-                        action === 'logout' ? 'bg-secondary' : 'bg-primary';
-                    %>
-                    <span class="badge <%= badgeClass %>"><%= action.toUpperCase() %></span>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="table-light">Módulo</th>
-                  <td id="audit-entity"><%= exists(log.entity) ? log.entity : 'N/A' %></td>
-                </tr>
-                <tr>
-                  <th class="table-light">ID da Entidade</th>
-                  <td id="audit-entity-id"><%= exists(log.entity_id) ? log.entity_id : 'N/A' %></td>
-                </tr>
-                <tr>
-                  <th class="table-light">Data e Hora</th>
-                  <td id="audit-timestamp"><%= exists(log.formattedTimestamp) ? log.formattedTimestamp : 'N/A' %></td>
-                </tr>
-                <tr>
-                  <th class="table-light">Endereço IP</th>
-                  <td id="audit-ip"><%= exists(log.ip_address) ? log.ip_address : 'N/A' %></td>
-                </tr>
-                <tr>
-                  <th class="table-light">User Agent</th>
-                  <td id="audit-user-agent">
-                    <div style="max-height: 80px; overflow-y: auto; font-size: 0.85em;">
-                      <%= exists(log.user_agent) ? log.user_agent : 'N/A' %>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th class="table-light">Detalhes</th>
-                  <td>
-                    <pre id="audit-details" class="audit-details p-2 border rounded bg-light">
-<%= formatJSON(log.formattedDetails) %></pre>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        <% } else { %>
-          <div class="alert alert-warning">
-            <i class="bi bi-exclamation-circle me-2"></i>
-            Nenhum dado disponível para exibição. Tente novamente ou contate o administrador do sistema.
-          </div>
-        <% } %>
+          <p class="mt-3">Carregando detalhes do log...</p>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -96,27 +21,3 @@
     </div>
   </div>
 </div>
-
-<%
-// Helper para verificar se uma variável existe e não é nula
-function exists(value) {
-  return typeof value !== 'undefined' && value !== null;
-}
-
-// Helper para formatar JSON de forma segura
-function formatJSON(obj) {
-  try {
-    if (!obj) return 'Sem detalhes';
-    if (typeof obj === 'string') {
-      // Tentar parsear se for string
-      return JSON.stringify(JSON.parse(obj), null, 2);
-    } else {
-      // Se já for objeto, apenas formatar
-      return JSON.stringify(obj, null, 2);
-    }
-  } catch (e) {
-    // Retorna a string original ou uma representação se houver erro
-    return String(obj);
-  }
-}
-%>

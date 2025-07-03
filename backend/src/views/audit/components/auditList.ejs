@@ -27,9 +27,9 @@
                 <td>
                   <% if (log.username) { %>
                     <%= log.username %>
-                  <% } else { %>
-                    <span class="text-muted">N/A</span>
-                  <% } %>
+                      <% } else { %>
+                        <span class="text-muted">N/A</span>
+                        <% } %>
                 </td>
                 <td>
                   <span class="badge <%= log.action === 'create' ? 'bg-success' : 
@@ -41,11 +41,8 @@
                   </span>
                 </td>
                 <td>
-                  <button class="btn btn-sm btn-secondary view-audit-details"
-                  data-bs-toggle="modal"
-                  data-bs-target="#auditDetailModal"
-                  data-id="<%= log.id %>"
-                  title="Ver Detalhes do Log">
+                  <button class="btn btn-sm btn-secondary view-audit-details" data-bs-toggle="modal"
+                    data-bs-target="#auditDetailModal" data-id="<%= log.secure_token %>" title="Ver Detalhes do Log">
                     <i class="bi bi-eye me-1"></i> Ver Detalhes
                   </button>
                 </td>
