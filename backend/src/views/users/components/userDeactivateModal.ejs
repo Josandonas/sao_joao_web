@@ -1,0 +1,22 @@
+<!-- Modal de confirmação de desativação de usuário -->
+<div class="modal fade" id="deactivateUserModal" tabindex="-1" aria-labelledby="deactivateUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title" id="deactivateUserModalLabel">Desativar Usuário</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Deseja realmente desativar o usuário <span id="deactivateUserName"></span>?</p>
+        <p><strong>Atenção:</strong> Ao desativar, o usuário não poderá mais acessar o sistema e todas as suas permissões de módulos serão removidas.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <form method="POST" action="">
+          <input type="hidden" id="deactivateUserId" name="userId">
+          <button type="submit" class="btn btn-warning">Confirmar Desativação</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

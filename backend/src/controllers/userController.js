@@ -24,12 +24,25 @@ const renderUserList = asyncHandler(async (req, res, next) => {
   const offset = (page - 1) * limit;
   
   // Construir query base
-  let sql = `SELECT id, username, full_name, email, phone, is_admin, created_at, updated_at 
+  let sql = `SELECT id, username, full_name, email, phone, is_admin, is_active, created_at, updated_at 
              FROM users`;
   const params = [];
   
   // Adicionar filtros
   const conditions = [];
+  
+  // Filtrar por status (ativo/inativo)
+  const status = req.query.status || 'active';
+  if (status === 'active') {
+    conditions.push('is_active = true AND deleted_at IS NULL');
+  } else if (status === 'inactive') {
+    conditions.push('is_active = false AND deleted_at IS NULL');
+  } else if (status === 'deleted') {
+    conditions.push('deleted_at IS NOT NULL');
+  } else if (status !== 'all') {
+    // Por padrão, mostrar apenas usuários ativos
+    conditions.push('is_active = true AND deleted_at IS NULL');
+  }
   
   if (search) {
     conditions.push('(username LIKE ? OR full_name LIKE ? OR email LIKE ?)');
@@ -85,6 +98,7 @@ const renderUserList = asyncHandler(async (req, res, next) => {
   if (search) queryString += `&search=${encodeURIComponent(search)}`;
   if (role) queryString += `&role=${encodeURIComponent(role)}`;
   if (sort) queryString += `&sort=${encodeURIComponent(sort)}`;
+  if (status) queryString += `&status=${encodeURIComponent(status)}`;
   
   // Renderizar a página
   res.render('users/index', {
@@ -101,7 +115,8 @@ const renderUserList = asyncHandler(async (req, res, next) => {
     filters: {
       search,
       role,
-      sort
+      sort,
+      status
     },
     queryString,
     messages: req.flash()
@@ -126,9 +141,9 @@ const renderUserDetails = asyncHandler(async (req, res, next) => {
     return res.redirect('/admin/users');
   }
   
-  // Buscar permissões do usuário
+  // Buscar permissões do usuário com detalhes de permissões
   const permissions = await query(
-    `SELECT m.id, m.name, m.description 
+    `SELECT m.id, m.name, m.description, ump.can_view, ump.can_create, ump.can_edit, ump.can_delete 
      FROM user_module_permissions ump 
      JOIN modules m ON ump.module_id = m.id 
      WHERE ump.user_id = ?`,
@@ -154,13 +169,18 @@ const renderUserDetails = asyncHandler(async (req, res, next) => {
  * @route GET /admin/users/create
  */
 const renderCreateUser = asyncHandler(async (req, res, next) => {
+  // Buscar todos os módulos disponíveis
+  const allModules = await query('SELECT id, name, description FROM modules');
+  
   // Renderizar a página com formulário vazio
   res.render('users/form', {
     pageTitle: 'Novo Usuário',
     formAction: '/admin/users/create',
     isEditing: false,
-    user: {},
+    user: { is_active: true },
     currentUser: req.user,
+    allModules,
+    permissionsMap: {},
     messages: req.flash()
   });
 });
@@ -174,7 +194,7 @@ const renderEditUser = asyncHandler(async (req, res, next) => {
   
   // Buscar usuário
   const users = await query(
-    'SELECT id, username, full_name, email, phone, is_admin FROM users WHERE id = ?',
+    'SELECT id, username, full_name, email, phone, is_admin, is_active FROM users WHERE id = ?',
     [userId]
   );
   
@@ -183,6 +203,29 @@ const renderEditUser = asyncHandler(async (req, res, next) => {
     return res.redirect('/admin/users');
   }
   
+  // Buscar permissões do usuário com detalhes de permissões
+  const permissions = await query(
+    `SELECT m.id, m.name, m.description, ump.can_view, ump.can_create, ump.can_edit, ump.can_delete 
+     FROM user_module_permissions ump 
+     JOIN modules m ON ump.module_id = m.id 
+     WHERE ump.user_id = ?`,
+    [userId]
+  );
+  
+  // Buscar todos os módulos disponíveis
+  const allModules = await query('SELECT id, name, description FROM modules');
+  
+  // Criar um mapa de permissões para fácil acesso no template
+  const permissionsMap = {};
+  permissions.forEach(perm => {
+    permissionsMap[perm.id] = {
+      can_view: perm.can_view,
+      can_create: perm.can_create,
+      can_edit: perm.can_edit,
+      can_delete: perm.can_delete
+    };
+  });
+  
   // Renderizar a página
   res.render('users/form', {
     pageTitle: `Editar Usuário: ${users[0].full_name}`,
@@ -190,6 +233,8 @@ const renderEditUser = asyncHandler(async (req, res, next) => {
     formAction: `/admin/users/${userId}/update`,
     isEditing: true,
     currentUser: req.user,
+    allModules,
+    permissionsMap,
     messages: req.flash()
   });
 });
@@ -203,7 +248,7 @@ const getUserData = asyncHandler(async (req, res, next) => {
   
   // Buscar usuário
   const users = await query(
-    'SELECT id, username, full_name, email, phone, is_admin FROM users WHERE id = ?',
+    'SELECT id, username, full_name, email, phone, is_admin, created_at, updated_at FROM users WHERE id = ?',
     [userId]
   );
   
@@ -226,7 +271,32 @@ const getUserData = asyncHandler(async (req, res, next) => {
  * @route POST /admin/users/create
  */
 const createUser = asyncHandler(async (req, res, next) => {
-  const { username, fullName, email, password, passwordConfirm, phone, isAdmin } = req.body;
+  const { username, fullName, email, password, passwordConfirm, phone, isAdmin, isActive } = req.body;
+  
+  // Extrair permissões de módulos do formulário
+  const modulePermissions = {};
+  
+  // Processar permissões de módulos do formulário
+  Object.keys(req.body).forEach(key => {
+    // Formato esperado: module_permission_[moduleId]_[permissionType]
+    // Exemplo: module_permission_1_view, module_permission_1_create, etc.
+    const match = key.match(/^module_permission_(\d+)_(view|create|edit|delete)$/);
+    if (match && req.body[key] === 'on') {
+      const moduleId = match[1];
+      const permissionType = match[2];
+      
+      if (!modulePermissions[moduleId]) {
+        modulePermissions[moduleId] = {
+          can_view: false,
+          can_create: false,
+          can_edit: false,
+          can_delete: false
+        };
+      }
+      
+      modulePermissions[moduleId][`can_${permissionType}`] = true;
+    }
+  });
   
   // Validar dados de entrada
   if (!username || !fullName || !email || !password) {
@@ -257,15 +327,50 @@ const createUser = asyncHandler(async (req, res, next) => {
   
   // Inserir novo usuário
   const result = await query(
-    'INSERT INTO users (username, full_name, email, password, phone, is_admin) VALUES (?, ?, ?, ?, ?, ?)',
-    [username, fullName, email, hashedPassword, phone || null, isAdmin === 'on' ? true : false]
+    'INSERT INTO users (username, full_name, email, password, phone, is_admin, is_active) VALUES (?, ?, ?, ?, ?, ?, ?)',
+    [
+      username, 
+      fullName, 
+      email, 
+      hashedPassword, 
+      phone || null, 
+      isAdmin === 'on' ? true : false,
+      isActive === 'on' ? true : false
+    ]
   );
   
+  const userId = result.insertId;
+  
+  // Inserir permissões de módulo para o novo usuário
+  if (Object.keys(modulePermissions).length > 0) {
+    const permissionValues = [];
+    
+    Object.entries(modulePermissions).forEach(([moduleId, permissions]) => {
+      permissionValues.push([
+        userId,
+        moduleId,
+        permissions.can_view ? 1 : 0,
+        permissions.can_create ? 1 : 0,
+        permissions.can_edit ? 1 : 0,
+        permissions.can_delete ? 1 : 0
+      ]);
+    });
+    
+    if (permissionValues.length > 0) {
+      await query(
+        'INSERT INTO user_module_permissions (user_id, module_id, can_view, can_create, can_edit, can_delete) VALUES ?',
+        [permissionValues]
+      );
+    }
+  }
+  
   // Registrar ação (auditoria)
-  await logUserAction(req.user.id, 'create', 'user', result.insertId, {
+  await logUserAction(req.user.id, 'create', 'user', userId, {
     username,
     email,
-    isAdmin: isAdmin === 'on'
+    isAdmin: isAdmin === 'on',
+    isActive: isActive === 'on',
+    modulePermissions
   }, req);
   
   // Redirecionar com mensagem de sucesso
@@ -279,7 +384,32 @@ const createUser = asyncHandler(async (req, res, next) => {
  */
 const updateUser = asyncHandler(async (req, res, next) => {
   const userId = req.params.id;
-  const { fullName, email, password, passwordConfirm, phone, isAdmin } = req.body;
+  const { fullName, email, password, passwordConfirm, phone, isAdmin, isActive } = req.body;
+  
+  // Extrair permissões de módulos do formulário
+  const modulePermissions = {};
+  
+  // Processar permissões de módulos do formulário
+  Object.keys(req.body).forEach(key => {
+    // Formato esperado: module_permission_[moduleId]_[permissionType]
+    // Exemplo: module_permission_1_view, module_permission_1_create, etc.
+    const match = key.match(/^module_permission_(\d+)_(view|create|edit|delete)$/);
+    if (match && req.body[key] === 'on') {
+      const moduleId = match[1];
+      const permissionType = match[2];
+      
+      if (!modulePermissions[moduleId]) {
+        modulePermissions[moduleId] = {
+          can_view: false,
+          can_create: false,
+          can_edit: false,
+          can_delete: false
+        };
+      }
+      
+      modulePermissions[moduleId][`can_${permissionType}`] = true;
+    }
+  });
   
   // Validar dados de entrada
   if (!fullName || !email) {
@@ -322,6 +452,10 @@ const updateUser = asyncHandler(async (req, res, next) => {
   updateData.is_admin = isAdmin === 'on' ? true : false;
   updateParams.push(isAdmin === 'on' ? true : false);
   
+  // Atualizar status de ativo
+  updateData.is_active = isActive === 'on' ? true : false;
+  updateParams.push(isActive === 'on' ? true : false);
+  
   // Atualizar senha se fornecida
   if (password) {
     // Verificar se as senhas coincidem
@@ -344,9 +478,37 @@ const updateUser = asyncHandler(async (req, res, next) => {
   // Atualizar usuário
   await query(`UPDATE users SET ${updateFields} WHERE id = ?`, updateParams);
   
+  // Atualizar permissões de módulo
+  // Primeiro, remover todas as permissões existentes
+  await query('DELETE FROM user_module_permissions WHERE user_id = ?', [userId]);
+  
+  // Depois, inserir as novas permissões
+  if (Object.keys(modulePermissions).length > 0) {
+    const permissionValues = [];
+    
+    Object.entries(modulePermissions).forEach(([moduleId, permissions]) => {
+      permissionValues.push([
+        userId,
+        moduleId,
+        permissions.can_view ? 1 : 0,
+        permissions.can_create ? 1 : 0,
+        permissions.can_edit ? 1 : 0,
+        permissions.can_delete ? 1 : 0
+      ]);
+    });
+    
+    if (permissionValues.length > 0) {
+      await query(
+        'INSERT INTO user_module_permissions (user_id, module_id, can_view, can_create, can_edit, can_delete) VALUES ?',
+        [permissionValues]
+      );
+    }
+  }
+  
   // Registrar ação (auditoria)
   await logUserAction(req.user.id, 'update', 'user', userId, {
-    updatedFields: Object.keys(updateData)
+    updatedFields: Object.keys(updateData),
+    modulePermissions
   }, req);
   
   // Redirecionar com mensagem de sucesso
@@ -355,16 +517,16 @@ const updateUser = asyncHandler(async (req, res, next) => {
 });
 
 /**
- * Exclui um usuário
+ * Exclui logicamente um usuário
  * @route POST /admin/users/:id/delete
  */
 const deleteUser = asyncHandler(async (req, res, next) => {
   const userId = req.params.id;
   
   // Verificar se o usuário existe
-  const users = await query('SELECT * FROM users WHERE id = ?', [userId]);
+  const users = await query('SELECT * FROM users WHERE id = ? AND deleted_at IS NULL', [userId]);
   if (!users || users.length === 0) {
-    req.flash('error', 'Usuário não encontrado.');
+    req.flash('error', 'Usuário não encontrado ou já foi excluído.');
     return res.redirect('/admin/users');
   }
   
@@ -374,12 +536,18 @@ const deleteUser = asyncHandler(async (req, res, next) => {
     return res.redirect('/admin/users');
   }
   
-  // Excluir usuário
-  await query('DELETE FROM users WHERE id = ?', [userId]);
+  // Exclusão lógica do usuário
+  const now = new Date();
+  await query(
+    'UPDATE users SET is_active = FALSE, deleted_at = ? WHERE id = ?',
+    [now, userId]
+  );
   
   // Registrar ação (auditoria)
   await logUserAction(req.user.id, 'delete', 'user', userId, {
-    deletedUser: users[0].username
+    deletedUser: users[0].username,
+    deletionType: 'logical',
+    deletedAt: now
   }, req);
   
   // Redirecionar com mensagem de sucesso
@@ -429,6 +597,69 @@ const updateUserPermissions = asyncHandler(async (req, res, next) => {
   res.redirect(`/admin/users/${userId}/view`);
 });
 
+/**
+ * Desativa um usuário (sem excluí-lo logicamente)
+ * @route POST /admin/users/:id/deactivate
+ */
+const deactivateUser = asyncHandler(async (req, res, next) => {
+  const userId = req.params.id;
+  
+  // Verificar se o usuário existe
+  const users = await query('SELECT * FROM users WHERE id = ? AND deleted_at IS NULL', [userId]);
+  if (!users || users.length === 0) {
+    req.flash('error', 'Usuário não encontrado ou já foi excluído.');
+    return res.redirect('/admin/users');
+  }
+  
+  // Impedir desativação do próprio usuário
+  if (parseInt(userId) === req.user.id) {
+    req.flash('error', 'Você não pode desativar sua própria conta.');
+    return res.redirect('/admin/users');
+  }
+  
+  // Desativar o usuário
+  await query('UPDATE users SET is_active = FALSE WHERE id = ?', [userId]);
+  
+  // Remover todas as permissões do usuário
+  await query('DELETE FROM user_module_permissions WHERE user_id = ?', [userId]);
+  
+  // Registrar ação (auditoria)
+  await logUserAction(req.user.id, 'deactivate', 'user', userId, {
+    deactivatedUser: users[0].username
+  }, req);
+  
+  // Redirecionar com mensagem de sucesso
+  req.flash('success', 'Usuário desativado com sucesso.');
+  res.redirect('/admin/users');
+});
+
+/**
+ * Ativa um usuário desativado
+ * @route POST /admin/users/:id/activate
+ */
+const activateUser = asyncHandler(async (req, res, next) => {
+  const userId = req.params.id;
+  
+  // Verificar se o usuário existe
+  const users = await query('SELECT * FROM users WHERE id = ? AND deleted_at IS NULL', [userId]);
+  if (!users || users.length === 0) {
+    req.flash('error', 'Usuário não encontrado ou já foi excluído.');
+    return res.redirect('/admin/users');
+  }
+  
+  // Ativar o usuário
+  await query('UPDATE users SET is_active = TRUE WHERE id = ?', [userId]);
+  
+  // Registrar ação (auditoria)
+  await logUserAction(req.user.id, 'activate', 'user', userId, {
+    activatedUser: users[0].username
+  }, req);
+  
+  // Redirecionar com mensagem de sucesso
+  req.flash('success', 'Usuário ativado com sucesso.');
+  res.redirect('/admin/users');
+});
+
 module.exports = {
   renderUserList,
   renderUserDetails,
@@ -438,5 +669,7 @@ module.exports = {
   createUser,
   updateUser,
   deleteUser,
-  updateUserPermissions
+  updateUserPermissions,
+  deactivateUser,
+  activateUser
 };

@@ -19,4 +19,8 @@ router.post('/:id/update', userController.updateUser);
 router.post('/:id/delete', userController.deleteUser);
 router.post('/:id/permissions', userController.updateUserPermissions);
 
+// Rotas para ativação e desativação de usuários
+router.post('/:id/deactivate', userController.deactivateUser);
+router.post('/:id/activate', userController.activateUser);
+
 module.exports = router;

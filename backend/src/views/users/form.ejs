@@ -21,7 +21,14 @@
       <h6 class="m-0 font-weight-bold text-primary"><%= locals.isEditing ? 'Formulário de Edição' : 'Formulário de Cadastro' %></h6>
     </div>
     <div class="card-body">
-      <%- include('./components/userForm', { user: locals.user || {}, formAction: locals.formAction, isEditing: locals.isEditing, currentUser: locals.currentUser || {} }) %>
+      <%- include('./components/userForm', { 
+        user: locals.user || {}, 
+        formAction: locals.formAction, 
+        isEditing: locals.isEditing, 
+        currentUser: locals.currentUser || {},
+        allModules: locals.allModules || [],
+        permissionsMap: locals.permissionsMap || {}
+      }) %>
     </div>
   </div>
 </div>

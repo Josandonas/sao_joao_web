@@ -44,6 +44,8 @@ const createCoreTables = async () => {
         password VARCHAR(255) NOT NULL,
         phone VARCHAR(20),
         is_admin BOOLEAN DEFAULT FALSE,
+        is_active BOOLEAN DEFAULT TRUE,
+        deleted_at DATETIME NULL,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
       )
@@ -66,6 +68,10 @@ const createCoreTables = async () => {
         id INT AUTO_INCREMENT PRIMARY KEY,
         user_id INT NOT NULL,
         module_id INT NOT NULL,
+        can_view BOOLEAN DEFAULT FALSE,
+        can_create BOOLEAN DEFAULT FALSE,
+        can_edit BOOLEAN DEFAULT FALSE,
+        can_delete BOOLEAN DEFAULT FALSE,
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
         updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
         FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE,

@@ -9,8 +9,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
       </div>
       <div class="modal-body">
-        <form class="user-form" id="userModalForm" method="POST" action="<%= locals.formAction || '' %>">
-          <%- include('./userForm', { user: locals.user || {}, formAction: locals.formAction || '', isEditing: locals.isEditing || false, currentUser: locals.currentUser || {}, isModal: true }) %>
+        <form class="user-form" id="userModalForm" method="POST" action="/admin/users/create">
+          <%- include('./userForm', { user: locals.user || {}, formAction: '/admin/users/create', isEditing: locals.isEditing || false, currentUser: locals.currentUser || {}, isModal: true }) %>
         </form>
       </div>
       <div class="modal-footer">

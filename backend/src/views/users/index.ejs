@@ -57,7 +57,11 @@ Gerenciamento de Usuários
 </div>
 
 <% contentFor('script') %>
-<script src="/js/users.js"></script>
+<script src="/views/users/js/users.js"></script>
 
-<!-- Modal de formulário de usuário -->
-<% include('./components/userFormModal', { isEditing: false, formAction: '/admin/users/create', user: {}, currentUser: locals.currentUser || {} }) %>
+<!-- Modais de usuário -->
+<%- include('./components/userFormModal', { isEditing: false, formAction: '/admin/users/create', user: {}, currentUser: locals.currentUser || {} }) %>
+<%- include('./components/userDetailModal', { currentUser: locals.currentUser || {} }) %>
+<%- include('./components/userDeleteModal') %>
+<%- include('./components/userActivateModal') %>
+<%- include('./components/userDeactivateModal') %>

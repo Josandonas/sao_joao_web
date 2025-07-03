@@ -9,6 +9,7 @@
           <th scope="col">Username</th>
           <th scope="col">Email</th>
           <th scope="col" class="user-role">Perfil</th>
+          <th scope="col" class="user-status">Status</th>
           <th scope="col">Criado em</th>
           <th scope="col" class="user-actions">Ações</th>
         </tr>
@@ -27,16 +28,60 @@
                 <span class="badge bg-secondary">Usuário</span>
               <% } %>
             </td>
+            <td class="user-status">
+              <% if (user.deleted_at) { %>
+                <span class="badge bg-danger">Excluído</span>
+              <% } else if (user.is_active === false) { %>
+                <span class="badge bg-warning text-dark">Inativo</span>
+              <% } else { %>
+                <span class="badge bg-success">Ativo</span>
+              <% } %>
+            </td>
             <td><%= new Date(user.created_at).toLocaleDateString('pt-BR') %></td>
             <td class="user-actions">
               <div class="btn-group" role="group">
-                <a href="/admin/users/<%= user.id %>/view" class="btn btn-sm btn-info action-btn" title="Visualizar">
+                <button type="button" class="btn btn-sm btn-info action-btn view-user-btn" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#userDetailModal" 
+                        data-user-id="<%= user.id %>" 
+                        data-user-name="<%= user.full_name %>" 
+                        title="Visualizar">
                   <i class="bi bi-eye"></i>
-                </a>
-                <a href="/admin/users/<%= user.id %>/edit" class="btn btn-sm btn-warning action-btn" title="Editar">
+                </button>
+                <button type="button" class="btn btn-sm btn-warning action-btn edit-user-btn" 
+                        data-bs-toggle="modal" 
+                        data-bs-target="#userFormModal" 
+                        data-user-id="<%= user.id %>" 
+                        data-user-name="<%= user.full_name %>" 
+                        title="Editar">
                   <i class="bi bi-pencil"></i>
-                </a>
-                <% if (user.id !== currentUser.id) { %>
+                </button>
+                
+                <% if (user.id !== currentUser.id && !user.deleted_at) { %>
+                  <% if (user.is_active === false || user.is_active === true) { %>
+                    <!-- Botão de Ativação -->
+                    <button type="button" class="btn btn-sm btn-success action-btn activate-user-btn" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#activateUserModal" 
+                            data-user-id="<%= user.id %>" 
+                            data-user-name="<%= user.full_name %>"
+                            title="Ativar Usuário">
+                      <i class="bi bi-person-check"></i>
+                    </button>
+                  <% } else { %>
+                    <!-- Botão de Desativação -->
+                    <button type="button" class="btn btn-sm btn-warning action-btn deactivate-user-btn" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#deactivateUserModal" 
+                            data-user-id="<%= user.id %>" 
+                            data-user-name="<%= user.full_name %>"
+                            title="Desativar Usuário">
+                      <i class="bi bi-person-dash"></i>
+                    </button>
+                  <% } %>
+                <% } %>
+                
+                <% if (user.id !== currentUser.id && !user.deleted_at) { %>
                   <button type="button" class="btn btn-sm btn-danger action-btn delete-user-btn" 
                           data-bs-toggle="modal" 
                           data-bs-target="#deleteUserModal" 
@@ -46,7 +91,8 @@
                     <i class="bi bi-trash"></i>
                   </button>
                 <% } else { %>
-                  <button type="button" class="btn btn-sm btn-danger action-btn" disabled title="Não é possível excluir o próprio usuário">
+                  <button type="button" class="btn btn-sm btn-danger action-btn" disabled 
+                          title="<%= user.id === currentUser.id ? 'Não é possível excluir o próprio usuário' : 'Usuário já excluído' %>">
                     <i class="bi bi-trash"></i>
                   </button>
                 <% } %>

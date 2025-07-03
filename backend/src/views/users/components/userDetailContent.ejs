@@ -1,0 +1,122 @@
+<!-- Template para conteúdo de detalhes do usuário (carregado via AJAX) -->
+<div class="user-detail-container">
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <h4 class="user-name"><%= user.full_name %></h4>
+      <div class="user-badges mb-2">
+        <% if (user.is_admin) { %>
+          <span class="badge bg-primary me-2">Administrador</span>
+        <% } else { %>
+          <span class="badge bg-secondary me-2">Usuário</span>
+        <% } %>
+        
+        <% if (user.deleted_at) { %>
+          <span class="badge bg-danger">Excluído</span>
+        <% } else if (user.is_active === false) { %>
+          <span class="badge bg-warning text-dark">Inativo</span>
+        <% } else { %>
+          <span class="badge bg-success">Ativo</span>
+        <% } %>
+      </div>
+    </div>
+    <div class="col-md-6 text-md-end">
+      <p class="text-muted mb-0">
+        <small>Criado em: <%= new Date(user.created_at).toLocaleDateString('pt-BR') %></small>
+      </p>
+      <% if (user.updated_at) { %>
+        <p class="text-muted mb-0">
+          <small>Última atualização: <%= new Date(user.updated_at).toLocaleDateString('pt-BR') %></small>
+        </p>
+      <% } %>
+      <% if (user.deleted_at) { %>
+        <p class="text-muted mb-0">
+          <small>Excluído em: <%= new Date(user.deleted_at).toLocaleDateString('pt-BR') %></small>
+        </p>
+      <% } %>
+    </div>
+  </div>
+
+  <div class="row mb-4">
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label class="form-label fw-bold">Username:</label>
+        <p><%= user.username %></p>
+      </div>
+      <div class="mb-3">
+        <label class="form-label fw-bold">Email:</label>
+        <p><%= user.email %></p>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="mb-3">
+        <label class="form-label fw-bold">Telefone:</label>
+        <p><%= user.phone || 'Não informado' %></p>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- Seção de permissões -->
+  <h5 class="mb-3">Permissões de Módulos</h5>
+  
+  <% if (permissions && permissions.length > 0) { %>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Módulo</th>
+            <th>Descrição</th>
+            <th class="text-center">Visualizar</th>
+            <th class="text-center">Criar</th>
+            <th class="text-center">Editar</th>
+            <th class="text-center">Excluir</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% permissions.forEach(permission => { %>
+            <tr>
+              <td><%= permission.name %></td>
+              <td><%= permission.description %></td>
+              <td class="text-center">
+                <% if (permission.can_view) { %>
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                <% } else { %>
+                  <i class="bi bi-x-circle-fill text-danger"></i>
+                <% } %>
+              </td>
+              <td class="text-center">
+                <% if (permission.can_create) { %>
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                <% } else { %>
+                  <i class="bi bi-x-circle-fill text-danger"></i>
+                <% } %>
+              </td>
+              <td class="text-center">
+                <% if (permission.can_edit) { %>
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                <% } else { %>
+                  <i class="bi bi-x-circle-fill text-danger"></i>
+                <% } %>
+              </td>
+              <td class="text-center">
+                <% if (permission.can_delete) { %>
+                  <i class="bi bi-check-circle-fill text-success"></i>
+                <% } else { %>
+                  <i class="bi bi-x-circle-fill text-danger"></i>
+                <% } %>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  <% } else { %>
+    <div class="alert alert-info">
+      <i class="bi bi-info-circle"></i> Este usuário não possui permissões específicas de módulos.
+      <% if (user.is_admin) { %>
+        <strong>Nota:</strong> Como administrador, este usuário tem acesso a todos os módulos.
+      <% } %>
+    </div>
+  <% } %>
+</div>

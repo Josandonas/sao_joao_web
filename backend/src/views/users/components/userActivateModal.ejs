@@ -1,0 +1,22 @@
+<!-- Modal de confirmação de ativação de usuário -->
+<div class="modal fade" id="activateUserModal" tabindex="-1" aria-labelledby="activateUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title" id="activateUserModalLabel">Ativar Usuário</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Deseja realmente ativar o usuário <span id="activateUserName"></span>?</p>
+        <p>Ao ativar, o usuário poderá acessar o sistema novamente.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <form method="POST" action="">
+          <input type="hidden" id="activateUserId" name="userId">
+          <button type="submit" class="btn btn-success">Confirmar Ativação</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

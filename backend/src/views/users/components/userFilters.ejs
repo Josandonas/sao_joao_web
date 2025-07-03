@@ -10,11 +10,11 @@
     <div class="card-body">
       <form id="userFilterForm" method="GET" action="/admin/users">
         <div class="row">
-          <div class="col-md-4 mb-3">
+          <div class="col-md-3 mb-3">
             <label for="searchTerm" class="form-label">Buscar</label>
             <input type="text" class="form-control" id="searchTerm" name="search" placeholder="Nome, email ou username" value="<%= locals.filters && locals.filters.search ? locals.filters.search : '' %>">
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-3 mb-3">
             <label for="roleFilter" class="form-label">Perfil</label>
             <select class="form-select" id="roleFilter" name="role">
               <option value="">Todos</option>
@@ -22,7 +22,16 @@
               <option value="user" <%= locals.filters && locals.filters.role === 'user' ? 'selected' : '' %>>Usuário</option>
             </select>
           </div>
-          <div class="col-md-4 mb-3">
+          <div class="col-md-3 mb-3">
+            <label for="statusFilter" class="form-label">Status</label>
+            <select class="form-select" id="statusFilter" name="status">
+              <option value="" <%= !locals.filters || !locals.filters.status ? 'selected' : '' %>>Todos</option>
+              <option value="active" <%= locals.filters && locals.filters.status === 'active' ? 'selected' : '' %>>Ativos</option>
+              <option value="inactive" <%= locals.filters && locals.filters.status === 'inactive' ? 'selected' : '' %>>Inativos</option>
+              <option value="deleted" <%= locals.filters && locals.filters.status === 'deleted' ? 'selected' : '' %>>Excluídos</option>
+            </select>
+          </div>
+          <div class="col-md-3 mb-3">
             <label for="sortBy" class="form-label">Ordenar por</label>
             <select class="form-select" id="sortBy" name="sort">
               <option value="created_at_desc" <%= locals.filters && locals.filters.sort === 'created_at_desc' ? 'selected' : '' %>>Data de criação (mais recente)</option>
