@@ -141,7 +141,7 @@ const createCoreTables = async () => {
     // Inserir módulos padrão se não existirem
     const defaultModules = [
       { name: 'postcards', description: 'Gerenciamento de postais' },
-      { name: 'biblioteca', description: 'Gerenciamento da biblioteca digital' },
+      { name: 'biblioteca', description: 'Gerenciamento da referências bibliográficas digitais de outros sites' },
       { name: 'galeria', description: 'Gerenciamento da galeria de imagens' },
       { name: 'book', description: 'Gerenciamento de livros' },
       { name: 'testimonials', description: 'Gerenciamento de depoimentos' },

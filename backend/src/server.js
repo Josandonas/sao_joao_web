@@ -37,7 +37,7 @@ app.set('layout extractStyles', true);
 app.set('layout extractMetas', true);
 
 // Middlewares de segurança e utilidades
-/*app.use(helmet({
+app.use(helmet({
     contentSecurityPolicy: {
         directives: {
             defaultSrc: ["'self'"],
@@ -48,7 +48,7 @@ app.set('layout extractMetas', true);
             connectSrc: ["'self'"],
         },
     },
-}));*/
+}));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
