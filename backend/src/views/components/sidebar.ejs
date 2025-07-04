@@ -37,8 +37,23 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'video_tela_inicial' ? 'active' : '' %>" href="/admin/video_tela_inicial">
+          <i class="bi bi-film"></i> Video Tela Inicial
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'carrossel_tela_inicial' ? 'active' : '' %>" href="/admin/carrossel_tela_inicial">
+          <i class="bi bi-arrow-repeat"></i> Carrossel Tela Inicial
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'programacao' ? 'active' : '' %>" href="/admin/programacao">
+          <i class="bi bi-calendar"></i> Programação
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link <%= locals.activeRoute === 'postcards' ? 'active' : '' %>" href="/admin/postcards">
-          <i class="bi bi-card-image"></i> Cartões Postais
+          <i class="bi bi-mailbox"></i> Cartões Postais
         </a>
       </li>
       <li class="nav-item">
@@ -49,6 +64,21 @@
       <li class="nav-item">
         <a class="nav-link <%= locals.activeRoute === 'galeria' ? 'active' : '' %>" href="/admin/galeria">
           <i class="bi bi-images"></i> Galeria
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'livros' ? 'active' : '' %>" href="/admin/livros">
+          <i class="bi bi-book"></i> Livros
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'comunidades' ? 'active' : '' %>" href="/admin/comunidades">
+          <i class="bi bi-people"></i> Comunidades
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link <%= locals.activeRoute === 'historias' ? 'active' : '' %>" href="/admin/historias">
+          <i class="bi bi-journal-richtext"></i> Histórias
         </a>
       </li>
     </ul>
