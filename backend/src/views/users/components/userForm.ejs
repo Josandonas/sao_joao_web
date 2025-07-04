@@ -40,7 +40,7 @@
       <input type="password" class="form-control" id="<%= locals.isModal ? 'password_modal' : 'password' %>" name="password" 
              <%= locals.isEditing ? '' : 'required' %>>
       <div class="password-strength-meter">
-        <div id="<%= locals.isModal ? 'passwordStrengthBar_modal' : 'passwordStrengthBar' %>"></div>
+        <div id="<%= locals.isModal ? 'passwordStrengthBar_modal' : 'passwordStrength' %>"></div>
       </div>
       <div class="password-strength-text" id="<%= locals.isModal ? 'passwordStrengthText_modal' : 'passwordStrengthText' %>"></div>
     </div>
@@ -80,7 +80,7 @@
     </div>
   </div>
   
-  <% if (!locals.isModal && locals.allModules) { %>
+  <% if (!locals.isModal) { %>
   <div class="row mb-4">
     <div class="col-12">
       <div class="card shadow">

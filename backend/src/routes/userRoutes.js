@@ -14,10 +14,9 @@ router.get('/:id/edit', userController.renderEditUser);
 router.get('/:id/data', userController.getUserData);
 
 // Rotas de operações CRUD
-router.post('/create', userController.createUser);
-router.post('/:id/update', userController.updateUser);
-router.post('/:id/delete', userController.deleteUser);
-router.post('/:id/permissions', userController.updateUserPermissions);
+router.post('/', userController.createUser); // Criação de usuário
+router.post('/:id', userController.updateUser); // Atualização de usuário (usando POST em vez de PUT para compatibilidade com forms)
+router.post('/:id/delete', userController.deleteUser); // Exclusão lógica de usuário
 
 // Rotas para ativação e desativação de usuários
 router.post('/:id/deactivate', userController.deactivateUser);
